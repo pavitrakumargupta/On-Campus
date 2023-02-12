@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300&display=swap');
+nav{
+    display: flex;
+    justify-content: space-between;
+    mix-blend-mode: luminosity;
+    box-shadow: 0px 4px 4px rgba(168, 165, 165, 0.55);
+    background-color: white;
+    z-index: 1;
+    position: fixed;
+    max-width: 100vw;
+    min-width: 100vw;
+    height: 7rem; 
+    gap: 2rem;
+}
+nav >img{
+     
+    width:10rem ;
+    height: 7rem;
+}
+nav > .nav_compo{
+    display: flex;
+    margin: auto 1rem;
+    margin-left: 0px;
+    gap: 1rem;  
+    justify-content: space-around;
+    width: 70%;
+}
+nav > .nav_compo >.search{
+    display: flex;
+    gap: 5px;
+    background: #FFFEFE;
+    border: 2px solid #817D7D;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: auto;
+}
+
+
+nav > .nav_compo >.search>img{
+    height: 25px;
+}
+nav > .nav_compo >.search>input{
+    border: none;
+    font-size: 20px;
+    margin: auto;
+}
+nav > .nav_compo >.search>input:focus{
+    outline: none;
+}
+
+ 
+nav >.nav_compo>.help_setting{
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+    text-align: center;
+    margin: auto;
+    margin-top: 13px;
+}
+nav >.nav_compo>.help_setting>div{
+    display: flex;
+    flex-direction: column;
+}
+ 
+nav >.nav_compo>.help_setting>div>img{
+    height: 40px;
+    width: 40px;
+}
+nav >.nav_compo>.help_setting>div>span{
+    font-weight: 500;
+}
+
+
+nav > .nav_compo>button{
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: auto;
+    color: black;
+    border:2px solid #000000;
+    min-width: fit-content;
+    background-color: transparent;
+    
+}
+nav > .nav_compo>.signin{
+    color: #6C34E0;
+    border:2px solid #6C34E0;
+}
+nav > .nav_compo>button:hover{
+    background-color: black;
+    color: white;
+}
+nav > .nav_compo>.signin:hover{
+    background-color:#6C34E0;
+   
+}
+
+
+ 
+ 
+.mobileMenuBtn{
+    display: none;
+    cursor: pointer;
+}
+@media only screen and (max-width: 1300px) {
+    nav > .nav_compo{
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    nav > .nav_compo{
+        width: 90%;
+    }
+}
+.mobileMenuIcon{
+    position: absolute;
+    font-size: 2.5rem;
+    top: 50%;
+    right: 5%;
+    translate: -20% -50%;
+}
+.closeMenuOutline{
+     
+    display: none;
+} 
+
+@media only screen and (max-width: 950px) {
+    nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+    }
+     
+     nav > .nav_compo >a > button{
+        color: white;
+     }
+     .menu{
+        display: block;
+        margin: auto 3rem;
+        
+        font-size: 40px;
+     }
+     .mobileMenuBtn{
+        display: inline-block;
+        z-index: 9999;
+    }
+
+    .active .mobileMenuIcon{
+        display: none;
+    }
+
+    .active .closeMenuOutline{
+        display: inline-block;
+        color: white;
+        border: 2px solid white;
+        position: absolute;
+        top: 30px;
+        border-radius: 20px;
+    }
+    .active .nav_compo{
+        visibility: visible;
+        opacity: 1;
+        z-index: 999;
+        transform-origin: right;
+        transition: all 0.2s linear;
+    }
+    nav>.nav_compo{
+        max-width: 53vw;
+        height: 100vh;
+        position: absolute;
+        padding-top: 5rem;
+        top: 0;
+        right: -50px;
+        padding-right: 50px;
+        background-color:  rgba(0,0,0,.5); 
+        flex-direction: column;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.2s linear;
+        justify-content:start;
+        gap:3rem
+    }
+    nav>.nav_compo>.search, nav>.nav_compo>.help_setting, nav>.nav_compo>.login, nav>.nav_compo>.signin{
+        margin: 0px auto;
+    }
+    nav>.nav_compo>.help_setting{
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    nav > .nav_compo>button{
+        background-color: black;
+        color: white;
+        width: 70%;
+        margin: 0px auto;
+    }
+    nav > .nav_compo>.signin{
+        background-color:#6C34E0;
+        color: white;
+    }
+    nav > .nav_compo>button:hover{
+        color: black;
+        background-color: transparent;  
+    }
+    nav > .nav_compo>.signin:hover{
+        color: #6C34E0;
+        background-color: transparent;
+    }
+    
+  }
+  
