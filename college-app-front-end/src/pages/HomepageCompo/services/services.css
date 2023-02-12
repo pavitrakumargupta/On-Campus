@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Unbounded:wght@300&display=swap');
+.services{
+    position: relative;
+    top: 7rem;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+.services>.apps_out{
+    background: #6C34E0;
+    border-radius: 41px;
+    width: 80%;
+    position: relative;
+    top: 3rem;
+    margin: 0 AUTO;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 2rem;
+    font-family: 'Lobster', cursive;
+    font-family: 'Unbounded', cursive;
+}
+.services>.apps_out>h2{
+    font-family: 'Tourney', cursive;
+    /* font-family: 'Pacifico', cursive; */
+    font-weight: 400;
+    font-size: 40px;
+    letter-spacing: 5px;
+    margin: 0px;
+    word-spacing: 10px;
+}
+.services>.apps_out>.apps{
+    display: flex;
+    gap:1rem 4em;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-family: 'Pacifico', cursive;
+   
+}
+.services>.apps_out>.apps>div>div{
+    background: #472D91;
+    border-radius: 500px;
+    padding: 10px;
+    height: 60px;    
+    width: 60px;
+    margin: auto;
+}
+.services>.apps_out>.apps>div>div>img{
+    height: 60px;    
+}
+.cards_services{
+   justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+
+}
+.cards_services>div{
+    background: #FFFFFF;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    position: relative;
+    top: 3rem;
+    padding: 10px;
+    width: 300px;
+}
+.cards_services>div>img{
+    border-radius: 50px;
+}
+.cards_services>div>h4{
+    text-align: center;
+    font-family: 'Poetsen One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    color: #6B6565;
+}
+@media only screen and (max-width: 900px) {
+    .services>.apps_out>.apps{
+        justify-content: center;
+    }
+}
