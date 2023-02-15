@@ -22,7 +22,6 @@ const Navbar = () => {
   })
   const handleFieldstyle=(event)=>{ 
     const name=event.target.name;
-    console.log(name)
     setfieldnameStyle(()=>{return{[name]:fieldStyle}})
   } 
 
