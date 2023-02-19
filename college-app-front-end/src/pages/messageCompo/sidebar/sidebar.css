@@ -1,43 +1,46 @@
-.sidebar{
-    max-width: 25rem;
-    min-width: 18rem;
-    background-color: rgb(255, 255, 255);
-    scrollbar-color: rgb(0, 0, 0);
+.sidebar {
+  max-width: 25rem;
+  min-width: 18rem;
+  background-color: rgb(255, 255, 255);
+  scrollbar-color: rgb(0, 0, 0);
+
+  }
+.sidebar > .userList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 25rem;
+ overflow-y: scroll;
+  scrollbar-color: rgb(0, 0, 0);
 }
-.sidebar>.userList{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    overflow: hidden;
-    scrollbar-color: rgb(0, 0, 0);
+.sidebar > .userList > .users {
+  background-color: antiquewhite;
+  overflow: scroll;
+  scrollbar-color: purple;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+  height: 100vh;
 }
-.sidebar>.userList>.users{
-    background-color: antiquewhite;
-    overflow: scroll;
-    scrollbar-color: purple;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
+.sidebar > .userList > .users > .user {
+  display: flex;
+   gap: 5rem;
+  padding: 10px 20px;
+  height: fit-content;
 }
-.sidebar>.userList>.users>.user{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    height: fit-content;
+.sidebar > .userList > .users > .user > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
 }
-.sidebar>.userList>.users>.user>img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
+.sidebar > .userList > .users > .user > div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.sidebar>.userList>.users>.user>div{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.sidebar>.userList>.users>.user>div>h6,.sidebar>.userList>.users>.user>div>p{
-    margin: 0px;
+.sidebar > .userList > .users > .user > div > h6,
+.sidebar > .userList > .users > .user > div > p {
+  margin: 0px;
 }
