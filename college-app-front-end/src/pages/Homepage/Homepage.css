@@ -1,5 +1,6 @@
 .home{
-    background: #FCF3F3;
+    background: rgb(228, 230, 233);
     height: 100%;
     padding-bottom: 15rem;
+    overflow-y: hidden;
 }

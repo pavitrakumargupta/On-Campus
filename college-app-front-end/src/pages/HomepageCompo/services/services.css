@@ -9,6 +9,7 @@
 }
 .services>.apps_out{
     background: #6C34E0;
+    box-shadow: 6px 6px 6px rgba(109, 51, 225, 0.61);
     border-radius: 41px;
     width: 80%;
     position: relative;

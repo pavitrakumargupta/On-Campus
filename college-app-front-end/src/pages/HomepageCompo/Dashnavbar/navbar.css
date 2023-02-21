@@ -11,6 +11,7 @@ nav{
     min-width: 100vw;
     height: 7rem; 
     gap: 2rem;
+  
 }
 nav >img{
      
@@ -178,11 +179,9 @@ nav > .nav_compo>.signin:hover{
         visibility: hidden;
         opacity: 0;
         transition: all 0.2s linear;
-        justify-content:start;
-        gap:3rem
     }
     nav>.nav_compo>.search, nav>.nav_compo>.help_setting, nav>.nav_compo>.login, nav>.nav_compo>.signin{
-        margin: 0px auto;
+        margin: 3rem auto;
     }
     nav>.nav_compo>.help_setting{
         width: 100%;

@@ -17,21 +17,6 @@ const Navbar = () => {
     "Dashboard",
   ];
 
-  const fieldStyle = {
-    borderBottom: "5px solid",
-    fontSize: "130%",
-    marginTop: "20px",
-    borderRadius: "8px",
-    // color:" rgba(0,0,0,.8)",
-    // backgroudColor:"transparent"
-  };
-  const [fieldsnameStyle, setfieldnameStyle] = useState({});
-  const handleFieldstyle = (key) => {
-    setfieldnameStyle(() => {
-      return { [key]: fieldStyle };
-    });
-  };
-
   return (
     <nav className={menuIcon ? "nav active" : "nav"}>
       <img src={Logo} alt="" />
@@ -39,10 +24,8 @@ const Navbar = () => {
         <div className="header">
           {pagesHeader.map((key) => (
             <h4
-              style={fieldsnameStyle[key]}
               onClick={(event) => {
                 setMenuIcon(false);
-                handleFieldstyle(key);
               }}
               name={key}
             >

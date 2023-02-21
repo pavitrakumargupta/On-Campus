@@ -1,90 +1,125 @@
-import React from "react";
+import React, { useState } from "react";
 import "./sidebar.css";
-const sidebar = () => {
+import Search from "../../../assets/search.png";
+const Sidebar = () => {
   const profile =
-    "https://imgs.search.brave.com/iUQN726wdtZCy0T-0h75qU-Z2G_pncG6DygWzLUzkNU/rs:fit:600:600:1/g:ce/aHR0cHM6Ly96dWx0/aW1hdGUuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzEy/L2RlZmF1bHQtcHJv/ZmlsZS5wbmc";
+    "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp";
+
   const users = [
     {
+      id:"0",
       img: profile,
-      name: "Pavitra Kumar Gupta",
+      name: "Pavitra ",
+      lastMessage: "kase ho",
+      lastMessageDate: "yesterday",
+    },
+    {  id:"1",
+      img: profile,
+      name: "Pavitra ",
       lastMessage: "kase ho",
       lastMessageDate: "yesterday",
     },
     {
+      id:"2",
       img: profile,
-      name: "Pavitra Kumar Gupta",
+      name: "Pavitra ",
       lastMessage: "kase ho",
       lastMessageDate: "yesterday",
     },
     {
+      id:"3",
       img: profile,
-      name: "Pavitra Kumar Gupta",
+      name: "Pavitra ",
       lastMessage: "kase ho",
       lastMessageDate: "yesterday",
     },
     {
+      id:"4",
       img: profile,
-      name: "Pavitra Kumar Gupta",
+      name: "Pavitra ",
       lastMessage: "kase ho",
       lastMessageDate: "yesterday",
     },
     {
+      id:"5",
       img: profile,
-      name: "Pavitra Kumar Gupta",
+      name: "Pavitra ",
       lastMessage: "kase ho",
       lastMessageDate: "yesterday",
     },
     {
+      id:"6",
       img: profile,
-      name: "Pavitra Kumar Gupta",
+      name: "Pavitra ",
       lastMessage: "kase ho",
       lastMessageDate: "yesterday",
     },
     {
+      id:"7",
       img: profile,
-      name: "Pavitra Kumar Gupta",
+      name: "Pavitra ",
       lastMessage: "kase ho",
       lastMessageDate: "yesterday",
     },
     {
+      id:"8",
       img: profile,
-      name: "Pavitra Kumar Gupta",
+      name: "Pavitra ",
       lastMessage: "kase ho",
       lastMessageDate: "yesterday",
     },
     {
+      id:"9",
       img: profile,
-      name: "Pavitra Kumar Gupta",
-      lastMessage: "kase ho",
-      lastMessageDate: "yesterday",
-    },
-    {
-      img: profile,
-      name: "Pavitra Kumar Gupta",
+      name: "Pavitra ",
       lastMessage: "kase ho",
       lastMessageDate: "yesterday",
     },
   ];
+
+  // bad me dekhna ha isko
+  // const style={border:"5px solid rgba(164, 163, 163, 0.2)"}
+  // const [borderStyle,setBorderStyle]=useState([users.map(()=>(""))])
+
+  // const setborder=(index)=>{
+  //   setBorderStyle(...prevValue=>([...prevValue,borderStyle[index]="5px solid rgba(164, 163, 163, 0.2)"]))
+  // }
+  const fieldStyle = {
+    border: "5px solid rgba(164, 163, 163, 0.2)",
+  };
+  const [StyleFieldname, setStyleFieldname] = useState({});
+  const handleFieldStyle = (event) => {
+    const name = event.target.name;
+    setStyleFieldname({ [name]: fieldStyle });
+  };
+ 
   return (
     <div className="sidebar">
-      <input type="search" />
+      <div className="search">
+        <img src={Search} alt="" />
+        <input placeholder="Search" type="search" />
+      </div>
       <div className="userList">
-        <h4>Message</h4>
-        <div className="users">
-          {users.map((key, index) => (
-            <div className="user">
-              <img src={key.img} alt="" srcset="" />
+        {users.map((key) => {
+          return (
+            <button
+              style={StyleFieldname[key.id]}
+              onClick={handleFieldStyle}
+              className="user"
+              name={key.id}
+            >
+              <img src={key.img} alt="" />
               <div>
                 <h6>{key.name}</h6>
                 <p>{key.lastMessage}</p>
               </div>
               <p>{key.lastMessageDate}</p>
-            </div>
-          ))}
-        </div>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
 };
 
-export default sidebar;
+export default Sidebar;

@@ -1,7 +1,7 @@
 .message{
     position: relative;
-    top: 7rem;
+    top: 11vh;
     display: flex;
-    overflow-y: hidden;
+    
 
 }

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@300&display=swap");
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -9,12 +10,15 @@ nav {
   position: fixed;
   max-width: 100vw;
   min-width: 100vw;
-  height: 7rem;
+  height: 10vh;
+  min-height: 6rem;
   gap: 2rem;
+  
+ 
 }
 nav > img {
-  width: 10rem;
-  height: 7rem;
+  width: 7rem;
+  height: 90%;
 }
 nav > .nav_compo {
   width: 70%;
@@ -26,6 +30,8 @@ nav > .nav_compo > .header {
   gap: 1rem;
   justify-content: space-around;
   width: 100%;
+  position: relative;
+  top: -0.5%;
 }
 
 nav > .nav_compo > .header > h4 {
@@ -35,8 +41,11 @@ nav > .nav_compo > .header > h4 {
 }
 
 nav > .nav_compo > img {
-  width: 100px;
-  border-radius: 100px;
+  width: 60px;
+  height: 60px;
+  border-radius:60px;
+  position: relative;
+  top: 1vh;
 }
 
 .mobileMenuBtn {
