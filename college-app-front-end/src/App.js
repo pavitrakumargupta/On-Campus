@@ -7,21 +7,18 @@ import {
 } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage";
 import Navbar from "./pages/navbar/navbar";
-// import Dashnavbar from './pages/HomepageCompo/Dashnavbar/navbar';
 import Message from "./pages/message/message";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 function App() {
-  //   // const path=useParams()
-
-  //   // console.log(path,'hi');
-  //   const pathname = async()=>{
-  //     const path = await window.location.pathname;
-  //     return path;
-  //   }
-  // console.log(pathname());
+  
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Register />}></Route>
+        
         <Route
           path="/Messages"
           element={

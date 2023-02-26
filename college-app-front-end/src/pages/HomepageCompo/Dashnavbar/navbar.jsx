@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./navbar.css";
 import { CgMenu, CgClose } from "react-icons/cg";
-
+import { Link, useNavigate } from "react-router-dom";
 // images
 import Logo from "../../../assets/logo.jpg";
 import Search from "../../../assets/search.png";
@@ -46,8 +46,9 @@ const Navbar = () => {
           </div>
         </div>
 
-        <button className="login">Log in</button>
-        <button className="signin">Sign up </button>
+        <Link className="login btn"  to="/login"><button >Log in</button></Link>
+        <Link className="signin btn" to="/signup"><button >Sign up </button></Link>
+        
       </div>
 
       <div className="mobileMenuBtn">

@@ -73,7 +73,7 @@ nav >.nav_compo>.help_setting>div>span{
 }
 
 
-nav > .nav_compo>button{
+nav > .nav_compo>.btn>button{
     border-radius: 10px;
     padding: 10px 20px;
     font-size: 20px;
@@ -84,15 +84,15 @@ nav > .nav_compo>button{
     background-color: transparent;
     
 }
-nav > .nav_compo>.signin{
+nav > .nav_compo>.signin>button{
     color: #6C34E0;
     border:2px solid #6C34E0;
 }
-nav > .nav_compo>button:hover{
+nav > .nav_compo>.btn>button:hover{
     background-color: black;
     color: white;
 }
-nav > .nav_compo>.signin:hover{
+nav > .nav_compo>.signin>button:hover{
     background-color:#6C34E0;
    
 }
