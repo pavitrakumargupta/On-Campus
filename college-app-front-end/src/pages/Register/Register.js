@@ -51,9 +51,9 @@ const Register = () => {
         setSubmitButtonDisabled(false);
         const user = res.user;
         await updateProfile(user, {
-          displayName: signupDetails.firstname+ signupDetails.lstname,
+          displayName: signupDetails.firstname+" "+ signupDetails.lstname,
         });
-        navigate("/");
+        navigate("/login");
       })
       .catch((err) => {
         setSubmitButtonDisabled(false);

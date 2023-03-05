@@ -15,16 +15,14 @@ const Login = () => {
     autoClose:4000,
     pauseOnHover:true,
     draggable:true,
-    theme:"light",
+    theme:"dark",
     
   }
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
   const [LoginDetail, setLoginDetail] = useState({
-    firstname: "",
-    lstname: "",
+    
     email: "",
     password: "",
-    conf_password: "",
   });
   const handleDetail = async (event) => {
     const { name, value } = event.target;
@@ -43,10 +41,10 @@ const Login = () => {
       toast.error("Please Fill all the detail",toast_style)
     }else{
       setSubmitButtonDisabled(true); 
-    signInWithEmailAndPassword(auth, LoginDetail.email, LoginDetail.pass)
+    signInWithEmailAndPassword(auth, LoginDetail.email, LoginDetail.password)
       .then(async (res) => {
         setSubmitButtonDisabled(false);
-        
+        console.log(res);
         navigate("/");
       })
       .catch((err) => {

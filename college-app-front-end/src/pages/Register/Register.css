@@ -45,7 +45,7 @@
 }
 .form-body>div>input{
     border-radius: 5px;
-    border: 3px solid #dddddd;
+    border: 1px solid #dddddd;
     outline: none;
     padding: 10px 15px;
     color: #000;
