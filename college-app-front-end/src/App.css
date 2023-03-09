@@ -1,4 +1,6 @@
 .app{
     background: rgb(228, 230, 233);
-    overflow-y: auto;
+    overflow: hidden;
+    scroll-behavior: smooth;
+
 }

@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import "../Register/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import {ToastContainer,toast} from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
-
- 
+import "react-toastify/dist/ReactToastify.css" 
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+var md5 = require('md5');
 const Login = () => {
   const navigate = useNavigate();
 
@@ -20,7 +19,6 @@ const Login = () => {
   }
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
   const [LoginDetail, setLoginDetail] = useState({
-    
     email: "",
     password: "",
   });
@@ -41,10 +39,10 @@ const Login = () => {
       toast.error("Please Fill all the detail",toast_style)
     }else{
       setSubmitButtonDisabled(true); 
-    signInWithEmailAndPassword(auth, LoginDetail.email, LoginDetail.password)
+    signInWithEmailAndPassword(auth, LoginDetail.email,md5(LoginDetail.password))
       .then(async (res) => {
         setSubmitButtonDisabled(false);
-        console.log(res);
+        localStorage.setItem('ComUnity',JSON.stringify({email:LoginDetail.email,password:md5(LoginDetail.password)}))
         navigate("/");
       })
       .catch((err) => {
@@ -96,7 +94,7 @@ const Login = () => {
           <p>
             Don't have an account?{" "}
             <span>
-              <Link to="/signup">Create Account</Link>
+              <Link to="/register">Create Account</Link>
             </span>
           </p>
         </div>

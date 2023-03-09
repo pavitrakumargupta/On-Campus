@@ -64,6 +64,9 @@
 .chatingPage >.chats > p:nth-child(odd){
   align-self: flex-end;
 }
+.chatingPage >.chats:last-child{
+  scroll-margin: 100%;
+}
 
 .chatingPage >.chats >p{
   min-width: 50px;

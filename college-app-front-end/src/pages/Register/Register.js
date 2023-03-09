@@ -5,7 +5,7 @@ import {ToastContainer,toast} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase";
-
+var md5 = require('md5');
 const Register = () => {
 
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ const Register = () => {
       {toast.error("Password and confirm Password do not match",toast_style)}
     else{
       setSubmitButtonDisabled(true);
-      createUserWithEmailAndPassword(auth, signupDetails.email, signupDetails.password)
+      createUserWithEmailAndPassword(auth, signupDetails.email, md5(signupDetails.password))
       .then(async (res) => {
         setSubmitButtonDisabled(false);
         const user = res.user;

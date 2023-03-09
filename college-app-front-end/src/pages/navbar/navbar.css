@@ -22,6 +22,8 @@ nav > img {
 }
 nav > .nav_compo {
   width: 70%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 nav > .nav_compo > .header {
   display: flex;
@@ -123,11 +125,12 @@ nav > .nav_compo > img {
     transition: all 0.2s linear;
     justify-content: start;
     gap: 0rem;
+    
   }
   nav > .nav_compo > .header {
     flex-direction: column;
     gap: 3rem;
-    margin-top: 8rem;
+     
   }
   nav > .nav_compo > .header > h4 {
     text-align: center;
