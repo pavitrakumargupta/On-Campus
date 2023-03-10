@@ -4,6 +4,7 @@ const Authenticate = require("../model/authenticatemodel");
 const Mail = require("../signUpAuthentication");
 
 module.exports.setSignupDetails = async (req, res, next) => {
+  const cron = require("node-cron");
   try {
     const { username, email, password, otp } = req.body;
 
@@ -29,6 +30,12 @@ module.exports.setSignupDetails = async (req, res, next) => {
       try {
         const OtpCheck = await Authenticate.findOne({ email });
         var generated_otp = await Mail(email);
+
+        setTimeout(async() => {
+          const otpExpire =await Authenticate.updateOne({ email:email}, {
+            generated_otp: "",
+          });
+        }, 30000);
         if (OtpCheck) {
           const Otp_update = await Authenticate.findByIdAndUpdate(
             OtpCheck._id,
@@ -44,6 +51,7 @@ module.exports.setSignupDetails = async (req, res, next) => {
         }
         return res.json({ status: true, otp: generated_otp });
       } catch (error) {
+        console.log(error);
         return res.json({ msg: "Invalid email", status: false });
       }
     };
@@ -70,16 +78,22 @@ module.exports.setSignupDetails = async (req, res, next) => {
   }
 };
 
-module.exports.checkLoginCredential=async (req, res, next) => {
-    try {
-      const {email, password} = req.body;
-      const LoginCheck = await User.findOne({email});
-      if(LoginCheck && LoginCheck.password===password){
-        return res.json({ msg: "You have Sucessfully Logined in your account", status: true });
-      }else{
-        return res.json({ msg: "Please enter correct email or password", status: false });
-      }
-    }catch(ex){
-        next(ex);
+module.exports.checkLoginCredential = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    const LoginCheck = await User.findOne({ email });
+    if (LoginCheck && LoginCheck.password === password) {
+      return res.json({
+        msg: "You have Sucessfully Logined in your account",
+        status: true,
+      });
+    } else {
+      return res.json({
+        msg: "Please enter correct email or password",
+        status: false,
+      });
     }
-}
+  } catch (ex) {
+    next(ex);
+  }
+};
