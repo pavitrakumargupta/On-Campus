@@ -3,8 +3,6 @@ import Navbar from "../HomepageCompo/navbar/navbar";
 import "./Homepage.css";
 import Services from "../HomepageCompo/services/services";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
 
 const Homepage = () => {
   const [userDetail, setUserDetail] = useState(null);
@@ -14,16 +12,16 @@ const Homepage = () => {
     if (userHistory == null) {
       navigate("/login");
     } else {
-      signInWithEmailAndPassword(
-        auth,
-        userHistory.email,
-        userHistory.password
-      ).then(async (res) => {
-        await setUserDetail({
-          userName: res.user.displayName,
-          email: res.user.email,
-        })
-      });
+      // signInWithEmailAndPassword(
+      //   auth,
+      //   userHistory.email,
+      //   userHistory.password
+      // ).then(async (res) => {
+      //   await setUserDetail({
+      //     userName: res.user.displayName,
+      //     email: res.user.email,
+      //   })
+      // });
     }
   });
   return (

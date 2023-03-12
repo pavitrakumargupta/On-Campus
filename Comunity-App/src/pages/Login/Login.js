@@ -3,8 +3,7 @@ import "../Register/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import {ToastContainer,toast} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css" 
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+ 
 var md5 = require('md5');
 const Login = () => {
   const navigate = useNavigate();
@@ -38,17 +37,17 @@ const Login = () => {
     if(  !LoginDetail.email ||!LoginDetail.password) { 
       toast.error("Please Fill all the detail",toast_style)
     }else{
-      setSubmitButtonDisabled(true); 
-    signInWithEmailAndPassword(auth, LoginDetail.email,md5(LoginDetail.password))
-      .then(async (res) => {
-        setSubmitButtonDisabled(false);
-        localStorage.setItem('ComUnity',JSON.stringify({email:LoginDetail.email,password:md5(LoginDetail.password)}))
-        navigate("/");
-      })
-      .catch((err) => {
-        setSubmitButtonDisabled(false);
-        toast.error(err.message,toast_style)
-      }); 
+    //   setSubmitButtonDisabled(true); 
+    // signInWithEmailAndPassword(auth, LoginDetail.email,md5(LoginDetail.password))
+    //   .then(async (res) => {
+    //     setSubmitButtonDisabled(false);
+    //     localStorage.setItem('ComUnity',JSON.stringify({email:LoginDetail.email,password:md5(LoginDetail.password)}))
+    //     navigate("/");
+    //   })
+    //   .catch((err) => {
+    //     setSubmitButtonDisabled(false);
+    //     toast.error(err.message,toast_style)
+    //   }); 
     }
   } 
 
