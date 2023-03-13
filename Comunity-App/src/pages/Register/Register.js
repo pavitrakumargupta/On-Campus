@@ -3,10 +3,11 @@ import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "../../apiCall";
+// import axios from "../../axios";
+import axios from "axios";
 // import apiCall from "../../apiCall";
-
 var md5 = require("md5");
+
 const Register = () => {
   const navigate = useNavigate();
 
@@ -18,7 +19,7 @@ const Register = () => {
     theme: "dark",
     width: "10rem",
   };
-
+  const [Fill_otp, setFillotp] = useState(false);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const [signupDetails, setSignupDetails] = useState({
@@ -40,7 +41,7 @@ const Register = () => {
     });
   };
 
-  const onSubmit =async () => {
+  const onSubmit = async () => {
     if (
       !signupDetails.firstname ||
       !signupDetails.lstname ||
@@ -54,30 +55,25 @@ const Register = () => {
     } else {
       setSubmitButtonDisabled(true);
       try {
-        const response = await axios.post({
+        const response = await axios.post("http://localhost:5000/setSignupDetails",{
           username: signupDetails.firstname + " " + signupDetails.lstname,
           email: signupDetails.email,
           password: signupDetails.password,
           otp: signupDetails.otp,
-        })
-        
+        });
+        console.log(response.data);
+        if (signupDetails.otp === "" && response.data.status) {
+          setFillotp(true);
+          setSubmitButtonDisabled(false);
+        }else if(!response.data.status){
+          toast.error(response.data.msg,toast_style)
+          setSubmitButtonDisabled(false);
+        }else{
+          navigate("/login");
+        }
       } catch (error) {
-        
+        console.log(error);
       }
-      
-      // createUserWithEmailAndPassword(auth, signupDetails.email, md5(signupDetails.password))
-      // .then(async (res) => {
-      //   setSubmitButtonDisabled(false);
-      //   const user = res.user;
-      //   await updateProfile(user, {
-      //     displayName: signupDetails.firstname+" "+ signupDetails.lstname,
-      //   });
-      //   navigate("/login");
-      // })
-      // .catch((err) => {
-      //   setSubmitButtonDisabled(false);
-      //   toast.error(err.message,toast_style)
-      // });
     }
   };
 
@@ -113,6 +109,9 @@ const Register = () => {
           <label className="form__label" for="email">
             Email{" "}
           </label>
+          <span style={{ color: "red", fontSize: "10px" }}>
+            *For authentication
+          </span>
           <input
             type="email"
             name="email"
@@ -145,6 +144,20 @@ const Register = () => {
             placeholder="Confirm Password"
           />
         </div>
+        {Fill_otp && (
+          <div className="confirm-password">
+            <label className="form__label" for="confirmPassword">
+              Enter OTP{" "}
+            </label>
+            <input
+              className="form__input"
+              onChange={handleDetail}
+              name="otp"
+              type="text"
+              placeholder="Enter OTP"
+            />
+          </div>
+        )}
         <div>
           <button
             onClick={onSubmit}
@@ -152,7 +165,7 @@ const Register = () => {
             className="btn"
             disabled={submitButtonDisabled}
           >
-            Register
+            {Fill_otp ? "Confirm Otp" : "Register"}
           </button>
           <p>
             Already have an account?{" "}

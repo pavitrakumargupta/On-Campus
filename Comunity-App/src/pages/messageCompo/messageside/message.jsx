@@ -1,8 +1,8 @@
-import React from "react";
+import React,{useRef,useEffect} from "react";
 import "./message.css";
 import send from "../../../assets/send.png";
 import { RiSendPlaneLine } from "react-icons/ri";
-const message = () => {
+const Message = () => {
   const profile =
     "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp";
 
@@ -60,7 +60,12 @@ const message = () => {
     "me: hello",
     "you: hii",
   ];
- 
+  const chatSectionRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll to the bottom of the chat section
+    chatSectionRef.current.scrollTop = chatSectionRef.current.scrollHeight;
+  }, [chats]);
    
   // var objDiv = document.getElementById(".chats");
   // objDiv.scrollTop = objDiv.scrollHeight;
@@ -76,7 +81,7 @@ const message = () => {
         </div>
         <p>⋮</p>
       </header>
-      <div className="chats">
+      <div className="chats" ref={chatSectionRef}>
         {chats.map((key, index) => {
           if (key.includes("me:")) {
             return (
@@ -109,4 +114,4 @@ const message = () => {
   );
 };
 
-export default message;
+export default Message;

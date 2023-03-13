@@ -3,30 +3,40 @@ import Navbar from "../HomepageCompo/navbar/navbar";
 import "./Homepage.css";
 import Services from "../HomepageCompo/services/services";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Homepage = () => {
-  const [userDetail, setUserDetail] = useState(null);
+  const [userDetail, setUserDetail] = useState("null");
   const navigate = useNavigate();
   useEffect(() => {
     const userHistory = JSON.parse(localStorage.getItem("ComUnity"));
     if (userHistory == null) {
       navigate("/login");
     } else {
-      // signInWithEmailAndPassword(
-      //   auth,
-      //   userHistory.email,
-      //   userHistory.password
-      // ).then(async (res) => {
-      //   await setUserDetail({
-      //     userName: res.user.displayName,
-      //     email: res.user.email,
-      //   })
-      // });
+      const checkingLogin = async () => {
+        try {
+          const response = await axios.post(
+            "http://localhost:5000/checkLogin",
+            {
+              email: userHistory.email,
+              password: userHistory.password,
+            }
+          );
+          if (!response.data.status) {
+            navigate("/login");
+          } else {
+            setUserDetail();
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      checkingLogin()
     }
   });
   return (
     <>
-      {userDetail === null ? (
+      {userDetail=== "null"  ? (
         <h2>Loading...</h2>
       ) : (
         <div className="home">

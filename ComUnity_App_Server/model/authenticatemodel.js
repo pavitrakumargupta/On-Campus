@@ -20,6 +20,7 @@ mongoose
 const userShema= new mongoose.Schema({
   email: String,
   generated_otp: String,
+  time:String
 })
 
   // creating and exportins ids 

@@ -1,10 +1,8 @@
 const User = require("../model/signupmodel");
-// const Posts=require("../postModel")
 const Authenticate = require("../model/authenticatemodel");
 const Mail = require("../signUpAuthentication");
 
 module.exports.setSignupDetails = async (req, res, next) => {
-  const cron = require("node-cron");
   try {
     const { username, email, password, otp } = req.body;
 
@@ -30,26 +28,42 @@ module.exports.setSignupDetails = async (req, res, next) => {
       try {
         const OtpCheck = await Authenticate.findOne({ email });
         var generated_otp = await Mail(email);
+        const otpTime = new Date();
+        otpTime.setMinutes(otpTime.getMinutes() + 5);
+        const options = { timeZone: "Asia/Kolkata" }; // set the time zone to India Standard Time
+        const time = otpTime.toLocaleString("en-US", options);
 
-        setTimeout(async() => {
-          const otpExpire =await Authenticate.updateOne({ email:email}, {
-            generated_otp: "",
-          });
-        }, 30000);
+
+        setTimeout(async () => {
+          const checkNewOtp = await Authenticate.findOne({ email });
+          const now = new Date();
+          const options = { timeZone: "Asia/Kolkata" }; // set the time zone to India Standard Time
+          const currentTime = now.toLocaleString("en-US", options);
+          if (checkNewOtp.time < currentTime) {
+            const otpExpire = await Authenticate.updateOne(
+              { email: email },
+              {
+                generated_otp: null,
+              }
+            );
+          } 
+        }, 300000);
         if (OtpCheck) {
           const Otp_update = await Authenticate.findByIdAndUpdate(
             OtpCheck._id,
             {
               generated_otp: generated_otp,
+              time: time,
             }
           );
         } else {
           var email_authenticate = await Authenticate.create({
             email,
             generated_otp,
+            time,
           });
         }
-        return res.json({ status: true, otp: generated_otp });
+        return res.json({ status: true});
       } catch (error) {
         console.log(error);
         return res.json({ msg: "Invalid email", status: false });
@@ -82,9 +96,9 @@ module.exports.checkLoginCredential = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const LoginCheck = await User.findOne({ email });
+    console.log(LoginCheck);
     if (LoginCheck && LoginCheck.password === password) {
       return res.json({
-        msg: "You have Sucessfully Logined in your account",
         status: true,
       });
     } else {

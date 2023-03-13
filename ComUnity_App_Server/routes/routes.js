@@ -3,5 +3,5 @@ const {setSignupDetails,checkLoginCredential}=require("../controllers/userDetail
 const router=require("express").Router() 
 
 router.post("/setSignupDetails",setSignupDetails)
-router.get("/checkLogin",checkLoginCredential)
+router.post("/checkLogin",checkLoginCredential)
 module.exports=router; 

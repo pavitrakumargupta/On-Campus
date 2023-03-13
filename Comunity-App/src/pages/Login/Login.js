@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Register/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import {ToastContainer,toast} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css" 
+import axios from "axios";
  
-var md5 = require('md5');
+// var md5 = require('md5');
 const Login = () => {
+  useEffect(() => {
+    const userHistory = JSON.parse(localStorage.getItem("ComUnity"));
+    if (userHistory !== null) {
+      navigate("/");
+    }
+  })
   const navigate = useNavigate();
 
   const toast_style={
@@ -30,24 +37,25 @@ const Login = () => {
         [name]: value,
       };
     });
-    // await console.log(LoginDetail);
   };
 
-  const onSubmit=()=>{
+  const onSubmit=async()=>{
     if(  !LoginDetail.email ||!LoginDetail.password) { 
       toast.error("Please Fill all the detail",toast_style)
     }else{
-    //   setSubmitButtonDisabled(true); 
-    // signInWithEmailAndPassword(auth, LoginDetail.email,md5(LoginDetail.password))
-    //   .then(async (res) => {
-    //     setSubmitButtonDisabled(false);
-    //     localStorage.setItem('ComUnity',JSON.stringify({email:LoginDetail.email,password:md5(LoginDetail.password)}))
-    //     navigate("/");
-    //   })
-    //   .catch((err) => {
-    //     setSubmitButtonDisabled(false);
-    //     toast.error(err.message,toast_style)
-    //   }); 
+      setSubmitButtonDisabled(true);
+      try {
+        const response = await axios.post("http://localhost:5000/checkLogin",LoginDetail);
+         if(!response.data.status){
+          toast.error(response.data.msg,toast_style)
+          setSubmitButtonDisabled(false);
+        }else{
+          localStorage.setItem('ComUnity',JSON.stringify({email:LoginDetail.email,password:LoginDetail.password}))
+          navigate("/");
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
   } 
 
