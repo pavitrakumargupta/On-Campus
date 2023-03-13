@@ -37,7 +37,7 @@ const Homepage = () => {
   return (
     <>
       {userDetail=== "null"  ? (
-        <h2>Loading...</h2>
+        <img style={{margin:"35vh 0 0 35vw"}} src="https://i.gifer.com/YCZH.gif" alt="" />
       ) : (
         <div className="home">
           <Navbar />

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&family=Poppins:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mynerve&family=Nunito:ital,wght@1,200&family=Poppins:wght@300&display=swap');
 .sidebar {
-  width: 25vw;
+  min-width: fit-content;
   background-color: rgb(255, 255, 255);
   scrollbar-color: rgb(0, 0, 0);
   height: 89vh;
@@ -51,14 +51,18 @@
 
 .sidebar > .userList > .user {
   display: flex;
-  gap: 1rem;
-  padding: 0px 20px;
-  height: fit-content;
-  border-radius: 50px;
-  justify-content: space-between;
-  background-color: transparent;
-  z-index: 1;
-  border: none;
+    padding: 0px 0px;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: 50px;
+    justify-content: space-between;
+    background-color: transparent;
+    z-index: 1;
+    border: none;
+    color: #000;
+    margin-left: auto;
+    min-width: min-content;
+
 }
 
 .userChild{
@@ -82,6 +86,8 @@
   justify-content: center;
   width: 8rem;
   overflow: hidden;
+  color: #000;
+  min-width: fit-content;
 }
 .sidebar > .userList > .user > div > h6,
 .sidebar > .userList > .user > div > p {

@@ -76,14 +76,6 @@ const Sidebar = () => {
       lastMessageDate: "yesterday",
     },
   ];
-
-  // bad me dekhna ha isko
-  // const style={border:"5px solid rgba(164, 163, 163, 0.2)"}
-  // const [borderStyle,setBorderStyle]=useState([users.map(()=>(""))])
-
-  // const setborder=(index)=>{
-  //   setBorderStyle(...prevValue=>([...prevValue,borderStyle[index]="5px solid rgba(164, 163, 163, 0.2)"]))
-  // }
   const fieldStyle = {
     border: "5px solid rgba(164, 163, 163, 0.2)",
   };

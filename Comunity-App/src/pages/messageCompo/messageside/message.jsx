@@ -1,4 +1,4 @@
-import React,{useRef,useEffect} from "react";
+import React,{useRef,useEffect, useState} from "react";
 import "./message.css";
 import send from "../../../assets/send.png";
 import { RiSendPlaneLine } from "react-icons/ri";
@@ -6,7 +6,8 @@ const Message = () => {
   const profile =
     "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp";
 
-  const chats = [
+   
+  const chats_message = [
     "me: hello",
     "you: hii",
     "me: hello",
@@ -60,15 +61,40 @@ const Message = () => {
     "me: hello",
     "you: hii",
   ];
+  const [chats,setchats]=useState(chats_message)
   const chatSectionRef = useRef(null);
+  const [input_message,setInputmessage]=useState("")
 
   useEffect(() => {
     // Scroll to the bottom of the chat section
     chatSectionRef.current.scrollTop = chatSectionRef.current.scrollHeight;
   }, [chats]);
    
-  // var objDiv = document.getElementById(".chats");
-  // objDiv.scrollTop = objDiv.scrollHeight;
+  const handleMessage=(event)=>{
+    const {value}=event.target
+    let message=value.replace(/\s{3,}/g, ' ');
+    if (!/\S/.test(message)) {
+      message = message.replace(/\s+/g, '');
+    }
+    setInputmessage(message)
+  }
+
+  const sendMessage=()=>{
+    if(input_message!==""){
+      const newChat=[...chats]
+      newChat.push("me: "+input_message)
+      setchats(newChat)
+      setInputmessage("")
+    } 
+  }
+
+  function handleKeyDown(event) {
+    if (event.key === 'Enter') {
+      // Handle Enter key event here
+      sendMessage();
+    }
+  }
+ 
   return (
     <div className="chatingPage">
       <header>
@@ -79,7 +105,7 @@ const Message = () => {
             <p>Online</p>
           </div>
         </div>
-        <p>⋮</p>
+        <p>⋮</p> 
       </header>
       <div className="chats" ref={chatSectionRef}>
         {chats.map((key, index) => {
@@ -100,9 +126,9 @@ const Message = () => {
           alt=""
         />
         <div className="messageinput">
-          <input placeholder="Type a Message" type="text" />
+          <input value={input_message} name="me: " onChange={handleMessage} onKeyDown={handleKeyDown} placeholder="Type a Message" type="text" />
           {/* <img src={send} alt="" /> */}
-          <RiSendPlaneLine />
+          <RiSendPlaneLine onClick={sendMessage} className="send" />
         </div>
 
         <img
