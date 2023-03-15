@@ -6,7 +6,6 @@ import { CgMenu, CgClose } from "react-icons/cg";
 import Logo from "../../assets/logo.jpg";
 
 const Navbar = () => {
-  console.log("coming");
   const [menuIcon, setMenuIcon] = useState(false);
   const pagesHeader = [
     "Message",
@@ -18,13 +17,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={menuIcon ? "nav active" : "nav"}>
+    <nav className={menuIcon ? "nav active" : "nav"}> 
       <img src={Logo} alt="" />
       <div className="nav_compo">
         <div className="header">
           {pagesHeader.map((key) => (
             <h4
-              onClick={(event) => {
+              onClick={() => {
                 setMenuIcon(false);
               }}
               name={key}
@@ -36,8 +35,7 @@ const Navbar = () => {
 
         <img
           src="https://imgs.search.brave.com/iUQN726wdtZCy0T-0h75qU-Z2G_pncG6DygWzLUzkNU/rs:fit:600:600:1/g:ce/aHR0cHM6Ly96dWx0/aW1hdGUuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzEy/L2RlZmF1bHQtcHJv/ZmlsZS5wbmc"
-          alt=""
-          srcset=""
+          
         />
       </div>
 

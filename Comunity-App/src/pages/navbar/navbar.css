@@ -54,16 +54,6 @@ nav > .nav_compo > img {
   display: none;
   cursor: pointer;
 }
-@media only screen and (max-width: 1300px) {
-  nav > .nav_compo {
-    width: 80%;
-  }
-}
-@media only screen and (max-width: 1100px) {
-  nav > .nav_compo {
-    width: 95%;
-  }
-}
 .mobileMenuIcon {
   position: absolute;
   font-size: 2.5rem;
@@ -73,6 +63,16 @@ nav > .nav_compo > img {
 }
 .closeMenuOutline {
   display: none;
+}
+@media only screen and (max-width: 1300px) {
+  nav > .nav_compo {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  nav > .nav_compo {
+    width: 95%;
+  }
 }
 
 @media only screen and (max-width: 950px) {

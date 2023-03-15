@@ -7,31 +7,42 @@ const Services = () => {
   const apps = [
     {
       name: "Messages",
+      url:"message",
       image:
         "https://user-images.githubusercontent.com/88044814/218287759-ecfe41ea-bc88-4d04-a632-588dd4a296bd.png",
     },
     {
       name: "News & Updates",
+      url:"news",
       image:
         "https://user-images.githubusercontent.com/88044814/218287732-5bc54f2a-9002-49bb-8552-c161736e5276.png",
     },
     {
+      name:"Blogs",
+      url:"blogs",
+      image:"https://cdn-icons-png.flaticon.com/512/6114/6114045.png"
+    },
+    {
       name: "Get Notes",
+      url:"notes",
       image:
         "https://user-images.githubusercontent.com/88044814/218287797-dff1885b-3330-439d-bd86-2c08ba8916bd.png",
     },
     {
       name: "Ask Anything",
+      url:"question",
       image:
         "https://user-images.githubusercontent.com/88044814/218287808-c12974de-10fa-4f60-9417-83deebc98611.png",
     },
     {
-      name: "polls",
+      name: "Polls",
+      url:"polls",
       image:
         "https://user-images.githubusercontent.com/88044814/218287818-1e37a19f-f745-4a7a-b3f3-56a9a5fbff93.png",
     },
     {
       name: "Saved",
+      url:"saved",
       image:
         "https://user-images.githubusercontent.com/88044814/218287828-1f59fe25-43e6-4427-be9c-4d5b3f9b5e96.png",
     },
@@ -63,7 +74,7 @@ const Services = () => {
               <div>
                 <img
                   onClick={() => {
-                    navigate(`/${key.name}`);
+                    navigate(`/${key.url}`);
                   }}
                   src={key.image}
                   alt=""
