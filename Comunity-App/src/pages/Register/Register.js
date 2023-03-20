@@ -51,7 +51,7 @@ const Register = () => {
     ) {
       toast.error("Please Fill all the detail", toast_style);
     } else if (signupDetails.password !== signupDetails.conf_password) {
-      toast.error("Password and confirm Password do not match", toast_style);
+      toast.error("Password and Confirm Password are not matched", toast_style);
     } else {
       setSubmitButtonDisabled(true);
       try {

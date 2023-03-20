@@ -1,0 +1,326 @@
+.blogPage {
+  position: relative;
+  top: 12.2vh;
+  display: flex;
+  flex-direction: column;
+  /* overflow-x: hidden; */
+}
+.blogPage > img {
+  display: none;
+}
+.blogPage > .CoverPage {
+  /* position: fixed; */
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+  min-height: fit-content;
+  background-color: rgb(127, 82, 199);
+  justify-content: center;
+  text-align: center;
+}
+.blogPage > .CoverPage > h2 {
+  color: white;
+  letter-spacing: 1.5px;
+  word-spacing: 5px;
+  font-size: 300%;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 300px;
+  height: fit-content;
+  margin: auto 0;
+}
+.blogPage > .CoverPage > img {
+  width: 55%;
+  min-width: 500px;
+  min-height: 350px;
+}
+.blogPage > .BlogsTypes {
+  background-color: rgb(234, 235, 237);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 100px;
+  justify-content: none;
+  /* margin-top: 30%; */
+  z-index: 1;
+}
+.blogPage > .BlogsTypes > button {
+  background-color: transparent;
+  border: none;
+  color: rgb(109, 109, 110);
+  width: fit-content;
+  margin: 0;
+  padding: 20px;
+}
+.blogPage > .BlogsTypes > button:hover {
+  background-color: white;
+  opacity: 1;
+  color: rgb(63, 63, 63);
+  border-radius: 0;
+}
+.blogPage > .Blogs {
+  margin: 3rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 70px;
+  max-width: 90%;
+  /* min-width: 100%; */
+  justify-content: left;
+  z-index: 1;
+  background-color: white;
+}
+.blogPage > .Blogs > .blog {
+  width: 15rem;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(246, 246, 246);
+  border: 1px solid rgb(236, 232, 232);
+  gap: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.blogPage > .Blogs > .blog > img {
+  max-width: 12rem;
+  min-width: 15rem;
+  max-height: 15rem;
+  margin: 0 auto;
+}
+.blogPage > .Blogs > .blog > .TittleSubtittle {
+  margin: 0 auto;
+}
+.blogPage > .Blogs > .blog > .TittleSubtittle > h6 {
+  margin: 0;
+}
+.blogPage > .Blogs > .blog > .TittleSubtittle > p {
+  max-width: fit-content;
+  width: 200px;
+  margin: 0;
+}
+.blogPage > .Blogs > .blog > .aboutUser {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.blogPage > .Blogs > .blog > .aboutUser > img {
+  height: 40px;
+  margin: auto 10px;
+}
+
+.blogPage > .blogWindow {
+  width: 100%;
+  height: 100vh;
+  min-height: fit-content;
+  position: fixed;
+  top: 0px;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.blogPage > .blogWindow > div {
+  background-color: white;
+  margin: 50px;
+  border-radius: 20px;
+  display: flex;
+  height: 80%;
+  justify-content: space-between;
+  min-height: fit-content;
+}
+.blogPage > .blogWindow > div > .image_Like_comment {
+  /* border-right: 1px solid rgb(218, 218, 218);  */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.blogPage > .blogWindow > div > .image_Like_comment > img {
+  height: 80%;
+  border-radius: 20px;
+  margin: 20px;
+  border: 1px solid rgb(236, 232, 232);
+}
+
+.blogPage > .blogWindow > div > .image_Like_comment > .reactionField {
+  display: flex;
+  font-size: 30px;
+  justify-content: space-around;
+  color: rgb(127, 82, 199);
+  border: 1px solid slateblue;
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  margin-left: 10px;
+}
+.blogPage > .blogWindow > .close {
+  font-size: 50px;
+  color: red;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+.blogPage
+  > .blogWindow
+  > div
+  > .image_Like_comment
+  > .reactionField
+  > .Comments_section {
+  position: absolute;
+
+  bottom: 15rem;
+  background-color: white;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  color: black;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgb(231, 231, 231);
+}
+
+.blogPage
+  > .blogWindow
+  > div
+  > .image_Like_comment
+  > .reactionField
+  > .Comments_section
+  > .comments {
+  max-height: 25rem;
+  min-height: fit-content;
+  min-width: 20rem;
+  width: fit-content;
+  overflow-y: auto;
+}
+.blogPage
+  > .blogWindow
+  > div
+  > .image_Like_comment
+  > .reactionField
+  > .Comments_section
+  > .comments
+  > div {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 0 20px;
+  margin-top: 2rem;
+  background-color: white;
+  
+}
+.blogPage
+  > .blogWindow
+  > div
+  > .image_Like_comment
+  > .reactionField
+  > .Comments_section
+  > .comments
+  > div
+  > p,
+.blogPage
+  > .blogWindow
+  > div
+  > .image_Like_comment
+  > .reactionField
+  > .Comments_section
+  > .comments
+  > div
+  > span {
+  margin-left: auto;
+  margin-right: auto;
+}
+.blogPage
+  > .blogWindow
+  > div
+  > .image_Like_comment
+  > .reactionField
+  > .Comments_section
+  > .comments
+  > div
+  > span {
+  text-decoration: underline;
+  font-size: 10px;
+}
+
+.blogPage
+  > .blogWindow
+  > div
+  > .image_Like_comment
+  > .reactionField
+  > .Comments_section
+  > .close {
+  font-size: 25px;
+  color: red;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+
+
+
+
+.blogPage
+  > .blogWindow
+  > div
+  > .image_Like_comment
+  > .reactionField
+  > .Comments_section
+  >.InputComment{
+    display: flex;
+  }
+  .blogPage
+  > .blogWindow
+  > div
+  > .image_Like_comment
+  > .reactionField
+  > .Comments_section
+  >.InputComment>input{
+    width: 80%;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid slateblue;
+    height: 30px;
+  }
+  .blogPage
+  > .blogWindow
+  > div
+  > .image_Like_comment
+  > .reactionField
+  > .Comments_section
+  >.InputComment>.send{
+    width: 15%;
+    height: 20px;
+    margin: auto 0;
+  }
+
+.aaboutPost_aboutUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.aaboutPost_aboutUser>.aboutPost{
+    width: 80%;
+}
+.aaboutPost_aboutUser>.aboutPost>h6{
+    font-size: 30px;
+}
+.aaboutPost_aboutUser>.aboutPost>p{
+    font-size: 18px;
+}
+.aaboutPost_aboutUser>.aboutUser{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: right;
+    margin-right: 50px;
+    
+}
+.aaboutPost_aboutUser>.aboutUser>img{
+    height: 50px;
+    margin: auto 0;
+}
+.aaboutPost_aboutUser>.aboutUser>p{
+    font-size: 15px;
+    font-weight: 500;
+}

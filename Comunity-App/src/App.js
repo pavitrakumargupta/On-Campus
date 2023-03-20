@@ -8,6 +8,7 @@ import {
 import Homepage from "./pages/Homepage/Homepage";
 import Navbar from "./pages/navbar/navbar";
 import Message from "./pages/message/message";
+import Blog from "./pages/Blogs/Blog"
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 function App() {
@@ -20,11 +21,20 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         
         <Route
-          path="/Messages"
+          path="/message" 
           element={
             <>
               <Navbar />
               <Message />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/blogs" 
+          element={
+            <>
+              <Navbar />
+              <Blog/>
             </>
           }
         ></Route>

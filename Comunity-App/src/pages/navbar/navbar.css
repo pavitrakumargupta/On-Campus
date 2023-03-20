@@ -13,6 +13,7 @@ nav {
   height: 10vh;
   min-height: 6rem;
   gap: 2rem;
+  z-index: 2;
   
  
 }
