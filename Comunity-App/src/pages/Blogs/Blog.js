@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect  } from "react";
 import "./Blog.css";
 import CoverImage from "./img/coverImage.gif";
 import { AiFillLike, AiOutlineLike, AiFillCloseCircle } from "react-icons/ai";
 import { FaRegCommentDots, FaCommentDots } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
+import axios from "axios";
 const Blog = () => {
   const BlogType = [
-    "All",  
+    "All",
     "Coding",
     "Education",
     "Financial",
@@ -62,7 +63,7 @@ const Blog = () => {
           userName: "Andrew Philips",
         },
       ],
-      like: [],
+      like: ["abvc@gmail.com"],
     },
     {
       coverImage: "https://cdn.wallpapersafari.com/52/87/VXtPrc.jpg",
@@ -236,12 +237,21 @@ const Blog = () => {
       like: [],
     },
   ];
-  const [Blogs, setBlogs] = useState(Blogs_arry);
+  const [Blogs, setBlogs] = useState([]);
 
   const [activeBlog, setActiveBlog] = useState(null);
   const [comment, setComment] = useState(false);
   const [input_commnet, setInputComment] = useState("");
+  const [postBlog, setpostBlog] = useState(false);
 
+  useEffect(()=>{
+     const fetchBlogsData=async()=>{
+      const response = await axios.get("http://localhost:5000/getAllPost");
+      setBlogs(response.data)
+     }
+     fetchBlogsData()
+  },[])
+ 
   const openBlog = () => {
     const handleComment = (event) => {
       const { value } = event.target;
@@ -273,19 +283,25 @@ const Blog = () => {
 
     const handleLike = () => {
       let addLike = { ...activeBlog };
-      addLike.like.push(email);
+      
+      addLike.Like.push(email);
       setActiveBlog(addLike);
     };
+
     const removeLike = () => {
-      let addLike = { ...activeBlog };
-      let index = Blogs.indexOf(addLike);
-      addLike.like = addLike.like.filter((key) => email != key);
-      setActiveBlog(addLike);
+      let removeLike1 = { ...activeBlog };
+      let index = Blogs.indexOf(removeLike1);
+      removeLike1.Like = removeLike1.Like.filter((key) => email != key);
+      console.log(removeLike1);
+      // console.log(removeLike1.like);
+      setActiveBlog(removeLike1);
       let BlogarrayCopy = [...Blogs];
-      BlogarrayCopy[index] = addLike;
+      // console.log(BlogarrayCopy, 'copy');
+      BlogarrayCopy[index] = removeLike1;
 
       setBlogs(BlogarrayCopy);
-      console.log(BlogarrayCopy[index].like, Blogs[index] && Blogs[index].like);
+     
+      
     };
 
     return (
@@ -295,14 +311,14 @@ const Blog = () => {
           onClick={() => {
             setActiveBlog(null);
             setComment(false);
-            setActiveBlog(null)
+            setActiveBlog(null);
           }}
         />
         <div>
           <div className="image_Like_comment">
-            <img src={activeBlog.coverImage} alt="" />
+            <img src={activeBlog.coverImageLink} alt="" />
             <div className="reactionField">
-              {activeBlog.like.includes(email) ? (
+              {activeBlog.Like.includes(email) ? (
                 <AiFillLike
                   style={{ cursor: "pointer" }}
                   onClick={removeLike}
@@ -319,14 +335,14 @@ const Blog = () => {
                     style={{ cursor: "pointer" }}
                     onClick={() => setComment(false)}
                   />
-                 
+
                   <div className="Comments_section">
                     <AiFillCloseCircle
                       className="close"
                       onClick={() => setComment(false)}
                     />
                     <div className="comments">
-                    <h5>Comments</h5>
+                      <h5>Comments</h5>
                       {activeBlog.comment &&
                         activeBlog.comment
                           .slice()
@@ -360,8 +376,8 @@ const Blog = () => {
           </div>
           <div className="aaboutPost_aboutUser">
             <div className="aboutPost">
-              <h6>{activeBlog.Tittle}</h6>
-              <p>{activeBlog.subTittle}</p>
+              <h6>{activeBlog.tittle}</h6>
+              <p>{activeBlog.content}</p>
             </div>
             <div className="aboutUser">
               <img src={activeBlog.userImage} alt="" />
@@ -371,10 +387,74 @@ const Blog = () => {
         </div>
       </div>
     );
-  }; 
+  };
+
+
+   
+  const [NewpostDetails,setNewPostDetails]=useState({
+    type:"",
+    tittle:"",
+    content:"", 
+    coverImageLink:"",
+    userName:"pavitra Kumar Gupta",
+    userImage:"https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
+    comment:[],
+    Like:[]
+  })
+  const [PostbtnDisabled,setPostbtnDisabled]=useState(false)
+  const PostBlogFunc = () => {
+   
+    const handleChange=(event)=>{
+      const {name,value}=event.target;
+      let NewpostDetailsCopy={...NewpostDetails}
+      NewpostDetailsCopy[name]=value
+      setNewPostDetails(NewpostDetailsCopy)
+    }
+
+    const handleSubmit=async(event)=>{
+      event.preventDefault()
+      setPostbtnDisabled(true)
+      const response =await axios.post("http://localhost:5000/createPost",NewpostDetails);
+      console.log(response.data);
+      await setPostbtnDisabled(false)
+      setpostBlog(false)
+    }
+
+    return (
+      <div className="postBlogPage">
+        <AiFillCloseCircle
+          className="close"
+          onClick={() => {
+            setpostBlog(false);
+          }}
+        />
+        <div className="CreatePostWIndow"  >
+          <div>
+              <label htmlFor="">Blog Type <span>(*optional)</span></label>
+              <input onChange={handleChange} name="type" placeholder="Enter Blog Type" type="text" />
+          </div>  
+          <div>
+            <label htmlFor="">Tittle</label>
+            <input onChange={handleChange} name="tittle" placeholder="Enter Tittle" type="text" />
+          </div>
+          <div>
+            <label htmlFor="">Content</label>
+            <textarea placeholder="Enter the the Blog Content" onChange={handleChange} name="content" id="" cols="30" rows="10"></textarea>
+          </div>
+          <div>
+            <label htmlFor="">Image Link</label>
+            <input onChange={handleChange} name="coverImageLink" defaultValue="http://" placeholder="Enter Image Link" type="text"/>
+          </div>
+          <button disabled={PostbtnDisabled} onClick={handleSubmit} >Post Blog</button>
+          </div>
+      </div> 
+    );
+  };
+  
+
 
   return (
-    <div style={activeBlog&&{overflowY:"none"}} className="blogPage">
+    <div style={activeBlog && { overflowY: "none" }} className="blogPage">
       <img
         src="https://blog.hubspot.com/hs-fs/hubfs/Help_Scout_Blog-2.png?width=900&name=Help_Scout_Blog-2.png"
         alt=""
@@ -388,13 +468,16 @@ const Blog = () => {
           <button>{key}</button>
         ))}
       </div>
+      <button onClick={() => setpostBlog(true)} className="postBlog">
+        Post Blog
+      </button>
       <div className="Blogs">
-        {Blogs.map((key) => (
+        {Blogs.slice().reverse().map((key) => (
           <div onClick={() => setActiveBlog(key)} className="blog">
-            <img src={key.coverImage} alt="" />
+            <img src={key.coverImageLink} alt="" />
             <div className="TittleSubtittle">
-              <h6>{key.Tittle}</h6>
-              <p>{key.subTittle.substring(0, 50)}....</p>
+              <h6>{key.tittle}</h6>
+              <p>{key.content.substring(0, 70)}....</p>
             </div>
             <div className="aboutUser">
               <img src={key.userImage} alt="" />
@@ -403,8 +486,9 @@ const Blog = () => {
           </div>
         ))}
       </div>
-      
+
       {activeBlog != null && openBlog()}
+      {postBlog &&PostBlogFunc()}
     </div>
   );
 };

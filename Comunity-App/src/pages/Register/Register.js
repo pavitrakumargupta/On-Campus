@@ -4,10 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import axios from "../../axios";
+
 import axios from "axios";
 // import apiCall from "../../apiCall";
 var md5 = require("md5");
-
+ 
 const Register = () => {
   const navigate = useNavigate();
 
@@ -40,8 +41,10 @@ const Register = () => {
       };
     });
   };
+   
 
   const onSubmit = async () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (
       !signupDetails.firstname ||
       !signupDetails.lstname ||
@@ -50,7 +53,9 @@ const Register = () => {
       !signupDetails.conf_password
     ) {
       toast.error("Please Fill all the detail", toast_style);
-    } else if (signupDetails.password !== signupDetails.conf_password) {
+    } else if(!emailRegex.test(signupDetails.email)){
+      toast.error("Please provide a valid email address.", toast_style);
+    }else if (signupDetails.password !== signupDetails.conf_password) {
       toast.error("Password and Confirm Password are not matched", toast_style);
     } else {
       setSubmitButtonDisabled(true);
@@ -115,6 +120,7 @@ const Register = () => {
           <input
             type="email"
             name="email"
+             
             onChange={handleDetail}
             className="form__input"
             placeholder="Email"
