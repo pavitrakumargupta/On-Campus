@@ -8,10 +8,12 @@ module.exports.createPost = async (req, res, next) => {
       content,
       coverImageLink,
       userName,
+      userId,
       userImage,
       comment,
       Like
     } = req.body;
+    console.log();
  
 
     const createPost = await Post.create({
@@ -20,6 +22,7 @@ module.exports.createPost = async (req, res, next) => {
         content,
         coverImageLink,
         userName,
+        userId,
         userImage,
         comment,
         Like

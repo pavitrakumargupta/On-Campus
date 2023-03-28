@@ -4,9 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import {ToastContainer,toast} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css" 
 import axios from "axios";
+import { useDispatch } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../../state/index'
  
 // var md5 = require('md5');
 const Login = () => {
+  const dispatch=useDispatch()
   useEffect(() => {
     const userHistory = JSON.parse(localStorage.getItem("ComUnity"));
     if (userHistory !== null) {
@@ -52,6 +56,7 @@ const Login = () => {
         }else{
           localStorage.setItem('ComUnity',JSON.stringify({email:LoginDetail.email,password:LoginDetail.password}))
           navigate("/");
+          dispatch(actionCreators.setUserDetails(response.data.data))
         }
       } catch (error) {
         console.log(error);

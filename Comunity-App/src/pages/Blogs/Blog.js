@@ -5,7 +5,21 @@ import { AiFillLike, AiOutlineLike, AiFillCloseCircle } from "react-icons/ai";
 import { FaRegCommentDots, FaCommentDots } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+ 
+
 const Blog = () => {
+  const user = useSelector((state) => state);
+
+  const navigate=useNavigate()
+  useEffect(()=>{
+     if(user.details==="unset"){
+        navigate("/")
+     }
+   
+  },[])
+
   const BlogType = [
     "All",
     "Coding",
@@ -14,7 +28,7 @@ const Blog = () => {
     "Sports",
     "Other",
   ];
-  const email = "programmer0231@gmail.com";
+ 
  
   const [Blogs, setBlogs] = useState([]);
 
@@ -46,7 +60,7 @@ const Blog = () => {
         let newComment = { ...activeBlog };
         let comntObj = {
           text: input_commnet,
-          userName: "Andrew palo",
+          userName:user.details.username,
         };
         newComment.comment.push(comntObj);
         setActiveBlog(newComment);
@@ -62,20 +76,16 @@ const Blog = () => {
 
     const addLike = () => {
       let activeBlogCopy = { ...activeBlog };
-      activeBlogCopy.Like.push(email);
+      activeBlogCopy.Like.push(user.details.email);
       setActiveBlog(activeBlogCopy);
        
     };
 
     const removeLike = () => {
       let activeBlogCopy = { ...activeBlog };
-      activeBlogCopy.Like = activeBlogCopy.Like.filter((key) => email != key);
+      activeBlogCopy.Like = activeBlogCopy.Like.filter((key) => user.details.email != key);
       setActiveBlog(activeBlogCopy);
       
-      console.log(activeBlogCopy.Like);
-
-
-
       // let index = Blogs.indexOf(activeBlogCopy);
       // setActiveBlog(activeBlogCopy);
       // let BlogarrayCopy = [...Blogs];
@@ -101,7 +111,7 @@ const Blog = () => {
           <div className="image_Like_comment">
             <img src={activeBlog.coverImageLink} alt="" />
             <div className="reactionField">
-              {activeBlog.Like.includes(email) ? (
+              {activeBlog.Like.includes(user.details.email) ? (
                 <AiFillLike
                   style={{ cursor: "pointer" }}
                   onClick={removeLike}
@@ -179,11 +189,22 @@ const Blog = () => {
     tittle:"",
     content:"", 
     coverImageLink:"",
-    userName:"pavitra Kumar Gupta",
+    userName: user.details.username,
+    userId:user.details.userId,
     userImage:"https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
     comment:[],
     Like:[]
   })
+
+
+
+
+
+
+
+
+
+
   const [PostbtnDisabled,setPostbtnDisabled]=useState(false)
   const PostBlogFunc = () => {
    
@@ -258,9 +279,10 @@ const Blog = () => {
       </button>
       <div className="Blogs">
         {Blogs.slice().reverse().map((key) => (
-          <div onClick={() => setActiveBlog(key)} className="blog">
-            <img src={key.coverImageLink} alt="" />
-            <div className="TittleSubtittle">
+          <div className="blog">
+              
+            <img  onClick={() => setActiveBlog(key)} src={key.coverImageLink} alt="" />
+            <div  onClick={() => setActiveBlog(key)} className="TittleSubtittle">
               <h6>{key.tittle}</h6>
               <p>{key.content.substring(0, 70)}....</p>
             </div>

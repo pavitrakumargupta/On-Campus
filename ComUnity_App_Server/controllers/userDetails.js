@@ -96,12 +96,14 @@ module.exports.checkLoginCredential = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const LoginCheck = await User.findOne({ email });
+     
     if (LoginCheck && LoginCheck.password === password) {
       return res.json({
         status: true,
         data:{
           username:LoginCheck.username,
-          email:LoginCheck.email
+          email:LoginCheck.email,
+          userId:LoginCheck._id.valueOf()
         }
       });
     } else {
