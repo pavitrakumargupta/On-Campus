@@ -15,228 +15,7 @@ const Blog = () => {
     "Other",
   ];
   const email = "programmer0231@gmail.com";
-  const Blogs_arry = [
-    {
-      coverImage:
-        "https://thumbs.dreamstime.com/b/cristiano-ronaldo-portuguese-professional-footballer-who-plays-manchester-united-portugal-national-team-illustration-260710817.jpg",
-      Tittle: "Cristiano Retires",
-      subTittle:
-        "s Cristiano Ronaldo marks his 38th birthday, it's safe to say things are looking rather different for the veteran compared to this time last year. Twelve months ago, Ronaldo was gearing up for Man Utd's trip to Burnley, having missed a penalty one day earlier as United were stunned by Middlesbrough in the FA Cup. He didn't score that day, but did deliver two hat-tricks between then and the end of the season while finishing as top scorer for his club.Fast forward to February 2023 and not only is Ronaldo no longer at Old Trafford, but he's no longer in Europe. The Portugal international has endured a tough start to life at new club Al-Nassr, and faces some big decisions in the twilight of his career.",
-      userName: "Andreew python",
-      userImage:
-        "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-      comment: [
-        {
-          text: "helloaaaaaaaaaaaaaa",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-      ],
-      like: ["abvc@gmail.com"],
-    },
-    {
-      coverImage: "https://cdn.wallpapersafari.com/52/87/VXtPrc.jpg",
-      Tittle: "Virat to beat Sachin",
-      subTittle:
-        "Virat is making good scores in this year so from some poles athere are expectation and he will beat the sachin record soon and become the no1 ODI and test player",
-      userName: "kilo sharma",
-      userImage:
-        "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-      comment: [
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-      ],
-      like: [],
-    },
-    {
-      coverImage:
-        "https://thumbs.dreamstime.com/b/cristiano-ronaldo-portuguese-professional-footballer-who-plays-manchester-united-portugal-national-team-illustration-260710817.jpg",
-      Tittle: "Cristiano Retires",
-      subTittle:
-        "Cristiano Ronaldo may not retire this year and the expenctations are he may play the game against Barcilona club next year",
-      userName: "Andreew python",
-      userImage:
-        "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-      comment: [
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-      ],
-      like: [],
-    },
-    {
-      coverImage: "https://cdn.wallpapersafari.com/52/87/VXtPrc.jpg",
-      Tittle: "Virat to beat Sachin",
-      subTittle:
-        "Virat is making good scores in this year so from some poles athere are expectation and he will beat the sachin record soon and become the no1 ODI and test player",
-      userName: "kilo sharma",
-      userImage:
-        "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-      comment: [
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-      ],
-      like: [],
-    },
-    {
-      coverImage:
-        "https://thumbs.dreamstime.com/b/cristiano-ronaldo-portuguese-professional-footballer-who-plays-manchester-united-portugal-national-team-illustration-260710817.jpg",
-      Tittle: "Cristiano Retires",
-      subTittle:
-        "Cristiano Ronaldo may not retire this year and the expenctations are he may play the game against Barcilona club next year",
-      userName: "Andreew python",
-      userImage:
-        "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-      comment: [
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-      ],
-      like: [],
-    },
-    {
-      coverImage: "https://cdn.wallpapersafari.com/52/87/VXtPrc.jpg",
-      Tittle: "Virat to beat Sachin",
-      subTittle:
-        "Virat is making good scores in this year so from some poles athere are expectation and he will beat the sachin record soon and become the no1 ODI and test player",
-      userName: "kilo sharma",
-      userImage:
-        "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-      comment: [
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-      ],
-      like: [],
-    },
-    {
-      coverImage:
-        "https://thumbs.dreamstime.com/b/cristiano-ronaldo-portuguese-professional-footballer-who-plays-manchester-united-portugal-national-team-illustration-260710817.jpg",
-      Tittle: "Cristiano Retires",
-      subTittle:
-        "Cristiano Ronaldo may not retire this year and the expenctations are he may play the game against Barcilona club next year",
-      userName: "Andreew python",
-      userImage:
-        "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-      comment: [
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-      ],
-      like: [],
-    },
-    {
-      coverImage: "https://cdn.wallpapersafari.com/52/87/VXtPrc.jpg",
-      Tittle: "Virat to beat Sachin",
-      subTittle:
-        "Virat is making good scores in this year so from some poles athere are expectation and he will beat the sachin record soon and become the no1 ODI and test player",
-      userName: "kilo sharma",
-      userImage:
-        "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-      comment: [
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-        {
-          text: "hello",
-          userName: "Andrew Philips",
-        },
-      ],
-      like: [],
-    },
-  ];
+ 
   const [Blogs, setBlogs] = useState([]);
 
   const [activeBlog, setActiveBlog] = useState(null);
@@ -281,25 +60,29 @@ const Blog = () => {
       }
     };
 
-    const handleLike = () => {
-      let addLike = { ...activeBlog };
-      
-      addLike.Like.push(email);
-      setActiveBlog(addLike);
+    const addLike = () => {
+      let activeBlogCopy = { ...activeBlog };
+      activeBlogCopy.Like.push(email);
+      setActiveBlog(activeBlogCopy);
+       
     };
 
     const removeLike = () => {
-      let removeLike1 = { ...activeBlog };
-      let index = Blogs.indexOf(removeLike1);
-      removeLike1.Like = removeLike1.Like.filter((key) => email != key);
-      console.log(removeLike1);
-      // console.log(removeLike1.like);
-      setActiveBlog(removeLike1);
-      let BlogarrayCopy = [...Blogs];
-      // console.log(BlogarrayCopy, 'copy');
-      BlogarrayCopy[index] = removeLike1;
+      let activeBlogCopy = { ...activeBlog };
+      activeBlogCopy.Like = activeBlogCopy.Like.filter((key) => email != key);
+      setActiveBlog(activeBlogCopy);
+      
+      console.log(activeBlogCopy.Like);
 
-      setBlogs(BlogarrayCopy);
+
+
+      // let index = Blogs.indexOf(activeBlogCopy);
+      // setActiveBlog(activeBlogCopy);
+      // let BlogarrayCopy = [...Blogs];
+      // // console.log(BlogarrayCopy, 'copy');
+      // BlogarrayCopy[index] = activeBlogCopy;
+
+      // setBlogs(BlogarrayCopy);
      
       
     };
@@ -326,7 +109,7 @@ const Blog = () => {
               ) : (
                 <AiOutlineLike
                   style={{ cursor: "pointer" }}
-                  onClick={handleLike}
+                  onClick={addLike}
                 />
               )}
               {comment ? (
@@ -415,7 +198,9 @@ const Blog = () => {
       event.preventDefault()
       setPostbtnDisabled(true)
       const response =await axios.post("http://localhost:5000/createPost",NewpostDetails);
-      console.log(response.data);
+      let BlogsCopy=[...Blogs]
+      BlogsCopy.push(NewpostDetails) 
+      setBlogs(BlogsCopy)
       await setPostbtnDisabled(false)
       setpostBlog(false)
     }

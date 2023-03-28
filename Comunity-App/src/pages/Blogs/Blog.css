@@ -1,9 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500&display=swap");
 .blogPage {
   position: relative;
   top: 12.2vh;
   display: flex;
   flex-direction: column;
   /* overflow-x: hidden; */
+  font-family: "Lexend";
+  font-style: normal;
+  overflow-x: hidden;
 }
 .blogPage > img {
   display: none;
@@ -17,6 +21,7 @@
   background-color: rgb(127, 82, 199);
   justify-content: center;
   text-align: center;
+  
 }
 .blogPage > .CoverPage > h2 {
   color: white;
@@ -33,6 +38,7 @@
   width: 55%;
   min-width: 500px;
   min-height: 350px;
+   
 }
 .blogPage > .BlogsTypes {
   background-color: rgb(234, 235, 237);
@@ -86,6 +92,7 @@
   padding: 20px;
   overflow-y: auto;
   max-height: 80vh;
+  max-width: 100vw;
 }
 .CreatePostWIndow>div{
   display: flex;
@@ -125,7 +132,8 @@
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  max-width: 35rem;
+  max-width: 30rem;
+  /* max-width: 90%; */
 }
 .blogPage > .Blogs > .blog > img {
   max-width: 25rem;
@@ -176,9 +184,10 @@
 }
 .blogPage > .blogWindow > div {
   background-color: white;
-  margin: 50px;
+  margin: 50px 30px;
   border-radius: 20px;
   display: flex;
+  
   justify-content: space-between;
   min-height: fit-content;
   max-width: 80vw;
@@ -190,6 +199,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 10px 0;
+  margin: 0 auto;
 }
 .blogPage > .blogWindow > div > .image_Like_comment > img {
   /* height: 80%; */
@@ -197,6 +207,7 @@
   margin: 20px;
   border: 1px solid rgb(236, 232, 232);
   max-width: 30rem;
+  max-height: 80%;
 }
 
 .blogPage > .blogWindow > div > .image_Like_comment > .reactionField {
@@ -362,6 +373,7 @@
 .aaboutPost_aboutUser>.aboutPost{
     width: 95%;
     height: 80%;
+    margin-left: 20px;
 }
 .aaboutPost_aboutUser>.aboutPost>h6{
     font-size: 30px;
@@ -388,4 +400,22 @@
 .aaboutPost_aboutUser>.aboutUser>p{
     font-size: 15px;
     font-weight: 500;
+}
+
+@media only screen and (max-width: 1020px) {
+  .blogPage > .blogWindow > div{
+    flex-wrap: wrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .blogPage > .blogWindow > div > .image_Like_comment > img {
+    max-width: 100%;
+    min-height: 15rem;
+  }
+   
+  .aaboutPost_aboutUser>.aboutPost>p{
+    font-size: 18px;
+    max-height:max-content;
+    margin: 10px auto;
+  }
 }
