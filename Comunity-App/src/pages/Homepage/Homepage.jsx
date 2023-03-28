@@ -4,11 +4,20 @@ import "./Homepage.css";
 import Services from "../HomepageCompo/services/services";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { actionCreators } from "../../state/index";
 
 const Homepage = () => {
+  const dispatch = useDispatch();
   const [userDetail, setUserDetail] = useState("null");
   const navigate = useNavigate();
+  const user = useSelector((state) => state);
+
+
+
   useEffect(() => {
+     
     const userHistory = JSON.parse(localStorage.getItem("ComUnity"));
     if (userHistory == null) {
       navigate("/login");
@@ -26,18 +35,24 @@ const Homepage = () => {
             navigate("/login");
           } else {
             setUserDetail();
+            await dispatch(actionCreators.setUserDetails(response.data.data))
           }
         } catch (error) {
           console.log(error);
         }
       };
-      checkingLogin()
+      checkingLogin(); 
+    
     }
-  });
+  },[]);
   return (
     <>
-      {userDetail=== "null"  ? (
-        <img style={{margin:"35vh 0 0 35vw"}} src="https://i.gifer.com/YCZH.gif" alt="" />
+      {userDetail === "null" ? (
+        <img
+          style={{ margin: "35vh 0 0 35vw" }}
+          src="https://i.gifer.com/YCZH.gif"
+          alt=""
+        />
       ) : (
         <div className="home">
           <Navbar />

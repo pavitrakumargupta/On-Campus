@@ -23,6 +23,7 @@ const userShema= new mongoose.Schema({
   content: String,
   coverImageLink:String,
   userName:String,
+  userId:String,
   userImage:String,
   comment:Array,
   Like:Array,

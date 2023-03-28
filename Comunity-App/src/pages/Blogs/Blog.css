@@ -33,6 +33,8 @@
   max-width: 300px;
   height: fit-content;
   margin: auto 0;
+  font-family: "Lexend";
+  font-style: normal;
 }
 .blogPage > .CoverPage > img {
   width: 55%;
@@ -116,7 +118,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px ;
-  max-width: 90%;
+  max-width: 95%;
   /* min-width: 100%; */
   justify-content: center;
   z-index: 1;
@@ -164,7 +166,14 @@
   height: 40px;
   margin: auto 10px;
 }
-
+.PostOption{
+  background-color: transparent;
+  color: black;
+  text-align: right;
+  max-width: min-content;
+  margin: 0;
+  margin-left: auto;
+}
 
 
 
@@ -419,3 +428,24 @@
     margin: 10px auto;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
