@@ -187,7 +187,7 @@ const Blog = () => {
   };
 
 
-  const [postBlogWindow, setPostBlogWindow] = useState(true);
+  const [postBlogWindow, setPostBlogWindow] = useState(false);
   const handleSubmitBlog = (BlogDetail) => {
     const response = axios.post("http://localhost:5000/createPost", BlogDetail);
     let BlogsCopy = [...Blogs];
