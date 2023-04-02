@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500&display=swap");
 .blogPage {
   position: relative;
   top: 12.2vh;
   display: flex;
   flex-direction: column;
   /* overflow-x: hidden; */
-  font-family: "Lexend";
-  font-style: normal;
+
   overflow-x: hidden;
 }
 .blogPage > img {
@@ -21,7 +19,6 @@
   background-color: rgb(127, 82, 199);
   justify-content: center;
   text-align: center;
-  
 }
 .blogPage > .CoverPage > h2 {
   color: white;
@@ -40,7 +37,6 @@
   width: 55%;
   min-width: 500px;
   min-height: 350px;
-   
 }
 .blogPage > .BlogsTypes {
   background-color: rgb(234, 235, 237);
@@ -66,15 +62,24 @@
   border-radius: 0;
 }
 
+/* Post blog page //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-
-/* Post blog page */
-.postBlog{
+.postBlogWindowBtn {
   width: 200px;
-  margin:  20px;
+  margin: 20px;
   margin-left: auto !important;
+  border: 3px solid rgb(127, 82, 199);
+  padding: 20px;
+  border-radius: 20px;
+  color: rgb(127, 82, 199);
+  font-size: 19px;
+  font-weight: 700;
 }
-.postBlogPage{
+.postBlogWindowBtn:hover {
+  color: white;
+  background-color: rgb(127, 82, 199);
+}
+.postBlogPage {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -83,33 +88,115 @@
   top: 0;
 }
 
-.CreatePostWIndow{
+.postBlogPage > .CreatePostWIndow {
   display: flex;
   flex-direction: column;
   background-color: white;
   margin: auto;
   width: 60%;
   margin-top: 20px;
-  gap:50px;
+  gap: 50px;
   padding: 20px;
   overflow-y: auto;
   max-height: 80vh;
   max-width: 100vw;
+  border-radius: 20px;
 }
-.CreatePostWIndow>div{
+.postBlogPage > .CreatePostWIndow > div {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.CreatePostWIndow>div>input,.CreatePostWIndow>div>textarea{
+.postBlogPage > .CreatePostWIndow > div>label{
+  font-size: 20px;
+  font-weight: 700;
+}
+.postBlogPage > .CreatePostWIndow > div > input,
+.postBlogPage > .CreatePostWIndow > div > textarea {
   min-height: 30px;
   font-size: 18px;
+  border: none;
+  background-color:  rgb(232, 228, 238);
+  padding: 10px;
+  border-radius: 10px;
+}
+.postBlogPage > .CreatePostWIndow > div > input::placeholder,
+.postBlogPage > .CreatePostWIndow > div > textarea::placeholder{
+  color: rgb(73, 73, 73);
+  font-size: 20px;
  
 }
-.CreatePostWIndow>div>input:focus,.CreatePostWIndow>div>textarea:focus{
-  outline: 1.5px solid  slateblue;
+
+
+
+.postBlogPage > .CreatePostWIndow > div > input:focus,
+.postBlogPage > .CreatePostWIndow > div > textarea:focus {
+  outline: 2px solid slateblue;
   border: none;
 }
+.ImageUpload>input{
+  width: 400px;
+  height: 200px;
+  margin: 0 auto;
+  z-index: 1;
+  opacity: 0;
+  border: 10px solid black;
+  background-color: aqua;
+}
+.ImageUpload>div{
+  width: 420px;
+  
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color:  rgb(232, 228, 238);
+  border-radius: 10px;
+  /* border: 1px solid  rgb(127, 82, 199); */
+  margin-top: -230px;
+}
+.ImageUpload>div>button{
+  border: 2px solid rgb(171, 171, 171,0.3);
+  padding: 10px;
+  border-radius: 20px;
+  color: rgb(127, 82, 199);
+  width: 50%;
+  margin: 10px auto;
+  font-size: 20px;
+}
+.ImageUpload>div>img{
+  width: 120px;
+  margin: 10px auto;
+  border-radius: 100px;
+   
+}
+
+.PostBtn{
+  margin: 0 auto;
+  width: 400px;
+}
+.UploadedBox>img{
+  height: 50px;
+}
+.UploadedBox{
+  display: flex;
+  margin: 15px  auto;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  width: 80%;
+  border: 2px solid rgb(150, 150, 150);
+}
+.dleteImage{
+  font-size: 50px;
+  height: 30px;
+  margin:  auto ;
+}
+
+
+/*  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* specifiv Blog  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 
 /* Bloga page */
@@ -117,7 +204,7 @@
   margin: 3rem auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px ;
+  gap: 30px;
   max-width: 95%;
   /* min-width: 100%; */
   justify-content: center;
@@ -150,11 +237,10 @@
 .blogPage > .Blogs > .blog > .TittleSubtittle > h6 {
   margin: 0;
   font-size: 18px;
- 
 }
 .blogPage > .Blogs > .blog > .TittleSubtittle > p {
   max-width: fit-content;
- 
+
   margin: 0;
 }
 .blogPage > .Blogs > .blog > .aboutUser {
@@ -166,7 +252,7 @@
   height: 40px;
   margin: auto 10px;
 }
-.PostOption{
+.PostOption {
   background-color: transparent;
   color: black;
   text-align: right;
@@ -175,13 +261,6 @@
   margin-left: auto;
 }
 
-
-
-
-
-
-
-/* specifiv Blog  */
 .blogPage > .blogWindow {
   width: 100%;
   height: 100vh;
@@ -196,7 +275,7 @@
   margin: 50px 30px;
   border-radius: 20px;
   display: flex;
-  
+
   justify-content: space-between;
   min-height: fit-content;
   max-width: 80vw;
@@ -230,7 +309,7 @@
   width: 80%;
   margin-left: 10px;
 }
-  .close {
+.close {
   font-size: 50px;
   color: red;
   position: absolute;
@@ -285,7 +364,6 @@
   padding: 0 20px;
   margin-top: 2rem;
   background-color: white;
-  
 }
 .blogPage
   > .blogWindow
@@ -336,83 +414,82 @@
   cursor: pointer;
 }
 
-
-
-
-
 .blogPage
   > .blogWindow
   > div
   > .image_Like_comment
   > .reactionField
   > .Comments_section
-  >.InputComment{
-    display: flex;
-  }
-  .blogPage
+  > .InputComment {
+  display: flex;
+}
+.blogPage
   > .blogWindow
   > div
   > .image_Like_comment
   > .reactionField
   > .Comments_section
-  >.InputComment>input{
-    width: 80%;
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid slateblue;
-    height: 30px;
-  }
-  .blogPage
+  > .InputComment
+  > input {
+  width: 80%;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid slateblue;
+  height: 30px;
+}
+.blogPage
   > .blogWindow
   > div
   > .image_Like_comment
   > .reactionField
   > .Comments_section
-  >.InputComment>.send{
-    width: 15%;
-    height: 20px;
-    margin: auto 0;
-  }
- 
-.aaboutPost_aboutUser{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.aaboutPost_aboutUser>.aboutPost{
-    width: 95%;
-    height: 80%;
-    margin-left: 20px;
-}
-.aaboutPost_aboutUser>.aboutPost>h6{
-    font-size: 30px;
-    margin: 10px auto;
-}
-.aaboutPost_aboutUser>.aboutPost>p{
-    font-size: 18px;
-    max-height: 70%;
-    margin: 10px auto;
-    overflow-y: auto;
-}
-.aaboutPost_aboutUser>.aboutUser{
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    justify-content: right;
-    margin-right: 50px;
-    
-}
-.aaboutPost_aboutUser>.aboutUser>img{
-    height: 50px;
-    margin: auto 0;
-}
-.aaboutPost_aboutUser>.aboutUser>p{
-    font-size: 15px;
-    font-weight: 500;
+  > .InputComment
+  > .send {
+  width: 15%;
+  height: 20px;
+  margin: auto 0;
 }
 
+.aaboutPost_aboutUser {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.aaboutPost_aboutUser > .aboutPost {
+  width: 95%;
+  height: 80%;
+  margin-left: 20px;
+}
+.aaboutPost_aboutUser > .aboutPost > h6 {
+  font-size: 30px;
+  margin: 10px auto;
+}
+.aaboutPost_aboutUser > .aboutPost > p {
+  font-size: 18px;
+  max-height: 70%;
+  margin: 10px auto;
+  overflow-y: auto;
+}
+.aaboutPost_aboutUser > .aboutUser {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: right;
+  margin-right: 50px;
+}
+.aaboutPost_aboutUser > .aboutUser > img {
+  height: 50px;
+  margin: auto 0;
+}
+.aaboutPost_aboutUser > .aboutUser > p {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
 @media only screen and (max-width: 1020px) {
-  .blogPage > .blogWindow > div{
+  .blogPage > .blogWindow > div {
     flex-wrap: wrap;
     overflow-y: auto;
     overflow-x: hidden;
@@ -421,31 +498,10 @@
     max-width: 100%;
     min-height: 15rem;
   }
-   
-  .aaboutPost_aboutUser>.aboutPost>p{
+
+  .aaboutPost_aboutUser > .aboutPost > p {
     font-size: 18px;
-    max-height:max-content;
+    max-height: max-content;
     margin: 10px auto;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

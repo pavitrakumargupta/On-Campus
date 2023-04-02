@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
-.form{
+.RegisterLogin{
     height: 100%;
   min-height: 100vh;
   width: 100%;
@@ -11,7 +11,7 @@
   padding: 0px;
 }
 
-.form-body{
+.RegisterLogin>.form-body{
     min-width: 480px;
     min-height: 25rem;
   height: fit-content;
@@ -25,25 +25,25 @@
   gap: 20px;
   
 }
-.form-body>div{
+.RegisterLogin>.form-body>div{
     display: flex;
     flex-direction: column;
     gap: 8px;
 
 }
-.form-body>h2{
+.RegisterLogin>.form-body>h2{
     font-family: 'Dosis', sans-serif;
     margin: auto;
     text-decoration: underline;
 }
-.form-body>div>label{
+.RegisterLogin>.form-body>div>label{
     font-family: 'Dosis', sans-serif;
     padding-left: 5px;
     font-weight: 700;
     font-size: 1rem;
     color: #313131;
 }
-.form-body>div>input{
+.RegisterLogin>.form-body>div>input{
     border-radius: 5px;
     border: 1px solid #dddddd;
     outline: none;
@@ -52,13 +52,13 @@
     font-size: 18px;
 }
 
-.form-body>div>input:hover{
+.RegisterLogin>.form-body>div>input:hover{
     border-color: #ccc;
 }
-.form-body>div>input:focus {
+.RegisterLogin>.form-body>div>input:focus {
     border-color: #9900ff;
   }
-  button {
+.RegisterLogin button {
     outline: none;
     border: none;
     background-color: #6c34e0;
@@ -74,18 +74,18 @@
     transition: 100ms;
     cursor: pointer;
   }
-  .form-body>div> button:disabled {
+  .RegisterLogin>.form-body>div> button:disabled {
     background-color: gray !important;
   }
-  .form-body>div> button:hover {
+  .RegisterLogin>.form-body>div> button:hover {
     background-color:#9900ff;
   }
-  .form-body>div>p {
+  .RegisterLogin>.form-body>div>p {
     font-weight: 700;
     color: #000;
   }  
 
- .form-body>div> p span a {
+ .RegisterLogin>.form-body>div> p span a {
     font-weight: bold;
     color: #9900ff;
     letter-spacing: 1px;
