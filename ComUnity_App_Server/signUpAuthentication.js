@@ -26,7 +26,7 @@ async function SendMail(email) {
       service: "gmail",
       auth: {
         type: "Oauth2",
-        user: "pavitragupta021@gmail.com",
+        user: "programmer0231@gmail.com",
         clientId: CLIENT_ID,
         clientSecret: CLIENT_SECRET,
         refreshToken: REFRESH_TOKEN,
@@ -35,10 +35,10 @@ async function SendMail(email) {
     });
 
     const mailOption = {
-      from: "ComUnity <pavitragupta021@gmail.com>",
+      from: "ComUnity <programmer0231@gmail.com>",
       to: email,
       subject: "Your ComUnity account has OTP request",
-      text: `Hello ${email} A request has been received For OTP in your ComUnity account.  \n Your OTP(one time password) : ${genrated_otp}\n For any query please contact to pavitragupta021@gmail.com `,
+      text: `Hello ${email} A request has been received For OTP in your ComUnity account.  \n Your OTP(one time password) : ${genrated_otp}\n For any query please contact to programmer0231@gmail.com `,
     };
 
     const result = await transport.sendMail(mailOption);
