@@ -65,7 +65,7 @@ const Login = () => {
   } 
 
   return (
-    <div className="form">
+    <div className="RegisterLogin">
       <div className="form-body">
         <h2>LogIn</h2>
          

@@ -83,7 +83,7 @@ const Register = () => {
   };
 
   return (
-    <div className="form">
+    <div className="RegisterLogin">
       <div className="form-body">
         <h2>SignUp</h2>
         <div className="username">

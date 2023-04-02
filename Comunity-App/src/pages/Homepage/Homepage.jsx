@@ -14,11 +14,11 @@ const Homepage = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state);
 
-
+ 
 
   useEffect(() => {
-     
     const userHistory = JSON.parse(localStorage.getItem("ComUnity"));
+    const url = JSON.parse(localStorage.getItem("lastUrl"));
     if (userHistory == null) {
       navigate("/login");
     } else {
@@ -29,22 +29,28 @@ const Homepage = () => {
             {
               email: userHistory.email,
               password: userHistory.password,
-            }
+            } 
           );
           if (!response.data.status) {
             navigate("/login");
           } else {
             setUserDetail();
-            await dispatch(actionCreators.setUserDetails(response.data.data))
+            await dispatch(actionCreators.setUserDetails(response.data.data));
+            if(url.url!=null){
+              navigate(url.url) 
+              localStorage.setItem(
+                "lastUrl",
+                JSON.stringify({ url: null})
+              );
+            }
           }
         } catch (error) {
           console.log(error);
         }
       };
-      checkingLogin(); 
-    
+      checkingLogin();
     }
-  },[]);
+  }, []);
   return (
     <>
       {userDetail === "null" ? (
@@ -57,8 +63,10 @@ const Homepage = () => {
         <div className="home">
           <Navbar />
           <Services />
+          
         </div>
       )}
+      
     </>
   );
 };

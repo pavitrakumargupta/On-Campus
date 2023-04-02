@@ -6,6 +6,8 @@
   display: flex;
   flex-direction: column;
   gap: 5rem;
+  flex-grow: 1;
+  
 }
 .services > .apps_out {
   background: #6c34e0;
