@@ -1,6 +1,6 @@
 const router=require("express").Router() 
 const {setSignupDetails,checkLoginCredential}=require("../controllers/userDetails")
-const {createPost,getAllPost}=require("../controllers/handlePost")
+const {createPost,getAllPost,editPost,deletePost}=require("../controllers/handlePost")
 
 
 
@@ -12,6 +12,8 @@ router.post("/checkLogin",checkLoginCredential)
 // handlePost
 router.post("/createPost",createPost)
 router.get("/getAllPost",getAllPost)
+router.post("/editPost",editPost)
+router.post("/deletePost",deletePost)
 
 
 

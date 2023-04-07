@@ -4,6 +4,7 @@ import CoverImage from "./img/coverImage.gif";
 import { AiFillLike, AiOutlineLike, AiFillCloseCircle } from "react-icons/ai";
 import { FaRegCommentDots, FaCommentDots } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
+import { BiDotsHorizontal } from "react-icons/bi";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -40,12 +41,13 @@ const Blog = () => {
   const [activeBlog, setActiveBlog] = useState(null);
   const [comment, setComment] = useState(false);
   const [input_commnet, setInputComment] = useState("");
-
+  const [postAction,setPostAction]=useState("")
 
   useEffect(() => {
     const fetchBlogsData = async () => {
       const response = await axios.get("http://localhost:5000/getAllPost");
       setBlogs(response.data);
+      // console.log(response.data[0]._id);
     };
     fetchBlogsData();
   }, []);
@@ -186,17 +188,47 @@ const Blog = () => {
     );
   };
 
-
   const [postBlogWindow, setPostBlogWindow] = useState(false);
-  const handleSubmitBlog = (BlogDetail) => {
-    const response = axios.post("http://localhost:5000/createPost", BlogDetail);
-    let BlogsCopy = [...Blogs];
-    BlogsCopy.push(BlogDetail);
-    setBlogs(BlogsCopy);
+  const handleSubmitBlog = (BlogDetail,_id) => {
+    if(postAction==="post"){
+      const response = axios.post("http://localhost:5000/createPost", BlogDetail);
+      let BlogsCopy = [...Blogs];
+      BlogsCopy.push(BlogDetail);
+      setBlogs(BlogsCopy);
+    }else{
+      let edit_Post=BlogDetail
+      edit_Post._id=_id
+      console.log(edit_Post);
+      const response = axios.post("http://localhost:5000/editPost", edit_Post);
+      let BlogsCopy = [...Blogs];
+      const render_edit = BlogsCopy.find(Post => Post._id===_id);
+      let index=BlogsCopy.indexOf(render_edit)
+      BlogsCopy[index]=edit_Post
+      console.log(BlogsCopy[index]);
+      setBlogs(BlogsCopy);
+    }
+    
     setPostBlogWindow(false);
   };
   const handleBlogWindow = () => {
     setPostBlogWindow(false);
+  };
+
+
+ 
+
+  const handlePostOption = (name,Blog) => {
+    if (name === "edit") {
+      setActiveBlog(Blog)
+      setPostBlogWindow(true);
+      setPostAction(name)
+    }else if(name==="delete"){
+      const response = axios.post("http://localhost:5000/deletePost",{_id:Blog._id});
+      let BlogsCopy = [...Blogs];
+      let index=BlogsCopy.indexOf(Blog)
+      BlogsCopy =BlogsCopy.slice(index+1)
+      setBlogs(BlogsCopy);
+    }
   };
 
   return (
@@ -215,18 +247,29 @@ const Blog = () => {
         ))}
       </div>
       <button
-        onClick={() => setPostBlogWindow(true)}
+        onClick={() => {setPostBlogWindow(true);setPostAction("post")}}
         className="postBlogWindowBtn"
       >
         Post Blog
       </button>
+
       <div className="Blogs">
         {Blogs.slice()
           .reverse()
-          .map((key) => (
+          .map((key,index) => (
             <div className="blog">
-              {/* <button onClick={editPost}>Edit</button>
-            <button>Delete</button> */}
+              <BiDotsHorizontal className="optionsicon" />
+              {
+                key.userId==user.details.userId&&<div className="options">
+                <p name="edit" onClick={() => handlePostOption("edit",key)}>
+                  Edit Post
+                </p>
+                <p name="delete" onClick={(event) => handlePostOption("delete",key)}>
+                  Delete Post
+                </p>
+              </div>
+              }
+              
               <img
                 onClick={() => setActiveBlog(key)}
                 src={key.coverImageLink}
@@ -253,6 +296,7 @@ const Blog = () => {
           user={user}
           handleSubmitBlog={handleSubmitBlog}
           closeWindow={handleBlogWindow}
+          BlogDetail={activeBlog}
         />
       )}
     </div>

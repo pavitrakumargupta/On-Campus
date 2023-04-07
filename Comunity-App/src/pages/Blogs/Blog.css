@@ -260,6 +260,45 @@
   margin: 0;
   margin-left: auto;
 }
+.optionsicon{
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+ 
+}
+.options{
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  margin-top: -53px;
+  opacity: 0;
+  border: 1px solid;
+  overflow: hidden;
+}
+.options:hover{
+  opacity: 1;
+  width: fit-content;
+  height: fit-content;
+  /* position:absolute;
+  margin-left:400px; 
+  margin-top: 0px; */
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  border: 1px solid rgb(214, 214, 214,0.9);
+}
+.options>p{
+  /* display: none; */
+  padding:5px 10px;
+  margin: 5px;
+  border-radius: 20px;
+}
+.options>p:hover{
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+}
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .blogPage > .blogWindow {
   width: 100%;

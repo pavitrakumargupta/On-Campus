@@ -4,19 +4,19 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 import axios from "axios";
 import UploadImage from "../../uploadImage";
 
-const PostBlog = ({ user, handleSubmitBlog, closeWindow }) => {
+const PostBlog = ({ user, handleSubmitBlog, closeWindow,BlogDetail }) => {
   const [Image, setImage] = useState("");
   const [NewpostDetails, setNewPostDetails] = useState({
-    type: "",
-    tittle: "",
-    content: "",
-    coverImageLink: "",
+    type: BlogDetail!==null?BlogDetail.type:"",
+    tittle: BlogDetail!==null?BlogDetail.tittle:"",
+    content: BlogDetail!==null?BlogDetail.content:"",
+    coverImageLink: BlogDetail!==null?BlogDetail.coverImageLink:"",
     userName: user.details.username,
     userId: user.details.userId,
     userImage:
       "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-    comment: [],
-    Like: [],
+    comment: BlogDetail!==null?BlogDetail.comment:[],
+    Like: BlogDetail!==null?BlogDetail.Like:[],
   });
 
   const [PostbtnDisabled, setPostbtnDisabled] = useState(false);
@@ -30,7 +30,7 @@ const PostBlog = ({ user, handleSubmitBlog, closeWindow }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setPostbtnDisabled(true);
-    handleSubmitBlog(NewpostDetails);
+    handleSubmitBlog(NewpostDetails,BlogDetail!==null?BlogDetail._id:"");
   };
 
   const editPost = async () => {
@@ -79,6 +79,7 @@ const PostBlog = ({ user, handleSubmitBlog, closeWindow }) => {
             name="type"
             placeholder="Enter Blog Type"
             type="text"
+            value={NewpostDetails.type}
           />
         </div>
         <div>
@@ -88,6 +89,7 @@ const PostBlog = ({ user, handleSubmitBlog, closeWindow }) => {
             name="tittle"
             placeholder="Enter Tittle"
             type="text"
+            value={NewpostDetails.tittle}
           />
         </div>
         <div>
@@ -99,6 +101,7 @@ const PostBlog = ({ user, handleSubmitBlog, closeWindow }) => {
             id=""
             cols="30"
             rows="10"
+            value={NewpostDetails.content}
           ></textarea>
         </div>
         <div className="ImageUpload">
