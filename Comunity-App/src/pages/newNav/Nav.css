@@ -1,0 +1,156 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  /* padding: 1rem; */
+  z-index: 2;
+}
+
+.logo img {
+    margin: auto 10px;
+    margin-top: 5px;
+    height: 3.5rem;
+}
+.navbar .profile > img {
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 100px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-items {
+  display: flex;
+  gap: 2rem;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: auto;
+  text-align: center;
+}
+
+.menu-items a:hover {
+  color: #6214ff;
+}
+.navbar .mobileMenuBtn {
+  display: none;
+  cursor: pointer;
+}
+.navbar .mobileMenuIcon {
+  position: absolute;
+  font-size: 2.5rem;
+  top: 50%;
+  right: 5%;
+  translate: -20% -50%;
+}
+.navbar .closeMenuOutline {
+  display: none;
+}
+.navbar .sidebar{
+    display: none;
+}
+@media screen and (max-width: 983px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+  }
+  .navbar .mobileMenuBtn {
+    display: inline-block;
+    z-index: 9999;
+  }
+
+  .navbar .menu-items {
+    width: 40vw;
+    height: 70vh;
+    z-index: 1;
+    overflow-y: auto;
+    position: absolute;
+    top: 8rem;
+    right: -50px;
+    padding-right: 60px;
+    padding-bottom: 150px;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s linear;
+    justify-content: spa;
+    gap: 25px;
+  }
+  .navbar .profile {
+    position: absolute;
+    right: 15vw;
+    top: 3rem;
+    display: none;
+  }
+  .showMobileNav .profile{
+    display: block;
+  }
+  .showMobileNav .mobileMenuIcon {
+    display: none;
+  }
+
+  .showMobileNav .closeMenuOutline {
+    display: inline-block;
+    color: white;
+    border: 2px solid white;
+    position: absolute;
+    top: 30px;
+    border-radius: 20px;
+  }
+  .showMobileNav .sidebar {
+    display: block;
+    width: 40vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 40vw;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .showMobileNav .menu-items {
+    visibility: visible;
+    opacity: 1;
+    z-index: 999;
+    transform-origin: right;
+    transition: all 0.2s right;
+  }
+  .showMobileNav .menu-items a {
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 40%;
+    background-color: transparent;
+    border: 1px solid;
+    color: #fff;
+    padding: 5px;
+  }
+  .showMobileNav .menu-items a:hover {
+    background-color: white;
+    color: #8859e6;
+    border: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .navbar .menu-items {
+    width: 60vw;
+  }
+  .showMobileNav .sidebar {
+    width: 60vw;
+  }
+}
+@media screen and (max-height: 450px) {
+    .navbar .menu-items {
+       height: 50vh;
+    }
+    
+  }

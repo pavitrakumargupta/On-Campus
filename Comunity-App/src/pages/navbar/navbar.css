@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@300&display=swap");
 
-nav {
+.navMain {
   display: flex;
   justify-content: space-between;
   /* mix-blend-mode: luminosity; */
@@ -17,16 +17,16 @@ nav {
   
  
 }
-nav > img {
-  width: 7rem;
-  height: 90%;
+.navMain > img {
+  
+ 
 }
-nav > .nav_compo {
+.navMain > .nav_compo {
   width: 70%;
   overflow-y: auto;
   overflow-x: hidden;
 }
-nav > .nav_compo > .header {
+.navMain > .nav_compo > .header {
   display: flex;
   margin: auto 1rem;
   margin-left: 0px;
@@ -37,13 +37,13 @@ nav > .nav_compo > .header {
   top: -0.5%;
 }
 
-nav > .nav_compo > .header > h4 {
-  color: #817d7d;
+.navMain > .nav_compo > .header > h4 {
+  color: rgb(0, 0, 0,0.8);
   font-size: 120%;
   padding: 2px 10px;
 }
 
-nav > .nav_compo > img {
+.navMain > .nav_compo > img {
   width: 60px;
   height: 60px;
   border-radius:60px;
@@ -66,18 +66,18 @@ nav > .nav_compo > img {
   display: none;
 }
 @media only screen and (max-width: 1300px) {
-  nav > .nav_compo {
+  .navMain > .nav_compo {
     width: 80%;
   }
 }
 @media only screen and (max-width: 1100px) {
-  nav > .nav_compo {
+  .navMain > .nav_compo {
     width: 95%;
   }
 }
 
 @media only screen and (max-width: 950px) {
-  nav {
+  .navMain {
     display: flex;
     justify-content: space-between;
     padding: 5px;
@@ -111,7 +111,7 @@ nav > .nav_compo > img {
     transform-origin: right;
     transition: all 0.2s linear;
   }
-  nav > .nav_compo {
+  .navMain > .nav_compo {
     width: 60vw;
     height: 100vh;
     position: absolute;
@@ -128,12 +128,12 @@ nav > .nav_compo > img {
     gap: 0rem;
     
   }
-  nav > .nav_compo > .header {
+  .navMain > .nav_compo > .header {
     flex-direction: column;
     gap: 3rem;
      
   }
-  nav > .nav_compo > .header > h4 {
+  .navMain > .nav_compo > .header > h4 {
     text-align: center;
     margin: 0rem auto;
     padding: 1rem;
@@ -141,16 +141,16 @@ nav > .nav_compo > img {
     width: 80%;
     border-radius: 50px;
   }
-  nav > .nav_compo > .header > h4:hover {
+  .navMain > .nav_compo > .header > h4:hover {
     background-color: transparent;
     border: 2px solid rgb(0, 0, 0.5);
     color: white;
   }
-  nav > .nav_compo > .header > h4:focus,
-  nav > .nav_compo > .header > h4:active {
+  .navMain > .nav_compo > .header > h4:focus,
+  .navMain > .nav_compo > .header > h4:active {
     background-color: transparent;
   }
-  nav > .nav_compo > img {
+  .navMain > .nav_compo > img {
     position: absolute;
     right: 40%;
   }

@@ -3,7 +3,7 @@ import "./navbar.css";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { Link, useNavigate } from "react-router-dom";
 // images
-import Logo from "../../../assets/logo.jpg";
+import Logo from "../../../assets/logo.png";
 import Search from "../../../assets/search.png";
 import setting from "../../../assets/settings.png";
 import question_mark from "../../../assets/help.png";

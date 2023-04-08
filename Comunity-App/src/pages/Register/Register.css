@@ -1,94 +1,110 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
-.RegisterLogin{
-    height: 100%;
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap");
+.RegisterLogin {
+  height: 100%;
   min-height: 100vh;
   width: 100%;
-  background: linear-gradient(to right, rgb(101, 78, 163), rgb(234, 175, 200));
- 
+  /* background: linear-gradient(to right, rgb(101, 78, 163), rgb(234, 175, 200)); */
+  background: linear-gradient(180deg, #f8f8f8 0%, #dcc5ff 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0px;
+  overflow-y: auto;
 }
 
-.RegisterLogin>.form-body{
-    min-width: 480px;
-    min-height: 25rem;
-  height: fit-content;
+.RegisterLogin > .form-body {
+  min-width: 480px;
+  min-height: 25rem;
+  max-height: 80vh;
+
+  min-height: max-content;
   width: fit-content;
-  background-color: #fff;
+ 
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   padding: 30px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  background-color: rgb(0, 0, 0,0.4);
   
+  
+ 
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
 }
-.RegisterLogin>.form-body>div{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.RegisterLogin > .form-body > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.RegisterLogin > .form-body > h2 {
+  font-family: "Dosis", sans-serif;
+  margin: auto;
+  text-decoration: underline;
+  color: #250761;
+}
+.RegisterLogin > .form-body > div > label {
+  font-family: "Dosis", sans-serif;
+  padding-left: 5px;
+  font-weight: 700;
+  font-size: 1rem;
+  color:#250761;
+}
+.RegisterLogin > .form-body > div > input {
+  border-radius: 5px;
+  border: 2px solid #dddddd;
+  outline: none;
+  padding: 10px 15px;
+  color:  #282828;
+  font-size: 18px;
+  background-color: transparent;
+}
+.RegisterLogin > .form-body > div > input::placeholder{
+  color:#6c34e0;
+}
+.RegisterLogin > .form-body > div > input:focus::placeholder{
+  color: #393939;
+}
 
+.RegisterLogin > .form-body > div > input:hover {
+  border-color: #ccc;
 }
-.RegisterLogin>.form-body>h2{
-    font-family: 'Dosis', sans-serif;
-    margin: auto;
-    text-decoration: underline;
+.RegisterLogin > .form-body > div > input:focus {
+  border-color: #6c34e0;
 }
-.RegisterLogin>.form-body>div>label{
-    font-family: 'Dosis', sans-serif;
-    padding-left: 5px;
-    font-weight: 700;
-    font-size: 1rem;
-    color: #313131;
+.RegisterLogin> .form-body > div>button {
+  outline: none;
+  border: none;
+  background-color: #6c34e0;
+  border-radius: 50px;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px 16px;
+  justify-self: center;
+  margin: auto;
+  width: 50%;
+  transition: 100ms;
+  cursor: pointer;
 }
-.RegisterLogin>.form-body>div>input{
-    border-radius: 5px;
-    border: 1px solid #dddddd;
-    outline: none;
-    padding: 10px 15px;
-    color: #000;
-    font-size: 18px;
+.RegisterLogin > .form-body > div > button:disabled {
+  background-color: gray !important;
+}
+.RegisterLogin > .form-body > div > button:hover {
+  background-color: #9900ff;
+}
+.RegisterLogin > .form-body > div > p {
+  font-weight: 700;
+  color: #000;
 }
 
-.RegisterLogin>.form-body>div>input:hover{
-    border-color: #ccc;
+.RegisterLogin > .form-body > div > p span a {
+  font-weight: bold;
+  color: #9900ff;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-decoration: none;
 }
-.RegisterLogin>.form-body>div>input:focus {
-    border-color: #9900ff;
-  }
-.RegisterLogin button {
-    outline: none;
-    border: none;
-    background-color: #6c34e0;
-    border-radius: 50px;
-    color: #fff;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 10px 16px;
-    justify-self: center;
-    margin: auto;
-    width: 50%;
-    transition: 100ms;
-    cursor: pointer;
-  }
-  .RegisterLogin>.form-body>div> button:disabled {
-    background-color: gray !important;
-  }
-  .RegisterLogin>.form-body>div> button:hover {
-    background-color:#9900ff;
-  }
-  .RegisterLogin>.form-body>div>p {
-    font-weight: 700;
-    color: #000;
-  }  
-
- .RegisterLogin>.form-body>div> p span a {
-    font-weight: bold;
-    color: #9900ff;
-    letter-spacing: 1px;
-    font-size: 1rem;
-    text-decoration: none;
-  }

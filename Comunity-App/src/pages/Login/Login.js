@@ -7,6 +7,7 @@ import axios from "axios";
 import { useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actionCreators } from '../../state/index'
+import Logo from "../../assets/logo.png"
  
 // var md5 = require('md5');
 const Login = () => {
@@ -67,7 +68,8 @@ const Login = () => {
   return (
     <div className="RegisterLogin">
       <div className="form-body">
-        <h2>LogIn</h2>
+      <img src={Logo} style={{margin:"auto"}} width={150} alt="" />
+        <h2>Welocome Back fill  your  Details for LogIn</h2>
          
         <div className="email">
           <label className="form__label" for="email">
