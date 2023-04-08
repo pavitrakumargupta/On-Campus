@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import { CgMenu, CgClose } from "react-icons/cg";
+
 
 // images
-import Logo from "../../assets/logo.jpg";
+import Logo from "../../assets/logo.png";
 
 const Navbar = () => {
   const [menuIcon, setMenuIcon] = useState(false);
@@ -11,13 +11,15 @@ const Navbar = () => {
     "Message",
     "News",
     "Notes",
+    "Dashboard",
+    "Blogs",
     "Questions",
     "Polls",
-    "Dashboard",
+    
   ];
 
   return (
-    <nav className={menuIcon ? "nav active" : "nav"}> 
+    <nav className={menuIcon ? "navMain active" : "navMain"}> 
       <img src={Logo} alt="" />
       <div className="nav_compo">
         <div className="header">

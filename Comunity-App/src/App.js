@@ -5,12 +5,14 @@ import {
   Route,
   useParams,
 } from "react-router-dom";
-import Homepage from "./pages/Homepage/Homepage";
-import Navbar from "./pages/navbar/navbar";
-import Message from "./pages/message/message";
-import Blog from "./pages/Blogs/Blog"
+
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import Homepage from "./pages/Homepage/Homepage";
+import Navbar from "./pages/newNav/Nav";
+import Message from "./pages/message/message";
+import Blog from "./pages/Blogs/Blog"
+import Notes from "./pages/notes/Notes"
 function App() {
    
   return (
@@ -20,24 +22,11 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         
-        <Route
-          path="/message" 
-          element={
-            <>
-              <Navbar />
-              <Message />
-            </>
+        <Route path="/message"  element={ <> <Navbar currentMenu={"message"} /> <Message /> </>
           }
         ></Route>
-        <Route
-          path="/blogs" 
-          element={
-            <>
-              <Navbar />
-              <Blog/>
-            </>
-          }
-        ></Route>
+        <Route path="/blogs"  element={<><Navbar currentMenu={"blogs"} />  <Blog/></>}></Route>
+        <Route path="/notes" element={<><Navbar currentMenu={"notes"} /> <Notes/></>}></Route>
       </Routes>
     </Router>
   );

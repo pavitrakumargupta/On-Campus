@@ -1,0 +1,98 @@
+.notesPage {
+  position: relative;
+  top: 17vh;
+
+  /* overflow-x: hidden; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+  margin: auto;
+  overflow-x: hidden;
+}
+
+.notesPage .card {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  width: 400px;
+  transition: box-shadow 0.3s ease-in-out;
+ 
+}
+
+.notesPage .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.notesPage .card-header {
+  background-color: #6c34e0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.notesPage .card-body {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+.notesPage .form-group {
+  margin-bottom: 20px;
+}
+
+.notesPage label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.notesPage input[type="text"],
+.notesPage input[type="file"] {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 100%;
+}
+
+.notesPage input[type="text"]:focus,
+.notesPage input[type="file"]:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(108, 52, 224, 0.5);
+}
+
+.notesPage .btn {
+  background-color: #6c34e0;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.notesPage .btn:hover {
+  background-color: #4c1f99;
+}
+.notesPage .card .form-group input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #ccc;
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 16px;
+  color: #333;
+}

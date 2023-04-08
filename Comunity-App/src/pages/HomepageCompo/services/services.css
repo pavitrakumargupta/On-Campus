@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Unbounded:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 .services {
   position: relative;
   top: 7rem;
@@ -44,6 +45,11 @@
 .services > .apps_out > .apps > div:hover {
   transform: scale(1.2);
   animation: btnAnimation 3s;
+}
+.services > .apps_out > .apps > div >p{
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 .services > .apps_out > .apps > div > div {
   background: #472d91;

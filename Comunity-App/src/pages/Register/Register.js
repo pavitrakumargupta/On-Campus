@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import Logo from "../../assets/logo.png"
 import "react-toastify/dist/ReactToastify.css";
 // import axios from "../../axios";
 
@@ -85,7 +86,8 @@ const Register = () => {
   return (
     <div className="RegisterLogin">
       <div className="form-body">
-        <h2>SignUp</h2>
+        <img src={Logo} style={{margin:"auto"}} width={150} alt="" />
+        <h2>Register  Yourself in the App</h2>
         <div className="username">
           <label className="form__label" for="firstName">
             First Name{" "}
@@ -114,7 +116,7 @@ const Register = () => {
           <label className="form__label" for="email">
             Email{" "}
           </label>
-          <span style={{ color: "red", fontSize: "10px" }}>
+          <span style={{ color: "white", fontSize: "10px" }}>
             *For authentication
           </span>
           <input
