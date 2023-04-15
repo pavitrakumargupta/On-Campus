@@ -22,11 +22,11 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         
-        <Route path="/message"  element={ <> <Navbar currentMenu={"message"} /> <Message /> </>
+        <Route path="/message"  element={ <div className="page"> <Navbar currentMenu={"message"} /> <Message /> </div>
           }
         ></Route>
-        <Route path="/blogs"  element={<><Navbar currentMenu={"blogs"} />  <Blog/></>}></Route>
-        <Route path="/notes" element={<><Navbar currentMenu={"notes"} /> <Notes/></>}></Route>
+        <Route path="/blogs"  element={<div className="page"><Navbar currentMenu={"blogs"} />  <Blog/></div>}></Route>
+        <Route path="/notes" element={<div className="page"><Navbar currentMenu={"notes"} /> <Notes/></div>}></Route>
       </Routes>
     </Router>
   );

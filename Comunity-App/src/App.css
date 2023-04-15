@@ -7,3 +7,16 @@
     font-family: "Lexend";
     font-style: normal;
 }
+.page{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    font-family: "Lexend";
+    font-style: normal;
+    max-height: 100vh;
+    /* max-width: 100vw; */
+    min-width: 100vw;
+    min-height: 100vh;
+    background: rgb(228, 230, 233);
+}
