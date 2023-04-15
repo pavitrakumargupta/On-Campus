@@ -83,24 +83,22 @@ const Blog = () => {
 
     const addLike = () => {
       let activeBlogCopy = { ...activeBlog };
-      activeBlogCopy.Like.push(user.details.email);
+      activeBlogCopy.Like.push(user.details.userId);
       setActiveBlog(activeBlogCopy);
     };
 
     const removeLike = () => {
+      let postid= activeBlog._id
       let activeBlogCopy = { ...activeBlog };
       activeBlogCopy.Like = activeBlogCopy.Like.filter(
-        (key) => user.details.email != key
+        (key) => user.details.userId != key
       );
+      let BlogsCopy = [...Blogs];
+      const deleteLike = BlogsCopy.find(Post => Post._id===postid);
+      let index=BlogsCopy.indexOf(deleteLike)
+      BlogsCopy[index].Like=activeBlogCopy.Like
       setActiveBlog(activeBlogCopy);
-
-      // let index = Blogs.indexOf(activeBlogCopy);
-      // setActiveBlog(activeBlogCopy);
-      // let BlogarrayCopy = [...Blogs];
-      // // console.log(BlogarrayCopy, 'copy');
-      // BlogarrayCopy[index] = activeBlogCopy;
-
-      // setBlogs(BlogarrayCopy);
+      setBlogs(BlogsCopy);
     };
 
     return (
@@ -117,7 +115,7 @@ const Blog = () => {
           <div className="image_Like_comment">
             <img src={activeBlog.coverImageLink} alt="" />
             <div className="reactionField">
-              {activeBlog.Like.includes(user.details.email) ? (
+              {activeBlog.Like.includes(user.details.userId) ? (
                 <AiFillLike
                   style={{ cursor: "pointer" }}
                   onClick={removeLike}
@@ -176,7 +174,7 @@ const Blog = () => {
           <div className="aaboutPost_aboutUser">
             <div className="aboutPost">
               <h6>{activeBlog.tittle}</h6>
-              <p>{activeBlog.content}</p>
+              <p style={{whiteSpace:"pre-wrap"}}>{activeBlog.content}</p>
             </div>
             <div className="aboutUser">
               <img src={activeBlog.userImage} alt="" />

@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 100px;
+  gap: 30px 100px;
   margin: auto;
   overflow-x: hidden;
 }
@@ -18,16 +18,17 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: fit-content;;
   overflow: hidden;
   width: 400px;
   transition: box-shadow 0.3s ease-in-out;
  
 }
 
-.notesPage .card:hover {
+/* .notesPage .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .notesPage .card-header {
   background-color: #6c34e0;
@@ -44,6 +45,7 @@
   justify-content: space-between;
   flex-direction: column;
   height: 100%;
+  overflow-y: auto;
 }
 
 .notesPage .form-group {
@@ -57,8 +59,7 @@
   margin-bottom: 5px;
 }
 
-.notesPage input[type="text"],
-.notesPage input[type="file"] {
+.notesPage input ,.notesPage select {
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -66,8 +67,12 @@
   width: 100%;
 }
 
-.notesPage input[type="text"]:focus,
-.notesPage input[type="file"]:focus {
+.notesPage input:focus,.notesPage select:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(108, 52, 224, 0.5);
+}
+.notesPage input:hover,
+.notesPage input :hover,.notesPage select:hover,.imageSection:hover {
   outline: none;
   box-shadow: 0 0 10px rgba(108, 52, 224, 0.5);
 }
@@ -81,12 +86,57 @@
   font-weight: bold;
   padding: 10px 20px;
   transition: background-color 0.3s ease-in-out;
+  margin: auto;
 }
 
 .notesPage .btn:hover {
   background-color: #4c1f99;
 }
-.notesPage .card .form-group input[type="text"] {
+.imageSection{
+  width: 50%;
+  margin: auto;
+  border-radius: 20px !important;
+}
+.imageUpload{
+  height:8rem;
+  margin-top:-8rem;
+  padding: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 20px;
+  
+}
+.imageUpload:hover{
+  outline: none;
+  box-shadow: 0 0 10px rgba(108, 52, 224, 0.5);
+}
+
+.imageUpload >img{
+  height: 5rem;
+  width: 5rem;
+  margin: auto;
+}
+
+.imageUpload>button{
+  width: 80%;
+  margin: auto;
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+}
+.imageInput{
+  /* width: 10rem; */
+  max-width: 100%;
+  height: 8rem;
+  z-index: 1;
+  padding: 0px !important;
+  opacity: 0;
+  
+}
+
+/* .notesPage .card .form-group input  ,.notesPage select{
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0px 0px 5px #ccc;
@@ -95,4 +145,23 @@
   width: 100%;
   font-size: 16px;
   color: #333;
+} */
+.notes{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+.notes>a{
+  /* height: 10rem; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  text-decoration: none;
+  color:  rgba(4, 4, 4, 0.7);
+  padding:20px 50px;
+  border-radius: 20px;
 }
