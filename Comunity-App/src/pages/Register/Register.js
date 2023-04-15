@@ -6,7 +6,7 @@ import Logo from "../../assets/logo.png"
 import "react-toastify/dist/ReactToastify.css";
 // import axios from "../../axios";
 
-import axios from "axios";
+import axios from "../../axios";
 // import apiCall from "../../apiCall";
 var md5 = require("md5");
  
@@ -61,7 +61,7 @@ const Register = () => {
     } else {
       setSubmitButtonDisabled(true);
       try {
-        const response = await axios.post("http://localhost:5000/setSignupDetails",{
+        const response = await axios.post("/setSignupDetails",{
           username: signupDetails.firstname + " " + signupDetails.lstname,
           email: signupDetails.email,
           password: signupDetails.password,
@@ -116,7 +116,7 @@ const Register = () => {
           <label className="form__label" for="email">
             Email{" "}
           </label>
-          <span style={{ color: "white", fontSize: "10px" }}>
+          <span >
             *For authentication
           </span>
           <input

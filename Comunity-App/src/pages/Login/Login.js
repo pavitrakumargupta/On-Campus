@@ -3,11 +3,11 @@ import "../Register/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import {ToastContainer,toast} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css" 
-import axios from "axios";
 import { useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actionCreators } from '../../state/index'
 import Logo from "../../assets/logo.png"
+import axios from "../../axios";
  
 // var md5 = require('md5');
 const Login = () => {
@@ -50,7 +50,7 @@ const Login = () => {
     }else{
       setSubmitButtonDisabled(true);
       try {
-        const response = await axios.post("http://localhost:5000/checkLogin",LoginDetail);
+        const response = await axios.post("/checkLogin",LoginDetail);
          if(!response.data.status){
           toast.error(response.data.msg,toast_style)
           setSubmitButtonDisabled(false);
