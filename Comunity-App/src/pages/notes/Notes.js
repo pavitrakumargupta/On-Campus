@@ -1,14 +1,29 @@
 import React, { useEffect, useState } from "react";
 import "./Notes.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import UploadImage from "../../uploadImage";
 import { useSelector } from "react-redux";
-import axios from "axios";
+import axios from "../../axios";
+import NoteImg from "./img/notes.png"
 
 const Notes = () => {
 
   const user = useSelector((state) => state);
+
+  const navigate = useNavigate();
+  const location = useLocation(); 
+  useEffect(() => {
+    if (user.details === "unset") {
+      localStorage.setItem(
+        "lastUrl",
+        JSON.stringify({ url: location.pathname })
+      );
+      navigate("/");
+    }
+  }, []);
+
+
   const uploadImage =
     "https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_960_720.png";
 
@@ -111,10 +126,10 @@ const Notes = () => {
 
   const handleSubmit=async (event)=>{
     if(notesAction==="upload"){
-      const upload=await axios.post("http://localhost:5000/uploadNotes",NotesDetail)
+      const upload=await axios.post("/uploadNotes",NotesDetail)
     }else if(notesAction=="get"){
       event.preventDefault();
-      const notes=await axios.post("http://localhost:5000/getNotes",NotesDetail)
+      const notes=await axios.post("/getNotes",NotesDetail)
       setNotesData(notes.data)
     }
   }
@@ -130,7 +145,7 @@ const Notes = () => {
           style={{padding: "50px",display:"flex",flexDirection:"column",gap:"2rem"}}
           className="card"
         >
-          <h4   style={{margin: "auto",fontSize: "30px",color: " #6c34e0",}} >Get Notes </h4>
+          <h4   style={{margin: "auto",fontSize: "30px",color: " #1D005B",}} >Get Notes </h4>
           <img style={{borderRadius:"150px",height:"10rem",width:"10rem",margin: "auto"}} src="https://clickup.com/blog/wp-content/uploads/2020/01/note-taking.png" alt="" />
         </div>
       )}
@@ -142,7 +157,7 @@ const Notes = () => {
           style={{padding: "50px",display:"flex",flexDirection:"column",gap:"2rem"}}
           className="card"
         >
-          <h4   style={{margin: "auto",fontSize: "30px",color: " #6c34e0",}} >Upload Notes </h4>
+          <h4   style={{margin: "auto",fontSize: "30px",color: " #1D005B",}} >Upload Notes </h4>
           <img style={{borderRadius:"50px",height:"10rem",width:"10rem",margin: "auto"}} src="https://cdn-icons-png.flaticon.com/512/338/338864.png" alt="" />
      </div>
       )}
@@ -255,16 +270,20 @@ const Notes = () => {
         </div>
       )}
     {
-      notesData&&<div className="notes">
+      notesAction === "get" &&notesData&&<div className="notes">
       <div>
         <h2>Notes :-</h2>
         <p>{notesData.length} - results</p>
       </div>
      
     {notesData.map(key=>(
-       <a href={key.notesLink} className="note">
+       <a href={key.notesLink} target="_blank" className="note">
+        <img src={NoteImg} alt="" />
+          <div>
           <h4>{key.tittle}</h4>
           <p>- {key.subject} {key.semester} Semester</p>
+          </div>
+          
        </a>
     ))}
     </div>
