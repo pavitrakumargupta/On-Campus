@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300&display=swap');
-nav{
+.homeNav{
     display: flex;
     justify-content: space-between;
     /* mix-blend-mode: luminosity; */
@@ -13,12 +13,13 @@ nav{
     gap: 2rem;
   
 }
-nav >img{
+.homeNav >img{
     
     margin: auto 10px;
-    height: 3.5rem;
+    height: 5rem;
+    width: 5.5rem;
 }
-nav > .nav_compo{
+.homeNav > .nav_compo{
     display: flex;
     margin: auto 1rem;
     margin-left: 0px;
@@ -26,7 +27,7 @@ nav > .nav_compo{
     justify-content: space-around;
     width: 70%;
 }
-nav > .nav_compo >.search{
+.homeNav > .nav_compo >.search{
     display: flex;
     gap: 5px;
     background: #FFFEFE;
@@ -38,20 +39,20 @@ nav > .nav_compo >.search{
 }
 
 
-nav > .nav_compo >.search>img{
+.homeNav > .nav_compo >.search>img{
     height: 30px;
 }
-nav > .nav_compo >.search>input{
+.homeNav > .nav_compo >.search>input{
     border: none;
     font-size: 20px;
     margin: auto;
 }
-nav > .nav_compo >.search>input:focus{
+.homeNav > .nav_compo >.search>input:focus{
     outline: none;
 }
 
  
-nav >.nav_compo>.help_setting{
+.homeNav >.nav_compo>.help_setting{
     display: flex;
     width: 20%;
     justify-content: space-between;
@@ -59,21 +60,21 @@ nav >.nav_compo>.help_setting{
     margin: auto;
     margin-top: 13px;
 }
-nav >.nav_compo>.help_setting>div{
+.homeNav >.nav_compo>.help_setting>div{
     display: flex;
     flex-direction: column;
 }
  
-nav >.nav_compo>.help_setting>div>img{
+.homeNav >.nav_compo>.help_setting>div>img{
     height: 40px;
     width: 40px;
 }
-nav >.nav_compo>.help_setting>div>span{
+.homeNav >.nav_compo>.help_setting>div>span{
     font-weight: 500;
 }
 
 
-nav > .nav_compo>.btn>button{
+.homeNav > .nav_compo>.btn>button{
     border-radius: 10px;
     padding: 10px 20px;
     font-size: 20px;
@@ -86,7 +87,7 @@ nav > .nav_compo>.btn>button{
     
 }
  
-nav > .nav_compo>.btn>button:hover{
+.homeNav > .nav_compo>.btn>button:hover{
     background-color: black;
     color: white;
 }
@@ -100,44 +101,44 @@ nav > .nav_compo>.btn>button:hover{
     cursor: pointer;
 }
 @media only screen and (max-width: 1300px) {
-    nav > .nav_compo{
+    .homeNav > .nav_compo{
         width: 80%;
     }
 }
 @media only screen and (max-width: 1100px) {
-    nav > .nav_compo{
+    .homeNav > .nav_compo{
         width: 90%;
     }
 }
-.mobileMenuIcon{
+.homeNav .mobileMenuIcon{
     position: absolute;
     font-size: 2.5rem;
     top: 50%;
     right: 5%;
     translate: -20% -50%;
 }
-.closeMenuOutline{
+.homeNav .closeMenuOutline{
      
     display: none;
 } 
 
 @media only screen and (max-width: 950px) {
-    nav{
+    .homeNav{
         display: flex;
         justify-content: space-between;
         padding: 5px;
     }
      
-     nav > .nav_compo >a > button{
+     .homeNav > .nav_compo >a > button{
         color: white;
      }
-     .menu{
+     .homeNav .menu{
         display: block;
         margin: auto 3rem;
         
         font-size: 40px;
      }
-     .mobileMenuBtn{
+     .homeNav .mobileMenuBtn{
         display: inline-block;
         z-index: 9999;
     }
@@ -161,7 +162,7 @@ nav > .nav_compo>.btn>button:hover{
         transform-origin: right;
         transition: all 0.2s linear;
     }
-    nav>.nav_compo{
+    .homeNav>.nav_compo{
         max-width: 53vw;
         height: 100vh;
         position: absolute;
@@ -175,34 +176,34 @@ nav > .nav_compo>.btn>button:hover{
         opacity: 0;
         transition: all 0.2s linear;
     }
-    nav>.nav_compo>.search, nav>.nav_compo>.help_setting, nav>.nav_compo>.login, nav>.nav_compo>.signin{
+    .homeNav>.nav_compo>.search, .homeNav>.nav_compo>.help_setting, .homeNav>.nav_compo>.login, .homeNav>.nav_compo>.signin{
         margin: 3rem auto;
     }
-    nav>.nav_compo>.help_setting{
+    .homeNav>.nav_compo>.help_setting{
         width: 100%;
         justify-content: space-around;
     }
-    nav>.nav_compo>.help_setting>div{
+    .homeNav>.nav_compo>.help_setting>div{
         background-color: white;
         border-radius: 100px;
         padding: 5px 15px;
     }
     
-    nav > .nav_compo>button{
+    .homeNav > .nav_compo>button{
         background-color: black;
         color: white;
         width: 70%;
         margin: 0px auto;
     }
-    nav > .nav_compo>.signin{
+    .homeNav > .nav_compo>.signin{
         background-color:#6C34E0;
         color: white;
     }
-    nav > .nav_compo>button:hover{
+    .homeNav > .nav_compo>button:hover{
         color: black;
         background-color: white;  
     }
-    nav > .nav_compo>.signin:hover{
+    .homeNav > .nav_compo>.signin:hover{
         color: #6C34E0;
         background-color: white;
     }

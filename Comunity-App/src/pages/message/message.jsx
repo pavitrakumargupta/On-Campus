@@ -1,14 +1,31 @@
-import React from "react";
+import React ,{useEffect}from "react";
 import "./message.css";
 import Sidebar from "../messageCompo/sidebar/sidebar";
-import Message from "../messageCompo/messageside/message";
-const message = () => {
+import ChatPage from "../messageCompo/messageside/message";
+import { useSelector } from "react-redux";
+import { useNavigate,useLocation } from "react-router-dom";
+const Message = () => {
+
+  const user = useSelector((state) => state);
+
+  const navigate = useNavigate();
+  const location = useLocation(); 
+  useEffect(() => {
+    if (user.details === "unset") {
+      localStorage.setItem(
+        "lastUrl",
+        JSON.stringify({ url: location.pathname })
+      );
+      navigate("/");
+    }
+  }, []);
+
   return (
-    <div className="message">
+    <div className="messagePage">
       <Sidebar />
-      <Message/>
+      <ChatPage/>
     </div>
   );
 };
 
-export default message;
+export default Message;

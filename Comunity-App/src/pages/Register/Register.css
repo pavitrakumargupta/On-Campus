@@ -10,6 +10,9 @@
   align-items: center;
   padding: 0px;
   overflow-y: auto;
+  scroll-behavior: smooth;
+    font-family: "Lexend";
+    font-style: normal;
 }
 
 .RegisterLogin > .form-body {
@@ -26,7 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: rgb(0, 0, 0,0.4);
+  background-color: rgb(0, 0, 0,0.55);
   
   
  
@@ -50,36 +53,41 @@
   padding-left: 5px;
   font-weight: 700;
   font-size: 1rem;
-  color:#250761;
+  color:#1D005B;
+}
+.RegisterLogin > .form-body > div >span{
+  color: rgb(220, 74, 16);
+  letter-spacing: 1px;
+  font-size: 12px;
 }
 .RegisterLogin > .form-body > div > input {
   border-radius: 5px;
-  border: 2px solid #dddddd;
+  border: 2px solid #6950a0;
   outline: none;
   padding: 10px 15px;
-  color:  #282828;
+  color:  #110231;
   font-size: 18px;
   background-color: transparent;
 }
 .RegisterLogin > .form-body > div > input::placeholder{
-  color:#6c34e0;
+  color:#413164;
 }
 .RegisterLogin > .form-body > div > input:focus::placeholder{
-  color: #393939;
+  /* color: #393939; */
 }
 
 .RegisterLogin > .form-body > div > input:hover {
-  border-color: #ccc;
+  border-color: #A67DFD;
 }
 .RegisterLogin > .form-body > div > input:focus {
-  border-color: #6c34e0;
+  border-color:#A67DFD;
 }
 .RegisterLogin> .form-body > div>button {
   outline: none;
   border: none;
-  background-color: #6c34e0;
+  background-color: #1D005B;
   border-radius: 50px;
-  color: #fff;
+  color: #ffff;
   border-radius: 5px;
   font-weight: bold;
   font-size: 1rem;
@@ -94,16 +102,17 @@
   background-color: gray !important;
 }
 .RegisterLogin > .form-body > div > button:hover {
-  background-color: #9900ff;
+  background-color: #3901bc;
+  color: #ffff;
 }
 .RegisterLogin > .form-body > div > p {
   font-weight: 700;
-  color: #000;
+  color: #1D005B;
 }
 
 .RegisterLogin > .form-body > div > p span a {
   font-weight: bold;
-  color: #9900ff;
+  color: #A67DFD;
   letter-spacing: 1px;
   font-size: 1rem;
   text-decoration: none;

@@ -9,7 +9,7 @@ const Services = () => {
       name: "Messages",
       url:"message",
       image:
-        "https://user-images.githubusercontent.com/88044814/218287759-ecfe41ea-bc88-4d04-a632-588dd4a296bd.png",
+        "https://icons-for-free.com/iconfiles/png/512/facebook+media+message+messenger+social+texting+icon-1320137114598336657.png",
     },
     {
       name: "News & Updates",

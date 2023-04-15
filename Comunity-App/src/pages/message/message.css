@@ -1,5 +1,5 @@
-.message{
-    position: relative;
-    top: 11vh;
+.messagePage{
     display: flex;
+    flex-grow: 1;
+    overflow-y: hidden;
 }

@@ -1,11 +1,11 @@
 .blogPage {
-  position: relative;
-  top: 12.2vh;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
-  /* overflow-x: hidden; */
-
   overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #ffffff;
+  
 }
 .blogPage > img {
   display: none;
@@ -175,7 +175,7 @@
   width: 400px;
 }
 .UploadedBox>img{
-  height: 50px;
+ 
 }
 .UploadedBox{
   display: flex;
@@ -184,7 +184,7 @@
   padding: 10px;
   border-radius: 10px;
   background-color: #ffffff;
-  width: 80%;
+  width: 50%;
   border: 2px solid rgb(150, 150, 150);
 }
 .dleteImage{

@@ -126,7 +126,8 @@ const Message = () => {
           alt=""
         />
         <div className="messageinput">
-          <input value={input_message} name="me: " onChange={handleMessage} onKeyDown={handleKeyDown} placeholder="Type a Message" type="text" />
+          {/* <input value={input_message} name="me: " onChange={handleMessage} onKeyDown={handleKeyDown} placeholder="Type a Message" type="text" /> */}
+          <textarea value={input_message} name="me: " onChange={handleMessage} onKeyDown={handleKeyDown} placeholder="Type a Message" type="text"></textarea>
           {/* <img src={send} alt="" /> */}
           <RiSendPlaneLine onClick={sendMessage} className="send" />
         </div>

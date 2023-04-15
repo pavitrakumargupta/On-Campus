@@ -4,15 +4,17 @@
   align-items: center;
   background-color: #fff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
+  padding: 0px ;
   /* padding: 1rem; */
   z-index: 2;
 }
 
-.logo img {
+.navbar>.logo img {
     margin: auto 10px;
     margin-top: 5px;
-    height: 3.5rem;
+    height: 5rem;
+    width: 5.5rem;
+     
 }
 .navbar .profile > img {
   height: 60px;
@@ -31,7 +33,7 @@
 
 .menu-items a {
   text-decoration: none;
-  color: #333;
+  color: #1D005B;
   font-weight: bold;
   font-size: 1.2rem;
   margin: auto;
@@ -39,17 +41,16 @@
 }
 
 .menu-items a:hover {
-  color: #6214ff;
+  color: #A67DFD;
 }
 .navbar .mobileMenuBtn {
   display: none;
   cursor: pointer;
 }
 .navbar .mobileMenuIcon {
-  position: absolute;
+  position: relative;
+  top: 20px;
   font-size: 2.5rem;
-  top: 50%;
-  right: 5%;
   translate: -20% -50%;
 }
 .navbar .closeMenuOutline {
@@ -66,7 +67,7 @@
   }
   .navbar .mobileMenuBtn {
     display: inline-block;
-    z-index: 9999;
+    z-index: 9;
   }
 
   .navbar .menu-items {
@@ -85,6 +86,7 @@
     transition: all 0.2s linear;
     justify-content: spa;
     gap: 25px;
+    display: none;
   }
   .navbar .profile {
     position: absolute;
@@ -103,23 +105,25 @@
     display: inline-block;
     color: white;
     border: 2px solid white;
-    position: absolute;
+     
     top: 30px;
     border-radius: 20px;
   }
   .showMobileNav .sidebar {
-    display: block;
     width: 40vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     width: 40vw;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
+ 
+    display: block;
   }
 
   .showMobileNav .menu-items {
     visibility: visible;
+    display: flex;
     opacity: 1;
     z-index: 999;
     transform-origin: right;

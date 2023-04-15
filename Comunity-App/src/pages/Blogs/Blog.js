@@ -5,7 +5,7 @@ import { AiFillLike, AiOutlineLike, AiFillCloseCircle } from "react-icons/ai";
 import { FaRegCommentDots, FaCommentDots } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import { BiDotsHorizontal } from "react-icons/bi";
-import axios from "axios";
+import axios from "../../axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -45,7 +45,7 @@ const Blog = () => {
 
   useEffect(() => {
     const fetchBlogsData = async () => {
-      const response = await axios.get("http://localhost:5000/getAllPost");
+      const response = await axios.get("/getAllPost");
       setBlogs(response.data);
       // console.log(response.data[0]._id);
     };
@@ -83,24 +83,22 @@ const Blog = () => {
 
     const addLike = () => {
       let activeBlogCopy = { ...activeBlog };
-      activeBlogCopy.Like.push(user.details.email);
+      activeBlogCopy.Like.push(user.details.userId);
       setActiveBlog(activeBlogCopy);
     };
 
     const removeLike = () => {
+      let postid= activeBlog._id
       let activeBlogCopy = { ...activeBlog };
       activeBlogCopy.Like = activeBlogCopy.Like.filter(
-        (key) => user.details.email != key
+        (key) => user.details.userId != key
       );
+      let BlogsCopy = [...Blogs];
+      const deleteLike = BlogsCopy.find(Post => Post._id===postid);
+      let index=BlogsCopy.indexOf(deleteLike)
+      BlogsCopy[index].Like=activeBlogCopy.Like
       setActiveBlog(activeBlogCopy);
-
-      // let index = Blogs.indexOf(activeBlogCopy);
-      // setActiveBlog(activeBlogCopy);
-      // let BlogarrayCopy = [...Blogs];
-      // // console.log(BlogarrayCopy, 'copy');
-      // BlogarrayCopy[index] = activeBlogCopy;
-
-      // setBlogs(BlogarrayCopy);
+      setBlogs(BlogsCopy);
     };
 
     return (
@@ -117,7 +115,7 @@ const Blog = () => {
           <div className="image_Like_comment">
             <img src={activeBlog.coverImageLink} alt="" />
             <div className="reactionField">
-              {activeBlog.Like.includes(user.details.email) ? (
+              {activeBlog.Like.includes(user.details.userId) ? (
                 <AiFillLike
                   style={{ cursor: "pointer" }}
                   onClick={removeLike}
@@ -176,7 +174,7 @@ const Blog = () => {
           <div className="aaboutPost_aboutUser">
             <div className="aboutPost">
               <h6>{activeBlog.tittle}</h6>
-              <p>{activeBlog.content}</p>
+              <p style={{whiteSpace:"pre-wrap"}}>{activeBlog.content}</p>
             </div>
             <div className="aboutUser">
               <img src={activeBlog.userImage} alt="" />
@@ -189,9 +187,9 @@ const Blog = () => {
   };
 
   const [postBlogWindow, setPostBlogWindow] = useState(false);
-  const handleSubmitBlog = (BlogDetail,_id) => {
+  const handleSubmitBlog =async (BlogDetail,_id) => {
     if(postAction==="post"){
-      const response = axios.post("http://localhost:5000/createPost", BlogDetail);
+      const response =await axios.post("/createPost", BlogDetail);
       let BlogsCopy = [...Blogs];
       BlogsCopy.push(BlogDetail);
       setBlogs(BlogsCopy);
@@ -199,7 +197,7 @@ const Blog = () => {
       let edit_Post=BlogDetail
       edit_Post._id=_id
       console.log(edit_Post);
-      const response = axios.post("http://localhost:5000/editPost", edit_Post);
+      const response = axios.post("/editPost", edit_Post);
       let BlogsCopy = [...Blogs];
       const render_edit = BlogsCopy.find(Post => Post._id===_id);
       let index=BlogsCopy.indexOf(render_edit)
@@ -223,7 +221,7 @@ const Blog = () => {
       setPostBlogWindow(true);
       setPostAction(name)
     }else if(name==="delete"){
-      const response = axios.post("http://localhost:5000/deletePost",{_id:Blog._id});
+      const response = axios.post("/deletePost",{_id:Blog._id});
       let BlogsCopy = [...Blogs];
       let index=BlogsCopy.indexOf(Blog)
       BlogsCopy =BlogsCopy.slice(index+1)

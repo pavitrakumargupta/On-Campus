@@ -33,17 +33,11 @@ const PostBlog = ({ user, handleSubmitBlog, closeWindow,BlogDetail }) => {
     handleSubmitBlog(NewpostDetails,BlogDetail!==null?BlogDetail._id:"");
   };
 
-  const editPost = async () => {
-    const response = await axios.post(
-      "http://localhost:5000/editPost",
-      NewpostDetails
-    );
-  };
-
+ 
   const [imagePath, setimagePath] = useState("");
 
   const handleImageUpload = async (event) => {
-    const ImagDetails = await UploadImage(event.target.files[0], "upload");
+    const ImagDetails = await UploadImage(event.target.files[0],"blogs", "upload");
     setImage(event.target.files[0].name);
     setimagePath(ImagDetails.pathname);
     let NewpostDetailsCopy = { ...NewpostDetails };
@@ -106,29 +100,35 @@ const PostBlog = ({ user, handleSubmitBlog, closeWindow,BlogDetail }) => {
         </div>
         <div className="ImageUpload">
           <label>Upload Cover Image</label>
-          <input type="file" onChange={handleImageUpload} />
+          <input type="file" accept="image/*" onChange={handleImageUpload} />
+
           <div>
             <img
               src="https://img.freepik.com/premium-vector/gallery-simple-icon-vector-image-picture-sign-neumorphism-style-mobile-app-web-ui-vector-eps-10_532800-801.jpg"
               alt=""
             />
             <button>Browse Cover Image</button>
-            {NewpostDetails.coverImageLink !== "" && (
+          </div>
+          
+        </div>
+        
+        <div>
+          <label style={{textAlign:"center",marginBottom:"20px"}} htmlFor="">*Or Enter ImageLink Directly</label>
+          <input onChange={handleChange} type="text" placeholder="Eg- : https://www.abc.com " name="coverImageLink"  value={NewpostDetails.coverImageLink}  />
+        </div>
+        {NewpostDetails.coverImageLink !== "" && (
               <div className="UploadedBox">
                 <img
                   className="UploadedImage"
                   src={NewpostDetails.coverImageLink}
                 />
                 <p>{Image}</p>
-                <MdOutlineDeleteOutline
+                {imagePath&&<MdOutlineDeleteOutline
                   onClick={handleImageDelete}
                   className="dleteImage"
-                />
+                />}
               </div>
             )}
-          </div>
-        </div>
-
         <button
           className="postBlogWindowBtn PostBtn"
           disabled={PostbtnDisabled}

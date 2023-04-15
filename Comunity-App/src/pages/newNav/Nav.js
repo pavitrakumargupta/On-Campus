@@ -43,7 +43,7 @@ const Navbar = ({currentMenu}) => {
        
       <div className="menu-items">
         {menuItem.map(key=>(
-            <Link onClick={()=>setActiveMenu(key.name)} style={{color:key.name==activeMenu&&"#6214ff"}} to={"/"+key.name}>{key.content}</Link>
+            <Link onClick={()=>setActiveMenu(key.name)} style={{color:key.name==activeMenu&&"#A67DFD"}} to={"/"+key.name}>{key.content}</Link>
         ))}
       </div>
       <div className="profile">
