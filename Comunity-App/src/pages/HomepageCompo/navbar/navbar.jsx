@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={menuIcon ? "nav active" : "nav"}>
+    <nav className={menuIcon ? "homeNav active" : "homeNav"}>
       <img src={Logo} alt="" />
       <div className="nav_compo">
         <div className="search">

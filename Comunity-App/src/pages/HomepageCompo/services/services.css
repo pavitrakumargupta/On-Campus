@@ -8,13 +8,15 @@
   flex-direction: column;
   gap: 5rem;
   flex-grow: 1;
+  font-family: "Lexend";
+    font-style: normal;
   
 }
 .services > .apps_out {
-  background: #6c34e0;
-  box-shadow: 6px 6px 6px rgba(109, 51, 225, 0.61);
+  background: #1D005B;
+  box-shadow: 2px 2px 6px rgba(32, 0, 240, 0.606);
   border-radius: 41px;
-  width: 80%;
+  width: 90%;
   position: relative;
   top: 3rem;
   margin: 0 AUTO;
@@ -23,8 +25,7 @@
   flex-direction: column;
   gap: 20px;
   padding: 2rem;
-  font-family: "Lobster", cursive;
-  font-family: "Unbounded", cursive;
+ 
 }
 .services > .apps_out > h2 {
   font-family: "Tourney", cursive;
@@ -34,12 +35,13 @@
   letter-spacing: 5px;
   margin: 0px;
   word-spacing: 10px;
+  color: #ffffff;
 }
 .services > .apps_out > .apps {
   display: flex;
   gap: 1rem 4em;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   font-family: "Pacifico", cursive;
 }
 .services > .apps_out > .apps > div:hover {
@@ -50,14 +52,20 @@
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
   letter-spacing: 2px;
+  color: #ffffff;
+}
+.services > .apps_out > .apps > div{
+  padding: 10px;
 }
 .services > .apps_out > .apps > div > div {
-  background: #472d91;
+  background: #1D005B;
   border-radius: 500px;
   padding: 10px;
   height: 60px;
   width: 60px;
   margin: auto;
+  border: 1px solid #A67DFD;
+  /* padding: 15px; */
 }
 .services > .apps_out > .apps > div > div > img {
   height: 60px;
@@ -70,7 +78,7 @@
 }
 .cards_services > div {
   background: #ffffff;
-  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px rgba(62, 0, 133, 0.29);
   border-radius: 50px;
   position: relative;
   top: 3rem;
@@ -89,12 +97,10 @@
 }
 .cards_services > div > h4 {
   text-align: center;
-  font-family: "Poetsen One";
-  font-style: normal;
   font-weight: 400;
   font-size: 32px;
   line-height: 38px;
-  color: #6b6565;
+  color: #1D005B;
 }
 @media only screen and (max-width: 900px) {
   .services > .apps_out > .apps {

@@ -3,10 +3,10 @@ import Navbar from "../HomepageCompo/navbar/navbar";
 import "./Homepage.css";
 import Services from "../HomepageCompo/services/services";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { actionCreators } from "../../state/index";
+import axios from "../../axios";
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const Homepage = () => {
       const checkingLogin = async () => {
         try {
           const response = await axios.post(
-            "http://localhost:5000/checkLogin",
+            "/checkLogin",
             {
               email: userHistory.email,
               password: userHistory.password,
