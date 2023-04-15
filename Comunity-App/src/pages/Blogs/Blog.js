@@ -5,7 +5,7 @@ import { AiFillLike, AiOutlineLike, AiFillCloseCircle } from "react-icons/ai";
 import { FaRegCommentDots, FaCommentDots } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import { BiDotsHorizontal } from "react-icons/bi";
-import axios from "axios";
+import axios from "../../axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -45,7 +45,7 @@ const Blog = () => {
 
   useEffect(() => {
     const fetchBlogsData = async () => {
-      const response = await axios.get("http://localhost:5000/getAllPost");
+      const response = await axios.get("/getAllPost");
       setBlogs(response.data);
       // console.log(response.data[0]._id);
     };
@@ -187,9 +187,9 @@ const Blog = () => {
   };
 
   const [postBlogWindow, setPostBlogWindow] = useState(false);
-  const handleSubmitBlog = (BlogDetail,_id) => {
+  const handleSubmitBlog =async (BlogDetail,_id) => {
     if(postAction==="post"){
-      const response = axios.post("http://localhost:5000/createPost", BlogDetail);
+      const response =await axios.post("/createPost", BlogDetail);
       let BlogsCopy = [...Blogs];
       BlogsCopy.push(BlogDetail);
       setBlogs(BlogsCopy);
@@ -197,7 +197,7 @@ const Blog = () => {
       let edit_Post=BlogDetail
       edit_Post._id=_id
       console.log(edit_Post);
-      const response = axios.post("http://localhost:5000/editPost", edit_Post);
+      const response = axios.post("/editPost", edit_Post);
       let BlogsCopy = [...Blogs];
       const render_edit = BlogsCopy.find(Post => Post._id===_id);
       let index=BlogsCopy.indexOf(render_edit)
@@ -221,7 +221,7 @@ const Blog = () => {
       setPostBlogWindow(true);
       setPostAction(name)
     }else if(name==="delete"){
-      const response = axios.post("http://localhost:5000/deletePost",{_id:Blog._id});
+      const response = axios.post("/deletePost",{_id:Blog._id});
       let BlogsCopy = [...Blogs];
       let index=BlogsCopy.indexOf(Blog)
       BlogsCopy =BlogsCopy.slice(index+1)
