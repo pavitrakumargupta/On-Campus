@@ -9,7 +9,7 @@ import axios from "../../axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { Editor } from "@tinymce/tinymce-react";
+// import { Editor } from "@tinymce/tinymce-react";
 import PostBlog from "./PostBlog";
 
 const Blog = () => {

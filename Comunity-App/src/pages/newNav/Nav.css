@@ -7,6 +7,9 @@
   padding: 0px ;
   /* padding: 1rem; */
   z-index: 2;
+  max-height: 12vh;
+    min-height: 12vh;
+
 }
 
 .navbar>.logo img {
@@ -17,14 +20,14 @@
      
 }
 .navbar .profile > img {
-  height: 60px;
+  height: 60px; 
   margin-right: 10px;
   border-radius: 100px;
 }
 
 .menu-toggle {
   display: none;
-}
+} 
 
 .menu-items {
   display: flex;

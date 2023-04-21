@@ -15,8 +15,31 @@
     font-family: "Lexend";
     font-style: normal;
     max-height: 100vh;
-    /* max-width: 100vw; */
+    /* max-width: 100vw; */ 
     min-width: 100vw;
     min-height: 100vh;
     background: rgb(228, 230, 233);
 }
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  
+  
+  ::-webkit-scrollbar-thumb {
+    background: #666667;
+    border-radius: 10px;
+  }
+  
+  
+  
+  @media screen and (max-width:900px) {
+    .messagePage>.sidebar{
+      display: none;
+    }
+    
+  }

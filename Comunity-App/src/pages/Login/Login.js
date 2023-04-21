@@ -11,9 +11,10 @@ import axios from "../../axios";
  
 // var md5 = require('md5');
 const Login = () => {
+
   const dispatch=useDispatch()
   useEffect(() => {
-    const userHistory = JSON.parse(localStorage.getItem("ComUnity"));
+    const userHistory = JSON.parse(localStorage.getItem("ComUnity")); 
     if (userHistory !== null) {
       navigate("/");
     }
