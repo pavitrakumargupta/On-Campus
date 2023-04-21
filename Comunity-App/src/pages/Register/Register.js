@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import axios from "../../axios";
 // import apiCall from "../../apiCall";
-var md5 = require("md5");
+// var md5 = require("md5");
  
 const Register = () => {
   const navigate = useNavigate();
@@ -27,6 +27,7 @@ const Register = () => {
   const [signupDetails, setSignupDetails] = useState({
     firstname: "",
     lstname: "",
+    username:"",
     email: "",
     password: "",
     conf_password: "",
@@ -61,13 +62,7 @@ const Register = () => {
     } else {
       setSubmitButtonDisabled(true);
       try {
-        const response = await axios.post("/setSignupDetails",{
-          username: signupDetails.firstname + " " + signupDetails.lstname,
-          email: signupDetails.email,
-          password: signupDetails.password,
-          otp: signupDetails.otp,
-        });
-        console.log(response.data);
+        const response = await axios.post("/setSignupDetails",signupDetails);
         if (signupDetails.otp === "" && response.data.status) {
           setFillotp(true);
           setSubmitButtonDisabled(false);
@@ -82,104 +77,47 @@ const Register = () => {
       }
     }
   };
-
+    
   return (
     <div className="RegisterLogin">
       <div className="form-body">
         <img src={Logo} style={{margin:"auto"}} width={150} alt="" />
         <h2>Register  Yourself in the App</h2>
         <div className="username">
-          <label className="form__label" for="firstName">
-            First Name{" "}
-          </label>
-          <input
-            className="form__input"
-            onChange={handleDetail}
-            name="firstname"
-            type="text"
-            placeholder="First Name"
-          />
+          <label className="form__label" for="firstName"> First Name{" "}</label>
+          <input className="form__input" onChange={handleDetail} name="firstname" type="text" placeholder="First Name" />
         </div>
         <div className="lastname">
-          <label className="form__label" for="lastName">
-            Last Name{" "}
-          </label>
-          <input
-            type="text"
-            name="lstname"
-            onChange={handleDetail}
-            className="form__input"
-            placeholder="LastName"
-          />
+          <label className="form__label" for="lastName"> Last Name{" "}  </label>
+          <input type="text" name="lstname" onChange={handleDetail} className="form__input" placeholder="LastName" />
+        </div>
+        <div className="UserName">
+          <label className="form__label" for="username"> User Name{" "}</label>
+          <input type="text" name="username" onChange={handleDetail} className="form__input" placeholder="User Name" />
         </div>
         <div className="email">
-          <label className="form__label" for="email">
-            Email{" "}
-          </label>
-          <span >
-            *For authentication
+          <label className="form__label" for="email"> Email{" "}  </label>
+          <span > *For authentication
           </span>
-          <input
-            type="email"
-            name="email"
-             
-            onChange={handleDetail}
-            className="form__input"
-            placeholder="Email"
-          />
+          <input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
         </div>
         <div className="password">
-          <label className="form__label" for="password">
-            Password{" "}
-          </label>
-          <input
-            className="form__input"
-            onChange={handleDetail}
-            name="password"
-            type="password"
-            placeholder="Password"
-          />
+          <label className="form__label" for="password"> Password{" "}  </label>
+          <input className="form__input" onChange={handleDetail} name="password" type="password" placeholder="Password" />
         </div>
         <div className="confirm-password">
-          <label className="form__label" for="confirmPassword">
-            Confirm Password{" "}
-          </label>
-          <input
-            className="form__input"
-            onChange={handleDetail}
-            name="conf_password"
-            type="password"
-            placeholder="Confirm Password"
-          />
+          <label className="form__label" for="confirmPassword"> Confirm Password{" "}  </label>
+          <input className="form__input" onChange={handleDetail} name="conf_password" type="password" placeholder="Confirm Password" />
         </div>
         {Fill_otp && (
-          <div className="confirm-password">
-            <label className="form__label" for="confirmPassword">
-              Enter OTP{" "}
-            </label>
-            <input
-              className="form__input"
-              onChange={handleDetail}
-              name="otp"
-              type="text"
-              placeholder="Enter OTP"
-            />
+          <div className="confirm-password"> <label className="form__label" for="confirmPassword">   Enter OTP{" "} </label> <input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />
           </div>
         )}
         <div>
-          <button
-            onClick={onSubmit}
-            type="submit"
-            className="btn"
-            disabled={submitButtonDisabled}
-          >
-            {Fill_otp ? "Confirm Otp" : "Register"}
+          <button onClick={onSubmit} type="submit" className="btn" disabled={submitButtonDisabled}
+          > {Fill_otp ? "Confirm Otp" : "Register"}
           </button>
-          <p>
-            Already have an account?{" "}
-            <span>
-              <Link to="/login">Login</Link>
-            </span>
+          <p> Already have an account?{" "} <span>   <Link to="/login">Login</Link> </span>
           </p>
         </div>
       </div>

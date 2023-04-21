@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800&display=swap');
+ 
+.chatPage{
+    /* overflow: auto; */
+    max-height: 100%;
+    flex-grow: 1;
+    color: #1D005B !important;
+    font-family: "Lexend";
+    font-style: normal;
+}
+ 
+.chatPage .ce-wrapper {
+    max-height: 88vh;
+    min-height: 88vh;
+    flex-grow: 1;
+}  
+
+#ce-feed-container{
+    max-height: 85vh !important;
+}
+#new-chat-plus-button,.ce-message-bubble,#ce-send-message-button{
+    background-color: #A67DFD !important;
+    
+}
+.ce-chat-title-container{
+    background-color: rgb(168, 168, 168,0.3);
+    color: #1D005B !important;
+    border-bottom: 1px solid rgba(132, 132, 132, 0.2) ;
+}
+#ce-send-message-button:hover{
+    background-color: #1D005B !important;
+}
+.ce-message-timestamp{
+    color:  #1D005B !important;
+}
+.ce-chat-subtitle-text{
+    color: #A67DFD !important;
+}
+.ce-chats-container{
+    font-family: "Lexend";
+    font-style: normal;
+}
+#ce-feed-container {
+    /* Set overflow-y to auto to enable vertical scrolling */
+    /* overflow-y: auto; */
+    /* Set scroll-behavior to smooth for smooth scrolling animation */
+    scroll-behavior: smooth !important;
+    /* Set scroll-snap-type to y mandatory for snapping to the nearest chat bubble */
+    scroll-snap-type: y mandatory !important;
+  }
+.ce-settings-container{
+    font-family: "Lexend";
+    font-style: normal;
+}
+@media screen and (max-width:524px) {
+    .ce-chats-container{
+        margin-top: 100px !important;
+    }
+    .ce-chat-settings-mobile-option>div>div{
+        margin-top: 100px;
+    }
+}

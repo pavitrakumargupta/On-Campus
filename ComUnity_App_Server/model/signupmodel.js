@@ -3,8 +3,6 @@ const dotenv = require('dotenv');
 
 dotenv.config({ path: "$__dirname/../.env" });
 
- 
-
 const DB = process.env.DATABASE
 
 mongoose
@@ -20,6 +18,7 @@ mongoose
 
 
 const userShema= new mongoose.Schema({
+  name:String,
   username: String,
   email: String,
   password: String,
