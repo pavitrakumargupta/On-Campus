@@ -96,7 +96,7 @@
 
  
  
-.mobileMenuBtn{
+.homeNav .mobileMenuBtn{
     display: none;
     cursor: pointer;
 }
@@ -128,7 +128,21 @@
         justify-content: space-between;
         padding: 5px;
     }
-     
+    .homeNav>.nav_compo{
+        max-width: 53vw;
+        height: 100vh;
+        position: absolute;
+        padding-top: 5rem;
+        top: 0;
+        right: -50px;
+        padding-right: 50px;
+        background-color:  rgba(0,0,0,.5); 
+        flex-direction: column;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.2s linear;
+    } 
+
      .homeNav > .nav_compo >a > button{
         color: white;
      }
@@ -162,20 +176,7 @@
         transform-origin: right;
         transition: all 0.2s linear;
     }
-    .homeNav>.nav_compo{
-        max-width: 53vw;
-        height: 100vh;
-        position: absolute;
-        padding-top: 5rem;
-        top: 0;
-        right: -50px;
-        padding-right: 50px;
-        background-color:  rgba(0,0,0,.5); 
-        flex-direction: column;
-        visibility: hidden;
-        opacity: 0;
-        transition: all 0.2s linear;
-    }
+    
     .homeNav>.nav_compo>.search, .homeNav>.nav_compo>.help_setting, .homeNav>.nav_compo>.login, .homeNav>.nav_compo>.signin{
         margin: 3rem auto;
     }
