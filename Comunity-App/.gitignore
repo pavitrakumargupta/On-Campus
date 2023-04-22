@@ -5,13 +5,13 @@
 /.pnp
 .pnp.js
 /firebase.js
-**/.env
+.env
 
 # testing
 /coverage
 
 # production
-/build
+
 
 # misc
 .DS_Store
