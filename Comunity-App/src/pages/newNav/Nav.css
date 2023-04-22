@@ -25,16 +25,16 @@
   border-radius: 100px;
 }
 
-.menu-toggle {
+.navbar .menu-toggle {
   display: none;
 } 
 
-.menu-items {
+.navbar .menu-items {
   display: flex;
   gap: 2rem;
 }
 
-.menu-items a {
+.navbar .menu-items a {
   text-decoration: none;
   color: #1D005B;
   font-weight: bold;
@@ -43,7 +43,7 @@
   text-align: center;
 }
 
-.menu-items a:hover {
+.navbar .menu-items a:hover {
   color: #A67DFD;
 }
 .navbar .mobileMenuBtn {
