@@ -3,4 +3,4 @@
 
 
 
- link[https://comunity.netlify.app]
+[Comunity.com](https://comunity.netlify.app)
