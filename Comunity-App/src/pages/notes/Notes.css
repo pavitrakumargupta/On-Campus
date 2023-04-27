@@ -12,6 +12,8 @@
   overflow-x: hidden;
   overflow-y: auto;
   padding: 50px 0;
+  animation: fadeIn 0.5s ease-in-out;
+
 }
 
 .notesPage .card {
@@ -83,7 +85,7 @@
 .notesPage input:hover,
 .notesPage input :hover,.notesPage select:hover,.imageSection:hover {
   outline: none;
-  box-shadow: 0 0 10px rgba(108, 52, 224, 0.5);
+ 
 }
 
 .notesPage .btn {
@@ -144,6 +146,15 @@
   opacity: 0;
   
 }
+.UploadedBox{
+  width: fit-content;
+}
+.UploadedBox>p{
+  margin: auto 0;
+}
+.UploadedImage{
+  width: 150px;
+}
 
 /* .notesPage .card .form-group input  ,.notesPage select{
   border: 1px solid #ccc;
@@ -174,6 +185,7 @@
   border-radius: 20px;
   box-shadow: 2px 5px 5px 5px rgba(0, 0, 0, 0.2);
   text-align: left;
+  animation: fadeIn 0.5s ease-in-out;
 }
 .notes>a:hover{
   transform: scale(1.01);

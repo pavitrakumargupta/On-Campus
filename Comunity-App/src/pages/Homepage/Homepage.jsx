@@ -32,6 +32,7 @@ const Homepage = () => {
             } 
           );
           if (!response.data.status) {
+            localStorage.clear("ComUnity")
             navigate("/login");
           } else {
             setUserDetail();

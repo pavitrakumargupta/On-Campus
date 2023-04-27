@@ -5,6 +5,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   background-color: #ffffff;
+  animation: fadeIn 0.5s ease-in-out;
   
 }
 .blogPage > img {

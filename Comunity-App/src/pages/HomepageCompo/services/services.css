@@ -9,7 +9,8 @@
   gap: 5rem;
   flex-grow: 1;
   font-family: "Lexend";
-    font-style: normal;
+  font-style: normal;
+  
   
 }
 .services > .apps_out {
@@ -24,7 +25,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 2rem;
+  padding: 2rem 0
  
 }
 .services > .apps_out > h2 {
@@ -43,6 +44,7 @@
   flex-wrap: wrap;
   justify-content: center;
   font-family: "Pacifico", cursive;
+  
 }
 .services > .apps_out > .apps > div:hover {
   transform: scale(1.2);
@@ -56,6 +58,7 @@
 }
 .services > .apps_out > .apps > div{
   padding: 10px;
+  animation: fadeIn 0.5s ease-in-out;
 }
 .services > .apps_out > .apps > div > div {
   background: #1D005B;
@@ -75,6 +78,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5rem;
+  animation: fadeIn 0.5s ease-in-out;
 }
 .cards_services > div {
   background: #ffffff;
@@ -84,6 +88,7 @@
   top: 3rem;
   padding: 10px;
   width: 300px;
+  
 }
 .cards_services > div:hover {
   transform: scale(1.2);

@@ -1,0 +1,137 @@
+.News-container {
+    width: 100vw;
+  margin: 0 auto;
+  padding: 20px;
+ 
+}
+.News-container>div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.News-title {
+  text-align: center;
+}
+.news-form-container {
+    flex: 1;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.news-form-title {
+  text-align: center;
+}
+
+.news-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.news-form-input {
+  padding: 10px;
+}
+
+.news-form-button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.news-list-container {
+    flex: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.news-list-title {
+  text-align: center;
+}
+
+.news-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.news-list-item {
+  margin-bottom: 10px;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.news-list-item-news {
+  font-weight: bold;
+}
+
+.news-list-item-date {
+  color: #777;
+}
+
+
+
+/* news form */
+.news-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+    overflow-y: auto;
+    max-height: 75vh;
+  }
+  
+  .news-form-title {
+    text-align: center;
+    font-size: 24px;
+    color: #A67DFD;
+  }
+  
+  .news-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .news-form-input {
+    padding: 10px;
+    border: none;
+    background-color: #e9ecef;
+    border-radius: 5px;
+  }
+  
+  .news-form-button {
+    padding: 10px;
+    background-color: #5100ff;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .news-form-button:hover {
+    background-color:#1D005B;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
