@@ -203,24 +203,23 @@ const Notes = () => {
           <div className="imageSection">
           <input className="imageInput"  required type="file" accept="application/pdf" onChange={handleNotesUpload} id="file" />
             <div className="imageUpload" >
-            <img  src="https://icon-library.com/images/upload-icon/upload-icon-14.jpg" alt="" />
+            <img  src="https://www.efilecabinet.com/wp-content/uploads/2019/05/upload-01.png" alt="" />
               <button  >Upload Notes</button>
             </div>
             
-            {NotesDetail.notesLink !== "" && (
+            
+          </div>
+          {NotesDetail.notesLink !== "" && (
               <div className="UploadedBox">
-                <img
-                  className="UploadedImage"
-                  src={NotesDetail.coverImageLink}
-                />
+               
+                <embed className="UploadedImage" src={NotesDetail.notesLink} type="" />
                 <p>{Image}</p>
                 <MdOutlineDeleteOutline
                   onClick={handleNotesDelete}
                   className="dleteImage"
                 />
               </div>
-            )}
-          </div>
+            )} 
               </div>
               <button type="submit" className="btn">Upload</button>
             </form>
@@ -278,7 +277,12 @@ const Notes = () => {
      
     {notesData.map(key=>(
        <a href={key.notesLink} target="_blank" className="note">
-        <img src={NoteImg} alt="" />
+        {/* <img src={NoteImg} alt="" /> */}
+        <embed
+          src={key.notesLink}
+          className="modal-document-embed"
+          style={{overflow:"hidden"}}
+        />
           <div>
           <h4>{key.tittle}</h4>
           <p>- {key.subject} {key.semester} Semester</p>
@@ -289,8 +293,6 @@ const Notes = () => {
     </div>
     }
       
-      
-
     </div>
   );
 };

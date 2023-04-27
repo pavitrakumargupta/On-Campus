@@ -186,10 +186,12 @@
     }
     .homeNav>.nav_compo>.help_setting>div{
         background-color: white;
-        border-radius: 100px;
+        border-radius: 10px;
         padding: 5px 15px;
     }
-    
+    .homeNav>.nav_compo>.help_setting>div>img{
+        margin: auto;
+    }
     .homeNav > .nav_compo>button{
         background-color: black;
         color: white;
@@ -197,16 +199,17 @@
         margin: 0px auto;
     }
     .homeNav > .nav_compo>.signin{
-        background-color:#6C34E0;
+       
         color: white;
     }
-    .homeNav > .nav_compo>button:hover{
-        color: black;
-        background-color: white;  
+    .homeNav > .nav_compo>.btn>button{
+        color: rgb(255, 255, 255);
+        border:3px solid #ffffff;
     }
-    .homeNav > .nav_compo>.signin:hover{
-        color: #6C34E0;
-        background-color: white;
+    .homeNav > .nav_compo>.btn>button:hover{
+        background-color:#ffffff;
+        color: rgb(0, 0, 0);
+
     }
     
   }
