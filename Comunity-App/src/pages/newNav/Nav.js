@@ -38,7 +38,7 @@ const Navbar = ({currentMenu}) => {
     <nav className={`navbar ${showMenu ? "showMobileNav" : ""}`}>
         <div className="sidebar"></div>
       <div className="logo">
-        <img src={Logo} alt="Logo" />
+      <a href="https://comunity.netlify.app"><img src={Logo} alt="Logo" /></a>
       </div>
        
       <div className="menu-items">

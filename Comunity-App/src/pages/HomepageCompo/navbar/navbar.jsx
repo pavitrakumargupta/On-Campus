@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <nav className={menuIcon ? "homeNav active" : "homeNav"}>
-      <img src={Logo} alt="" />
+      <a href="https://comunity.netlify.app"><img className="logo" src={Logo} alt="Logo" /></a>
       <div className="nav_compo">
         <div className="search">
           <img src={Search} alt="" />
