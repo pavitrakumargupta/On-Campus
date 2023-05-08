@@ -1,0 +1,132 @@
+{
+    "Computer Science":{
+        "1":["Engineering Mathematics-I","Engineering Physics","Problem Solving using Python","Professional Communication"],
+        "2":["Engineering Mathematics-II ","Design Thinking-I ","Basic Electrical and Electronics Engineering. ","Problem Solving using Advanced Python ","Engineering Graphics & Solid Modelling "],
+        "3":["Engineering MathematicsIII","Discrete Structures","Digital Logic & Circuit Design","Data Structures ","Introduction to Cloud Computing ","Computer Organization & Architecture","Cyber Security/ Environmental Science "],
+        "4":["Engineering Mathematics IV ","Technical Communication","Operating Systems","Theory of Automata and Formal Languages","Object Oriented Techniques Using Java","Cloud Computing Architecture","Environmental Science/ Cyber Security)"],
+        "5":["Design and Analysis of Algorithms ","Design Thinking-II","Web Technology","Database Management System","Design and Analysis of Algorithms Lab ","Constitution of India, Law and Engineering / Essence of Indian Traditional Knowledge"],
+        "6":["Machine Learning","Computer Networks","Software Engineering","Essence of Indian Traditional Knowledge / Constitution of India, Law and Engineering"],
+        "7":[],
+        "8":[]
+    },
+    " Computer Science and Engineering (Artificial Intelligence & Machine Learning) ":{
+        "1":["Mathematical Foundations- I ","Engineering Physics","Problem Solving using Python","Professional Communication","Engineering Graphics & Solid Modelling"],
+        "2":["Mathematical Foundations- II","Design Thinking-I","Basic Electrical and Electronics Engineering. ","Problem Solving using Advanced Python ","Digital Manufacturing Practices"],
+        "3":[],
+        "4":[],
+        "5":[],
+        "6":[],
+        "7":[],
+        "8":[]
+    },
+    " Computer Science and Engineering (Cyber Security)":{
+        "1":["Mathematical Foundations- I ","Basic Electrical and Electronics Engineering. ","Problem Solving using Python","Professional Communication","Engineering Graphics & Solid Modelling "],
+        "2":["Mathematical Foundations- II","Engineering Physics ","Design Thinking-I ","Problem Solving using Advanced Python ","Digital Manufacturing Practices"],
+        "3":[],
+        "4":[],
+        "5":[],
+        "6":[],
+        "7":[],
+        "8":[]
+    },
+    " Computer Science and Engineering (Data Science) ":{
+        "1":["Mathematical Foundations- I ","Basic Electrical and Electronics Engineering. ","Problem Solving using Python","Professional Communication","Engineering Graphics & Solid Modelling"],
+        "2":["Mathematical Foundations- II","Engineering Physics ","Problem Solving using Advanced Python ","Design Thinking-I ","Digital Manufacturing Practices"],
+        "3":["Statistics and Probability ","Discrete Structures ","Logic Design and Computer Architecture ","Object Oriented Techniques using Java","Data Structures ","Foundations of Data Science ","Cyber Security / Environmental Science"],
+        "4":["Optimization and Numerical Techniques ","Technical Communication","Operating Systems","Database Management Systems ","Introduction to Artificial Intelligence ","Theory of Automata and Formal Languages","Environmental Science/ Cyber Security "],
+        "5":["Machine Learning ","Design and Analysis of Algorithms","Computer Networks","Design Thinking-II ","Constitution of India, Law and Engineering / Essence of Indian Traditional Knowledge"],
+        "6":["Big Data Analytics","Business Intelligence andData Visualization","Software Engineering","Essence of Indian Traditional Knowledge / Constitution of India, Law and Engineering"],
+        "7":[],
+        "8":[]
+    },
+    " Computer Science and Engineering (Internet of Things)":{
+        "1":["Engineering Mathematics-I","Engineering Physics","Problem Solving using Python","Professional Communication","Engineering Graphics & Solid Modelling "],
+        "2":["Engineering Mathematics-II ","Design Thinking-I ","Programming for Problem Solving using C","Basic Electrical and Electronics Engineering. ","Digital Manufacturing Practices"],
+        "3":[],
+        "4":[],
+        "5":[],
+        "6":[],
+        "7":[],
+        "8":[]
+    },
+    " Computer Science and Business System":{
+        "1":["Introductory Topics in Statistics, Probability and Calculus ","Fundamentals of Computer Science ","Principles of Electrical Engineering  ","Physics for Computing Science ","Business Communication & Value Science – I"],
+        "2":["Linear Algebra ","Statistical Methods","Data Structures & Algorithms","Principles of Electronics","Fundamentals of Economics","Business Communication &Value Science – II ","Environmental Sciences "],
+        "3":[],
+        "4":[],
+        "5":[],
+        "6":[],
+        "7":[],
+        "8":[]
+    },
+    " Electronics & Communication Engineering":{
+        "1":["Engineering Mathematics-I","Engineering Physics","Problem Solving using Python","Professional Communication","Digital Manufacturing Practices "],
+        "2":["Engineering Mathematics-II ","Engineering Chemistry","Programming for Problem Solving using C","Basic Electrical and Electronics Engineering.","Engineering Graphics &Solid  Modelling "],
+        "3":[],
+        "4":[],
+        "5":[],
+        "6":[],
+        "7":[],
+        "8":[]
+    },
+    "Information Technology":{
+        "1":["Engineering Mathematics-I","Engineering Physics","Problem Solving using Python","Professional Communication","Engineering Graphics & Solid Modelling"],
+        "2":["Engineering Mathematics-II ","Design Thinking-I ","Basic Electrical and Electronics Engineering. ","Problem Solving using Advanced Python ","Digital Manufacturing Practices"],
+        "3":["Engineering Mathematics-III","Discrete Structures","Digital Logic & Circuit Design","Data Structures ","Object Oriented Techniques using Java","Computer Organization & Architecture ","Cyber Security/ Environmental Science "],
+        "4":["Engineering Mathematics-IV","Technical Communication","Software Engineering ","Operating Systems","Theory of Automata and Formal Languages ","Database Management Systems ","Environmental Science/ Cyber Security"],
+        "5":["Design and Analysis of Algorithms ","Machine Learning ","Design Thinking-II ","Web Technology","Design Patterns","Python Web Development with Django","Introduction to Cloud Computing","Cloud Virtualization","Constitution of India, Law and Engineering / Essence of Indian Traditional Knowledge"],
+        "6":["Advanced Java Programming","Computers Network","Data Analytics","Web Development using MEAN Stack","Full-Stack Web Development using Laravel with VueJS ","Big Data","Cloud Storage Management"],
+        "7":[],
+        "8":[]
+    },
+    " Mechanical Engineering":{
+        "1":[],
+        "2":[],
+        "3":[],
+        "4":[],
+        "5":[],
+        "6":[],
+        "7":[],
+        "8":[]
+    },
+    " Biotechnology":{
+        "1":[],
+        "2":[],
+        "3":[],
+        "4":[],
+        "5":[],
+        "6":[],
+        "7":[],
+        "8":[]
+    },
+    " Computer Science & Engineering (Artificial Intelligence)":{
+        "1":["Engineering Mathematics-I","Basic Electrical and Electronics Engineering. ","Problem Solving using Python","Professional Communication","Engineering Graphics & Solid Modelling "],
+        "2":["Engineering Mathematics-II ","Design Thinking-I ","Engineering Physics ","Problem Solving using Advanced Python ","Digital Manufacturing Practices "],
+        "3":["Statistics and Probability ","Discrete Structures ","Logic Design and Computer Architecture ","Object Oriented Techniques using Java","Data Structures ","Introduction to Artificial Intelligence","Cyber Security / Environmental Science"],
+        "4":["Optimization and Numerical Techniques ","Technical Communication","Operating Systems","Database Management Systems ","Introduction to Information Security and Cryptography","Theory of Automata and Formal Languages","Environmental Science/ Cyber Security"],
+        "5":[],
+        "6":[],
+        "7":[],
+        "8":[]
+    },
+    " Computer Science & Engineering (Regional Language)":{
+        "1":[],
+        "2":[],
+        "3":[],
+        "4":[],
+        "5":[],
+        "6":[],
+        "7":[],
+        "8":[]
+    },
+    " Computer Science & Engineering":{
+        "1":["Engineering Mathematics-I","Basic Electrical and Electronics Engineering. ","Problem Solving using Python","Professional Communication","Digital Manufacturing Practices "],
+        "2":["Engineering Mathematics-II ","Design Thinking-I ","Engineering Physics ","Problem Solving using Advanced Python ","Engineering Graphics & Solid Modelling "],
+        "3":["Engineering Mathematics-III","Discrete Structures ","Digital Logic & Circuit Design","Object Oriented Techniques using Java","Computer Organization & Architecture ","Cyber Security / Environmental Science"],
+        "4":["Engineering Mathematics IV ","Technical Communication","Microprocessor","Operating Systems","Theory of Automata and Formal Languages","Design and Analysis of Algorithm","Environmental Science/ Cyber Security"],
+        "5":["Design Thinking-II  ","Compiler Design ","Database Management System","Web Technology","Design Patterns","Python Web Development with Django","Introduction to Cloud Computing","Cloud Virtualization","Constitution of India, Law and Engineering / Essence of Indian Traditional Knowledge"],
+        "6":["Advanced Java Programming","Computer Networks","Data Analytics","Web Development using MEAN Stack","Full-Stack Web Development using Laravel with VueJS ","Big Data","Cloud Storage Management"],
+        "7":[],
+        "8":[]
+    }
+}
