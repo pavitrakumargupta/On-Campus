@@ -5,7 +5,7 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 import UploadImage from "../../uploadImage";
 import { useSelector } from "react-redux";
 import axios from "../../axios";
-import NoteImg from "./img/notes.png"
+import Courses from "./CourseNames.json"
 
 const Notes = () => {
 
@@ -60,12 +60,12 @@ const Notes = () => {
     "MCA": ["MCA"],
   };
 
+
   
 
-  const courses = [];
-  for (const key in courseObject) {
-    courses.push(key);
-  }
+  
+
+  
 
   const defautNotesDetail= {
     courseName:"",
@@ -89,9 +89,7 @@ const Notes = () => {
 
   const [branch,setBranch]=useState([])
 
-  useEffect(()=>{
-    setBranch(courseObject[NotesDetail.courseName])
-  },[NotesDetail.courseName])
+  
 
  
 
@@ -134,6 +132,46 @@ const Notes = () => {
     }
   }
 
+
+  const courses = [];
+  for (const key in courseObject) {
+    courses.push(key);
+  }
+
+  const [branches,setBranches]=useState()
+  const [semester,setSemester]=useState()
+  const [subjects,setSubjects]=useState()
+ 
+  useEffect(()=>{
+ 
+    if(NotesDetail.courseName==="BTech"){
+      let branch=[]
+      for (const key in Courses) {
+        branch.push(key);
+      }
+      setBranches(branch)
+    }else{setBranches(courseObject[NotesDetail.courseName])}
+  },[NotesDetail.courseName])
+
+  useEffect(()=>{
+ 
+    if(NotesDetail.branchName!=""){let semester=[]
+      for (const key in Courses[NotesDetail.branchName]) {
+        semester.push(key);
+      }
+      setSemester(semester)}
+  },[NotesDetail.branchName])
+
+  useEffect(()=>{
+ 
+    if(NotesDetail.semester!=""){
+      let subject=[]
+       
+      Courses[NotesDetail.branchName][NotesDetail.semester].map(key=>{
+        subject.push(key);
+      })
+      setSubjects(subject)}
+  },[NotesDetail.semester])
 
   return (
     <div className="notesPage">
@@ -179,7 +217,7 @@ const Notes = () => {
                 <label htmlFor="branch">Branch</label>
                 <select id="course" name="branchName" onChange={handleNotesDetail}  required>
                   <option disabled selected="selected"> </option>
-                  {branch&&branch.map((key) => {
+                  {branches&&branches.map((key) => {
                     return <option>{key}</option>;
                   })}
                 </select>
@@ -187,11 +225,22 @@ const Notes = () => {
              
               <div className="form-group">
                 <label htmlFor="semester">Semester</label>
-                <input name="semester" required type="text" onChange={handleNotesDetail} pattern="[1-8]" id="semester" />
+                <select  name="semester" id="semester"  onChange={handleNotesDetail}  required>
+                  <option disabled selected="selected"> </option>
+                  {semester&&semester.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+                </select>
               </div>
               <div className="form-group">
                 <label htmlFor="subject">Subject</label>
-                <input name="subject" type="text" onChange={handleNotesDetail} id="subject" />
+                <select   name="subject" id="subject"  onChange={handleNotesDetail}  required>
+                  <option disabled selected="selected"> </option>
+                  {subjects&&subjects.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+                </select>
+                 
               </div>
               <div className="form-group">
                 <label htmlFor="title">Title</label>
@@ -243,21 +292,32 @@ const Notes = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="branch">Branch</label>
-                <select   name="branchName" onChange={handleNotesDetail}  required>
+                <select id="course" name="branchName" onChange={handleNotesDetail}  required>
                   <option disabled selected="selected"> </option>
-                  {branch&&branch.map((key) => {
+                  {branches&&branches.map((key) => {
                     return <option>{key}</option>;
                   })}
                 </select>
               </div>
-
+             
               <div className="form-group">
                 <label htmlFor="semester">Semester</label>
-                <input name="semester" pattern="[1-8]" type="number" onChange={handleNotesDetail} id="semester" required />
+                <select  name="semester" id="semester"  onChange={handleNotesDetail}  required>
+                  <option disabled selected="selected"> </option>
+                  {semester&&semester.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+                </select>
               </div>
               <div className="form-group">
                 <label htmlFor="subject">Subject</label>
-                <input name="subject" type="text" id="subject" onChange={handleNotesDetail} />
+                <select   name="subject" id="subject"  onChange={handleNotesDetail}  required>
+                  <option disabled selected="selected"> </option>
+                  {subjects&&subjects.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+                </select>
+                 
               </div>
               <div className="form-group">
                 <label htmlFor="title">Title *(optional) </label>
