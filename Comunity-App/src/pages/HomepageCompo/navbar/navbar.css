@@ -11,9 +11,8 @@
     min-width: 100vw;
     max-height: 100px;
     gap: 2rem;
-  
-}
-.homeNav >img{
+} 
+.homeNav .logo{
     
     margin: auto 10px;
     height: 5rem;
