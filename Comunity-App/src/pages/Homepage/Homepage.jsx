@@ -36,6 +36,7 @@ const Homepage = () => {
             navigate("/login");
           } else {
             setUserDetail();
+            console.log(response.data.data);
             await dispatch(actionCreators.setUserDetails(response.data.data));
             if(url.url!=null){
               navigate(url.url) 

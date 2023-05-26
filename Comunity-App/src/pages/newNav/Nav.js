@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 import Logo from "../../assets/logo.png";
 import { CgMenu, CgClose } from "react-icons/cg";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({currentMenu}) => {
+  const user = useSelector((state) => state);
+  const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
-
   const [activeMenu,setActiveMenu]=useState(currentMenu)
   const menuItem=[
     {
@@ -34,7 +37,7 @@ const Navbar = ({currentMenu}) => {
   ]
 
 
-  return (
+  return ( 
     <nav className={`navbar ${showMenu ? "showMobileNav" : ""}`}>
         <div className="sidebar"></div>
       <div className="logo">
@@ -48,8 +51,9 @@ const Navbar = ({currentMenu}) => {
       </div>
       <div className="profile">
         <img
-          src="https://imgs.search.brave.com/iUQN726wdtZCy0T-0h75qU-Z2G_pncG6DygWzLUzkNU/rs:fit:600:600:1/g:ce/aHR0cHM6Ly96dWx0/aW1hdGUuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzEy/L2RlZmF1bHQtcHJv/ZmlsZS5wbmc"
+          src={user.details.profilePitchure!=""?user.details.profilePitchure:"https://imgs.search.brave.com/iUQN726wdtZCy0T-0h75qU-Z2G_pncG6DygWzLUzkNU/rs:fit:600:600:1/g:ce/aHR0cHM6Ly96dWx0/aW1hdGUuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzEy/L2RlZmF1bHQtcHJv/ZmlsZS5wbmc"}
           alt="Profile"
+          onClick={()=>navigate("/profile")}
         />
       </div>
       <div className="mobileMenuBtn">

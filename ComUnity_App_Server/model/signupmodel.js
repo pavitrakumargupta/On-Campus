@@ -22,6 +22,7 @@ const userShema= new mongoose.Schema({
   username: String,
   email: String,
   password: String,
+  profilePitchure:{type:String,default:""}
   })
 
   // creating and exportins ids 

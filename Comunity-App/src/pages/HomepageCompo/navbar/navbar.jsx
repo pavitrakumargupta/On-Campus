@@ -29,8 +29,8 @@ const Navbar = () => {
             <img src={question_mark} alt="" />
             <span>Help</span>
           </div>
-          <div className="setting">
-            <img src={setting} alt="" />
+          <div onClick={()=>navigate("/profile")} className="setting">
+            <img  src={setting} alt="" />
             <span>Setting</span>
           </div>
         </div>

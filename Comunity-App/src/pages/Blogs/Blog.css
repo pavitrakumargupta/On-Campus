@@ -175,8 +175,8 @@
   margin: 0 auto;
   width: 400px;
 }
-.UploadedBox>img{
- 
+.UploadedBox>embed{
+ max-width: 50px;
 }
 .UploadedBox{
   display: flex;
@@ -185,8 +185,9 @@
   padding: 10px;
   border-radius: 10px;
   background-color: #ffffff;
-  width: 50%;
+  width: 40%;
   border: 2px solid rgb(150, 150, 150);
+  max-width: 350px;
 }
 .dleteImage{
   font-size: 50px;
