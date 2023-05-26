@@ -16,7 +16,7 @@ import Blog from "./pages/Blogs/Blog"
 import Notes from "./pages/notes/Notes"
 import Poles from "./pages/poles/Polls"
 import News from "./pages/News/News";
-
+import Question from "./pages/questions/question"
 import ChatsPage from "./pages/chatsPage/chatsPage";
 
 function App() {
@@ -31,6 +31,7 @@ function App() {
         <Route path="/notes" element={<div className="page"><Navbar currentMenu={"notes"} /> <Notes/></div>}></Route>
         <Route path="/polls" element={<div className="page"><Navbar currentMenu={"polls"} /> <Poles/></div>}></Route>
         <Route path="/news" element={<div className="page"><Navbar currentMenu={"news"} /> <News/></div>}></Route>
+        <Route path="/questions" element={<div className="page"><Navbar currentMenu={"questions"} /> <Question/></div>}></Route>
     </Routes>
   </Router>
 }
