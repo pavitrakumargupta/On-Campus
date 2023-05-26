@@ -141,6 +141,7 @@ module.exports.checkLoginCredential = async (req, res, next) => {
           username: LoginCheck.username,
           email: LoginCheck.email,
           userId: LoginCheck._id.valueOf(),
+          profilePitchure:LoginCheck.profilePitchure
         },
       });
     } else {
@@ -154,3 +155,13 @@ module.exports.checkLoginCredential = async (req, res, next) => {
     next(ex);
   }
 };
+
+module.exports.updateProfile = async (req, res, next) => {
+  try {
+    const updatingDetail=req.body.profile
+    const update=await User.findByIdAndUpdate(req.body.id,updatingDetail)
+    return res.json({msg:"profileUpdated"})
+  } catch (error) {
+    console.log("done");
+  }
+}
