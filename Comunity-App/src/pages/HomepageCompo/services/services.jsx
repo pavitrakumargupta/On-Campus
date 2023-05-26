@@ -30,7 +30,7 @@ const Services = () => {
     },
     {
       name: "Ask Anything",
-      url:"question",
+      url:"questions",
       image:
         "https://user-images.githubusercontent.com/88044814/218287808-c12974de-10fa-4f60-9417-83deebc98611.png",
     },
