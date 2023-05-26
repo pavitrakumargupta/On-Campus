@@ -2,7 +2,7 @@ const router=require("express").Router()
 const {setSignupDetails,checkLoginCredential,updateProfile}=require("../controllers/userDetails")
 const {createPost,getAllPost,editPost,deletePost}=require("../controllers/handlePost")
 const {uploadNotes,getNotes}=require("../controllers/handleNotes")
-const { addMessage, getMessages } = require("../controllers/messageController");
+// const { addMessage, getMessages } = require("../controllers/messageController");
  
 
 
@@ -25,8 +25,8 @@ router.post("/getNotes",getNotes)
 
 
 
-router.post("/addmsg/", addMessage);
-router.post("/getmsg/", getMessages);
+// router.post("/addmsg/", addMessage);
+// router.post("/getmsg/", getMessages);
 
 
 // export
