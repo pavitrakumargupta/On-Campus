@@ -123,10 +123,10 @@ const Notes = () => {
   const [notesData,setNotesData]=useState()
 
   const handleSubmit=async (event)=>{
+    event.preventDefault();
     if(notesAction==="upload"){
       const upload=await axios.post("/uploadNotes",NotesDetail)
     }else if(notesAction=="get"){
-      event.preventDefault();
       const notes=await axios.post("/getNotes",NotesDetail)
       setNotesData(notes.data)
     }
