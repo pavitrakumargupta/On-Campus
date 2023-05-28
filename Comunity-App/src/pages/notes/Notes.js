@@ -338,11 +338,12 @@ const Notes = () => {
     {notesData.map(key=>(
        <a href={key.notesLink} target="_blank" className="note">
         {/* <img src={NoteImg} alt="" /> */}
-        <embed
+        {/* <embed
           src={key.notesLink}
           className="modal-document-embed"
           style={{overflow:"hidden"}}
-        />
+        /> */}
+        <object className="modal-document-embed"   data={key.notesLink}></object>
           <div>
           <h4>{key.tittle}</h4>
           <p>- {key.subject} {key.semester} Semester</p>
