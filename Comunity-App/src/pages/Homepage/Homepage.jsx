@@ -57,7 +57,7 @@ const Homepage = () => {
     <>
       {userDetail === "null" ? (
         <img
-          style={{ margin: "35vh 0 0 35vw" }}
+          style={{ margin: "0 25vw" }}
           src="https://hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif"
           alt=""
         />
