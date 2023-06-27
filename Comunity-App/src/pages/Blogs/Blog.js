@@ -45,7 +45,7 @@ const Blog = () => {
 
   useEffect(() => {
     const fetchBlogsData = async () => {
-      const response = await axios.get("/getAllPost");
+      const response = await axios.get("/Blogs/getAllPost");
       setBlogs(response.data);
       // console.log(response.data[0]._id);
     };
@@ -53,156 +53,161 @@ const Blog = () => {
   }, []);
 
   const openBlog = () => {
-    const handleComment = (event) => {
-      const { value } = event.target;
-      let message = value.replace(/\s{3,}/g, " ");
-      if (!/\S/.test(message)) {
-        message = message.replace(/\s+/g, "");
+      const handleComment = (event) => {
+        const { value } = event.target;
+        let message = value.replace(/\s{3,}/g, " ");
+        if (!/\S/.test(message)) {
+          message = message.replace(/\s+/g, "");
+        }
+        setInputComment(message);
+      };
+
+      const postComment = () => {
+        if (input_commnet !== "") {
+          let newComment = { ...activeBlog };
+          let comntObj = {
+            text: input_commnet,
+            userName: user.details.username,
+          };
+          newComment.comment.push(comntObj);
+          setActiveBlog(newComment);
+          setInputComment("");
+          editLike_Comment(activeBlog._id,"comment",newComment.comment)
+        }
+      };
+      const handleKeyDown = (event) => {
+        if (event.key === "Enter") {
+          // Handle Enter key event here
+          postComment();
+        }
+      };
+
+      const addLike = () => {
+        let activeBlogCopy = { ...activeBlog };
+        activeBlogCopy.Like.push(user.details.userId);
+        setActiveBlog(activeBlogCopy);
+        editLike_Comment(activeBlog._id,"Like",activeBlogCopy.Like)
+      };
+
+      const removeLike = () => {
+        let postid= activeBlog._id
+        let activeBlogCopy = { ...activeBlog };
+        activeBlogCopy.Like = activeBlogCopy.Like.filter(
+          (key) => user.details.userId != key
+        );
+        let BlogsCopy = [...Blogs];
+        const deleteLike = BlogsCopy.find(Post => Post._id===postid);
+        let index=BlogsCopy.indexOf(deleteLike)
+        BlogsCopy[index].Like=activeBlogCopy.Like
+        setActiveBlog(activeBlogCopy);
+        setBlogs(BlogsCopy);
+        editLike_Comment(activeBlog._id,"Like",activeBlogCopy.Like)
+      };
+
+      const editLike_Comment=(_id,toBeEdit,arr)=>{
+        const response = axios.post("/Blogs/editSocial",{_id,toBeEdit,arr});
       }
-      setInputComment(message);
-    };
 
-    const postComment = () => {
-      if (input_commnet !== "") {
-        let newComment = { ...activeBlog };
-        let comntObj = {
-          text: input_commnet,
-          userName: user.details.username,
-        };
-        newComment.comment.push(comntObj);
-        setActiveBlog(newComment);
-        setInputComment("");
-      }
-    };
-    const handleKeyDown = (event) => {
-      if (event.key === "Enter") {
-        // Handle Enter key event here
-        postComment();
-      }
-    };
-
-    const addLike = () => {
-      let activeBlogCopy = { ...activeBlog };
-      activeBlogCopy.Like.push(user.details.userId);
-      setActiveBlog(activeBlogCopy);
-    };
-
-    const removeLike = () => {
-      let postid= activeBlog._id
-      let activeBlogCopy = { ...activeBlog };
-      activeBlogCopy.Like = activeBlogCopy.Like.filter(
-        (key) => user.details.userId != key
-      );
-      let BlogsCopy = [...Blogs];
-      const deleteLike = BlogsCopy.find(Post => Post._id===postid);
-      let index=BlogsCopy.indexOf(deleteLike)
-      BlogsCopy[index].Like=activeBlogCopy.Like
-      setActiveBlog(activeBlogCopy);
-      setBlogs(BlogsCopy);
-    };
-
-    return (
-      <div className="blogWindow">
-        <AiFillCloseCircle
-          className="close"
-          onClick={() => {
-            setActiveBlog(null);
-            setComment(false);
-            setActiveBlog(null);
-          }}
-        />
-        <div>
-          <div className="image_Like_comment">
-            <img src={activeBlog.coverImageLink} alt="" />
-            <div className="reactionField">
-              {activeBlog.Like.includes(user.details.userId) ? (
-                <AiFillLike
-                  style={{ cursor: "pointer" }}
-                  onClick={removeLike}
-                />
-              ) : (
-                <AiOutlineLike
-                  style={{ cursor: "pointer" }}
-                  onClick={addLike}
-                />
-              )}
-              {comment ? (
-                <>
-                  <FaCommentDots
+      return (
+        <div className="blogWindow">
+          <AiFillCloseCircle
+            className="close"
+            onClick={() => {
+              setActiveBlog(null);
+              setComment(false);
+              setActiveBlog(null);
+            }}
+          />
+          <div>
+            <div className="image_Like_comment">
+              <img src={activeBlog.coverImageLink} alt="" />
+              <div className="reactionField">
+                {activeBlog.Like.includes(user.details.userId) ? (
+                  <AiFillLike
                     style={{ cursor: "pointer" }}
-                    onClick={() => setComment(false)}
+                    onClick={removeLike}
                   />
-
-                  <div className="Comments_section">
-                    <AiFillCloseCircle
-                      className="close"
+                ) : (
+                  <AiOutlineLike
+                    style={{ cursor: "pointer" }}
+                    onClick={addLike}
+                  />
+                )}
+                {comment ? (
+                  <>
+                    <FaCommentDots
+                      style={{ cursor: "pointer" }}
                       onClick={() => setComment(false)}
                     />
-                    <div className="comments">
-                      <h5>Comments</h5>
-                      {activeBlog.comment &&
-                        activeBlog.comment
-                          .slice()
-                          .reverse()
-                          .map((comment) => (
-                            <div>
-                              <span>{comment.userName}</span>
-                              <p>{comment.text}</p>
-                            </div>
-                          ))}
-                    </div>
-                    <div className="InputComment">
-                      <input
-                        value={input_commnet}
-                        placeholder="Leave your Comment"
-                        type="text"
-                        onChange={handleComment}
-                        onKeyDown={handleKeyDown}
+
+                    <div className="Comments_section">
+                      <AiFillCloseCircle
+                        className="close"
+                        onClick={() => setComment(false)}
                       />
-                      <FiSend className="send" onClick={postComment} />
+                      <div className="comments">
+                        <h5>Comments</h5>
+                        {activeBlog.comment &&
+                          activeBlog.comment
+                            .slice()
+                            .reverse()
+                            .map((comment) => (
+                              <div>
+                                <span>{comment.userName}</span>
+                                <p>{comment.text}</p>
+                              </div>
+                            ))}
+                      </div>
+                      <div className="InputComment">
+                        <input
+                          value={input_commnet}
+                          placeholder="Leave your Comment"
+                          type="text"
+                          onChange={handleComment}
+                          onKeyDown={handleKeyDown}
+                        />
+                        <FiSend className="send" onClick={postComment} />
+                      </div>
                     </div>
-                  </div>
-                </>
-              ) : (
-                <FaRegCommentDots
-                  style={{ cursor: "pointer" }}
-                  onClick={() => setComment(true)}
-                />
-              )}
+                  </>
+                ) : (
+                  <FaRegCommentDots
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setComment(true)}
+                  />
+                )}
+              </div>
             </div>
-          </div>
-          <div className="aaboutPost_aboutUser">
-            <div className="aboutPost">
-              <h6>{activeBlog.tittle}</h6>
-              <p style={{whiteSpace:"pre-wrap"}}>{activeBlog.content}</p>
-            </div>
-            <div className="aboutUser">
-              <img src={activeBlog.userImage} alt="" />
-              <p>{activeBlog.userName}</p>
+            <div className="aaboutPost_aboutUser">
+              <div className="aboutPost">
+                <h6>{activeBlog.tittle}</h6>
+                <p style={{whiteSpace:"pre-wrap"}}>{activeBlog.content}</p>
+              </div>
+              <div className="aboutUser">
+                <img src={activeBlog.userImage} alt="" />
+                <p>{activeBlog.userName}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
   };
 
   const [postBlogWindow, setPostBlogWindow] = useState(false);
   const handleSubmitBlog =async (BlogDetail,_id) => {
     if(postAction==="post"){
-      const response =await axios.post("/createPost", BlogDetail);
+      const response =await axios.post("/Blogs/createPost", BlogDetail);
       let BlogsCopy = [...Blogs];
       BlogsCopy.push(BlogDetail);
       setBlogs(BlogsCopy);
     }else{
       let edit_Post=BlogDetail
       edit_Post._id=_id
-      console.log(edit_Post);
-      const response = axios.post("/editPost", edit_Post);
+      const response = axios.post("/Blogs/editPost", edit_Post);
       let BlogsCopy = [...Blogs];
       const render_edit = BlogsCopy.find(Post => Post._id===_id);
       let index=BlogsCopy.indexOf(render_edit)
       BlogsCopy[index]=edit_Post
-      console.log(BlogsCopy[index]);
       setBlogs(BlogsCopy);
     }
     
@@ -221,7 +226,7 @@ const Blog = () => {
       setPostBlogWindow(true);
       setPostAction(name)
     }else if(name==="delete"){
-      const response = axios.post("/deletePost",{_id:Blog._id});
+      const response = axios.post("/Blogs/deletePost",{_id:Blog._id});
       let BlogsCopy = [...Blogs];
       let index=BlogsCopy.indexOf(Blog)
       BlogsCopy =BlogsCopy.slice(index+1)
