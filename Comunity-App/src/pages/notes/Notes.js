@@ -125,9 +125,9 @@ const Notes = () => {
   const handleSubmit=async (event)=>{
     event.preventDefault();
     if(notesAction==="upload"){
-      const upload=await axios.post("/uploadNotes",NotesDetail)
+      const upload=await axios.post("/Notes/uploadNotes",NotesDetail)
     }else if(notesAction=="get"){
-      const notes=await axios.post("/getNotes",NotesDetail)
+      const notes=await axios.post("/Notes/getNotes",NotesDetail)
       setNotesData(notes.data)
     }
   }

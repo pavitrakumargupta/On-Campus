@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { MdOutlineDeleteOutline } from "react-icons/md";
-import axios from "axios";
 import UploadImage from "../../uploadImage";
 
 const PostBlog = ({ user, handleSubmitBlog, closeWindow,BlogDetail }) => {

@@ -1,6 +1,6 @@
 const router=require("express").Router() 
 const {setSignupDetails,checkLoginCredential,updateProfile}=require("../controllers/userDetails")
-const {createPost,getAllPost,editPost,deletePost}=require("../controllers/handlePost")
+const {createPost,getAllPost,editPost,deletePost,editLike_Comment}=require("../controllers/handlePost")
 const {uploadNotes,getNotes}=require("../controllers/handleNotes")
 // const { addMessage, getMessages } = require("../controllers/messageController");
  
@@ -13,15 +13,15 @@ router.post("/checkLogin",checkLoginCredential)
 router.post("/updateProfile",updateProfile)
 
 // handlePost
-router.post("/createPost",createPost)
-router.get("/getAllPost",getAllPost)
-router.post("/editPost",editPost)
-router.post("/deletePost",deletePost)
-
+router.post("/Blogs/createPost",createPost)
+router.get("/Blogs/getAllPost",getAllPost)
+router.post("/Blogs/editPost",editPost)
+router.post("/Blogs/deletePost",deletePost)
+router.post("/Blogs/editSocial",editLike_Comment)
  
 // handle notes
-router.post("/uploadNotes",uploadNotes)
-router.post("/getNotes",getNotes)
+router.post("/Notes/uploadNotes",uploadNotes)
+router.post("/Notes/getNotes",getNotes)
 
 
 
