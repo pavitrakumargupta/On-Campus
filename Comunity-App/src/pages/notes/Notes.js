@@ -343,7 +343,8 @@ const Notes = () => {
           className="modal-document-embed"
           style={{overflow:"hidden"}}
         /> */}
-        <object className="modal-document-embed"   data={key.notesLink}></object>
+        {/* <object className="modal-document-embed"   data={key.notesLink}></object> */}
+        <iframe src={key.notesLink} frameborder="0"  className="modal-document-embed" ></iframe>
           <div>
           <h4>{key.tittle}</h4>
           <p>- {key.subject} {key.semester} Semester</p>

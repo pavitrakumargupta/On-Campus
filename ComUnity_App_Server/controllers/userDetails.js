@@ -101,11 +101,11 @@ module.exports.setSignupDetails = async (req, res, next) => {
         try {
           let first_name = firstname;
           let last_name = lstname;
-          const chatEngine = await axios.post(
-            "https://api.chatengine.io/users/",
-            { username, secret, email, first_name, last_name },
-            { headers: { "Private-Key": CHAT_ENGINE_PRIVATE_KEY } }
-          );
+          // const chatEngine = await axios.post( 
+          //   "https://api.chatengine.io/users/",
+          //   { username, secret, email, first_name, last_name },
+          //   { headers: { "Private-Key": CHAT_ENGINE_PRIVATE_KEY } }
+          // );
         } catch (error) {
           console.log(error);
         }
