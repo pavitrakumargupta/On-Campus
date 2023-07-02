@@ -106,12 +106,17 @@ const Login = () => {
           >
             LogIn
           </button>
-          <p>
+          <p style={{textAlign:"center"}}>
             Don't have an account?{" "}
             <span>
-              <Link to="/register">Create Account</Link>
+              <Link to="/register" style={{textDecoration:"underline"}}>Create Account</Link>
             </span>
+            
           </p>
+          <p style={{textAlign:"center",marginTop:"-10px"}}>
+            <Link to="/forgot-password">Forgot Password?</Link>
+          </p>
+          
         </div>
       </div>
       <ToastContainer style={{}}/>

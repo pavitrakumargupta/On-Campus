@@ -75,7 +75,7 @@ const ProfilePage = () => {
         <div className="imageSection" style={{border:"2px dashed black"}}>
           <input className="imageInput"    type="file"   onChange={handleNotesUpload} id="file" />
             <div className="imageUpload" >
-            <img  src="https://www.efilecabinet.com/wp-content/uploads/2019/05/upload-01.png" alt="" />
+            <img  src="https://icon-library.com/images/upload-image-icon-png/upload-image-icon-png-26.jpg" alt="" />
               <button >Upload Profile Pitchure</button>
             </div>
           </div>
