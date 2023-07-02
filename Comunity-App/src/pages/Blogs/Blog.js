@@ -220,16 +220,19 @@ const Blog = () => {
 
  
 
-  const handlePostOption = (name,Blog) => {
+  const handlePostOption = async(name,cBlog) => {
+   
     if (name === "edit") {
-      setActiveBlog(Blog)
+      setActiveBlog(cBlog)
       setPostBlogWindow(true);
       setPostAction(name)
     }else if(name==="delete"){
-      const response = axios.post("/Blogs/deletePost",{_id:Blog._id});
+      const response = await axios.post("/Blogs/deletePost",{_id:cBlog._id});
       let BlogsCopy = [...Blogs];
-      let index=BlogsCopy.indexOf(Blog)
+      let index=BlogsCopy.indexOf(cBlog)
+      console.log(index);
       BlogsCopy =BlogsCopy.slice(index+1)
+      
       setBlogs(BlogsCopy);
     }
   };
@@ -267,7 +270,7 @@ const Blog = () => {
                 <p name="edit" onClick={() => handlePostOption("edit",key)}>
                   Edit Post
                 </p>
-                <p name="delete" onClick={(event) => handlePostOption("delete",key)}>
+                <p name="delete" onClick={(e) => {handlePostOption("delete",key)}}>
                   Delete Post
                 </p>
               </div>
