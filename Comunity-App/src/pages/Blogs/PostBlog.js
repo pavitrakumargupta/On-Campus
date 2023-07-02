@@ -12,8 +12,7 @@ const PostBlog = ({ user, handleSubmitBlog, closeWindow,BlogDetail }) => {
     coverImageLink: BlogDetail!==null?BlogDetail.coverImageLink:"",
     userName: user.details.username,
     userId: user.details.userId,
-    userImage:
-      "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
+    userImage:user.details.profilePitchure,
     comment: BlogDetail!==null?BlogDetail.comment:[],
     Like: BlogDetail!==null?BlogDetail.Like:[],
   });
