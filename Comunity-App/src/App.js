@@ -19,7 +19,7 @@ import News from "./pages/News/News";
 import Question from "./pages/questions/question"
 import ChatsPage from "./pages/chatsPage/chatsPage";
 import ProfilePage from "./pages/profilePage/profilePage";
-
+import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 
 function App() {
 
@@ -28,6 +28,7 @@ function App() {
     <Route path="/" element={<Homepage />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/forgot-password" element={<ForgotPassword />}></Route>
         <Route path="/message" element={<div className="page"><Navbar currentMenu={"message"} /><ChatsPage/></div>}></Route>
         <Route path="/blogs"  element={<div className="page"><Navbar currentMenu={"blogs"} />  <Blog/></div>}></Route>
         <Route path="/notes" element={<div className="page"><Navbar currentMenu={"notes"} /> <Notes/></div>}></Route>

@@ -156,12 +156,55 @@ module.exports.checkLoginCredential = async (req, res, next) => {
   }
 };
 
+module.exports.ForgotPassword = async (req, res, next) => {
+  try {
+    const {email,otp}=req.body
+    const authenticate_email = async () => {
+        const OtpCheck = await Authenticate.findOne({ email });
+        const UserCheck = await User.findOne({ email });
+        if (UserCheck && OtpCheck) {
+          var generated_otp = await Mail(email);
+          const otpTime = new Date();
+          otpTime.setMinutes(otpTime.getMinutes() + 5);
+          const options = { timeZone: "Asia/Kolkata" }; // set the time zone to India Standard Time
+          const time = otpTime.toLocaleString("en-US", options);
+          const Otp_update = await Authenticate.findByIdAndUpdate(
+            OtpCheck._id,
+            {
+              generated_otp: generated_otp,
+              time: time,
+            }
+          );
+        } else {
+          return res.json({ msg: "Invalid email", status: false });
+        }
+        return res.json({msg:"otp sended",status: true })
+    };
+    if(otp===""){
+      authenticate_email() 
+    }else{
+      const UserCheck = await User.findOne({ email });
+      const OtpCheck = await Authenticate.findOne({ email });
+      if(OtpCheck.generated_otp==otp){
+        return res.json({msg:"otp verified",id:UserCheck._id,status: true })
+      }else{
+        return res.json({msg:"Invalid OTP",status: false })
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    return res.json({msg:"Internal server Error",status: false })
+  }
+}
+
 module.exports.updateProfile = async (req, res, next) => {
   try {
     const updatingDetail=req.body.profile
+    console.log(req.body.id);
     const update=await User.findByIdAndUpdate(req.body.id,updatingDetail)
-    return res.json({msg:"profileUpdated"})
+    return res.json({msg:"profileUpdated",status: true })
   } catch (error) {
-    console.log("done");
+    console.log(error);
+    return res.json({msg:"Internal server Error",status: false })
   }
 }
