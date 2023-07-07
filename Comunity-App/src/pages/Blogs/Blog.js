@@ -288,10 +288,14 @@ const Blog = () => {
                 <h6>{key.tittle}</h6>
                 <p>{key.content.substring(0, 70)}....</p>
               </div>
+              
               <div className="aboutUser">
                 <img src={key.userImage} alt="" />
                 <p>{key.userName}</p>
+                {/* <p style={{marginLeft:"auto"}}>{key.Like.length} Likes</p> */}
+                <p style={{marginLeft:"auto",opacity:0.7}}>{key.Like.length} Likes , {key.comment.length} comments</p>
               </div>
+              <p></p>
             </div>
           ))}
       </div>
