@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import axios from "../../axios"
 import Viewprofile from "./viewProfile"
+import BackButton from "./backButton.png"
 
 const ProfilePage = () => {
     const user = useSelector((state) => state);
@@ -45,7 +46,7 @@ const ProfilePage = () => {
   return (
     <div className="Profile">
       <nav >
-        <button className="back" onClick={()=>navigate("/")}> <img src="https://cdn-icons-png.flaticon.com/256/93/93634.png" alt="" /></button>
+        <button className="back" onClick={()=>navigate("/")}> <img src={BackButton} alt="" /></button>
         <div className="ProfilePages">
           {profilePages.map(key=>(
             <button onClick={()=>setActiveProfilePage(key.name)} style={{color:key.name==activeProfilePage&&"#A67DFD"}}>{key.text}</button>
