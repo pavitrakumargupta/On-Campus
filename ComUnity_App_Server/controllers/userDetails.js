@@ -228,3 +228,13 @@ module.exports.updateProfile = async (req, res, next) => {
     return res.json({msg:"Internal server Error",status: false })
   }
 }
+
+module.exports.cronJob = async (req, res, next) => {
+  try {
+    console.log("running cron job");
+    return res.json({msg:"everything working fine ",status: true })
+  } catch (error) {
+    console.log(error);
+    return res.json({msg:"Internal server Error",status: false })
+  }
+}
