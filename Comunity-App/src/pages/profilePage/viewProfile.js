@@ -55,6 +55,7 @@ const UserProfile = ({ UserId,editProfileActive }) => {
     }
  
     const res= await axios.post("/updateProfile",{id:UserId,profile:updateDetailsCopy})
+    res.data.status?toast.success("Profile Updated Succesfully",toast_style):toast.error(res.data.msg,toast_style)
   }
 
   const uploadImage=async(e)=>{
