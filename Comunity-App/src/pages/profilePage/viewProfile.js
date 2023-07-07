@@ -69,7 +69,7 @@ const UserProfile = ({ UserId,editProfileActive }) => {
     return (
       <div className='viewProfile'>
         <div className='profilepic'>
-          <img className='profilePitchure' src={user?.profilePitchure} alt="Profile" />
+          <img className='profilePitchure' src={user.profilePitchure===""?"https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-700-205577532.jpg":user.profilePitchure} alt="Profile" />
           {editProfileActive&&<>
             <img className='editProfile' src="https://static.thenounproject.com/png/4879835-200.png" alt="" />
             <input name="profilePitchure" onChange={uploadImage} type="file" />
