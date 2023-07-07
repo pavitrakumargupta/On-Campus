@@ -1,0 +1,81 @@
+.viewProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgb(123, 123, 123,0.3);
+    width: 50%;
+    /* height: 70%; */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    overflow-y: scroll;
+}
+.viewProfile >.profilepic{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.viewProfile >.profilepic >.editProfile{
+    height: 30px;
+    width: 30px;
+    margin: auto 0 0 -40px;
+    position: relative;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.viewProfile >.profilepic input{
+    max-height: 30px;
+    max-width: 30px;
+    min-width: 30px;
+    margin: auto 0 0 -40px;
+    position: relative;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0;
+}
+.viewProfile .profilePitchure{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+
+.viewProfile >div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 0;
+    width: 100%;
+   
+}
+.viewProfile >div>input{
+    max-width: 500px;
+    min-width: max-content;
+    border: 1px solid rgb(119, 119, 119,0.3);
+    padding: 10px;
+    font-size: 18px;
+    min-width: 100%;
+}
+.viewProfile >button:hover{
+    background-color: rgb(0, 0, 0,0.8);
+    color: white;
+    border: 1px solid rgb(119, 119, 119,0.3);
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 30px;
+    
+}
+.viewProfile >button{
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(0, 0, 0);
+    font-weight: 550;
+    padding: 10px;
+}

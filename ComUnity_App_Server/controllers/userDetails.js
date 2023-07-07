@@ -197,10 +197,30 @@ module.exports.ForgotPassword = async (req, res, next) => {
   }
 }
 
+
+module.exports.getUserbyId = async (req, res, next) => {
+  try {
+    const user=await User.findById(req.query.id).lean()
+    delete user.password;
+    return res.json({user,status: true })
+  } catch (error) {
+    console.log(error);
+    return res.json({msg:"Internal server Error",status: false })
+  }
+}
+
 module.exports.updateProfile = async (req, res, next) => {
   try {
     const updatingDetail=req.body.profile
-    console.log(req.body.id);
+    if(updatingDetail.oldPassword){
+      let updatepassw=await User.findOneAndUpdate({_id:req.body.id,password:updatingDetail.oldPassword},{password:this.updateProfile.newpassword})
+      if(updatepassw){
+        return res.json({msg:"Password Updated Succesfully",status: true })
+      }
+      else{
+        return res.json({msg:"Incorrect Current Password",status: false })
+      }
+    }
     const update=await User.findByIdAndUpdate(req.body.id,updatingDetail)
     return res.json({msg:"profileUpdated",status: true })
   } catch (error) {
