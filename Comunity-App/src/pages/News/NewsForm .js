@@ -85,7 +85,7 @@ const NewsForm = ({ onSubmit }) => {
         <div className="imageSection">
           <input className="imageInput"    type="file"   onChange={handleNotesUpload} id="file" />
             <div className="imageUpload" >
-            <img  src="https://www.efilecabinet.com/wp-content/uploads/2019/05/upload-01.png" alt="" />
+            <img  src="https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/newspaper.png" alt="" />
               <button >Upload Supported Document</button>
             </div>
           </div>

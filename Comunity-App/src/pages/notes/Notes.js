@@ -252,7 +252,7 @@ const Notes = () => {
           <div className="imageSection">
           <input className="imageInput"  required type="file" accept="application/pdf" onChange={handleNotesUpload} id="file" />
             <div className="imageUpload" >
-            <img  src="https://www.efilecabinet.com/wp-content/uploads/2019/05/upload-01.png" alt="" />
+            <img  src="https://cdn.icon-icons.com/icons2/1276/PNG/512/1497559998-15_85036.png" alt="" />
               <button  >Upload Notes</button>
             </div>
             
