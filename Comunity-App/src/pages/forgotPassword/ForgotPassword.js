@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import "../Register/Register.css";
+import "../Register/authentication.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Logo from "../../assets/logo.png"
 import "react-toastify/dist/ReactToastify.css";
+import SideImage from "./sideScreen.png"
 // import axios from "../../axios";
 
 import axios from "../../axios";
@@ -87,53 +88,31 @@ function ForgotPassword() {
   };
     
   return (
-    <>
-
-<div className="loginPage_signup">
-      <div class="container" id="container">
-		<div class="form-container log-in-container">
-			<form action="#">
-				<h1>Recover  Password</h1>
-				{/* <div class="social-container">
-					<a href="#" class="social"><i class="fa fa-facebook fa-2x"></i></a>
-					<a href="#" class="social"><i class="fab fa fa-twitter fa-2x"></i></a>
-				</div> */}
-				{/* <span>or use your account</span> */}
-        {!updatePassword ? <>
-           
-            <input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
-          
-          
-          {Fill_otp && (
-             <input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />
-            
-          )}
-        </>:<>
-           <input className="form__input" value={signupDetails.password} onChange={handleDetail} name="password"  type="password" placeholder="Password" />
-           
-           <input className="form__input" value={signupDetails.conf_password} onChange={handleDetail} name="conf_password"  type="password" placeholder="Confirm Password" />
-           
+<div className="authenticationPage">
+      <div className="container">
+        <div className="authenticationScreen">
+        <h1 style={{marginBottom:"50px"}} className="tittle">Recover Password</h1>
+          <div className="form">
+            {!updatePassword ? <>
+            <input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />         
+            {Fill_otp && (
+              <input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" /> )}
+            </>:<>
+           <input className="form__input" value={signupDetails.password} onChange={handleDetail} name="password"  type="password" placeholder="Password" />          
+           <input className="form__input" value={signupDetails.conf_password} onChange={handleDetail} name="conf_password"  type="password" placeholder="Confirm Password" />                      
         </>}
-				{/* <input type="email"  name="email" onChange={handleDetail} placeholder="Email" />
-				<input type="password" placeholder="Password" onChange={handleDetail} name="password" /> */}
-				{/* <Link to="/forgot-password"  >Forgot your password?</Link> */}
-				<button style={{marginTop:"20px"}}  className="btn"  onClick={onSubmit} type="submit" disabled={submitButtonDisabled} > {Fill_otp ? updatePassword?"Update Password":"Confirm Otp" : "Recover"} </button>
-        <p style={{marginTop:"20px"}} >go back to login page? <Link to="/login" style={{textDecoration:"underline"}}  >login </Link></p> 
-			</form>
-		</div>
-		<div  class="overlay-container">
-			<div  class="overlay">
-				<div style={{backgroundColor:"#ddfcfc"}} class="overlay-panel overlay-right">
-					<h1>Hey welcome to ComUnity App</h1>
-          <img style={{width:"600px",marginLeft:"50px"}} src="https://herothemes.com/wp-content/uploads/what-is-IT-helpdesk-support-880x440.png" alt="" />
-					<p>Discover your Comunity and find the way you can best utilize the app</p>
-				</div>
-			</div>
-		</div>
-    <ToastContainer  />
-	</div>
+        <button style={{marginTop:"20px"}}  className="submitBtn"  onClick={onSubmit} type="submit" disabled={submitButtonDisabled} > {Fill_otp ? updatePassword?"Update Password":"Confirm Otp" : "Recover"} </button>
+          </div>
+          <p style={{marginTop:"20px"}} >Wan't to go back to? <Link to="/login" style={{textDecoration:"underline"}}  >Login </Link></p> 
+        </div>
+        <div className="welcomeScreen">
+            <h1>You Forgot that<br /> Recover it</h1>
+            <img src={SideImage} alt="" />
+        </div>
+      </div>
+      <ToastContainer style={{}}/>
   </div>
-  </>
+
   );
 };
 
