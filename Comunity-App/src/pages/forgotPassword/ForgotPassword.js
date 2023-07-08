@@ -106,7 +106,7 @@ function ForgotPassword() {
           <p style={{marginTop:"20px"}} >Wan't to go back to? <Link to="/login" style={{textDecoration:"underline"}}  >Login </Link></p> 
         </div>
         <div className="welcomeScreen">
-            <h1>Welcome Back <br /> 👏</h1>
+            <h1>You Forgot that<br /> Recover it</h1>
             <img src={SideImage} alt="" />
         </div>
       </div>

@@ -98,7 +98,7 @@ const Register = () => {
           <p style={{margin:"20px 0"}} >Already have an account ?<Link to="/login" style={{textDecoration:"underline"}}>Login </Link></p> 
         </div>
         <div className="welcomeScreen">
-            <h1>Welcome Back <br /> 👏</h1>
+            <h1>Want to join us<br /> Register Here</h1>
             <img src={SideImage} alt="" />
         </div>
       </div>
