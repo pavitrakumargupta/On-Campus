@@ -87,7 +87,7 @@ const Login = () => {
 		<div  class="overlay-container">
 			<div  class="overlay">
 				<div style={{backgroundColor:"#ddfcfc"}} class="overlay-panel overlay-right">
-					<h1>Hey welcome to Pamuru App</h1>
+					<h1>Hey welcome to ComUnity App</h1>
           <img style={{width:"600px",marginLeft:"50px"}} src="https://herothemes.com/wp-content/uploads/what-is-IT-helpdesk-support-880x440.png" alt="" />
 					<p>Discover your Comunity and find the way you can best utilize the app</p>
 				</div>

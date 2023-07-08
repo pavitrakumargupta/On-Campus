@@ -35,10 +35,10 @@ async function SendMail(email) {
     });
 
     const mailOption = {
-      from: "pamuru <programmer0231@gmail.com>",
+      from: "ComUnity <programmer0231@gmail.com>",
       to: email,
-      subject: "Your pamuru account has OTP request",
-      text: `Hello ${email} A request has been received For OTP in your pamuru account.  \n Your OTP(one time password) : ${genrated_otp}\n For any query please contact to programmer0231@gmail.com `,
+      subject: "Your ComUnity account has OTP request",
+      text: `Hello ${email} A request has been received For OTP in your ComUnity account.  \n Your OTP(one time password) : ${genrated_otp}\n For any query please contact to programmer0231@gmail.com `,
     };
 
     const result = await transport.sendMail(mailOption);
