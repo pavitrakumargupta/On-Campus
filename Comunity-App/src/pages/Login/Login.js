@@ -67,60 +67,35 @@ const Login = () => {
   } 
 
   return (
-    <div className="RegisterLogin">
-      <div className="form-body">
-      <img src={Logo} style={{margin:"auto"}} width={150} alt="" />
-        <h2>Welocome Back fill  your  Details for LogIn</h2>
-         
-        <div className="email">
-          <label className="form__label" for="email">
-            Email{" "}
-          </label>
-          <input
-            type="email"
-            name="email"
-            onChange={handleDetail}
-            className="form__input"
-            placeholder="Email"
-          />
-        </div>
-        <div className="password">
-          <label className="form__label" for="password">
-            Password{" "}
-          </label>
-          <input
-            className="form__input"
-            onChange={handleDetail}
-            name="password"
-            type="password"
-            placeholder="Password"
-          />
-        </div>
-         
-        <div>
-          <button
-            onClick={onSubmit}
-            type="submit"
-            className="btn"
-            disabled={submitButtonDisabled}
-          >
-            LogIn
-          </button>
-          <p style={{textAlign:"center"}}>
-            Don't have an account?{" "}
-            <span>
-              <Link to="/register" style={{textDecoration:"underline"}}>Create Account</Link>
-            </span>
-            
-          </p>
-          <p style={{textAlign:"center",marginTop:"-10px"}}>
-            <Link to="/forgot-password">Forgot Password?</Link>
-          </p>
-          
-        </div>
-      </div>
-      <ToastContainer style={{}}/>
-    </div>
+    <div className="loginPage_signup">
+      <div class="container" id="container">
+		<div class="form-container log-in-container">
+			<form action="#">
+				<h1>Login</h1>
+				{/* <div class="social-container">
+					<a href="#" class="social"><i class="fa fa-facebook fa-2x"></i></a>
+					<a href="#" class="social"><i class="fab fa fa-twitter fa-2x"></i></a>
+				</div> */}
+				{/* <span>or use your account</span> */}
+				<input type="email"  name="email" onChange={handleDetail} placeholder="Email" />
+				<input type="password" placeholder="Password" onChange={handleDetail} name="password" />
+				<Link to="/forgot-password"  >Forgot your password?</Link>
+				<button onClick={onSubmit} className="btn"  disabled={submitButtonDisabled}>Log In</button>
+        <p style={{marginTop:"20px"}} >Don't have an account ?<Link to="/register" style={{textDecoration:"underline"}}  >Register </Link></p> 
+			</form>
+		</div>
+		<div  class="overlay-container">
+			<div  class="overlay">
+				<div style={{backgroundColor:"#ddfcfc"}} class="overlay-panel overlay-right">
+					<h1>Hey welcome to Pamuru App</h1>
+          <img style={{width:"600px",marginLeft:"50px"}} src="https://herothemes.com/wp-content/uploads/what-is-IT-helpdesk-support-880x440.png" alt="" />
+					<p>Discover your Comunity and find the way you can best utilize the app</p>
+				</div>
+			</div>
+		</div>
+    <ToastContainer style={{}}/>
+	</div>
+  </div>
   );
 };
 

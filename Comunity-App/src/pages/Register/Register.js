@@ -79,50 +79,42 @@ const Register = () => {
   };
     
   return (
-    <div className="RegisterLogin">
-      <div className="form-body">
-        <img src={Logo} style={{margin:"auto"}} width={150} alt="" />
-        <h2>Register  Yourself in the App</h2>
-        <div className="username">
-          <label className="form__label" for="firstName"> First Name{" "}</label>
-          <input className="form__input" onChange={handleDetail} name="firstname" type="text" placeholder="First Name" />
-        </div>
-        <div className="lastname">
-          <label className="form__label" for="lastName"> Last Name{" "}  </label>
-          <input type="text" name="lstname" onChange={handleDetail} className="form__input" placeholder="LastName" />
-        </div>
-        <div className="UserName">
-          <label className="form__label" for="username"> User Name{" "}</label>
-          <input type="text" name="username" onChange={handleDetail} className="form__input" placeholder="User Name" />
-        </div>
-        <div className="email">
-          <label className="form__label" for="email"> Email{" "}  </label>
-          <span > *For authentication
-          </span>
-          <input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
-        </div>
-        <div className="password">
-          <label className="form__label" for="password"> Password{" "}  </label>
-          <input className="form__input" onChange={handleDetail} name="password" type="password" placeholder="Password" />
-        </div>
-        <div className="confirm-password">
-          <label className="form__label" for="confirmPassword"> Confirm Password{" "}  </label>
-          <input className="form__input" onChange={handleDetail} name="conf_password" type="password" placeholder="Confirm Password" />
-        </div>
-        {Fill_otp && (
-          <div className="confirm-password"> <label className="form__label" for="confirmPassword">   Enter OTP{" "} </label> <input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />
-          </div>
-        )}
-        <div>
-          <button onClick={onSubmit} type="submit" className="btn" disabled={submitButtonDisabled}
-          > {Fill_otp ? "Confirm Otp" : "Register"}
-          </button>
-          <p> Already have an account?{" "} <span>   <Link to="/login">Login</Link> </span>
-          </p>
-        </div>
-      </div>
-      <ToastContainer />
-    </div>
+    <>
+    <div className="loginPage_signup">
+      <div class="container" id="container">
+		<div class="form-container log-in-container">
+			<form style={{overflowY:"auto"}} action="#">
+				<h1 style={{marginTop:"60px"}} >Register</h1>
+				{/* <div class="social-container">
+					<a href="#" class="social"><i class="fa fa-facebook fa-2x"></i></a>
+					<a href="#" class="social"><i class="fab fa fa-twitter fa-2x"></i></a>
+				</div> */}
+				{/* <span>or use your account</span> */}
+        <input className="form__input" onChange={handleDetail} name="firstname" type="text" placeholder="First Name" />
+        <input type="text" name="lstname" onChange={handleDetail} className="form__input" placeholder="LastName" />
+        <input type="text" name="username" onChange={handleDetail} className="form__input" placeholder="User Name" />
+				<input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
+				<input className="form__input" onChange={handleDetail} name="password" type="password" placeholder="Password" />
+        <input className="form__input" onChange={handleDetail} name="conf_password" type="password" placeholder="Confirm Password" />
+        {Fill_otp && (<input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />)}
+				<button style={{marginTop:"10px"}} onClick={onSubmit} type="submit" className="btn" disabled={submitButtonDisabled}> {Fill_otp ? "Confirm Otp" : "Register"}</button>
+        <p style={{marginTop:"10px"}} >Already have an account? <Link to="/login" style={{textDecoration:"underline"}}  >Login </Link></p> 
+			</form>
+		</div>
+		<div  class="overlay-container">
+			<div  class="overlay">
+				<div style={{backgroundColor:"#ddfcfc"}} class="overlay-panel overlay-right">
+					<h1>Hey welcome to Pamuru App</h1>
+          <img style={{width:"600px",marginLeft:"50px"}} src="https://herothemes.com/wp-content/uploads/what-is-IT-helpdesk-support-880x440.png" alt="" />
+					<p>Discover your Comunity and find the way you can best utilize the app</p>
+				</div>
+			</div>
+		</div>
+    <ToastContainer style={{}}/>
+	</div>
+  </div>
+    
+    </>
   );
 };
 
