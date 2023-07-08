@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "./Register.css";
+import "./authentication.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Logo from "../../assets/logo.png"
 import "react-toastify/dist/ReactToastify.css";
 // import axios from "../../axios";
+import SideImage from "./sideScreen.png"
 
 import axios from "../../axios";
 // import apiCall from "../../apiCall";
@@ -79,42 +80,30 @@ const Register = () => {
   };
     
   return (
-    <>
-    <div className="loginPage_signup">
-      <div class="container" id="container">
-		<div class="form-container log-in-container">
-			<form style={{overflowY:"auto"}} action="#">
-				<h1 style={{marginTop:"60px"}} >Register</h1>
-				{/* <div class="social-container">
-					<a href="#" class="social"><i class="fa fa-facebook fa-2x"></i></a>
-					<a href="#" class="social"><i class="fab fa fa-twitter fa-2x"></i></a>
-				</div> */}
-				{/* <span>or use your account</span> */}
-        <input className="form__input" onChange={handleDetail} name="firstname" type="text" placeholder="First Name" />
-        <input type="text" name="lstname" onChange={handleDetail} className="form__input" placeholder="LastName" />
-        <input type="text" name="username" onChange={handleDetail} className="form__input" placeholder="User Name" />
-				<input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
-				<input className="form__input" onChange={handleDetail} name="password" type="password" placeholder="Password" />
-        <input className="form__input" onChange={handleDetail} name="conf_password" type="password" placeholder="Confirm Password" />
-        {Fill_otp && (<input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />)}
-				<button style={{marginTop:"10px"}} onClick={onSubmit} type="submit" className="btn" disabled={submitButtonDisabled}> {Fill_otp ? "Confirm Otp" : "Register"}</button>
-        <p style={{marginTop:"10px"}} >Already have an account? <Link to="/login" style={{textDecoration:"underline"}}  >Login </Link></p> 
-			</form>
-		</div>
-		<div  class="overlay-container">
-			<div  class="overlay">
-				<div style={{backgroundColor:"#ddfcfc"}} class="overlay-panel overlay-right">
-					<h1>Hey welcome to ComUnity App</h1>
-          <img style={{width:"600px",marginLeft:"50px"}} src="https://herothemes.com/wp-content/uploads/what-is-IT-helpdesk-support-880x440.png" alt="" />
-					<p>Discover your Comunity and find the way you can best utilize the app</p>
-				</div>
-			</div>
-		</div>
-    <ToastContainer style={{}}/>
-	</div>
+  <div className="authenticationPage">
+      <div className="container">
+        <div className="authenticationScreen">
+        <h1 className="tittle">Sign In</h1>
+          <div className="form">
+          <input className="form__input" onChange={handleDetail} name="firstname" type="text" placeholder="First Name" />
+          <input type="text" name="lstname" onChange={handleDetail} className="form__input" placeholder="LastName" />
+          <input type="text" name="username" onChange={handleDetail} className="form__input" placeholder="User Name" />
+	  			<input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
+	  			<input className="form__input" onChange={handleDetail} name="password" type="password" placeholder="Password" />
+          <input className="form__input" onChange={handleDetail} name="conf_password" type="password" placeholder="Confirm Password" />
+          {Fill_otp && (<input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />)}
+	  			<button  onClick={onSubmit}  className="submitBtn" disabled={submitButtonDisabled}> {Fill_otp ? "Confirm Otp" : "Register"}</button>
+  
+          </div>
+          <p style={{margin:"20px 0"}} >Already have an account ?<Link to="/login" style={{textDecoration:"underline"}}>Login </Link></p> 
+        </div>
+        <div className="welcomeScreen">
+            <h1>Welcome Back <br /> 👏</h1>
+            <img src={SideImage} alt="" />
+        </div>
+      </div>
+      <ToastContainer />
   </div>
-    
-    </>
   );
 };
 

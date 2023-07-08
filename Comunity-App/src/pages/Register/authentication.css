@@ -1,0 +1,442 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap");
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.authenticationPage{
+	width: 100vw;
+	height: 100vh;
+	background-color: rgb(237, 246, 247);
+	display: flex;
+	justify-content: center;
+	font-family: 'Montserrat', sans-serif;
+}
+.authenticationPage>.container{
+	background-color: #ffffff;
+	width: 50%;
+	height: 50%;
+	min-width: 800px;
+	min-height: 700px;
+	margin: auto;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 10px;
+	display: flex;
+	padding: 0px;
+}
+
+.authenticationPage>.container >div{
+	width: 50%;
+	height: 100%;
+}
+
+.authenticationPage>.container >.authenticationScreen{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	overflow-y: auto;
+	min-width: max-content;
+}
+
+.authenticationPage>.container >.authenticationScreen>h1{
+	margin: 50px 70px 0;
+}
+
+.authenticationPage>.container >.authenticationScreen>.form{
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	margin: 0 auto;
+	gap: 15px;
+	min-width: max-content;
+}
+.authenticationPage>.container >.authenticationScreen>.form>input{
+	font-size: 18px;
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	
+}
+.authenticationPage>.container >.authenticationScreen>.form>.submitBtn{
+	background: rgb(233, 231, 255);
+	color: #ffffff;
+	text-shadow: 0 0 3px #a9a1ff, 0 0 5px #000000;
+	font-size: 18px;
+	border: 1px solid rgb(173, 165, 255);
+	border-radius: 30px;
+	width: fit-content;
+	margin: 10px auto;
+	font-weight: bold;
+	padding: 12px 75px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+	cursor: pointer;
+}
+
+.authenticationPage>.container >.welcomeScreen{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	gap: 20px;
+	background-color:rgb(233, 231, 255);
+	border-radius: 0 10px 10px 0;
+}
+
+.authenticationPage>.container >.welcomeScreen>h1{
+	text-align: center;
+	color: rgb(255, 255, 255);
+	text-shadow: 0 0 3px #a9a1ff, 0 0 5px #000000;
+	font-size: 40px;
+	width: 90%;
+	margin: 0 auto;
+}
+.authenticationPage>.container >.welcomeScreen>img{
+	width: 500px;
+	margin-left: -50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* * {
+	box-sizing: border-box;
+} */
+
+/* body {
+	background: rgba(215, 250, 255, 0.2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	margin: -20px 0 50px;
+} */
+
+.loginPage_signup{
+	background: rgba(215, 250, 255, 0.2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	margin: -20px 0 50px;
+}
+
+.loginPage_signup h1 ,h2{
+	font-weight: bold;
+	margin: 0;
+    margin-bottom: 50px;
+}
+
+.loginPage_signup p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
+
+.loginPage_signup span {
+	font-size: 12px;
+}
+
+.loginPage_signup a {
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+.loginPage_signup .btn {
+	border-radius: 20px;
+	/* border: 1px solid #FF4B2B; */
+	/* background-color: #FF4B2B; */
+    background: #e1ffff;
+	color: #ffffff;
+	text-shadow: 0 0 3px #00bee0, 0 0 5px #000000;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.loginPage_signup form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+.loginPage_signup input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+
+.loginPage_signup .container {
+	background-color: #fff;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+	max-width: 100%;
+	min-height: 550px;
+    /* margin: auto; */
+	margin-top: 50px;
+
+}
+
+.loginPage_signup .form-container {
+	position: absolute;
+	/* top: 0; */
+	height: 100%;
+   
+}
+
+.loginPage_signup .log-in-container {
+	left: 0;
+	top: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+
+.loginPage_signup .overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+}
+
+
+.loginPage_signup .overlay {
+	/* background: #FF416C;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C); */
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+	color: #FFFFFF;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+}
+
+.loginPage_signup  .overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	/* top: 0; */
+	height: 100%;
+	width: 50%;
+}
+.loginPage_signup  .overlay-panel h1{
+    margin-top: 100px;
+    text-shadow: 0 0 3px #e9e7ff, 0 0 5px #000000;
+}
+
+
+.loginPage_signup .overlay-right {
+	right: 0;
+}
+
+
+.loginPage_signup .social-container {
+	margin: 50px 0;
+}
+
+.loginPage_signup .social-container a {
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.RegisterLogin {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  /* background: linear-gradient(to right, rgb(101, 78, 163), rgb(234, 175, 200)); */
+  background: linear-gradient(180deg, #f8f8f8 0%, #dcc5ff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+    font-family: "Lexend";
+    font-style: normal;
+}
+
+.RegisterLogin > .form-body {
+  min-width: 480px;
+  min-height: 25rem;
+  max-height: 80vh;
+
+  min-height: max-content;
+  width: fit-content;
+ 
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  padding: 30px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color:rgb(255 255 255 / 7.95%);
+  
+   
+ 
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
+}
+.RegisterLogin > .form-body > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.RegisterLogin > .form-body > h2 {
+  font-family: "Dosis", sans-serif;
+  margin: auto;
+  text-decoration: underline;
+  color: #250761;
+}
+.RegisterLogin > .form-body > div > label {
+  font-family: "Dosis", sans-serif;
+  padding-left: 5px;
+  font-weight: 700;
+  font-size: 1rem;
+  color:#1D005B;
+}
+.RegisterLogin > .form-body > div >span{
+  color: rgb(220, 74, 16);
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+.RegisterLogin > .form-body > div > input {
+  border-radius: 5px;
+  border: 2px solid #6950a0;
+  outline: none;
+  padding: 10px 15px;
+  color:  #110231;
+  font-size: 18px;
+  background-color: transparent;
+}
+.RegisterLogin > .form-body > div > input::placeholder{
+  color:#413164;
+}
+.RegisterLogin > .form-body > div > input:focus::placeholder{
+  /* color: #393939; */
+}
+
+.RegisterLogin > .form-body > div > input:hover {
+  border-color: #A67DFD;
+}
+.RegisterLogin > .form-body > div > input:focus {
+  border-color:#A67DFD;
+}
+.RegisterLogin> .form-body > div>button {
+  outline: none;
+  border: none;
+  background-color: #1D005B;
+  border-radius: 50px;
+  color: #ffff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px 16px;
+  justify-self: center;
+  margin: auto;
+  width: 50%;
+  transition: 100ms;
+  cursor: pointer;
+}
+.RegisterLogin > .form-body > div > button:disabled {
+  background-color: gray !important;
+}
+.RegisterLogin > .form-body > div > button:hover {
+  background-color: #3901bc;
+  color: #ffff;
+}
+.RegisterLogin > .form-body > div > p {
+  font-weight: 700;
+  color: #1D005B;
+}
+
+.RegisterLogin > .form-body > div > p span a {
+  font-weight: bold;
+  color: #A67DFD;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-decoration: none;
+}
