@@ -87,43 +87,53 @@ function ForgotPassword() {
   };
     
   return (
-    <div className="RegisterLogin">
-      <div className="form-body">
-        <img src={Logo} style={{margin:"auto"}} width={150} alt="" />
-        <h2>Recover Your Password</h2>
+    <>
+
+<div className="loginPage_signup">
+      <div class="container" id="container">
+		<div class="form-container log-in-container">
+			<form action="#">
+				<h1>Recover  Password</h1>
+				{/* <div class="social-container">
+					<a href="#" class="social"><i class="fa fa-facebook fa-2x"></i></a>
+					<a href="#" class="social"><i class="fab fa fa-twitter fa-2x"></i></a>
+				</div> */}
+				{/* <span>or use your account</span> */}
         {!updatePassword ? <>
-          <div className="email">
-            <label className="form__label" for="email"> Email{" "}  </label>
+           
             <input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
-          </div>
+          
           
           {Fill_otp && (
-            <div className="Otp"> 
-              <label className="form__label" for="otp">   Enter OTP{" "} </label> 
-              <input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />
-            </div>
+             <input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />
+            
           )}
         </>:<>
-          <div className="password">
-            <label className="form__label" for="password"> Password{" "}  </label>
-            <input className="form__input" value={signupDetails.password} onChange={handleDetail} name="password"  type="password" placeholder="Password" />
-          </div>
-          <div className="confirm-password">
-            <label className="form__label" for="confirmPassword"> Confirm Password{" "}  </label>
-            <input className="form__input" value={signupDetails.conf_password} onChange={handleDetail} name="conf_password"  type="password" placeholder="Confirm Password" />
-          </div>
+           <input className="form__input" value={signupDetails.password} onChange={handleDetail} name="password"  type="password" placeholder="Password" />
+           
+           <input className="form__input" value={signupDetails.conf_password} onChange={handleDetail} name="conf_password"  type="password" placeholder="Confirm Password" />
+           
         </>}
-        
-        <div>
-          <button onClick={onSubmit} type="submit" className="btn" disabled={submitButtonDisabled}
-          > {Fill_otp ? updatePassword?"Update Password":"Confirm Otp" : "Recover"}
-          </button>
-          <p> Want to go for Login page?{" "} <span>   <Link to="/login">Login</Link> </span>
-          </p>
-        </div>
-      </div>
-      <ToastContainer />
-    </div>
+				{/* <input type="email"  name="email" onChange={handleDetail} placeholder="Email" />
+				<input type="password" placeholder="Password" onChange={handleDetail} name="password" /> */}
+				{/* <Link to="/forgot-password"  >Forgot your password?</Link> */}
+				<button style={{marginTop:"20px"}}  className="btn"  onClick={onSubmit} type="submit" disabled={submitButtonDisabled} > {Fill_otp ? updatePassword?"Update Password":"Confirm Otp" : "Recover"} </button>
+        <p style={{marginTop:"20px"}} >go back to login page? <Link to="/login" style={{textDecoration:"underline"}}  >login </Link></p> 
+			</form>
+		</div>
+		<div  class="overlay-container">
+			<div  class="overlay">
+				<div style={{backgroundColor:"#ddfcfc"}} class="overlay-panel overlay-right">
+					<h1>Hey welcome to Pamuru App</h1>
+          <img style={{width:"600px",marginLeft:"50px"}} src="https://herothemes.com/wp-content/uploads/what-is-IT-helpdesk-support-880x440.png" alt="" />
+					<p>Discover your Comunity and find the way you can best utilize the app</p>
+				</div>
+			</div>
+		</div>
+    <ToastContainer  />
+	</div>
+  </div>
+  </>
   );
 };
 
