@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import "../Register/Register.css";
+import "../Register/authentication.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Logo from "../../assets/logo.png"
 import "react-toastify/dist/ReactToastify.css";
+import SideImage from "./sideScreen.png"
 // import axios from "../../axios";
 
 import axios from "../../axios";
@@ -87,43 +88,31 @@ function ForgotPassword() {
   };
     
   return (
-    <div className="RegisterLogin">
-      <div className="form-body">
-        <img src={Logo} style={{margin:"auto"}} width={150} alt="" />
-        <h2>Recover Your Password</h2>
-        {!updatePassword ? <>
-          <div className="email">
-            <label className="form__label" for="email"> Email{" "}  </label>
-            <input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
-          </div>
-          
-          {Fill_otp && (
-            <div className="Otp"> 
-              <label className="form__label" for="otp">   Enter OTP{" "} </label> 
-              <input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />
-            </div>
-          )}
-        </>:<>
-          <div className="password">
-            <label className="form__label" for="password"> Password{" "}  </label>
-            <input className="form__input" value={signupDetails.password} onChange={handleDetail} name="password"  type="password" placeholder="Password" />
-          </div>
-          <div className="confirm-password">
-            <label className="form__label" for="confirmPassword"> Confirm Password{" "}  </label>
-            <input className="form__input" value={signupDetails.conf_password} onChange={handleDetail} name="conf_password"  type="password" placeholder="Confirm Password" />
-          </div>
+<div className="authenticationPage">
+      <div className="container">
+        <div className="authenticationScreen">
+        <h1 style={{marginBottom:"50px"}} className="tittle">Recover Password</h1>
+          <div className="form">
+            {!updatePassword ? <>
+            <input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />         
+            {Fill_otp && (
+              <input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" /> )}
+            </>:<>
+           <input className="form__input" value={signupDetails.password} onChange={handleDetail} name="password"  type="password" placeholder="Password" />          
+           <input className="form__input" value={signupDetails.conf_password} onChange={handleDetail} name="conf_password"  type="password" placeholder="Confirm Password" />                      
         </>}
-        
-        <div>
-          <button onClick={onSubmit} type="submit" className="btn" disabled={submitButtonDisabled}
-          > {Fill_otp ? updatePassword?"Update Password":"Confirm Otp" : "Recover"}
-          </button>
-          <p> Want to go for Login page?{" "} <span>   <Link to="/login">Login</Link> </span>
-          </p>
+        <button style={{marginTop:"20px"}}  className="submitBtn"  onClick={onSubmit} type="submit" disabled={submitButtonDisabled} > {Fill_otp ? updatePassword?"Update Password":"Confirm Otp" : "Recover"} </button>
+          </div>
+          <p style={{marginTop:"20px"}} >Wan't to go back to? <Link to="/login" style={{textDecoration:"underline"}}  >Login </Link></p> 
+        </div>
+        <div className="welcomeScreen">
+            <h1>You Forgot that<br /> Recover it</h1>
+            <img src={SideImage} alt="" />
         </div>
       </div>
-      <ToastContainer />
-    </div>
+      <ToastContainer style={{}}/>
+  </div>
+
   );
 };
 

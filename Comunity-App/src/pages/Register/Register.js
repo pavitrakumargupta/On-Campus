@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "./Register.css";
+import "./authentication.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Logo from "../../assets/logo.png"
 import "react-toastify/dist/ReactToastify.css";
 // import axios from "../../axios";
+import SideImage from "./sideScreen.png"
 
 import axios from "../../axios";
 // import apiCall from "../../apiCall";
@@ -79,50 +80,30 @@ const Register = () => {
   };
     
   return (
-    <div className="RegisterLogin">
-      <div className="form-body">
-        <img src={Logo} style={{margin:"auto"}} width={150} alt="" />
-        <h2>Register  Yourself in the App</h2>
-        <div className="username">
-          <label className="form__label" for="firstName"> First Name{" "}</label>
+  <div className="authenticationPage">
+      <div className="container">
+        <div className="authenticationScreen">
+        <h1 className="tittle">Sign In</h1>
+          <div className="form">
           <input className="form__input" onChange={handleDetail} name="firstname" type="text" placeholder="First Name" />
-        </div>
-        <div className="lastname">
-          <label className="form__label" for="lastName"> Last Name{" "}  </label>
           <input type="text" name="lstname" onChange={handleDetail} className="form__input" placeholder="LastName" />
-        </div>
-        <div className="UserName">
-          <label className="form__label" for="username"> User Name{" "}</label>
           <input type="text" name="username" onChange={handleDetail} className="form__input" placeholder="User Name" />
-        </div>
-        <div className="email">
-          <label className="form__label" for="email"> Email{" "}  </label>
-          <span > *For authentication
-          </span>
-          <input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
-        </div>
-        <div className="password">
-          <label className="form__label" for="password"> Password{" "}  </label>
-          <input className="form__input" onChange={handleDetail} name="password" type="password" placeholder="Password" />
-        </div>
-        <div className="confirm-password">
-          <label className="form__label" for="confirmPassword"> Confirm Password{" "}  </label>
+	  			<input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
+	  			<input className="form__input" onChange={handleDetail} name="password" type="password" placeholder="Password" />
           <input className="form__input" onChange={handleDetail} name="conf_password" type="password" placeholder="Confirm Password" />
-        </div>
-        {Fill_otp && (
-          <div className="confirm-password"> <label className="form__label" for="confirmPassword">   Enter OTP{" "} </label> <input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />
+          {Fill_otp && (<input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />)}
+	  			<button  onClick={onSubmit}  className="submitBtn" disabled={submitButtonDisabled}> {Fill_otp ? "Confirm Otp" : "Register"}</button>
+  
           </div>
-        )}
-        <div>
-          <button onClick={onSubmit} type="submit" className="btn" disabled={submitButtonDisabled}
-          > {Fill_otp ? "Confirm Otp" : "Register"}
-          </button>
-          <p> Already have an account?{" "} <span>   <Link to="/login">Login</Link> </span>
-          </p>
+          <p style={{margin:"20px 0"}} >Already have an account ?<Link to="/login" style={{textDecoration:"underline"}}>Login </Link></p> 
+        </div>
+        <div className="welcomeScreen">
+            <h1>Want to join us<br /> Register Here</h1>
+            <img src={SideImage} alt="" />
         </div>
       </div>
       <ToastContainer />
-    </div>
+  </div>
   );
 };
 

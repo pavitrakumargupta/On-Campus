@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../Register/Register.css";
+import "../Register/authentication.css";
 import { Link, useNavigate } from "react-router-dom";
 import {ToastContainer,toast} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css" 
@@ -8,6 +8,7 @@ import { bindActionCreators } from 'redux'
 import { actionCreators } from '../../state/index'
 import Logo from "../../assets/logo.png"
 import axios from "../../axios";
+import SideImage from "./sideScreen.png"
  
 // var md5 = require('md5');
 const Login = () => {
@@ -67,60 +68,25 @@ const Login = () => {
   } 
 
   return (
-    <div className="RegisterLogin">
-      <div className="form-body">
-      <img src={Logo} style={{margin:"auto"}} width={150} alt="" />
-        <h2>Welocome Back fill  your  Details for LogIn</h2>
-         
-        <div className="email">
-          <label className="form__label" for="email">
-            Email{" "}
-          </label>
-          <input
-            type="email"
-            name="email"
-            onChange={handleDetail}
-            className="form__input"
-            placeholder="Email"
-          />
-        </div>
-        <div className="password">
-          <label className="form__label" for="password">
-            Password{" "}
-          </label>
-          <input
-            className="form__input"
-            onChange={handleDetail}
-            name="password"
-            type="password"
-            placeholder="Password"
-          />
-        </div>
-         
-        <div>
-          <button
-            onClick={onSubmit}
-            type="submit"
-            className="btn"
-            disabled={submitButtonDisabled}
-          >
-            LogIn
-          </button>
-          <p style={{textAlign:"center"}}>
-            Don't have an account?{" "}
-            <span>
-              <Link to="/register" style={{textDecoration:"underline"}}>Create Account</Link>
-            </span>
-            
-          </p>
-          <p style={{textAlign:"center",marginTop:"-10px"}}>
+  <div className="authenticationPage">
+      <div className="container">
+        <div className="authenticationScreen">
+        <h1 style={{marginBottom:"50px"}} className="tittle">Login</h1>
+          <div className="form">
+            <input type="email"  name="email" onChange={handleDetail} placeholder="Email" />
+            <input type="password" placeholder="Password" onChange={handleDetail} name="password" />
             <Link to="/forgot-password">Forgot Password?</Link>
-          </p>
-          
+            <button onClick={onSubmit} className="submitBtn"  disabled={submitButtonDisabled}>LogIn</button>
+          </div>
+          <p style={{marginTop:"20px"}} >Don't have an account ?<Link to="/register" style={{textDecoration:"underline"}}  >Register </Link></p> 
+        </div>
+        <div className="welcomeScreen">
+            <h1>Welcome Back <br /> 👏</h1>
+            <img src={SideImage} alt="" />
         </div>
       </div>
-      <ToastContainer style={{}}/>
-    </div>
+      <ToastContainer />
+  </div>
   );
 };
 
