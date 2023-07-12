@@ -7,16 +7,17 @@
   padding: 0px ;
   /* padding: 1rem; */
   z-index: 2;
-  max-height: 12vh;
-    min-height: 12vh;
+  max-height: 100px;
 
+}
+.navbar>.logo{
+  margin:   10px;
 }
 
 .navbar>.logo img {
-    margin: auto 10px;
-    margin-top: 5px;
-    height: 5rem;
-    width: 5.5rem;
+  
+    /* height: 5rem; */
+    width: 17rem;
      
 }
 .navbar .profile > img {
