@@ -14,9 +14,9 @@
 } 
 .homeNav .logo{
     
-    margin: auto 10px;
-    height: 5rem;
-    width: 5.5rem;
+    margin: 10px;
+    /* height: 5rem; */
+    width: 17rem;
 }
 .homeNav > .nav_compo{
     display: flex;
