@@ -17,7 +17,7 @@ const Homepage = () => {
  
 
   useEffect(() => {
-    const userHistory = JSON.parse(localStorage.getItem("ComUnity"));
+    const userHistory = JSON.parse(localStorage.getItem("CollegeDesk"));
     const url = JSON.parse(localStorage.getItem("lastUrl"));
     if (userHistory == null) {
       navigate("/login");
@@ -32,7 +32,7 @@ const Homepage = () => {
             } 
           );
           if (!response.data.status) {
-            localStorage.clear("ComUnity")
+            localStorage.clear("CollegeDesk")
             navigate("/login");
           } else {
             setUserDetail();
