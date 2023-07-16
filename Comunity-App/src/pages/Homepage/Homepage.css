@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800&display=swap');
- 
-.home{
-   /* height: 100vh; */
-    min-height: 100vh;
-    padding-bottom: 15rem;
-    display: flex;
-    flex-direction: column;
-    background: rgb(221, 221, 221);
-    font-family: "Lexend";
-    font-style: normal;
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800&display=swap");
+
+.home {
+  min-height: 100vh;
+  padding-bottom: 15rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "Lexend";
+  font-style: normal;
+  background-color: #ffffb5;
+  background-image: linear-gradient(315deg, #e2f6ff 40%, #feffe6 70%);
 }

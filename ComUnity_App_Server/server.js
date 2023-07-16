@@ -12,9 +12,9 @@ app.use(express.json())
 app.use("/",userRoutes)
 
 app.get('/', function(req, res){
-    res.send('Running the ComUnity server app');
+    res.send('Running the CollegeDesk server app');
   });
 
-app.listen(process.env.PORT ||5000,()=>{
+const server=app.listen(process.env.PORT ||5000,()=>{
     console.log('server is listening on',process.env.PORT); 
 })       

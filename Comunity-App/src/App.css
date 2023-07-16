@@ -18,7 +18,10 @@
     /* max-width: 100vw; */ 
     min-width: 100vw;
     min-height: 100vh;
-    background: rgb(228, 230, 233);
+    /* background: rgb(228, 230, 233); */
+    background-color: #ffffb5;
+  background-image: linear-gradient(315deg, #e2f6ff 40%, #feffe6 70%);
+
 }
 ::-webkit-scrollbar {
     width: 7px;

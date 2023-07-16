@@ -1,6 +1,7 @@
 import React from "react";
 import "./services.css";
 import { useNavigate } from "react-router-dom";
+import MsgImg from "../../../assets/messaging.png"
 const Services = () => {
   const navigate = useNavigate();
 
@@ -8,8 +9,7 @@ const Services = () => {
     {
       name: "Messages",
       url:"message",
-      image:
-        "https://icons-for-free.com/iconfiles/png/512/facebook+media+message+messenger+social+texting+icon-1320137114598336657.png",
+      image:MsgImg,
     },
     {
       name: "News & Updates",

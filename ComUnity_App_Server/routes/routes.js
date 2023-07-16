@@ -2,7 +2,7 @@ const router=require("express").Router()
 const {setSignupDetails,checkLoginCredential,ForgotPassword,updateProfile,getUserbyId,cronJob}=require("../controllers/userDetails")
 const {createPost,getAllPost,editPost,deletePost,editLike_Comment}=require("../controllers/handlePost")
 const {uploadNotes,getNotes}=require("../controllers/handleNotes")
-// const { addMessage, getMessages } = require("../controllers/messageController");
+
  
 
 
@@ -28,8 +28,7 @@ router.post("/Notes/getNotes",getNotes)
 
 
 
-// router.post("/addmsg/", addMessage);
-// router.post("/getmsg/", getMessages);
+
 
 
 // export

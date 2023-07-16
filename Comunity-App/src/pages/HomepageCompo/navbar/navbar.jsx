@@ -12,13 +12,13 @@ const Navbar = () => {
   const [menuIcon, setMenuIcon] = useState(false);
   const navigate = useNavigate();
   const deleteLocalstorage = () => {
-    localStorage.clear("ComUnity");
+    localStorage.clear("CollegeDesk");
     navigate("/login");
   };
 
   return (
     <nav className={menuIcon ? "homeNav active" : "homeNav"}>
-      <a href="https://comunity.netlify.app"><img className="logo" src={Logo} alt="Logo" /></a>
+      <a href="https://CollegeDesk.netlify.app"><img className="logo" src={Logo} alt="Logo" /></a>
       <div className="nav_compo">
         <div className="search">
           <img src={Search} alt="" />

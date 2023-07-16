@@ -11,11 +11,14 @@
   font-family: "Lexend";
   font-style: normal;
   
-  
+  background-color: transparent;
 }
 .services > .apps_out {
-  background: #1D005B;
-  box-shadow: 2px 2px 6px rgba(32, 0, 240, 0.606);
+  /* background: #1D005B; */
+  background-image: linear-gradient(to right, #a377f4, #2ebf91);
+
+
+  /* box-shadow: 2px 2px 6px rgba(32, 0, 240, 0.606); */
   border-radius: 41px;
   width: 90%;
   position: relative;
@@ -61,13 +64,14 @@
   animation: fadeIn 0.5s ease-in-out;
 }
 .services > .apps_out > .apps > div > div {
-  background: #1D005B;
+  /* background: #1D005B; */
+  background-color: rgb(255, 255, 255,0.5);
   border-radius: 500px;
   padding: 10px;
   height: 60px;
   width: 60px;
   margin: auto;
-  border: 1px solid #A67DFD;
+  /* border: 1px solid #A67DFD; */
   /* padding: 15px; */
 }
 .services > .apps_out > .apps > div > div > img {

@@ -15,7 +15,7 @@ const Login = () => {
 
   const dispatch=useDispatch()
   useEffect(() => {
-    const userHistory = JSON.parse(localStorage.getItem("ComUnity")); 
+    const userHistory = JSON.parse(localStorage.getItem("CollegeDesk")); 
     if (userHistory !== null) {
       navigate("/");
     }
@@ -57,7 +57,7 @@ const Login = () => {
           toast.error(response.data.msg,toast_style)
           setSubmitButtonDisabled(false);
         }else{
-          localStorage.setItem('ComUnity',JSON.stringify({email:LoginDetail.email,password:LoginDetail.password}))
+          localStorage.setItem('CollegeDesk',JSON.stringify({email:LoginDetail.email,password:LoginDetail.password}))
           navigate("/");
           dispatch(actionCreators.setUserDetails(response.data.data))
         }
