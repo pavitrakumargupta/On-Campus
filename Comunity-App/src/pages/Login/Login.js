@@ -23,7 +23,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const toast_style={
-    position:"bottom-right",
+    position:"bottom-right", 
     autoClose:4000,
     pauseOnHover:true,
     draggable:true,
@@ -52,17 +52,13 @@ const Login = () => {
     }else{
       setSubmitButtonDisabled(true);
       try {
-        const response = await axios.post("/checkLogin",LoginDetail);
-         if(!response.data.status){
-          toast.error(response.data.msg,toast_style)
-          setSubmitButtonDisabled(false);
-        }else{
+        const response = await axios.post("/User/authUser",LoginDetail);
           localStorage.setItem('CollegeDesk',JSON.stringify({email:LoginDetail.email,password:LoginDetail.password}))
           navigate("/");
           dispatch(actionCreators.setUserDetails(response.data.data))
-        }
       } catch (error) {
-        console.log(error);
+        setSubmitButtonDisabled(false);
+        toast.error(error.response.data.message,toast_style)
       }
     }
   } 

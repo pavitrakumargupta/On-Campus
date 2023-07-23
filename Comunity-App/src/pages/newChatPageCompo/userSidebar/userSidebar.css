@@ -1,0 +1,114 @@
+.ChatPage>.userSeachbarPannel {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    z-index: 2;
+  }
+  
+  .ChatPage>.userSeachbarPannel > .userSeachbar {
+    flex: 0.25 1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    animation: slideInFromLeft 0.5s forwards;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 20px;
+    gap:20px
+  }
+  
+ 
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);  
+    }
+    100% {
+      transform: translateX(0); 
+    }
+  }
+
+.ChatPage>.userSeachbarPannel > .userSeachbar >h6{
+    font-size: 25px;
+    margin: 0;
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>.searchWrapper{
+    display: flex;
+    /* flex: 0 1; */
+    gap: 20px;
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>.searchWrapper>input{
+    width: 80%;
+    outline: none;
+    border: none;
+    background-color: rgb(223, 223, 223);
+    padding:15px  20px;
+    border-radius: 5px;
+    font-size: 15px;
+    /* border-bottom:4px solid rgb(212, 241, 255); */
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>.searchWrapper>button{
+    border: 1px solid rgb(178, 178, 178,0.3);
+    padding: 10px 15px;
+    border-radius: 7px;
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>.result{
+  overflow-y: visible;
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>.users{
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  gap: 20px;
+  
+  
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>.users>button{
+  min-height: 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(230, 230, 230);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 50px;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  padding: 30px 15px;
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>.users>button:hover{
+  background-color:rgb(56, 178, 172) ;
+  color: white;
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>.users>button>div{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>.users>button>img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>.users>button>div>p{
+  margin: 0;
+  font-size: 19px;
+  
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>.users>button>div>span{
+  opacity: 1;
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>span>.react-loading-skeleton{
+  height: 35px;
+  margin-top: 10px;
+}
+.ChatPage>.userSeachbarPannel > .userSeachbar>span{
+  overflow-y: hidden;
+}

@@ -1,4 +1,4 @@
-const Notes = require("../model/notes.model");
+const Notes = require("../model/notesModel");
 
 
 module.exports.uploadNotes = async (req, res, next) => {

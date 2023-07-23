@@ -1,21 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-dotenv.config({ path: "$__dirname/../.env" });
-
- 
-
-const DB = process.env.DATABASE
-
-mongoose
-   .connect(DB, {
-     useNewUrlParser: true,
-     useUnifiedTopology: true,
-   })
-   .catch((err)=>{
-    console.log("error ocurred",err.message);
-   })
-
 
 const userShema= new mongoose.Schema({
   type: String,
@@ -27,6 +12,9 @@ const userShema= new mongoose.Schema({
   userImage:String,
   comment:Array,
   Like:Array,
+},
+{
+  timestamps:true
 })
 
   // creating and exportins ids 

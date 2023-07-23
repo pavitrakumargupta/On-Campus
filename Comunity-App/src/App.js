@@ -20,6 +20,8 @@ import Question from "./pages/questions/question"
 import ChatsPage from "./pages/chatsPage/chatsPage";
 import ProfilePage from "./pages/profilePage/profilePage";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
+import NewChat from "./pages/newChatPage/chatPage"
+import Dashboard from "./pages/newHomePage/Dashboard";
 
 function App() {
 
@@ -29,13 +31,15 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/forgot-password" element={<ForgotPassword />}></Route>
-        <Route path="/message" element={<div className="page"><Navbar currentMenu={"message"} /><ChatsPage/></div>}></Route>
+        {/* <Route path="/message" element={<div className="page"><Navbar currentMenu={"message"} /><ChatsPage/></div>}></Route> */}
+        <Route path="/message" element={<div > <NewChat/></div>}></Route>
         <Route path="/blogs"  element={<div className="page"><Navbar currentMenu={"blogs"} />  <Blog/></div>}></Route>
         <Route path="/notes" element={<div className="page"><Navbar currentMenu={"notes"} /> <Notes/></div>}></Route>
         <Route path="/polls" element={<div className="page"><Navbar currentMenu={"polls"} /> <Poles/></div>}></Route>
         <Route path="/news" element={<div className="page"><Navbar currentMenu={"news"} /> <News/></div>}></Route>
         <Route path="/questions" element={<div className="page"><Navbar currentMenu={"questions"} /> <Question/></div>}></Route>
         <Route path="/profile" element={<div className="page"><ProfilePage/></div>}></Route>
+        <Route path="/dashboard" element={<Dashboard/>} ></Route>
     </Routes>
   </Router>
 }

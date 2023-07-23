@@ -1,0 +1,223 @@
+.ChatPage>.chatPagePannel>.chatPannel{
+    background-color: white;
+    flex: 1;
+    padding: 10px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+}
+.ChatPage>.chatPagePannel>.chatPannel>nav{
+    display: flex;
+    flex:0 1;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    padding: 10px 0;
+}
+.ChatPage>.chatPagePannel>.chatPannel>nav>h4{
+    font-size: 25px;
+    margin:  0;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox{
+    background-color: rgb(230, 230, 230);
+    flex: 1 ;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats{
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    gap: 20px;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>p{
+    background-color: rgb(185, 245, 208);
+    padding: 10px 25px;
+    max-width: 70%;
+    width: fit-content;
+    margin: 0;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    white-space: pre-wrap;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>.myMessage{
+    background-color: rgb(190, 227, 248);
+    margin-left: auto;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chatInput{
+    margin: 10px;
+    background-color: rgb(206, 206, 206);
+    padding:3px 10px;
+    display: flex;
+    border-radius: 20px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chatInput>textarea{
+    width: 100%;
+    height: 35px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 10px;
+    padding-top: 10px;
+    overflow-x: hidden;
+
+}
+
+
+
+
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box{
+    background-color: white;
+    width: 500px;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    /* min-height: 350px; */
+    gap: 20px;
+    text-align: center;
+    border-radius: 5px;
+    overflow-y: hidden;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>i{
+    margin-left: auto;
+    font-size: 30px;
+    color: red;
+    margin-top: -1.5px;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>button{
+    width: 100px;
+    padding: 10px 0;
+    font-size: 15px;
+    background-color: rgb(222, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin: auto 10px 10px auto;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>button:hover{
+    background-color:  rgb(255, 33, 33);
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>h2{
+    margin: 0;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box input{
+    font-size: 16px;
+    padding:7px  5px ;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid rgb(0, 0, 0,0.3);
+    
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.updateGpname{
+    display: flex;
+    width: 92%;
+    margin: 0 auto;
+    gap: 10px;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.updateGpname>input{
+    width: 100%;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.updateGpname>button{
+    padding: 10px 15px ;
+    font-size: 15px;
+    background-color:rgb(56, 178, 172) ;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    /* margin: auto 10px 10px auto; */
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.updateGpname>button:hover{
+    background-color:rgb(60, 230, 221) 
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.userList{
+    display: flex;
+    flex-direction: column;
+    max-height: 300px;
+    overflow-y: scroll;
+    padding: 10px;
+    gap: 10px;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.userList>button{
+    min-height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    padding: 30px 15px;
+  }
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.userList>button:hover{
+    background-color:rgb(56, 178, 172) ;
+    color: white;
+  }
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.userList>button>div{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+  
+  }
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.userList>button>img{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+  }
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.userList>button>div>p{
+    margin: 0;
+    font-size: 19px;
+    
+  }
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.userList>button>div>span{
+    opacity: 1;
+    width: max-content;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.addedUser{
+    max-height: 60px;
+    min-height: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 5px;
+    gap: 5px;
+    overflow-y: auto;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.addedUser>div{
+    background-color: rgb(121, 76, 208);
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    height: 28px;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.createGpWindow>.box>.addedUser>div>p{
+    margin: 0;
+}

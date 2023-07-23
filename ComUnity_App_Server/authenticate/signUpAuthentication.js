@@ -1,7 +1,6 @@
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
-const dotenv = require("dotenv");
-dotenv.config({ path: "$__dirname/./.env" });
+require("dotenv").config();
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -44,7 +43,7 @@ async function SendMail(email) {
     const result = await transport.sendMail(mailOption);
     return genrated_otp;
   } catch (error) {
-    console.log(error);
+    throw error
   }
 }
 

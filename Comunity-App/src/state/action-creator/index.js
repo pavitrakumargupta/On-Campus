@@ -6,6 +6,17 @@ export const setUserDetails=(details)=>{
         })
     }
 }
+
+export const chatProvider=(chat)=>{
+    return (dispatch)=>{
+        dispatch({
+            type:'set',
+            payload:chat
+        })
+    }
+}
+
+
 // export const widrawMoney=(amount)=>{
 //     return (dispatch)=>{
 //         dispatch({

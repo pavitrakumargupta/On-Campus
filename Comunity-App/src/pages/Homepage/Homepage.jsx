@@ -24,30 +24,21 @@ const Homepage = () => {
     } else {
       const checkingLogin = async () => {
         try {
-          const response = await axios.post(
-            "/checkLogin",
-            {
-              email: userHistory.email,
-              password: userHistory.password,
-            } 
-          );
-          if (!response.data.status) {
-            localStorage.clear("CollegeDesk")
-            navigate("/login");
-          } else {
-            setUserDetail();
-            console.log(response.data.data);
-            await dispatch(actionCreators.setUserDetails(response.data.data));
-            if(url.url!=null){
-              navigate(url.url) 
-              localStorage.setItem(
-                "lastUrl",
-                JSON.stringify({ url: null})
-              );
-            }
+          const response = await axios.post( "/User/authUser",
+          { email: userHistory.email, password: userHistory.password });
+         
+          setUserDetail();
+          await dispatch(actionCreators.setUserDetails(response.data.data));
+           
+          if(url && url.url!=null){
+            navigate(url.url) 
+            localStorage.setItem("lastUrl",JSON.stringify({ url: null}));
           }
+    
         } catch (error) {
           console.log(error);
+          localStorage.clear("CollegeDesk")
+          navigate("/login");
         }
       };
       checkingLogin();

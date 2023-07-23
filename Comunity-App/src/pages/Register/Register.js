@@ -26,8 +26,7 @@ const Register = () => {
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const [signupDetails, setSignupDetails] = useState({
-    firstname: "",
-    lstname: "",
+    name:"",
     username:"",
     email: "",
     password: "",
@@ -49,8 +48,7 @@ const Register = () => {
   const onSubmit = async () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (
-      !signupDetails.firstname ||
-      !signupDetails.lstname ||
+      !signupDetails.name ||
       !signupDetails.email ||
       !signupDetails.password ||
       !signupDetails.conf_password
@@ -60,21 +58,26 @@ const Register = () => {
       toast.error("Please provide a valid email address.", toast_style);
     }else if (signupDetails.password !== signupDetails.conf_password) {
       toast.error("Password and Confirm Password are not matched", toast_style);
-    } else {
+    }else if(Fill_otp&&!signupDetails.otp){
+      toast.error("Please Fill the Otp to verify Your Account", toast_style);
+    }else {
       setSubmitButtonDisabled(true);
       try {
-        const response = await axios.post("/setSignupDetails",signupDetails);
-        if (signupDetails.otp === "" && response.data.status) {
-          setFillotp(true);
-          setSubmitButtonDisabled(false);
-        }else if(!response.data.status){
-          toast.error(response.data.msg,toast_style)
-          setSubmitButtonDisabled(false);
+        if(signupDetails.otp===""){
+          const response = await axios.post("/User/genrateOtp",signupDetails);
+            toast.success(response.data.message, toast_style);
+            setFillotp(true);
+            setSubmitButtonDisabled(false);
         }else{
-          navigate("/login");
+          const response = await axios.post("/User/createUser",signupDetails);
+          toast.success(response.data.message, toast_style);
+          setTimeout(()=>{
+            navigate("/login")
+          },4000)
         }
       } catch (error) {
-        console.log(error);
+        setSubmitButtonDisabled(false);
+        toast.error(error.response.data.message,toast_style)
       }
     }
   };
@@ -85,8 +88,7 @@ const Register = () => {
         <div className="authenticationScreen">
         <h1 className="tittle">Sign In</h1>
           <div className="form">
-          <input className="form__input" onChange={handleDetail} name="firstname" type="text" placeholder="First Name" />
-          <input type="text" name="lstname" onChange={handleDetail} className="form__input" placeholder="LastName" />
+          <input type="text" name="name" onChange={handleDetail} className="form__input" placeholder="Enter Full Name" />
           <input type="text" name="username" onChange={handleDetail} className="form__input" placeholder="User Name" />
 	  			<input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
 	  			<input className="form__input" onChange={handleDetail} name="password" type="password" placeholder="Password" />
