@@ -3,7 +3,6 @@ import "./chatBar.css"
 import axios from "../../../axios"
 import { useSelector } from "react-redux";
 import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
 import GroupChatModel from '../groupChatModel';
 
 const ChatBar = ({setSelectedChat,selectedChat,chatModified}) => {

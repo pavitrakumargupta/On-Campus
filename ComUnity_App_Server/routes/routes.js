@@ -3,6 +3,7 @@ const {genrateOtp,createUser,authUser,allUser,ForgotPassword,updateProfile,getUs
 const {createPost,getAllPost,editPost,deletePost,editLike_Comment}=require("../controllers/handlePost")
 const {uploadNotes,getNotes}=require("../controllers/handleNotes")
 const {accessChat,fetchChats,createGroupChat,renameGroup,addToGroup,removeFromGroup}=require("../controllers/handleChat")
+const {sendMessage,allMessages}=require("../controllers/handleMessage")
  
 const { protect } = require("../middleware/authMiddleware");
 
@@ -28,6 +29,10 @@ router.route("/Chat/rename").put(protect,renameGroup)
 router.route("/Chat/groupAdd").put(protect,addToGroup)
 router.route("/Chat/groupRemove").put(protect,removeFromGroup)
 
+
+//message  route
+router.route("/message/:chatId").get(protect, allMessages);
+router.route("/message").post(protect, sendMessage);
 
 // handlePost
 router.post("/Blogs/createPost",createPost) 

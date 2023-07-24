@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./userSidebar.css"
 import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+
 import axios from "../../../axios"
 import { useSelector } from "react-redux";
 const UserSidebar = ({UserSidebar,setSelectedChat}) => {

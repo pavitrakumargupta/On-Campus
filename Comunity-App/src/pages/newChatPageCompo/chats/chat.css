@@ -30,22 +30,40 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    padding: 0 15px;
+    padding: 5px 15px;
     gap: 20px;
 }
-.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>p{
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>div>img{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>div>p{
     background-color: rgb(185, 245, 208);
     padding: 10px 25px;
-    max-width: 70%;
-    width: fit-content;
     margin: 0;
     border-radius: 20px;
     font-family: 'Montserrat', sans-serif;
     white-space: pre-wrap;
+    word-break: break-all; 
+    position: relative;
+    
+}
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>div{
+    display: flex;
+    gap: 10px;
+    max-width: 70%;
 }
 .ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>.myMessage{
-    background-color: rgb(190, 227, 248);
     margin-left: auto;
+}
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>.myMessage>p{
+    background-color: rgb(190, 227, 248);
+}
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>div>div{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
 }
 .ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chatInput{
     margin: 10px;
@@ -70,6 +88,14 @@
     overflow-x: hidden;
 
 }
+.ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>span>.react-loading-skeleton{
+    height: 25px;
+    margin-top: 10px;
+    background-color: rgb(231, 231, 231);
+  }
+  .ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>span{
+    overflow-y: hidden;
+  }
 
 
 

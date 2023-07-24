@@ -6,6 +6,7 @@ import UserSidebar from "../newChatPageCompo/userSidebar/userSidebar"
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import 'react-loading-skeleton/dist/skeleton.css'
 const ChatPage = () => {
 
   const location = useLocation();
