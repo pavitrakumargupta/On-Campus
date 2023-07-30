@@ -14,12 +14,8 @@ import SideImage from "./sideScreen.png"
 const Login = () => {
 
   const dispatch=useDispatch()
-  useEffect(() => {
-    const userHistory = JSON.parse(localStorage.getItem("CollegeDesk")); 
-    if (userHistory !== null) {
-      navigate("/");
-    }
-  })
+
+
   const navigate = useNavigate();
 
   const toast_style={
@@ -50,18 +46,29 @@ const Login = () => {
     if(  !LoginDetail.email ||!LoginDetail.password) { 
       toast.error("Please Fill all the detail",toast_style)
     }else{
-      setSubmitButtonDisabled(true);
-      try {
-        const response = await axios.post("/User/authUser",LoginDetail);
-          localStorage.setItem('CollegeDesk',JSON.stringify({email:LoginDetail.email,password:LoginDetail.password}))
-          navigate("/");
-          dispatch(actionCreators.setUserDetails(response.data.data))
-      } catch (error) {
-        setSubmitButtonDisabled(false);
-        toast.error(error.response.data.message,toast_style)
-      }
+      setSubmitButtonDisabled(true); 
+      verifyUser(LoginDetail.email,LoginDetail.password).then((url)=>navigate(url))
     }
-  } 
+  }
+  
+  const verifyUser=async(email,password)=>{
+    try {
+      const {data} = await axios.post("/User/authUser",{email,password});
+      console.log(data);
+      localStorage.setItem('CollegeDesk',JSON.stringify(data))
+      dispatch(actionCreators.setUserDetails(data))
+      const url = JSON.parse(localStorage.getItem("lastUrl"));
+      if(url && url.url!=null){
+        return data&&url
+      }else{
+        return data&&"/"
+      }
+
+    } catch (error) {
+      setSubmitButtonDisabled(false);
+      toast.error(error.response.data.message,toast_style)
+    }
+  }
 
   return (
   <div className="authenticationPage">

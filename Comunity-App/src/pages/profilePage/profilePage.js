@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import "./profilePage.css";
-import UploadImage from "../../uploadImage";
+import {UploadImage,DeleteImage} from "../../uploadImage";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -37,9 +37,9 @@ const ProfilePage = () => {
 
     const handlePannel=()=>{
       if(activeProfilePage!=="changePassword"){
-        return <Viewprofile editProfileActive={activeProfilePage==="editProfile"} UserId={user.details.userId}/>
+        return <Viewprofile editProfileActive={activeProfilePage==="editProfile"} UserId={user.details._id}/>
       }else{
-        return<Viewprofile editProfileActive={null} UserId={user.details.userId}/>
+        return<Viewprofile editProfileActive={null} UserId={user.details._id}/>
       }
     }
 

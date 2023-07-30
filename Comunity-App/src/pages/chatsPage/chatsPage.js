@@ -27,20 +27,20 @@ const ChatsPage = () => {
       // <PrettyChatWindow
       //   projectId={process.env.REACT_APP_CHAT_ENGINE_PROJECT_ID} 
       //   username={user.details.username} // adam
-      //   secret={user.details.userId} // pass1234
+      //   secret={user.details._id} // pass1234
       //   style={{ height: "100%" }}
       // />
     //   <ChatEngine
     //     projectID={process.env.REACT_APP_CHAT_ENGINE_PROJECT_ID}
     //     userName={user.details.username} 
-    //     userSecret={user.details.userId}
+    //     userSecret={user.details._id}
  		// >
     //    <ChatFeed />
     // </ChatEngine>
     <ChatEngine
     projectID={process.env.REACT_APP_CHAT_ENGINE_PROJECT_ID}
     userName={user.details.username} 
-    userSecret={user.details.userId}
+    userSecret={user.details._id}
     renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
   />
       }

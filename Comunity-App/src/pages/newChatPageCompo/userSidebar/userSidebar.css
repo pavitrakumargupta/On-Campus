@@ -4,14 +4,14 @@
     left: 0; 
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: transparent;
     display: flex;
     z-index: 2;
   }
   
   .ChatPage>.userSeachbarPannel > .userSeachbar {
     flex: 0.25 1;
-    background-color: white;
+    background-color: rgb(26, 29, 33);
     display: flex;
     flex-direction: column;
     animation: slideInFromLeft 0.5s forwards;
@@ -20,7 +20,8 @@
     flex-direction: column;
     /* align-items: center; */
     padding: 20px;
-    gap:20px
+    gap:20px;
+    color: white;
   }
   
  
@@ -41,21 +42,27 @@
     display: flex;
     /* flex: 0 1; */
     gap: 20px;
+    background-color: rgb(42, 47, 52);
+    height: 50px;
 }
 .ChatPage>.userSeachbarPannel > .userSeachbar>.searchWrapper>input{
     width: 80%;
     outline: none;
     border: none;
-    background-color: rgb(223, 223, 223);
-    padding:15px  20px;
-    border-radius: 5px;
-    font-size: 15px;
+   background-color: transparent;
+    padding:5px  20px;
+    border-radius: 3px;
+    font-size: 18px;
+    color: rgb(111, 116, 125);
     /* border-bottom:4px solid rgb(212, 241, 255); */
 }
 .ChatPage>.userSeachbarPannel > .userSeachbar>.searchWrapper>button{
-    border: 1px solid rgb(178, 178, 178,0.3);
+    /* border: 1px solid rgb(178, 178, 178,0.3); */
     padding: 10px 15px;
     border-radius: 7px;
+    background-color: transparent;
+    color: white;
+    border: none;
 }
 .ChatPage>.userSeachbarPannel > .userSeachbar>.result{
   overflow-y: visible;
@@ -72,14 +79,16 @@
   min-height: 50px;
   border: none;
   border-radius: 10px;
-  background-color: rgb(230, 230, 230);
+ 
   display: flex;
   align-items: center;
   text-align: center;
   gap: 50px;
-  color: rgb(0, 0, 0);
+  color: rgb(198, 198, 198);
   width: 100%;
   padding: 30px 15px;
+  background-color:rgb(33, 37, 41);
+  border: 0.5px solid rgb(103, 116, 128,0.2);
 }
 .ChatPage>.userSeachbarPannel > .userSeachbar>.users>button:hover{
   background-color:rgb(56, 178, 172) ;

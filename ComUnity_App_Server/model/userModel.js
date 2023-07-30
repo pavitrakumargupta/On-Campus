@@ -28,6 +28,14 @@ userShema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
+userShema.pre("findOneAndUpdate", async function (next) {
+  if (this._update.password) {
+    const salt = await bcrypt.genSalt(10);
+    this._update.password = await bcrypt.hash(this._update.password, salt);
+  }
+  next();
+});
+
   // creating and exportins ids 
 const User=mongoose.model('User',userShema)
 module.exports=User

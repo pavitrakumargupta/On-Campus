@@ -1,39 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Lumanosimo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 .ChatPage{
-    background-image: url("./background.png");
-    background-position: center;
+    /* background-image: url("./background.png");
+    background-position: center; */
     background-size: cover;
     width: 100%;
     height: 100vh;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     font-family: 'Lumanosimo', cursive;
     line-height: 1.5;
+    scroll-behavior: smooth;
+    background-color: #212529;
 }
 .ChatPage>nav{
-    background-color: white;
+    background-color: #1a1d21;
     display: flex;
-    justify-content: space-between;
-    padding:0px 20px;
-    align-items: center;
-    text-align: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    flex: 1 0;
+    max-width: 40px;
+    
 }
 .ChatPage>nav>button{
-    display: flex;
-    background-color: transparent;
+    background-color: rgb(36, 40, 44);
     border: none;
     display: flex;
-    height: 30px;
+    height: 40px;
     gap: 5px;
+ 
     align-items: center;
     font-weight: 600;
     cursor: pointer;
     border-radius: 20px ;
     padding: 20px 15px;
+    color: rgb(88, 91, 97);
 }
-.ChatPage>nav>button:focus{
-    background-color: rgb(220, 220, 220);
+.ChatPage>nav>button:hover{
+    background-color:#6153cc;
+    color: white;
+}
+.ChatPage>nav>.chatBarActive{
+    background-color:#6153cc ;
+    color: white ;
+}
+
+@media screen and (max-width: 660px) {
+    .chatBarActiveresp>nav>.chatBarActive{
+        background-color: rgb(36, 40, 44) !important;
+        color: rgb(88, 91, 97) !important;
+    }
+    .ChatPage>nav>.chatBarActive{
+        background-color:#6153cc ;
+        color: white !important;
+    }
+    .chatBarActiveresp>nav>.chatBarActive{
+        background-color:#6153cc ;
+        color: white ;
+    }
+    .chatBarActiveresp>.chatPagePannel .chatBar{
+        display: none !important;
+    }
+    .ChatPage>.chatPagePannel .chatBar {
+        display: flex;
+    }
 }
 .ChatPage>nav>div{
     display: flex;
@@ -43,8 +74,6 @@
 .ChatPage>.chatPagePannel{
     display: flex;
     flex-direction: row;
-    gap: 20px;
-    padding: 10px;
     flex: 1;
     overflow:hidden
 }

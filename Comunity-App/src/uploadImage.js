@@ -16,33 +16,39 @@ const app = initializeApp(firebaseConfig);
 
 const storage = getStorage(app);
 
-function UploadImage(file, route,action) {
- 
-  if (action === "upload") {
-    const timestamp = new Date()
-      .toISOString()
-      .slice(0, 19)
-      .replace(/-/g, "")
-      .replace(/:/g, "")
-      .replace("T", "_");
-    const randomString = uuidv4().substr(0, 5);
-    const fileName = `image_${timestamp}_${randomString }_${file.name}`;
-    const storageRef = ref(storage, `${route}/${fileName}`);
+async function UploadImage(file, route) {
+  const timestamp = new Date()
+    .toISOString()
+    .slice(0, 19)
+    .replace(/-/g, "")
+    .replace(/:/g, "")
+    .replace("T", "_");
+  
+  const fileName = `image_${timestamp}_${file.name}`;
+  const storageRef = ref(storage, `${route}/${fileName}`);
 
-    return uploadBytes(storageRef, file).then((snapshot) => {
-      
-      return getDownloadURL(storageRef).then((url) => {
-        return { url:url, pathname: `${route}/${fileName}` };
-      });
-      // return {url:URL.createObjectURL(file),pathname:imagePath}
-    });
-  } else if (action === "delete") {
-    const storageRef = ref(storage, file);
-    deleteObject(storageRef).then(() => {
-    });
+  try {
+    const snapshot = await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    return url;
+  } catch (error) {
+    console.error("Error uploading image:", error);
+    throw error;
   }
-
- 
 }
 
-export default UploadImage;
+
+function DeleteImage(url) {
+  try {
+    const storage = getStorage();
+    const storageRef = ref(storage, url);
+
+    return deleteObject(storageRef).then(() => {
+      return { success: true };
+    });
+  } catch (error) {
+    return { error: "Image deletion failed." };
+  }
+}
+
+export  {UploadImage,DeleteImage};

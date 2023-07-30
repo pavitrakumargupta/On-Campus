@@ -9,7 +9,7 @@ const userShema = new mongoose.Schema({
   subject: String,
   tittle: String,
   notesLink: String,
-  userId:String
+  createdBy: {type:mongoose.Schema.Types.ObjectId,ref:"User"}
 },
 {
   timestamps:true

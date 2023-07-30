@@ -2,10 +2,11 @@ const Post = require("../model/postModel");
 
 module.exports.createPost = async (req, res, next) => {
   try {
-    const { type, tittle, content, coverImageLink, userName, userId, userImage, comment, Like,
+    const { type, tittle, content, coverImageLink, comment, Like,
     } = req.body;
+    let createdBy=req.user 
 
-    const createPost = await Post.create({type,tittle,content,coverImageLink,userName,userId,userImage,comment,Like,
+    const createPost = await Post.create({type,tittle,content,coverImageLink,createdBy,comment,Like,
     });
     return res.json({ msg: "Your Post have been created", status: true });
   } catch (ex) {
@@ -15,8 +16,8 @@ module.exports.createPost = async (req, res, next) => {
 };
 module.exports.getAllPost = async (req, res, next) => {
   try {
-    const PostData = await Post.find();
-    return res.json(PostData);
+    const PostData = await Post.find().populate("createdBy", "username profilePitchure email");
+    return res.json(PostData); 
   } catch (error) {
     return res.json({ msg: "An Error occured in Loading data", status: false });
   }

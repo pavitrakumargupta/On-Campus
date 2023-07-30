@@ -37,6 +37,9 @@ module.exports.genrateOtp = async (req, res) => {
         { $set: { generated_otp: generatedOtp } },
         { upsert: true, new: true }
       );
+      setTimeout(()=>{
+        const OtpCheck =  Authenticate.findOneAndUpdate({ email, generated_otp: generated_otp });
+      },300000)
       res
         .status(202)
         .json({ message: "Please enter the OTP to verify your email." });
@@ -90,13 +93,12 @@ module.exports.authUser = async (req, res, next) => {
     const user = await User.findOne({ email });
     if (user && (await user.matchPassword(password))) {
       return res.status(200).json({
-        data: {
           username: user.username,
           email: user.email,
-          userId: user._id.valueOf(),
-          profilePicture: user.profilePicture,
+          name:user.name,
+          _id: user._id.valueOf(),
+          profilePicture: user.profilePitchure,
           token: generateToken(user._id)
-        },
       });
     }
 
@@ -133,18 +135,17 @@ module.exports.ForgotPassword = async (req, res, next) => {
   try {
     const { email, otp } = req.body;
     const authenticate_email = async () => {
-      const OtpCheck = await Authenticate.findOne({ email });
       const UserCheck = await User.findOne({ email });
-      if (UserCheck && OtpCheck) {
-        var generated_otp = await Mail(email);
-        const otpTime = new Date();
-        otpTime.setMinutes(otpTime.getMinutes() + 5);
-        const options = { timeZone: "Asia/Kolkata" }; // set the time zone to India Standard Time
-        const time = otpTime.toLocaleString("en-US", options);
-        const Otp_update = await Authenticate.findByIdAndUpdate(OtpCheck._id, {
-          generated_otp: generated_otp,
-          time: time,
-        });
+      if (UserCheck) {
+        var generated_otp = await Mail(email);        
+        const Otp_update = await Authenticate.findOneAndUpdate(
+          { email: email },
+          { $set: { generated_otp: generated_otp } },
+          { upsert: true, new: true }
+        );
+        setTimeout(()=>{
+          const OtpCheck =  Authenticate.findOneAndUpdate({ email, generated_otp: generated_otp });
+        },300000)
       } else {
         return res.json({ msg: "Invalid email", status: false });
       }
@@ -152,11 +153,12 @@ module.exports.ForgotPassword = async (req, res, next) => {
     };
     if (otp === "") {
       authenticate_email();
+      
     } else {
       const UserCheck = await User.findOne({ email });
       const OtpCheck = await Authenticate.findOne({ email });
       if (OtpCheck.generated_otp == otp) {
-        return res.json({
+        return res.json({ 
           msg: "otp verified",
           id: UserCheck._id,
           status: true,
@@ -174,7 +176,7 @@ module.exports.ForgotPassword = async (req, res, next) => {
 module.exports.getUserbyId = async (req, res, next) => {
   try {
     const user = await User.findById(req.query.id).lean();
-    delete user.password;
+    // delete user.password;
     return res.json({ user, status: true });
   } catch (error) {
     console.log(error);
@@ -190,6 +192,7 @@ module.exports.updateProfile = async (req, res, next) => {
         { _id: req.body.id, password: updatingDetail.oldPassword },
         { password: this.updateProfile.newpassword }
       );
+       
       if (updatepassw) {
         return res.json({ msg: "Password Updated Succesfully", status: true });
       } else {

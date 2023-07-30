@@ -37,7 +37,7 @@ const EditGroupChatModel = ({setActiveWindow,selectedChat,setSelectedChat,toggle
     setSearchedUser(e.target.value)
     }
     const addUser=async(User)=>{
-        if(selectedChat.groupAdmin._id===user.details.userId){
+        if(selectedChat.groupAdmin._id===user.details._id){
             try {
                 const config = {
                     headers: {
@@ -64,7 +64,7 @@ const EditGroupChatModel = ({setActiveWindow,selectedChat,setSelectedChat,toggle
         
 
     const removeFromGroup=async(User)=>{
-        if(selectedChat.groupAdmin._id===user.details.userId){
+        if(selectedChat.groupAdmin._id===user.details._id){
             try {
                 const config = {
                     headers: {
@@ -168,7 +168,7 @@ const EditGroupChatModel = ({setActiveWindow,selectedChat,setSelectedChat,toggle
         </div>}
         {/* </div> */}
         
-        <button onClick={()=>leaveGroup({_id:user.details.userId})}>Leave Group</button>
+        <button onClick={()=>leaveGroup({_id:user.details._id})}>Leave Group</button>
     </div>
     </div>
 }

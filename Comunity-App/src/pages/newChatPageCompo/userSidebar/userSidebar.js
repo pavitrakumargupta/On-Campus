@@ -14,6 +14,7 @@ const UserSidebar = ({UserSidebar,setSelectedChat}) => {
     setSearch(e.target.value)
   }
 
+
   useEffect(()=>{setloading(false)},users)
 
   const handleSearchUser=async()=>{
@@ -25,12 +26,13 @@ const UserSidebar = ({UserSidebar,setSelectedChat}) => {
         },
       };
   
-      const { data } = await axios.get(`/User/allUser?search=${search}`, config);
-      setUsers(data)
+      const resp = await axios.get(`/User/allUser?search=${search}`, config);
+      setUsers(resp.data)
+      resp?.status===200&&(setloading(false))
     } catch (error) {
-      
+      error.response.status==401&&(window.location.href = "/login")
     }
-    loading(false)
+   
   }
 
   const accessChat=(userId)=>{
@@ -48,7 +50,7 @@ const UserSidebar = ({UserSidebar,setSelectedChat}) => {
       }
       fetchChats()
     } catch (error) {
-      
+      error.response.status==401&&(window.location.href = "/login")
     }
   }
 
@@ -58,7 +60,7 @@ const UserSidebar = ({UserSidebar,setSelectedChat}) => {
          <h6>Search Users</h6>
          <div className='searchWrapper'>
             <input onChange={handleSearch}   autoFocus placeholder='Search by name or email' type="text" />
-            <button disabled={!search} onClick={handleSearchUser}>Go</button>
+            <button disabled={!search} onClick={handleSearchUser}><i class="fa-solid fa-magnifying-glass"></i></button>
          </div>
          <span className='result'>{users&&(users.length)}  results :</span>
          {loading&&<Skeleton className='skeleton'  count={20}/> }

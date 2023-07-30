@@ -48,7 +48,7 @@ io.on("connection",(socket)=>{
 
   socket.on('setup',(userData)=>{
     socket.join(userData._id)
-    console.log(userData._id);
+   
     socket.emit('connected')
   })
 
@@ -59,12 +59,24 @@ io.on("connection",(socket)=>{
 
   socket.on("newMessgae",(newMessageRecieved)=>{
     var chat =newMessageRecieved.chat
-    console.log(newMessageRecieved);
     if(!chat.users) return console.log("chat.users not defined");
     chat.users.map((user)=>{
       if(user._id==newMessageRecieved.sender._id) return;
 
       socket.in(user._id).emit("message recieved",newMessageRecieved)
+    })
+  })
+
+  socket.on("typing",(message)=>{
+    var typingUser =message.users.find(key=>key._id===message.sender._id);
+    let details={
+      ...message,
+      typingUser
+    }
+    if(!message.users) return console.log("chat.users not found");
+    message.users.map((user)=>{
+      if(user==typingUser) return;
+      socket.in(user._id).emit("typing message recieved",details)
     })
   })
 })

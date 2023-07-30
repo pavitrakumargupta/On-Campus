@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { MdOutlineDeleteOutline } from "react-icons/md";
-import UploadImage from "../../uploadImage";
+import {UploadImage,DeleteImage} from "../../uploadImage";
 
 const PostBlog = ({ user, handleSubmitBlog, closeWindow,BlogDetail }) => {
   const [Image, setImage] = useState("");
@@ -11,7 +11,7 @@ const PostBlog = ({ user, handleSubmitBlog, closeWindow,BlogDetail }) => {
     content: BlogDetail!==null?BlogDetail.content:"",
     coverImageLink: BlogDetail!==null?BlogDetail.coverImageLink:"",
     userName: user.details.username,
-    userId: user.details.userId,
+    userId: user.details._id,
     userImage:user.details.profilePitchure,
     comment: BlogDetail!==null?BlogDetail.comment:[],
     Like: BlogDetail!==null?BlogDetail.Like:[],

@@ -1,362 +1,293 @@
 import React, { useEffect, useState } from "react";
 import "./Notes.css";
-import { useNavigate,useLocation } from "react-router-dom";
-import { MdOutlineDeleteOutline } from "react-icons/md";
-import UploadImage from "../../uploadImage";
-import { useSelector } from "react-redux";
+import GetNotesImage from "../../logos/get-Notes.png";
+import UploadNotesImage from "../../logos/upload-Notes.png"
 import axios from "../../axios";
 import Courses from "./CourseNames.json"
 
-const Notes = () => {
-
-  const user = useSelector((state) => state);
-
-  const navigate = useNavigate();
-  const location = useLocation(); 
-  useEffect(() => {
-    if (user.details === "unset") {
-      localStorage.setItem(
-        "lastUrl",
-        JSON.stringify({ url: location.pathname })
-      );
-      navigate("/");
-    }
-  }, []);
-
-
-  const uploadImage =
-    "https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_960_720.png";
-
-  var courseObject = {
-    "BTech": [
-      "Information Technology",
-      "Computer Science and Engineering",
-      "Mechanical Engineering",
-      "Electronics and Communication Engineering",
-      "Computer Science and Business System",
-      "Data Science",
-      "Artificial Intelligence",
-      "Machine Learning",
-      "Information Technology",
-    ],
-
-    "M Tech": [
-      " Biotechnology",
-      "Computer Science and Engineering",
-      "Mechanical Engineering",
-      "VLSI Design",
-    ],
-
-    "B Tech and M Tech integrated": ["Computer Science and Engineering"],
-
-    "B Pharm": ["B Pharm (PCI Approved)"],
-
-    "D Pharm": ["D Pharm"],
-
-    "M Pharm": ["Pharmaceutical Chemistry", "Pharmaceutics", "Pharmacology"],
-
-    "MBA": ["MBA"],
-
-    "MCA": ["MCA"],
-  };
-
-
-  
-
-  
-
-  
-
-  const defautNotesDetail= {
-    courseName:"",
-    branchName:"",
-    semester:"",
-    subject:"",
-    tittle:"",
-    notesLink:"",
-    userId:user.details.userId
-  }
-
-  const [NotesDetail,setNotesDetail]=useState(defautNotesDetail)
-
-  const [notesAction, setNotesAction] = useState();
-  useEffect(()=>{
-    setBranch([])
-    setNotesDetail(defautNotesDetail)
-  },[notesAction])
-
-  const [CourseName,setCourseName]=useState("")
-
-  const [branch,setBranch]=useState([])
-
-  
-
- 
-
-  const [imagePath, setimagePath] = useState("");
-  const [Image, setImage] = useState("");
-
-  const handleNotesUpload = async (event) => {
-    const ImagDetails = await UploadImage(event.target.files[0],"notes", "upload");
-    setImage(event.target.files[0].name);
-    setimagePath(ImagDetails.pathname); 
-    let NotesDetailCopy = { ...NotesDetail };
-    NotesDetailCopy.notesLink = ImagDetails.url;
-    setNotesDetail(NotesDetailCopy)
-  };
-  const handleNotesDelete = async () => {
-    const deleteImage = await UploadImage(imagePath, "delete");
-    setImage("");
-    setimagePath("");
-    let NewpostDetailsCopy = { ...NotesDetail };
-    NewpostDetailsCopy.notesLink = "";
-    setNotesDetail(NewpostDetailsCopy);
-  };
-
-  const handleNotesDetail=(event)=>{
-    const {name,value}=event.target;
-    const NotesDetailCopy={...NotesDetail};
-    NotesDetailCopy[name]=value;
-    setNotesDetail(NotesDetailCopy)
-  }
-
-  const [notesData,setNotesData]=useState()
-
-  const handleSubmit=async (event)=>{
-    event.preventDefault();
-    if(notesAction==="upload"){
-      const upload=await axios.post("/Notes/uploadNotes",NotesDetail)
-    }else if(notesAction=="get"){
-      const notes=await axios.post("/Notes/getNotes",NotesDetail)
-      setNotesData(notes.data)
-    }
-  }
-
-
-  const courses = [];
-  for (const key in courseObject) {
-    courses.push(key);
-  }
-
-  const [branches,setBranches]=useState()
-  const [semester,setSemester]=useState()
-  const [subjects,setSubjects]=useState()
- 
-  useEffect(()=>{
- 
-    if(NotesDetail.courseName==="BTech"){
-      let branch=[]
-      for (const key in Courses) {
-        branch.push(key);
+import {UploadImage,DeleteImage} from "../../uploadImage"
+import verifyImageByUrl  from "../../verifyImageByUrl"
+import UploadSymbol from "../../logos/upload-Symbol.png"
+import { useSelector } from "react-redux";
+const Note = () => {
+    const user = useSelector((state) => state);
+    const defautNotesDetail= {
+        courseName:"",
+        branchName:"",
+        semester:"",
+        subject:"",
+        tittle:"",
+        notesLink:"",
       }
-      setBranches(branch)
-    }else{setBranches(courseObject[NotesDetail.courseName])}
-  },[NotesDetail.courseName])
+    const [NotesDetail,setNotesDetail]=useState(defautNotesDetail)
+    const [noetsCompo,setNotesCompo]=useState()
 
-  useEffect(()=>{
- 
-    if(NotesDetail.branchName!=""){let semester=[]
-      for (const key in Courses[NotesDetail.branchName]) {
-        semester.push(key);
+    const handleNotesDetail=(event)=>{
+        const {name,value}=event.target;
+        const NotesDetailCopy={...NotesDetail};
+        NotesDetailCopy[name]=value;
+        setNotesDetail(NotesDetailCopy)
       }
-      setSemester(semester)}
-  },[NotesDetail.branchName])
 
-  useEffect(()=>{
- 
-    if(NotesDetail.semester!=""){
-      let subject=[]
-       
-      Courses[NotesDetail.branchName][NotesDetail.semester].map(key=>{
-        subject.push(key);
-      })
-      setSubjects(subject)}
-  },[NotesDetail.semester])
+      var courseObject = {
+        "BTech": [
+          "Information Technology",
+          "Computer Science and Engineering",
+          "Mechanical Engineering",
+          "Electronics and Communication Engineering",
+          "Computer Science and Business System",
+          "Data Science",
+          "Artificial Intelligence",
+          "Machine Learning",
+          "Information Technology",
+        ],
+    
+        "M Tech": [
+          " Biotechnology",
+          "Computer Science and Engineering",
+          "Mechanical Engineering",
+          "VLSI Design",
+        ],
+    
+        "B Tech and M Tech integrated": ["Computer Science and Engineering"],
+    
+        "B Pharm": ["B Pharm (PCI Approved)"],
+    
+        "D Pharm": ["D Pharm"],
+    
+        "M Pharm": ["Pharmaceutical Chemistry", "Pharmaceutics", "Pharmacology"],
+    
+        "MBA": ["MBA"],
+    
+        "MCA": ["MCA"],
+      };
+    
+      const [branches,setBranches]=useState()
+      const [semester,setSemester]=useState()
+      const [subjects,setSubjects]=useState()
+
+    const courses = [];
+    for (const key in courseObject) {
+        courses.push(key);
+    }
+     
+      useEffect(()=>{
+     
+        if(NotesDetail.courseName==="BTech"){
+          let branch=[]
+          for (const key in Courses) {
+            branch.push(key);
+          }
+          setBranches(branch)
+        }else{setBranches(courseObject[NotesDetail.courseName])}
+      },[NotesDetail.courseName])
+    
+      useEffect(()=>{
+     
+        if(NotesDetail.branchName!=""){let semester=[]
+          for (const key in Courses[NotesDetail.branchName]) {
+            semester.push(key);
+          }
+          setSemester(semester)}
+      },[NotesDetail.branchName])
+    
+      useEffect(()=>{
+     
+        if(NotesDetail.semester!=""){
+          let subject=[]
+           
+          Courses[NotesDetail.branchName][NotesDetail.semester].map(key=>{
+            subject.push(key);
+          })
+          setSubjects(subject)}
+      },[NotesDetail.semester])
+    
+    
+
+    const uploadNotes=()=>{
+
+        const uploadButtonHandler = (field) => {
+            let elem = document.getElementById('fileUpload');
+            if (elem) elem.click();
+        }
+
+        const onUpload=async(event)=>{
+            const ImagDetails = await UploadImage(event.target.files[0],"notes", "upload");
+            setNotesDetail(prevValue=>({...prevValue,notesLink:ImagDetails}));
+        }
+        const onDelete=async()=>{
+            const deleteImage = await DeleteImage(NotesDetail.notesLink)
+            setNotesDetail(prevValue=>({...prevValue,notesLink:""}))
+        }
+
+        const uploadPreview=()=>{
+          const {isImage,decodedFilename}= verifyImageByUrl(NotesDetail.notesLink)
+           return (<div className="uploadPreview">
+           <i onClick={onDelete} class="fa-solid fa-trash"></i>
+           <span>{decodedFilename}</span>
+           {isImage?<img className="docPreview" src={NotesDetail.notesLink} alt="Image Preview" />:
+               <iframe
+               src={`https://docs.google.com/viewer?url=${encodeURIComponent(NotesDetail.notesLink)}&embedded=true`}
+               className="docPreview"
+               frameborder="0"
+           />
+           }
+       </div>)}
+
+        return <div className="UploadCard card">
+            <h2>upload Notes</h2>
+            <select onChange={handleNotesDetail} name="courseName" id="">
+                <option selected disabled value="">Select Course Name</option>
+                {courses.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+            </select>
+            <select onChange={handleNotesDetail} name="branchName" id="">
+                <option selected disabled value="">Select Branch Name</option>
+                {branches&&branches.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+            </select>
+            <select onChange={handleNotesDetail} name="semester" id="">
+                <option selected disabled value="">Select Semester</option>
+                {semester&&semester.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+            </select>
+            <select onChange={handleNotesDetail} name="subject" id="">
+                <option selected disabled value="">Select Subject Name</option>
+                {subjects&&subjects.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+            </select>
+            <input name="tittle" placeholder="Enter Tittle Of Name" type="text" />
+            <input id="fileUpload" type="file" onChange={onUpload} multiple="single"  />
+            
+            <img onClick={uploadButtonHandler} src={UploadSymbol} alt="" />
+            {NotesDetail.notesLink!==""&&uploadPreview()}
+            <button onClick={handleSubmit}>Upload</button>
+        </div>
+    }
+
+
+    const getNotes=()=>{
+        return <div className="UploadCard card">
+            <h2>Get Notes</h2>
+            <select onChange={handleNotesDetail} name="courseName" id="">
+                <option selected disabled value="">Select Course Name</option>
+                {courses.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+            </select>
+            <select onChange={handleNotesDetail} name="branchName" id="">
+                <option selected disabled value="">Select Branch Name</option>
+                {branches&&branches.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+            </select>
+            <select onChange={handleNotesDetail} name="semester" id="">
+                <option selected disabled value="">Select Semester</option>
+                {semester&&semester.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+            </select>
+            <select onChange={handleNotesDetail} name="subject" id="">
+                <option selected disabled value="">Select Subject Name</option>
+                {subjects&&subjects.map((key) => {
+                    return <option>{key}</option>;
+                  })}
+            </select>
+            <button onClick={handleSubmit} >Get Notes</button>
+        </div>
+    }
+    const [notesData,setNotesData]=useState()
+
+    const handleSubmit=async (event)=>{
+      event.preventDefault();
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.details.token}`,
+        },
+      };
+      try {
+        if(noetsCompo==="UploadNotes"){
+          const upload=await axios.post("/Notes/uploadNotes",NotesDetail,config)
+        }else if(noetsCompo=="getNotes"){
+          const notes=await axios.post("/Notes/getNotes",NotesDetail,config)
+          setNotesData(notes.data)
+          setBranches()
+          setSemester()
+          setSubjects()
+          scrollToNotes()
+        }
+        setNotesDetail(defautNotesDetail)
+      } catch (error) {
+        error.response.status==401&&(window.location.href = "/login")
+        scrollToNotes()
+      }
+      
+    }
+
+    const scrollToNotes = () => {
+      const targetDiv = document.getElementById('notes');
+  
+      if (targetDiv) {
+        targetDiv.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
 
   return (
     <div className="notesPage">
-      {notesAction !== "get" && (
-        <div
-          onClick={() => {
-            setNotesAction("get");
-          }}
-          style={{padding: "50px",display:"flex",flexDirection:"column",gap:"2rem"}}
-          className="card"
-        >
-          <h4   style={{margin: "auto",fontSize: "30px",color: " #1D005B",}} >Get Notes </h4>
-          <img style={{borderRadius:"150px",height:"10rem",width:"10rem",margin: "auto"}} src="https://clickup.com/blog/wp-content/uploads/2020/01/note-taking.png" alt="" />
+       {noetsCompo==="getNotes"
+        ?<div className="noteCardBox">
+          {getNotes()}
         </div>
-      )}
-      {notesAction !== "upload" && (
-        <div
-          onClick={() => {
-            setNotesAction("upload");
-          }}
-          style={{padding: "50px",display:"flex",flexDirection:"column",gap:"2rem"}}
-          className="card"
-        >
-          <h4   style={{margin: "auto",fontSize: "30px",color: " #1D005B",}} >Upload Notes </h4>
-          <img style={{borderRadius:"50px",height:"10rem",width:"10rem",margin: "auto"}} src="https://cdn-icons-png.flaticon.com/512/338/338864.png" alt="" />
-     </div>
-      )}
-      {notesAction === "upload" && (
-        <div className="card">
-          <div className="card-header">Upload Notes</div>
-          <div className="card-body">
-            <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label htmlFor="branch">Courses</label>
-                <select  id="course" name="courseName" onChange={handleNotesDetail} required>
-                  <option disabled selected="selected"> </option>
-                  {courses.map((key) => {
-                    return <option>{key}</option>;
-                  })}
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="branch">Branch</label>
-                <select id="course" name="branchName" onChange={handleNotesDetail}  required>
-                  <option disabled selected="selected"> </option>
-                  {branches&&branches.map((key) => {
-                    return <option>{key}</option>;
-                  })}
-                </select>
-              </div>
-             
-              <div className="form-group">
-                <label htmlFor="semester">Semester</label>
-                <select  name="semester" id="semester"  onChange={handleNotesDetail}  required>
-                  <option disabled selected="selected"> </option>
-                  {semester&&semester.map((key) => {
-                    return <option>{key}</option>;
-                  })}
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="subject">Subject</label>
-                <select   name="subject" id="subject"  onChange={handleNotesDetail}  required>
-                  <option disabled selected="selected"> </option>
-                  {subjects&&subjects.map((key) => {
-                    return <option>{key}</option>;
-                  })}
-                </select>
-                 
-              </div>
-              <div className="form-group">
-                <label htmlFor="title">Title</label>
-                <input name="tittle" type="text" onChange={handleNotesDetail} id="title" />
-              </div>
-              <div  className="form-group">
-                <label htmlFor="file">File</label>
-                
-          <div className="imageSection">
-          <input className="imageInput"  required type="file" accept="application/pdf" onChange={handleNotesUpload} id="file" />
-            <div className="imageUpload" >
-            <img  src="https://cdn.icon-icons.com/icons2/1276/PNG/512/1497559998-15_85036.png" alt="" />
-              <button  >Upload Notes</button>
-            </div>
+        :<div  onClick={()=>setNotesCompo("getNotes")}  className="startCard getCard">
+            <h2>Get Notes</h2>
+            <img src={GetNotesImage} alt="" />
             
-            
-          </div>
-          {NotesDetail.notesLink !== "" && (
-              <div className="UploadedBox">
-               
-                <embed className="UploadedImage" src={NotesDetail.notesLink} type="" />
-                <p>{Image}</p>
-                <MdOutlineDeleteOutline
-                  onClick={handleNotesDelete}
-                  className="dleteImage"
-                />
-              </div>
-            )} 
-              </div>
-              <button type="submit" className="btn">Upload</button>
-            </form>
-          </div>
+        </div>}
+        {noetsCompo==="UploadNotes"?
+        <div className="noteCardBox">
+          {uploadNotes()}
         </div>
-      )}
+        :
+        <div onClick={()=>setNotesCompo("UploadNotes")} className="startCard uploadCard">
+            <h2>Upload Notes</h2>
+            <img src={UploadNotesImage} alt="" />
+        </div>}
 
-      {notesAction === "get" && (
-        <div className="card">
-          <div className="card-header">Get Notes</div>
-          <div className="card-body">
-            <form  >
-            <div className="form-group">
-                <label htmlFor="branch">Courses</label>
-                <select id="course" name="courseName" onChange={handleNotesDetail} required>
-                  <option disabled selected="selected"> </option>
-                  {courses.map((key) => {
-                    return <option>{key}</option>;
-                  })}
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="branch">Branch</label>
-                <select id="course" name="branchName" onChange={handleNotesDetail}  required>
-                  <option disabled selected="selected"> </option>
-                  {branches&&branches.map((key) => {
-                    return <option>{key}</option>;
-                  })}
-                </select>
-              </div>
-             
-              <div className="form-group">
-                <label htmlFor="semester">Semester</label>
-                <select  name="semester" id="semester"  onChange={handleNotesDetail}  required>
-                  <option disabled selected="selected"> </option>
-                  {semester&&semester.map((key) => {
-                    return <option>{key}</option>;
-                  })}
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="subject">Subject</label>
-                <select   name="subject" id="subject"  onChange={handleNotesDetail}  required>
-                  <option disabled selected="selected"> </option>
-                  {subjects&&subjects.map((key) => {
-                    return <option>{key}</option>;
-                  })}
-                </select>
-                 
-              </div>
-              <div className="form-group">
-                <label htmlFor="title">Title *(optional) </label>
-                <input name="tittle" type="text" id="title" onChange={handleNotesDetail} />
-              </div>
-              <button  onClick={handleSubmit} className="btn">Get</button>
-            </form>
-          </div>
+    <div className="notes">
+        {noetsCompo === "getNotes" &&notesData&&<div  >
+        <div>
+          <h2>Notes :-</h2>
+          <p>{notesData.length} - results</p>
         </div>
-      )}
-    {
-      notesAction === "get" &&notesData&&<div className="notes">
-      <div>
-        <h2>Notes :-</h2>
-        <p>{notesData.length} - results</p>
-      </div>
-     
-    {notesData.map(key=>(
-       <a href={key.notesLink} target="_blank" className="note">
-        {/* <img src={NoteImg} alt="" /> */}
-        {/* <embed
-          src={key.notesLink}
-          className="modal-document-embed"
-          style={{overflow:"hidden"}}
-        /> */}
-        {/* <object className="modal-document-embed"   data={key.notesLink}></object> */}
-        <iframe src={key.notesLink} frameborder="0"  className="modal-document-embed" ></iframe>
-          <div>
-          <h4>{key.tittle}</h4>
-          <p>- {key.subject} {key.semester} Semester</p>
+        
+        {notesData.slice()
+          .reverse().map(key=>{
+          const {isImage}= verifyImageByUrl(key.notesLink)
+          return (
+          <div className="note">
+            {isImage?<img className="docPreview" src={key.notesLink} alt="Image Preview" />:
+                  <iframe
+                  src={`https://docs.google.com/viewer?url=${encodeURIComponent(key.notesLink)}&embedded=true`}
+                  frameborder="0"
+              />
+              }
+              <div>
+              <h4>{key.tittle}</h4>
+              <p>- {key.subject} {key.semester} Semester</p>
+              </div>  
           </div>
-          
-       </a>
-    ))}
-    </div>
+        )})}
+        </div>
     }
-      
+    <div  id="notes"></div>
     </div>
-  );
-};
+        
+    </div>
+   )
+}
 
-export default Notes;
+export default Note

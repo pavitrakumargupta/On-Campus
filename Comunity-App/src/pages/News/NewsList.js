@@ -1,25 +1,45 @@
 import React from 'react';
- 
+import verifyImageByUrl  from "../../verifyImageByUrl"
 
 const NewsList = ({ newsItems }) => {
+
+
+  const uploadPreview=(url)=>{
+    const {isImage}= verifyImageByUrl(url)
+     return (<div  style={{display:"flex",justifyContent:"center"}}  >
+     {isImage?<img className="docPreview" style={{width:"200px",height:"200px"}} src={url} alt="Image Preview" />:
+         <iframe
+         style={{width:"200px",height:"200px",margin:"auto"}}
+         src={`https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`}
+         className="docPreview"
+         frameborder="0"
+     />
+     }
+ </div>)}
+
   return (
     <div className="news-list-container">
       <h2 className="news-list-title">Latest News</h2>
       <ul className="news-list">
-        {newsItems.map((item, index) => (
+        {newsItems.slice().reverse().map((item, index) => (
           <li key={index} className="news-list-item">
             <div className="news-list-item-news">{item.news}</div>
-              <h5>{item.title}</h5>
-              <p>{item.subTitle}</p>
+              <h5>Title -: {item.title}</h5>
+              <p>Subtittle -: {item.subTitle}</p>
             <div>
-              <p>Date- <span>{item.deadline}</span></p>
-            {item.document&&<embed
-                  src={item.document}
-                  className="modal-document-embed"
-                  style={{width:"200px",height:"200px"}}
-                />}
+               
+              {item?.deadline&&<p>Deadline- <span>{item?.deadline}</span></p>}
+             
+              
+            {item.document&&uploadPreview(item.document)}
             </div>
-            <div className="news-list-item-date">{item.date}</div>
+            <div className="news-list-item-date">
+              <p>{item.date}</p> 
+              <div>
+                <img src={item.createdBy.profilePitchure} alt="" />
+                <p>{item.createdBy.name} </p>
+              </div>
+            </div>
 
           </li>
         ))}

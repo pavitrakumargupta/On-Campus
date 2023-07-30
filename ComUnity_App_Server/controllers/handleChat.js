@@ -80,14 +80,14 @@ module.exports.createGroupChat = async (req, res) => {
       .send("More than 2 users are required to form a group chat");
   }
 
-  users.push(req.user);
+  users.push(req._id);
 
   try {
     const groupChat = await Chat.create({
       chatName: req.body.name,
       users: users,
       isGroupChat: true,
-      groupAdmin: req.user,
+      groupAdmin: req.user._id,
     });
 
     const fullGroupChat = await Chat.findOne({ _id: groupChat._id })

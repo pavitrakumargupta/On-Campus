@@ -2,12 +2,12 @@
     /* height: 100%; */
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: transparent;
     width: 25%;
-    min-width: 315px;
+    min-width: 275px;
     overflow-y: scroll;
     padding: 10px;
-    border-radius: 7px;
+    color: white;
 }
 .ChatPage>.chatPagePannel>.chatBar >nav{
     display: flex;
@@ -22,13 +22,15 @@
     align-items: center;
     height: 40px;
     border: none;
-    background-color:rgb(190, 227, 248);
+    background-color:rgb(5, 182, 136);
     border-radius: 7px;
     font-size: 15px;
+    color: white;
+    
+
 }
 .ChatPage>.chatPagePannel>.chatBar >nav>button:hover{
-    background-color: rgb(59, 205, 255);
-    color: white;
+    background-color:rgb(8, 216, 161);
 }
 .ChatPage>.chatPagePannel>.chatBar >nav>button>icon{
     /* background-color: white; */
@@ -58,25 +60,28 @@
 .ChatPage>.chatPagePannel>.chatBar >.chatsWrapper>button{
     min-height: 60px;
     border: none;
-    border-radius: 10px;
-    background-color: rgb(230, 230, 230);
+    border-radius: 3px;
+    background-color: transparent;
     display: flex;
     align-items: center;
     text-align: center;
     gap: 50px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-family: 'Raleway', sans-serif;
 }
 .ChatPage>.chatPagePannel>.chatBar >.chatsWrapper>button:hover{
     background-color:rgb(56, 178, 172) ;
     color: white;
+    background-color:rgb(61, 62, 62,0.2);
+  border: 0.5px solid rgb(103, 116, 128,0.2);
 }
 .ChatPage>.chatPagePannel>.chatBar >.chatsWrapper>button>i{
     font-size: 30px;
 }
 .ChatPage>.chatPagePannel>.chatBar >.chatsWrapper>button>img{
-    width: 50px;
-  height: 50px;
-  border-radius: 50px;
+width: 37px;
+  height: 37px;
+  border-radius: 37px;
 }
 .ChatPage>.chatPagePannel>.chatBar >.chatsWrapper>button>div{
     display: flex;
@@ -88,10 +93,18 @@
 .ChatPage>.chatPagePannel>.chatBar >.chatsWrapper>button>div>p{
     margin: 0;
     font-size: 19px;
-    
+    text-align: left;
 }
 .ChatPage>.chatPagePannel>.chatBar >.chatsWrapper>button>div>span{
     opacity: 0.6;
+    text-align: left;
+}
+.ChatPage>.chatPagePannel>.chatBar >.chatsWrapper>button>p{
+    margin-left: auto;
+    background-color: rgb(0, 168, 132);
+    padding: 3px 8px;
+    border-radius: 10px;
+    color: black;
 }
 
 .ChatPage>.chatPagePannel>.chatBar>.createGpWindow{

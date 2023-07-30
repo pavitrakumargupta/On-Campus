@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../axios';
 import "./viewprofile.css"
-import UploadImage from "../../uploadImage";
+import {UploadImage,DeleteImage} from "../../uploadImage";
 import { ToastContainer, toast } from "react-toastify";
 
 const UserProfile = ({ UserId,editProfileActive }) => {

@@ -5,12 +5,13 @@ import EditGroupChat from "../editGroupChat"
 import axios from "../../../axios"
 import Skeleton from 'react-loading-skeleton'
 import io from "socket.io-client"
+import startChatting from "../../../logos/start chatting.gif"
 
 
 const ENDPOINT="http://localhost:5000"
 var socket,selectedChatCompare;
 
-const Chats = ({setSelectedChat,selectedChat,toggleModiefiedChat}) => {
+const Chats = ({setSelectedChat,selectedChat,toggleModiefiedChat,setUnreadMessage}) => {
   const user = useSelector((state) => state);
  
   const [chats,setChats]=useState()
@@ -18,21 +19,22 @@ const Chats = ({setSelectedChat,selectedChat,toggleModiefiedChat}) => {
   const [input_message,setInputMessage]=useState("")
   const [activeEditWindow,setActiveEditWIndow]=useState(false)
   const [socketConnected,setSocketConnected]=useState(false)
+  const [typingUser,setTypingUser]=useState()
 
   useEffect(() => {
     
     if(selectedChat){
       getAllMessage()
       selectedChatCompare=selectedChat;
-
+      setTypingUser()
     }
   }, [selectedChat]); 
 
 
   useEffect(()=>{
-    if(user.details.userId){
+    if(user.details._id){
       socket=io(ENDPOINT) 
-      socket.emit("setup",{...user.details,_id:user.details.userId}) 
+      socket.emit("setup",{...user.details,_id:user.details._id}) 
       socket.on("connection",()=>setSocketConnected(true))
     }
   },[])
@@ -40,17 +42,31 @@ const Chats = ({setSelectedChat,selectedChat,toggleModiefiedChat}) => {
   useEffect(()=>{
     // Scroll to the bottom of the chat section
     chats&&(chatSectionRef.current.scrollTop = chatSectionRef.current.scrollHeight)
-  },[chats])
-
-  useEffect(()=>{
+  },[chats,typingUser])
+  useEffect(()=>{ 
     socket.on("message recieved",(newMessageRecieved)=>{
       if(!selectedChatCompare || selectedChatCompare._id!==newMessageRecieved.chat._id){
         // give notification to specific chat
+        setUnreadMessage(newMessageRecieved)
       }else{
-        setChats([...chats,newMessageRecieved])
+        setTypingUser()
+        setChats(prevValue=>[...prevValue,newMessageRecieved])
       }
     })
   },[])
+  useEffect(()=>{ 
+    socket.on("typing message recieved",(typingMessage)=>{
+      if(!selectedChatCompare || selectedChatCompare._id!==typingMessage._id){
+        // give notification to specific chat
+      }else{
+      setTypingUser(typingMessage.typingUser.name)
+      
+      setTimeout(()=>{
+        setTypingUser()
+      },4000) 
+    }
+    })
+  })
 
   const getAllMessage=async()=>{
       try {
@@ -66,13 +82,18 @@ const Chats = ({setSelectedChat,selectedChat,toggleModiefiedChat}) => {
         setChats(data)
         socket.emit('join chat',selectedChat._id)
       } catch (error) {
-        
+        error.response.status==401&&(window.location.href = "/login")
       }
   }
 
   const handleMessage=(event)=>{
     const {value}=event.target
     setInputMessage(value)
+    const data={...selectedChat,sender:{
+      _id:user.details._id,
+    }}
+    socket.emit("typing",data)
+    console.log(data);
   }
 
   const sendMessage = async() => {
@@ -101,7 +122,7 @@ const Chats = ({setSelectedChat,selectedChat,toggleModiefiedChat}) => {
         setChats(newChat);
         setInputMessage('');
       } catch (error) {
-        
+        error.response.status==401&&(window.location.href = "/login")
       }
 
       
@@ -122,7 +143,7 @@ const Chats = ({setSelectedChat,selectedChat,toggleModiefiedChat}) => {
   }
 
   const getSender=(users)=>{
-    let sender=users.find(key=>key._id!==user.details.userId)
+    let sender=users.find(key=>key._id!==user.details._id)
     return sender
   }
 
@@ -134,6 +155,7 @@ const Chats = ({setSelectedChat,selectedChat,toggleModiefiedChat}) => {
   if(!selectedChat){
     return <div className='chatPannel'>
       <h5>Start Chatting with people</h5>
+      <img src={startChatting} alt="" />
     </div>
   }else{
   return (
@@ -153,17 +175,20 @@ const Chats = ({setSelectedChat,selectedChat,toggleModiefiedChat}) => {
       <div className='chatInbox'>
         <div className='chats' ref={chatSectionRef}>
         {chats?chats.map((key, index) => (
-          <div className={key?.sender?._id===user.details.userId?"myMessage":""}>
-            {(!(chats[index+1]?.sender._id===key?.sender?._id)&&(key?.sender?._id!==user.details.userId))?<img src={key?.sender?.profilePitchure} alt="" />:<div></div>}
+          <div className={key?.sender?._id===user.details._id?"myMessage":""}>
+            {(!(chats[index+1]?.sender._id===key?.sender?._id)&&(key?.sender?._id!==user.details._id))?<img src={key?.sender?.profilePitchure} alt="" />:<div></div>}
             <p >{key.content}</p>
           </div>
           
+          
         )):<Skeleton className='skeleton'  count={20}/>}
+       
         </div>
         <div className='chatInput'>
           <textarea id="" cols="30"  placeholder='Enter a message'
             value={input_message} name="me: " onChange={handleMessage} onKeyDown={handleKeyDown}
           ></textarea>
+           {typingUser&& <span>... {typingUser} is Typing </span>} 
         </div>
       </div>
       

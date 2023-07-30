@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
-import Logo from "../../assets/logo.png";
+// import Logo from "../../assets/logo.png";
+import Logo from "../../logos/logo.png"
 import { CgMenu, CgClose } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -10,31 +11,7 @@ const Navbar = ({currentMenu}) => {
   const user = useSelector((state) => state);
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
-  const [activeMenu,setActiveMenu]=useState(currentMenu)
-  const menuItem=[
-    {
-        content:"Message",
-        name:"message"
-    },{
-        content:"Blogs",
-        name:"blogs"
-    },{
-        content:"Notes",
-        name:"notes"
-    },{
-        content:"Dashboard",
-        name:""
-    },{
-        content:"News",
-        name:"news"
-    },{
-        content:"Questions",
-        name:"questions"
-    },{
-        content:"Polls",
-        name:"polls"
-    },
-  ]
+
 
 
   return ( 
@@ -43,18 +20,19 @@ const Navbar = ({currentMenu}) => {
       <div className="logo">
       <a href="https://comunity.netlify.app"><img src={Logo} alt="Logo" /></a>
       </div>
-       
-      <div className="menu-items">
-        {menuItem.map(key=>(
-            <Link onClick={()=>setActiveMenu(key.name)} style={{color:key.name==activeMenu&&"#A67DFD"}} to={"/"+key.name}>{key.content}</Link>
-        ))}
-      </div>
+      <h1 style={{color:"white"}} onClick={()=>window.location.href = "/dashboard"}>{window.location.pathname==='/dashboard'?'DashBoard': <><i class="fa-solid fa-backward"></i> Back to Dashboard</>}</h1>
+
+      
       <div className="profile">
-        <img
-          src={user.details.profilePitchure!=""?user.details.profilePitchure:"https://imgs.search.brave.com/iUQN726wdtZCy0T-0h75qU-Z2G_pncG6DygWzLUzkNU/rs:fit:600:600:1/g:ce/aHR0cHM6Ly96dWx0/aW1hdGUuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzEy/L2RlZmF1bHQtcHJv/ZmlsZS5wbmc"}
+      {/* {user.details&&<img
+          src={user.details.profilePicture}
           alt="Profile"
           onClick={()=>navigate("/profile")}
-        />
+        />} */}
+        
+         <i style={{color:"white",fontSize:"25px",marginRight:"80px"}} class="fa-solid fa-bell"></i>
+      {/* <i style={{color:"white",fontSize:"35px",marginRight:"20px"}} class="fa-solid fa-user"></i> */}
+      <img   src={user.details.profilePicture} alt="" />
       </div>
       <div className="mobileMenuBtn">
         <CgMenu

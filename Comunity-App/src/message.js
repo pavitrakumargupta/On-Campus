@@ -24,7 +24,7 @@ const Message = () => {
         <PrettyChatWindow
           projectId={process.env.REACT_APP_CHAT_ENGINE_PROJECT_ID}
           username={user.details.username} // adam
-          secret={user.details.userId} // pass1234
+          secret={user.details._id} // pass1234
           style={{ height: "100%" }}
         />
   }

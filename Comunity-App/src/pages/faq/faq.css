@@ -1,0 +1,137 @@
+
+.faq {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap:20px 250px;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  margin: 20px ;
+}
+.faq >div{
+  background-color: rgb(33, 37, 41);
+    border-radius: 10px;
+    border: 0.5px solid rgba(112, 112, 112, 0.08);
+    box-shadow: 13px 13px 0px rgba(0, 0, 0, 0.5);
+}
+.faq .question-section {
+  width: 400px;
+  border: 1px solid rgb(197, 197, 197);
+  padding: 30px;
+}
+.faq .questions{
+  border: 1px solid rgb(197, 197, 197);
+  max-height: 80vh;
+  min-height: 500px;
+  overflow-y: scroll;
+  padding: 10px 30px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+ 
+}
+.faq h1 ,.faq h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.faq .ask-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.faq textarea {
+  resize: none;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color:rgb(178, 178, 178,0.2);
+  color: white;
+}
+
+.faq button {
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.faq .question {
+  /* background-color: #f0f0f0; */
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+  animation: fadeInUp 0.5s ease;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+    border: 0.5px solid rgba(112, 112, 112, 0.08);
+    box-shadow: 13px 13px 0px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition:0.3s ease-in-out;
+    
+}
+.faq .question:hover{
+  transform: scale(1.1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq .comment-section {
+  margin-top: 16px;
+  
+}
+.faq .comment-section {
+  width: 100%;
+}
+.faq .comment-section >div>textarea{
+  width: 100%;
+}
+
+.faq .comments>div {
+  border:1px solid rgb(130, 121, 121,0.5);
+  border-radius: 4px;
+  padding: 8px;
+  margin-top: 8px;
+  max-height: 100px;
+  overflow-y: auto;
+}
+.faq .comments >p{
+
+}
+.faq p {
+  margin: 8px 0;
+}
+
+.faq textarea:focus,
+.faq button:focus {
+  outline: none;
+}
+
+.faq .openedQuestion{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.faq .openedQuestion .comments{
+  max-height: 400px;
+  overflow-y: scroll;
+}
