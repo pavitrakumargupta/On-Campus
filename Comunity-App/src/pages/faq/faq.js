@@ -43,8 +43,11 @@ const App = () => {
         },
       };
       const {data}=await axios.post("/faq/uploadFaq",{ question: newQuestion, answers: []},config)
-      setQuestions([...questions,...data])
+      const questionCopy=[...questions,data]
+     
+      setQuestions(questionCopy)
     } catch (error) {
+      console.log(error);
       error.response.status==401&&(window.location.href = "/login")
     }
   };

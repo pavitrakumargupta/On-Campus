@@ -8,21 +8,25 @@
   gap:20px 250px;
   flex-wrap: wrap;
   overflow-y: scroll;
-  margin: 20px ;
+  /* margin: 20px ; */
+  background: url("./img/question.png");
+  white-space: pre-wrap;
+  word-break: break-all; 
+  background-size: 300px;
 }
 .faq >div{
-  background-color: rgb(33, 37, 41);
+  background-color:rgb(33, 37, 41,0.99);
     border-radius: 10px;
     border: 0.5px solid rgba(112, 112, 112, 0.08);
     box-shadow: 13px 13px 0px rgba(0, 0, 0, 0.5);
 }
 .faq .question-section {
   width: 400px;
-  border: 1px solid rgb(197, 197, 197);
+  /* border: 1px solid rgb(197, 197, 197); */
   padding: 30px;
 }
 .faq .questions{
-  border: 1px solid rgb(197, 197, 197);
+  /* border: 1px solid rgb(197, 197, 197); */
   max-height: 80vh;
   min-height: 500px;
   overflow-y: scroll;
@@ -132,6 +136,12 @@
   gap: 10px;
 }
 .faq .openedQuestion .comments{
-  max-height: 400px;
+  max-height: 300px;
+  max-width: 400px;
+  padding: 20px 0;
   overflow-y: scroll;
+}
+.faq .openedQuestion .comments p{
+  white-space: pre-wrap;
+  word-break: break-all; 
 }

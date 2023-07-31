@@ -7,6 +7,8 @@
   /* background-color: #ffffff; */
   animation: fadeIn 0.5s ease-in-out;
   background-color: #000000;
+  background: url("./img/blogPattern.png");
+  background-size: 500px;
 }
 .blogPage > img {
   display: none;
@@ -45,6 +47,11 @@
   font-family: "Lexend";
   font-style: normal;
   margin-left: auto;
+  -webkit-text-stroke-width: 1px;
+  /* -webkit-text-stroke-color: rgb(0, 0, 0,0.3); */
+  text-shadow: h-shadow v-shadow blur-radius color;
+
+  text-shadow:  5px 5px 5px rgb(0, 0, 0);
 }
 .blogPage > .CoverPage > img {
   width: 55%;
@@ -117,7 +124,8 @@
  border: 1px solid rgba(126, 126, 126, 0.2);
 }
 .postBlogWindowBtn:hover {
-  background-color: rgba(126, 126, 126, 0.08);
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow:  5px 5px 5px rgb(0, 0, 0);
 }
 .postBlogPage {
   position: fixed;
@@ -250,21 +258,22 @@
   /* min-width: 100%; */
   justify-content: center;
   z-index: 1;
-  background-color: rgb(0, 0, 0);
+  /* background-color: rgb(0, 0, 0); */
   color: #ffffff;
 }
 .blogPage > .Blogs > .blog {
   height: fit-content;
   display: flex;
   flex-direction: column;
-  background-color:rgba(126, 126, 126, 0.2);
-  border: 1px solid rgba(126, 126, 126, 0.2);;
+  background-color:rgba(0, 0, 0,0.9);
+  border: 1px solid rgba(126, 126, 126, 0.8);;
   gap: 20px;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
   max-width: 30rem;
   transition: transform 0.3s ease;
+  
 }
 .blogPage > .Blogs > .blog:hover {
   transform: scale(1.07); /* Increase the scale value to increase the zoom effect */
@@ -278,11 +287,13 @@
   border-radius: 7px;
 }
 .blogPage > .Blogs > .blog > .TittleSubtittle {
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin-left: 20px;
 }
 .blogPage > .Blogs > .blog > .TittleSubtittle > h6 {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 800;
 }
 .blogPage > .Blogs > .blog > .TittleSubtittle > p {
   max-width: fit-content;
@@ -292,7 +303,7 @@
 .blogPage > .Blogs > .blog > .aboutUser {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
 }
 .blogPage > .Blogs > .blog > .aboutUser > img {
   height: 40px;
@@ -329,15 +340,16 @@
   /* position:absolute;
   margin-left:400px; 
   margin-top: 0px; */
+ 
   background-color: rgb(255, 255, 255);
-  border-radius: 20px;
+  border-radius: 5px;
   border: 1px solid rgb(214, 214, 214,0.9);
 }
 .options>p{
   /* display: none; */
   padding:5px 10px;
   margin: 5px;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 .options>p:hover{
   background-color: rgb(0, 0, 0);
@@ -354,7 +366,7 @@
   position: fixed;
   top: 0px;
   z-index: 3;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 .blogPage > .blogWindow > div {
   background-color: white;

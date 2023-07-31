@@ -284,7 +284,7 @@ const Blog = () => {
                 onClick={() => setActiveBlog(key)}
                 className="TittleSubtittle"
               >
-                <h6>{key.tittle}</h6>
+                <h6>{key.tittle.substring(0, 70)}</h6>
                 <p>{key.content.substring(0, 70)}....</p>
               </div>
               

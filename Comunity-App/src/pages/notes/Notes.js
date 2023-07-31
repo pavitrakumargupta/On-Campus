@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Notes.css";
-import GetNotesImage from "../../logos/get-Notes.png";
+import GetNotesImage from "./img/getNotes.png";
 import UploadNotesImage from "../../logos/upload-Notes.png"
 import axios from "../../axios";
 import Courses from "./CourseNames.json"
@@ -8,6 +8,7 @@ import Courses from "./CourseNames.json"
 import {UploadImage,DeleteImage} from "../../uploadImage"
 import verifyImageByUrl  from "../../verifyImageByUrl"
 import UploadSymbol from "../../logos/upload-Symbol.png"
+import DownImage from "./img/downImg.png"
 import { useSelector } from "react-redux";
 const Note = () => {
     const user = useSelector((state) => state);
@@ -238,6 +239,7 @@ const Note = () => {
 
   return (
     <div className="notesPage">
+      <img src={DownImage} alt="" />
        {noetsCompo==="getNotes"
         ?<div className="noteCardBox">
           {getNotes()}
@@ -247,18 +249,10 @@ const Note = () => {
             <img src={GetNotesImage} alt="" />
             
         </div>}
-        {noetsCompo==="UploadNotes"?
-        <div className="noteCardBox">
-          {uploadNotes()}
-        </div>
-        :
-        <div onClick={()=>setNotesCompo("UploadNotes")} className="startCard uploadCard">
-            <h2>Upload Notes</h2>
-            <img src={UploadNotesImage} alt="" />
-        </div>}
 
-    <div className="notes">
-        {noetsCompo === "getNotes" &&notesData&&<div  >
+
+        {noetsCompo === "getNotes" &&notesData&&<div className="notes">
+        <div  >
         <div>
           <h2>Notes :-</h2>
           <p>{notesData.length} - results</p>
@@ -282,9 +276,19 @@ const Note = () => {
           </div>
         )})}
         </div>
-    }
-    <div  id="notes"></div>
-    </div>
+    
+    </div>}
+        {noetsCompo==="UploadNotes"?
+        <div className="noteCardBox">
+          {uploadNotes()}
+        </div>
+        :
+        <div onClick={()=>setNotesCompo("UploadNotes")} className="startCard uploadCard">
+            <h2>Upload Notes</h2>
+            <img src={UploadNotesImage} alt="" />
+        </div>}
+
+    
         
     </div>
    )

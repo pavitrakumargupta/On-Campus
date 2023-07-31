@@ -6,6 +6,7 @@ const {accessChat,fetchChats,createGroupChat,renameGroup,addToGroup,removeFromGr
 const {sendMessage,allMessages}=require("../controllers/handleMessage")
 const {uploadNews,getAllNews} =require("../controllers/handleNews")
 const {uploadQuestion,getAllfaq,editfaq}=require("../controllers/handleFaq")
+const  {createPoll,getAllPolls,editPollVotes}=require("../controllers/handlePolls")
  
 const { protect } = require("../middleware/authMiddleware");
 
@@ -57,6 +58,10 @@ router.route( "/faq/uploadFaq").post(protect,uploadQuestion)
 router.route( "/faq/addAnswer").post(protect,editfaq)
 router.route("/faq/getAllfaq").get(protect,getAllfaq)
 
+// handle Poll
+router.route( "/Polls/createNewPoll").post(protect,createPoll)
+router.route( "/Polls/pollVote").post(protect,editPollVotes)
+router.route("/Polls/getAllPolls").get(protect,getAllPolls)
 
 // export
 module.exports=router; 

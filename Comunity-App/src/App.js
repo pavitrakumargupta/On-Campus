@@ -19,14 +19,14 @@ import Navbar from "./pages/newNav/Nav";
 // // import Message from "./pages/message/message";
 import Blog from "./pages/Blogs/Blog"
 import Notes from "./pages/notes/Notes"
-import Poles from "./pages/poles/Polls"
+import Poles from "./pages/Newpolls/polls";
 import News from "./pages/News/News";
 import Faq from "./pages/faq/faq"
 import ChatsPage from "./pages/chatsPage/chatsPage";
 import ProfilePage from "./pages/profilePage/profilePage";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import NewChat from "./pages/newChatPage/chatPage"
-import Dashboard from "./pages/newHomePage/Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 
 function App() {

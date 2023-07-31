@@ -7,13 +7,46 @@
     flex: 1 1;
     flex-wrap: wrap;
     /* justify-content: space-around; */
-    gap: 150px;
+    gap:30px 35%;
     overflow-y: scroll;
     padding: 30px 10px;
     color: white;
     padding: 50px;
+    background: url("./img/background.png");
+    background-size: 600px ;
 }
-
+.notesPage>img{
+    width: 50%;
+    transform: rotate(180deg);
+    position: absolute;
+    top: 70px;
+    z-index: 0;
+}
+@media (max-width: 1130px) {
+    .notesPage{
+        gap:30px 25%;
+    }
+    .notesPage>img{
+        /* transform: rotate(180deg);
+        position: absolute; */
+        width: 35%;
+        top: 70px;
+        z-index: 0;
+    }
+}
+@media (max-width: 1000px) {
+    .notesPage>img{
+        transform: rotate(90deg);
+        position: absolute;
+        width: 50%;
+        top: 100px;
+        left: -85px;
+        z-index: 0;
+    }
+}
+.notesPage>div{
+    z-index: 1;
+}
 .notesPage>.startCard{
     background-color: rgb(33, 37, 41);
     border-radius: 10px;
@@ -27,6 +60,7 @@
     padding: 15px ;
     height: 450px;
     transition:0.3s ease-in-out;
+
 }
 .notesPage>.startCard>img{
     width: 300px;
@@ -92,7 +126,7 @@
     margin-top: auto;
 }
 .notesPage> .notes{
-    min-width: 100%;
+    /* min-width: 100%; */
 }
 .notesPage> .notes >div{
     display: flex;
@@ -101,7 +135,7 @@
     min-width: 100%;
 }
 .notesPage #notes{
-    margin-top: 200px;
+    /* margin-top: 200px; */
 }
 .notesPage .note{
     width: 80%;

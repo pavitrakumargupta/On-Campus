@@ -2,6 +2,8 @@
     width: 100vw;
   margin: 0 auto;
   padding: 20px;
+  background: url("./img/news.png");
+  background-size: 550px;
   
 }
 .News-container>div{
@@ -60,13 +62,16 @@
   overflow-y: auto;
   border-radius: 10px;
     border: 1px solid rgba(112, 112, 112, 0.18);
-    box-shadow: 13px 13px 5px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.5);
     color: #fff;
+    background-color: rgb(33, 37, 41);
+
 }
 
 .news-list-title {
   text-align: center;
   color: #fff;
+  
 }
 
 .news-list {
@@ -81,14 +86,14 @@
   border-radius: 5px;
   animation: fadeIn 0.5s ease-in-out;
   background-color: rgb(33, 37, 41);
-    border-radius: 10px;
-    border: 0.5px solid rgba(112, 112, 112, 0.08);
-    box-shadow: 13px 13px 0px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    white-space: pre-wrap;
-    word-break: break-all; 
+  border-radius: 10px;
+  border: 0.5px solid rgba(112, 112, 112, 0.08);
+  box-shadow: 13px 13px 0px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  white-space: pre-wrap;
+  word-break: break-all; 
 
 }
 
@@ -155,9 +160,9 @@
   .news-form-input {
     padding: 10px;
     border: none;
-    background-color: rgb(33, 37, 41);
+    background-color: rgb(33, 37, 41)!important;
     border-radius: 10px;
-    border: 0.5px solid rgba(112, 112, 112, 0.08);
+    border: 0.5px solid rgba(112, 112, 112, 0.08)!important;
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5); 
     border-radius: 5px;
     color: #777;
