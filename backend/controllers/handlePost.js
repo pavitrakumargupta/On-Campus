@@ -1,4 +1,4 @@
-const Post = require("../model/postModel");
+const Post = require("../model/postmodel")
 
 module.exports.createPost = async (req, res, next) => {
   try {
