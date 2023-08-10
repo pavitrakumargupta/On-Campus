@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { actionCreators } from "./state/index";
 import UseVerifyAuth from "./verifyAuth";
 
-import Loader from "./assets/loader.gif"
+import Loader from "./assets/loader.webp"
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Homepage from "./pages/Homepage/Homepage";
