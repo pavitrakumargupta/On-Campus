@@ -80,6 +80,7 @@
     overflow-x: hidden;
     border-top: 0.5px solid rgb(103, 116, 128,0.2);
     /* min-height: 1; */
+    max-height: 50px;
 }
 .ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chatInput>textarea{
     width: 98%;
