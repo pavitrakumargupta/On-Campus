@@ -12,15 +12,29 @@
     padding: 30px 10px;
     color: white;
     padding: 50px;
+   
+}
+.notesPage>background{
     background: url("./img/background.png");
+    filter: blur(1.5px);
+    /* backface-visibility: 0.6; */
     background-size: 600px ;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events:none
 }
 .notesPage>img{
     width: 50%;
     transform: rotate(180deg);
     position: absolute;
-    top: 70px;
+    top: 0px;
     z-index: 0;
+    pointer-events:none;
+    filter: blur(.5px);
+    
 }
 @media (max-width: 1130px) {
     .notesPage{
@@ -46,6 +60,7 @@
 }
 .notesPage>div{
     z-index: 1;
+    
 }
 .notesPage>.startCard{
     background-color: rgb(33, 37, 41);

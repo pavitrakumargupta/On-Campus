@@ -87,12 +87,15 @@
   color: rgb(198, 198, 198);
   width: 100%;
   padding: 30px 15px;
-  background-color:rgb(33, 37, 41);
-  border: 0.5px solid rgb(103, 116, 128,0.2);
+  /* background-color:rgb(33, 37, 41); */
+  border: 0.5px solid transparent;
+  background-color: transparent;
 }
 .ChatPage>.userSeachbarPannel > .userSeachbar>.users>button:hover{
   background-color:rgb(56, 178, 172) ;
-  color: white;
+    color: white;
+    background-color:rgb(61, 62, 62,0.2);
+    border: 0.5px solid rgb(103, 116, 128,0.2);
 }
 .ChatPage>.userSeachbarPannel > .userSeachbar>.users>button>div{
   display: flex;
@@ -117,6 +120,7 @@
 .ChatPage>.userSeachbarPannel > .userSeachbar>span>.react-loading-skeleton{
   height: 35px;
   margin-top: 10px;
+  opacity: 0.1;
 }
 .ChatPage>.userSeachbarPannel > .userSeachbar>span{
   overflow-y: hidden;

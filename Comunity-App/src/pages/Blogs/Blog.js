@@ -237,10 +237,6 @@ const Blog = () => {
 
   return (
     <div style={activeBlog && { overflowY: "none" }} className="blogPage">
-      <img
-        src="https://blog.hubspot.com/hs-fs/hubfs/Help_Scout_Blog-2.png?width=900&name=Help_Scout_Blog-2.png"
-        alt=""
-      />
       <div className="CoverPage">
         <h2>Find You Favourite blogs here</h2>
         <img src={CoverImage} alt="" />
@@ -257,7 +253,7 @@ const Blog = () => {
         Post Blog
       </button>
 
-      <div className="Blogs">
+      {Blogs.length>0?<div className="Blogs">
         {Blogs.slice()
           .reverse()
           .map((key,index) => (
@@ -297,7 +293,7 @@ const Blog = () => {
               <p></p>
             </div>
           ))}
-      </div>
+      </div>:<h5>No Blogs Yet..</h5>}
 
       {activeBlog != null && openBlog()}
       {postBlogWindow && (

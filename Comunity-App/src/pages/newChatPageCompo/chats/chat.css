@@ -70,15 +70,16 @@
 }
 .ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chatInput{
     margin: 10px 0;
+    margin-bottom: 63px;
     background-color: transparent;
-    padding:13px 10px 3px;
+    padding:13px 10px 13px;
     display: flex;
     flex-direction: column;
     /* border-radius: 20px; */
     max-width: 100%;
     overflow-x: hidden;
     border-top: 0.5px solid rgb(103, 116, 128,0.2);
-    min-height: 130px;
+    /* min-height: 1; */
 }
 .ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chatInput>textarea{
     width: 98%;
@@ -104,7 +105,8 @@
 .ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>span>.react-loading-skeleton{
     height: 25px;
     margin-top: 10px;
-    background-color: rgb(231, 231, 231);
+    /* background-color: rgb(231, 231, 231); */
+    opacity: 0.1;
   }
   .ChatPage>.chatPagePannel>.chatPannel>.chatInbox>.chats>span{
     overflow-y: hidden;

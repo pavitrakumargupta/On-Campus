@@ -31,14 +31,14 @@
   justify-content: space-between;
   text-align: center;
   align-items: center;
-  min-height: 90vh;
-  
+  min-height: 95vh;
+  backdrop-filter: blur(1.5px);
 }
 .blogPage > .CoverPage > h2 {
-  color: white;
+  /* color: white; */
   letter-spacing: 1.5px;
   word-spacing: 5px;
-  font-size: 500%;
+  font-size: 600%;
   display: flex;
   flex-wrap: wrap;
   max-width: 600px;
@@ -47,11 +47,16 @@
   font-family: "Lexend";
   font-style: normal;
   margin-left: auto;
-  -webkit-text-stroke-width: 1px;
-  /* -webkit-text-stroke-color: rgb(0, 0, 0,0.3); */
-  text-shadow: h-shadow v-shadow blur-radius color;
 
-  text-shadow:  5px 5px 5px rgb(0, 0, 0);
+  /* filter: contrast(5px); */
+
+  /* background: #1572CF;
+  background: linear-gradient(to right ,#008ad2 ,#f4a819 , #d70868 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: white;
+  background: url("https://firebasestorage.googleapis.com/v0/b/otp-sender-382116.appspot.com/o/blogs%2Fimage_20230810_042151_7b779_lovepik-text-background-graphics-png-image_400459286_wh1200%20(1).png?alt=media&token=53a1cad6-f0b1-458b-8f52-284d8ed7c353"); 
+  background-size: 600px;
 }
 .blogPage > .CoverPage > img {
   width: 55%;
@@ -247,16 +252,28 @@
 
 /* specifiv Blog  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
-
+.blogPage  h5{
+  font-size:50px;
+  font-weight: 1800;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 3px 3px 5px rgb(147, 111, 255);
+  backdrop-filter: blur(15px);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px;
+  margin-bottom: 50px;
+  border-radius: 50px;
+}
 /* Bloga page */
 .blogPage > .Blogs {
-  margin: 3rem auto;
+  margin: 3rem ;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   max-width: 95%;
   /* min-width: 100%; */
-  justify-content: center;
+  justify-content: left;
   z-index: 1;
   /* background-color: rgb(0, 0, 0); */
   color: #ffffff;
@@ -265,7 +282,7 @@
   height: fit-content;
   display: flex;
   flex-direction: column;
-  background-color:rgba(0, 0, 0,0.9);
+  background-color:rgba(0, 0, 0,0.97);
   border: 1px solid rgba(126, 126, 126, 0.8);;
   gap: 20px;
   padding: 10px;

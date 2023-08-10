@@ -36,6 +36,7 @@ function CreatePoll({ createPoll }) {
             value={question}
             onChange={handleQuestionChange}
             required
+            placeholder='question'
           />
         </div>
         <div className="form-group form-option">
@@ -48,6 +49,7 @@ function CreatePoll({ createPoll }) {
               value={option}
               onChange={(e) => handleOptionChange(e, index)}
               required
+              placeholder={`Enter option Value`}
             />
           ))}
           <button type="button" onClick={addOption}>

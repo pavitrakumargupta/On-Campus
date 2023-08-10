@@ -27,7 +27,9 @@ import ProfilePage from "./pages/profilePage/profilePage";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import NewChat from "./pages/newChatPage/chatPage"
 import Dashboard from "./pages/dashboard/Dashboard";
-
+import io from "socket.io-client"
+const ENDPOINT="http://localhost:5000"
+var socket;
 
 function App() {
 
@@ -38,17 +40,25 @@ function App() {
 
   // Custom hook for verifying auth
   useEffect(()=>{
-    console.log(userSetDone);
   },[userSetDone])
+  useEffect(()=>{setUserDetails()},[])
   
 
   const setUserDetails=async()=>{
     const data=await UseVerifyAuth();
     await dispatch(actionCreators.setUserDetails(data));
-    await setUserSetDone(true)
-    
+    if(data._id){
+      // socket=io(ENDPOINT) 
+      // socket.emit("setup",{...data}) 
+      
+      // socket.on("connection")
+      setUserSetDone(true)     
+    }else if(data===true){
+      setUserSetDone(true)
+    }
+    console.log(data);
   }
-  setUserDetails()    
+ 
 
   if(!userSetDone){
     return <div style={{
@@ -65,7 +75,7 @@ function App() {
     return <Router>
     <Routes>
     <Route path="/" element={<Homepage />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/login" element={<div className="page"><Login /></div>}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/forgot-password" element={<ForgotPassword />}></Route>
         {/* <Route path="/message" element={<div className="page"><Navbar currentMenu={"message"} /><ChatsPage/></div>}></Route> */}

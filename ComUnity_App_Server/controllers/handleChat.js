@@ -5,7 +5,7 @@ module.exports.accessChat=async (req,res)=>{
   
     if (!userId) {
       console.log("UserId param not sent with request");
-      return res.sendStatus(400);
+      return res.status(400).json("UserId param not sent with request");
     }
   
     var isChat = await Chat.find({
@@ -40,7 +40,7 @@ module.exports.accessChat=async (req,res)=>{
         );
         res.status(200).json(FullChat);
       } catch (error) {
-        res.status(400);
+        res.status(500).json("Something went Wrong Please try again later");
         throw new Error(error.message);
       }
     }
@@ -61,7 +61,7 @@ module.exports.fetchChats = async (req, res) => {
         res.status(200).send(results);
       });
   } catch (error) {
-    res.status(400);
+    res.status(500).json("Something went Wrong Please try again later");
     throw new Error(error.message);
   }
 };
@@ -69,7 +69,7 @@ module.exports.fetchChats = async (req, res) => {
 
 module.exports.createGroupChat = async (req, res) => {
   if (!req.body.users || !req.body.name) {
-    return res.status(400).send({ message: "Please Fill all the feilds" });
+    return res.status(400).send("Please Fill all the feilds");
   }
 
   var users = JSON.parse(req.body.users);
@@ -96,7 +96,7 @@ module.exports.createGroupChat = async (req, res) => {
 
     res.status(200).json(fullGroupChat);
   } catch (error) {
-    res.status(400);
+    res.status(500).json("Something went Wrong Please try again later");
     throw new Error(error.message);
   }
 };
@@ -118,7 +118,7 @@ module.exports.renameGroup = async (req, res) => {
     .populate("groupAdmin", "-password");
 
   if (!updatedChat) {
-    res.status(404);
+    res.status(404).json("Chat Not Found");
     throw new Error("Chat Not Found");
   } else {
     res.json(updatedChat);
@@ -130,8 +130,10 @@ module.exports.removeFromGroup =async (req, res) => {
 
   // check if the requester is admin
 
-  const removed = await Chat.findByIdAndUpdate(
-    chatId,
+  const removed = await Chat.findOneAndUpdate(
+    {_id:chatId,
+      groupAdmin:req.user._id
+      },
     {
       $pull: { users: userId },
     },
@@ -143,7 +145,7 @@ module.exports.removeFromGroup =async (req, res) => {
     .populate("groupAdmin", "-password");
 
   if (!removed) {
-    res.status(404);
+    res.status(404).json("Can't edit this chat");
     throw new Error("Chat Not Found");
   } else {
     res.json(removed);
@@ -156,8 +158,10 @@ module.exports.addToGroup = async (req, res) => {
 
   // check if the requester is admin
 
-  const added = await Chat.findByIdAndUpdate(
-    chatId,
+  const added = await Chat.findOneAndUpdate(
+    {_id:chatId,
+      groupAdmin:req.user._id
+      },
     {
       $push: { users: userId },
     },
@@ -169,7 +173,7 @@ module.exports.addToGroup = async (req, res) => {
     .populate("groupAdmin", "-password");
 
   if (!added) {
-    res.status(404);
+    res.status(404).json("Can't edit this chat");
     throw new Error("Chat Not Found");
   } else {
     res.json(added);

@@ -7,11 +7,11 @@ export const setUserDetails=(details)=>{
     }
 }
 
-export const chatProvider=(chat)=>{
+export const serverConnected=(serverConnected)=>{
     return (dispatch)=>{
         dispatch({
             type:'set',
-            payload:chat
+            payload:serverConnected
         })
     }
 }

@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from "react-redux";
 import axios from "../../axios"
+import {ToastContainer,toast} from "react-toastify"
 const GroupChatModel = ({setActiveWindow,fetchChats}) => {
+    const toast_style={
+        position:"bottom-right", 
+        autoClose:4000,
+        pauseOnHover:true,
+        draggable:true,
+        theme:"dark",
+      }
     const user = useSelector((state) => state);
     const [SearchedUser,setSearchedUser]=useState("")
     const [userList,setUserList]=useState([])
@@ -26,7 +34,8 @@ const GroupChatModel = ({setActiveWindow,fetchChats}) => {
         })
         setUserList(finaldata)
         } catch (error) {
-        
+            error.response.status==401&&(window.location.href = "/login")
+      toast.error(error.response.data,toast_style)
         }
     }
     SearchedUser!==""?fetchUserbyname():setUserList([])
@@ -69,7 +78,8 @@ const GroupChatModel = ({setActiveWindow,fetchChats}) => {
         setUserList([])
         setGroupChatName("")
     } catch (error) {
-        
+        error.response.status==401&&(window.location.href = "/login")
+      toast.error(error.response.data,toast_style)
     }
     }
 
@@ -101,6 +111,7 @@ const GroupChatModel = ({setActiveWindow,fetchChats}) => {
         
         <button onClick={createGroupChat}>Create Chat</button>
     </div>
+    <ToastContainer />
     </div>
 }
 

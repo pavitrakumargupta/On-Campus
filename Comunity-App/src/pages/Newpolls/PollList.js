@@ -11,6 +11,7 @@ function PollList({ poll, index }) {
   });
   const user = useSelector((state) => state);
   const [loading, setLoading] = useState(true);
+  const [Poll,setPoll]=useState(poll)
 
   const setNewOptionId = (e) => {
     setPollDetail({ ...pollDetail, newOptionId: e.target.value });
@@ -41,6 +42,8 @@ function PollList({ poll, index }) {
       };
       const { data } = await axios.post("/Polls/pollVote", pollDetail, config);
       setPollDetail({...pollDetail,oldOptionId:pollDetail.newOptionId,newOptionId:""})
+      setPoll(data)
+
     } catch (error) {
       if (error.response.status === 401) {
         window.location.href = "/login";
@@ -52,11 +55,13 @@ function PollList({ poll, index }) {
     return <img src={Loader} alt="Loading..." />;
   }
 
+  
+
   return (
     <li key={index} className="poll-item">
-      <h3>{poll.question}</h3>
+      <h3>{Poll.question}</h3>
       <form className="poll-form">
-        {poll.options.map((option, optionIndex) => (
+        {Poll.options.map((option, optionIndex) => (
           <div key={optionIndex} className="form-group">
             <input
               type="radio"
@@ -67,6 +72,9 @@ function PollList({ poll, index }) {
               defaultChecked={pollDetail.oldOptionId === option._id}
             />
             <label htmlFor={`option_${index}_${optionIndex}`}>{option.optionName}</label>
+            {/* {console.log((option.vote *100),poll.totalVotes.length)} */}
+            <label htmlFor="">{(option.votes / Poll.totalVotes.length) * 100} %</label>
+
           </div>
         ))}
         <button disabled={pollDetail.newOptionId===""} style={pollDetail.newOptionId===""?{background:"grey"}:{}} onClick={voteforOption} type="button">{pollDetail.oldOptionId?"Change Vote":"Vote"}</button>

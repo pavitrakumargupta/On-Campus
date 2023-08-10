@@ -88,21 +88,41 @@ const Register = () => {
         <div className="authenticationScreen">
         <h1 className="tittle">Sign In</h1>
           <div className="form">
-          <input type="text" name="name" onChange={handleDetail} className="form__input" placeholder="Enter Full Name" />
-          <input type="text" name="username" onChange={handleDetail} className="form__input" placeholder="User Name" />
-	  			<input type="email" name="email"   onChange={handleDetail} className="form__input" placeholder="Email" />
-	  			<input className="form__input" onChange={handleDetail} name="password" type="password" placeholder="Password" />
-          <input className="form__input" onChange={handleDetail} name="conf_password" type="password" placeholder="Confirm Password" />
-          {Fill_otp && (<input   className="form__input"   onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />)}
+          <div className="form-Input">
+            <i class="fa-solid fa-file-signature"></i>
+            <input type="text" name="name" disabled={Fill_otp} onChange={handleDetail}  placeholder="Enter Full Name" />
+          </div>
+          <div className="form-Input">
+            <i class="fa-regular fa-user"></i>
+            <input type="text" name="username" disabled={Fill_otp} onChange={handleDetail}  placeholder="User Name" />
+          </div>
+          <div className="form-Input">
+              <i class="fa-regular fa-envelope"></i>
+             <input type="email"  name="email" disabled={Fill_otp} onChange={handleDetail} placeholder="Email" />
+          </div>
+          <div className="form-Input">
+            <i class="fa-solid fa-lock"></i>
+              <input type="password" placeholder="Password" disabled={Fill_otp} onChange={handleDetail} name="password" />
+            </div>
+            <div className="form-Input">
+            <i class="fa-solid fa-lock"></i>
+            <input  onChange={handleDetail} disabled={Fill_otp} name="conf_password" type="password" placeholder="Confirm Password" />
+            </div>          
+          {Fill_otp && (
+           <div className="form-Input">
+          <i class="fa-solid fa-key"></i>
+          <input      onChange={handleDetail}   name="otp"   type="text"   placeholder="Enter OTP" />
+          </div>
+          )}
 	  			<button  onClick={onSubmit}  className="submitBtn" disabled={submitButtonDisabled}> {Fill_otp ? "Confirm Otp" : "Register"}</button>
   
           </div>
           <p style={{margin:"20px 0"}} >Already have an account ?<Link to="/login" style={{textDecoration:"underline"}}>Login </Link></p> 
         </div>
-        <div className="welcomeScreen">
+        {/* <div className="welcomeScreen">
             <h1>Want to join us<br /> Register Here</h1>
             <img src={SideImage} alt="" />
-        </div>
+        </div> */}
       </div>
       <ToastContainer />
   </div>

@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from "react-redux";
 import axios from "../../axios"
+import {ToastContainer,toast} from "react-toastify"
 const EditGroupChatModel = ({setActiveWindow,selectedChat,setSelectedChat,toggleModiefiedChat}) => {
+    const toast_style={
+        position:"bottom-right", 
+        autoClose:4000,
+        pauseOnHover:true,
+        draggable:true,
+        theme:"dark",
+      }
+
     const user = useSelector((state) => state);
     const [SearchedUser,setSearchedUser]=useState("")
     const [userList,setUserList]=useState([])
@@ -58,6 +67,8 @@ const EditGroupChatModel = ({setActiveWindow,selectedChat,setSelectedChat,toggle
                 toggleModiefiedChat()  
             } catch (error) {
                 console.log(error);
+                error.response.status==401&&(window.location.href = "/login")
+                toast.error(error.response.data,toast_style)
             }
         }
         }
@@ -85,7 +96,8 @@ const EditGroupChatModel = ({setActiveWindow,selectedChat,setSelectedChat,toggle
                 console.log("helloo");
                 toggleModiefiedChat()
             } catch (error) {
-                
+                error.response.status==401&&(window.location.href = "/login")
+                toast.error(error.response.data,toast_style)
             }
         }
     }
@@ -110,7 +122,8 @@ const EditGroupChatModel = ({setActiveWindow,selectedChat,setSelectedChat,toggle
             setSelectedChat() 
             toggleModiefiedChat()  
         } catch (error) {
-            
+            error.response.status==401&&(window.location.href = "/login")
+            toast.error(error.response.data,toast_style)
         }
     }
 
@@ -134,7 +147,8 @@ const EditGroupChatModel = ({setActiveWindow,selectedChat,setSelectedChat,toggle
             setSelectedChat(data)   
             toggleModiefiedChat()  
         } catch (error) {
-            
+            error.response.status==401&&(window.location.href = "/login")
+            toast.error(error.response.data,toast_style)
         }
     }
 
@@ -170,6 +184,7 @@ const EditGroupChatModel = ({setActiveWindow,selectedChat,setSelectedChat,toggle
         
         <button onClick={()=>leaveGroup({_id:user.details._id})}>Leave Group</button>
     </div>
+    <ToastContainer />
     </div>
 }
 

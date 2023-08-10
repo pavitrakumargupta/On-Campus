@@ -55,6 +55,7 @@
   overflow-y: hidden;
   color: rgb(0, 0, 0);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 .grid-item>div:hover {
   transform: scale(1.07); /* Increase the scale value to increase the zoom effect */
@@ -138,6 +139,7 @@
 .grid-item:nth-child(5) { 
   grid-row: 5/span 6;
   grid-column: 6/span 9;
+  /* display: none; */
   /* color: rgb(184, 165, 203); */
   
  }

@@ -7,8 +7,13 @@ const {sendMessage,allMessages}=require("../controllers/handleMessage")
 const {uploadNews,getAllNews} =require("../controllers/handleNews")
 const {uploadQuestion,getAllfaq,editfaq}=require("../controllers/handleFaq")
 const  {createPoll,getAllPolls,editPollVotes}=require("../controllers/handlePolls")
- 
+const {ContactUs}=require("../controllers/ContactUs")
 const { protect } = require("../middleware/authMiddleware");
+
+
+
+// Contact us
+router.post("/ContactUs",ContactUs)
 
 
 // handle User

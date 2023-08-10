@@ -239,6 +239,7 @@ const Note = () => {
 
   return (
     <div className="notesPage">
+      <background  className="background"></background>
       <img src={DownImage} alt="" />
        {noetsCompo==="getNotes"
         ?<div className="noteCardBox">

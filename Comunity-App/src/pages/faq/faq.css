@@ -9,15 +9,15 @@
   flex-wrap: wrap;
   overflow-y: scroll;
   /* margin: 20px ; */
-  background: url("./img/question.png");
+  background: url("./img/question-mark-pattern_1319-109.png");
   white-space: pre-wrap;
   word-break: break-all; 
-  background-size: 300px;
+  background-size: 500px;
 }
 .faq >div{
-  background-color:rgb(33, 37, 41,0.99);
+  background-color:rgb(33, 37, 41);
     border-radius: 10px;
-    border: 0.5px solid rgba(112, 112, 112, 0.08);
+    border: 0.5px solid rgba(112, 112, 112, 0.18);
     box-shadow: 13px 13px 0px rgba(0, 0, 0, 0.5);
 }
 .faq .question-section {
@@ -58,7 +58,7 @@
 
 .faq button {
   cursor: pointer;
-  background-color: #007bff;
+  background-color: rgb(8, 216, 161);
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -144,4 +144,18 @@
 .faq .openedQuestion .comments p{
   white-space: pre-wrap;
   word-break: break-all; 
+}
+@media (max-width: 1172px) {
+  .faq{
+    gap: 100px;
+    justify-content: space-around;
+    padding: 20px;
+  }
+}
+@media (max-width: 950px) {
+  .faq{
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+  }
 }

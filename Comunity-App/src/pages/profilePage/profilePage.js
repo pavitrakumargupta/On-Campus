@@ -42,11 +42,12 @@ const ProfilePage = () => {
         return<Viewprofile editProfileActive={null} UserId={user.details._id}/>
       }
     }
+    const lasturl=JSON.parse(localStorage.getItem("lastUrl"));
 
   return (
     <div className="Profile">
       <nav >
-        <button className="back" onClick={()=>navigate("/")}> <img src={BackButton} alt="" /></button>
+        <button className="back" onClick={()=>{window.location.href = `${lasturl}`}}> <img src={BackButton} alt="" /></button>
         <div className="ProfilePages">
           {profilePages.map(key=>(
             <button onClick={()=>setActiveProfilePage(key.name)} style={{color:key.name==activeProfilePage&&"#A67DFD"}}>{key.text}</button>

@@ -110,20 +110,7 @@ const App = () => {
 
   return (
     <div className="faq">
-      <div className="question-section">
-        
-        <h1>Ask Anything</h1>
-        <div className="ask-form">
-          <textarea
-            placeholder="Ask your question..."
-            value={newQuestion}
-            onChange={handleChange}
-          />
-          <button onClick={handlePostQuestion}>Post Question</button>
-        </div>
-        </div>
-        
-        {questions.length>0&&<div className='questions'>
+      {questions.length>0&&<div className='questions'>
         <h2 style={{margin:"0 auto"}}>Questions that have been asked</h2>
         {!openQuestion&&questions?.slice().reverse().map((question, index) => (
           <div className="question" key={index}>
@@ -143,6 +130,20 @@ const App = () => {
         {openQuestion&&specificQuestion(openQuestion)}
         
       </div>}
+      <div className="question-section">
+        
+        <h1>Ask Anything</h1>
+        <div className="ask-form">
+          <textarea
+            placeholder="Ask your question..."
+            value={newQuestion}
+            onChange={handleChange}
+          />
+          <button onClick={handlePostQuestion}>Post Question</button>
+        </div>
+        </div>
+        
+        
     </div>
   );
 };

@@ -36,6 +36,7 @@
     border-radius: 20px ;
     padding: 20px 15px;
     color: rgb(88, 91, 97);
+    margin-top: 0;
 }
 .ChatPage>nav>button:hover{
     background-color:#6153cc;

@@ -8,7 +8,7 @@ const allMessages =async (req, res) => {
     const messages = await Message.find({ chat: req.params.chatId })
       .populate("sender", "name profilePitchure email")
       .populate("chat");
-    res.json(messages);
+    res.status(200).json(messages);
   } catch (error) {
     res.status(400);
      
@@ -21,7 +21,7 @@ const sendMessage =async (req, res) => {
 
   if (!content || !chatId) {
     console.log("Invalid data passed into request");
-    return res.sendStatus(400);
+    return res.status(400);
   }
 
   var newMessage = {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import {UploadImage,DeleteImage} from "../../uploadImage";
+import verifyImageByUrl from "../../verifyImageByUrl";
 
 const PostBlog = ({ user, handleSubmitBlog, closeWindow,BlogDetail }) => {
   const [Image, setImage] = useState("");
@@ -35,11 +36,12 @@ const PostBlog = ({ user, handleSubmitBlog, closeWindow,BlogDetail }) => {
   const [imagePath, setimagePath] = useState("");
 
   const handleImageUpload = async (event) => {
-    const ImagDetails = await UploadImage(event.target.files[0],"blogs", "upload");
-    setImage(event.target.files[0].name);
-    setimagePath(ImagDetails.pathname);
+    const ImagDetails = await UploadImage(event.target.files[0]);
+    setImage(event.target.files[0].name  );
+    const {decodedFilename}=verifyImageByUrl(ImagDetails)
+    setimagePath(decodedFilename);
     let NewpostDetailsCopy = { ...NewpostDetails };
-    NewpostDetailsCopy.coverImageLink = ImagDetails.url;
+    NewpostDetailsCopy.coverImageLink = ImagDetails;
     setNewPostDetails(NewpostDetailsCopy);
   };
 

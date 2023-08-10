@@ -11,7 +11,7 @@ const Navbar = ({currentMenu}) => {
   const user = useSelector((state) => state);
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
-
+  localStorage.setItem("lastUrl", JSON.stringify(window.location.pathname)); 
 
 
   return ( 
@@ -32,7 +32,14 @@ const Navbar = ({currentMenu}) => {
         
          <i style={{color:"white",fontSize:"25px",marginRight:"80px"}} class="fa-solid fa-bell"></i>
       {/* <i style={{color:"white",fontSize:"35px",marginRight:"20px"}} class="fa-solid fa-user"></i> */}
-      <img   src={user.details.profilePicture} alt="" />
+      <div className="ProfileImage">
+        <img src={user.details.profilePicture} alt="" />
+        <div  className="UserOptions">
+          <p onClick={()=>{ window.location.href = "/profile"}} >profile</p>
+          <p onClick={()=>{localStorage.clear('On-Campus');window.location.href = "/profile"}}>Log out</p>
+        </div>
+      </div>
+      
       </div>
       <div className="mobileMenuBtn">
         <CgMenu

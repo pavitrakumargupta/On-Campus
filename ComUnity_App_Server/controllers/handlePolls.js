@@ -80,7 +80,7 @@ module.exports.editPollVotes = async (req, res) => {
     // // Save the changes to the database
     await poll.save();
 
-    return res.json({ msg: 'Votes updated successfully' });
+    return res.json(poll);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ msg: 'Internal server error' });

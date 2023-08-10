@@ -8,8 +8,8 @@ import { bindActionCreators } from 'redux'
 import { actionCreators } from '../../state/index'
 import Logo from "../../assets/logo.png"
 import axios from "../../axios";
-import SideImage from "./sideScreen.png"
- 
+// import SideImage from "./sideScreen.png"
+import SideImage from "./sideImage.png" 
 // var md5 = require('md5');
 const Login = () => {
 
@@ -55,13 +55,14 @@ const Login = () => {
     try {
       const {data} = await axios.post("/User/authUser",{email,password});
       console.log(data);
-      localStorage.setItem('CollegeDesk',JSON.stringify(data))
+      localStorage.setItem('On-Campus',JSON.stringify(data))
       dispatch(actionCreators.setUserDetails(data))
       const url = JSON.parse(localStorage.getItem("lastUrl"));
+     
       if(url && url.url!=null){
         return data&&url
       }else{
-        return data&&"/"
+        return data&&"/dashboard"
       }
 
     } catch (error) {
@@ -76,8 +77,14 @@ const Login = () => {
         <div className="authenticationScreen">
         <h1 style={{marginBottom:"50px"}} className="tittle">Login</h1>
           <div className="form">
-            <input type="email"  name="email" onChange={handleDetail} placeholder="Email" />
-            <input type="password" placeholder="Password" onChange={handleDetail} name="password" />
+            <div className="form-Input">
+              <i class="fa-regular fa-envelope"></i>
+             <input type="email"  name="email" onChange={handleDetail} placeholder="Email" />
+            </div>
+            <div className="form-Input">
+            <i class="fa-solid fa-lock"></i>
+              <input type="password" placeholder="Password" onChange={handleDetail} name="password" />
+            </div>
             <Link to="/forgot-password">Forgot Password?</Link>
             <button onClick={onSubmit} className="submitBtn"  disabled={submitButtonDisabled}>LogIn</button>
           </div>
