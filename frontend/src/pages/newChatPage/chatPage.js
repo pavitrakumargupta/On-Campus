@@ -9,7 +9,7 @@ import axios from "../../axios"
 import {ToastContainer,toast} from "react-toastify"
 import io from "socket.io-client"
 import startChatting from "../../logos/start chatting.gif"; 
-const ENDPOINT="http://localhost:5000"
+const ENDPOINT="https://on-campus-server.onrender.com"
 var socket,selectedChatCompare,newChatCompare;
 
 const ChatPage = () => {
