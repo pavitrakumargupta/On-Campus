@@ -9,6 +9,7 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px 30px;
+    height: 500px;
     overflow-y: scroll;
 }
 .viewProfile >.profilepic{
@@ -37,10 +38,12 @@
     border-radius: 20px;
     cursor: pointer;
     opacity: 0;
+    color: white;
 }
 .viewProfile .profilePitchure{
     width: 100px;
-    height: 100px;
+    /* height: 100px; */
+    max-height: 150px;
     border-radius: 100px;
 }
 
@@ -59,23 +62,27 @@
     padding: 10px;
     font-size: 18px;
     min-width: 100%;
+    background-color: transparent;
+    color: white;
+}
+
+.viewProfile >button{
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgba(101, 101, 101, 0.5);
+    font-weight: 550;
+    padding: 10px;
 }
 .viewProfile >button:hover{
     background-color: rgb(0, 0, 0,0.8);
-    color: white;
+    color: rgb(0, 0, 0);
+    background-color: white;
     border: 1px solid rgb(119, 119, 119,0.3);
     font-size: 18px;
     border-radius: 10px;
     margin-top: 30px;
     
-}
-.viewProfile >button{
-    font-size: 18px;
-    border-radius: 10px;
-    margin-top: 30px;
-    background-color: white;
-    color: black;
-    border: 2px solid rgb(0, 0, 0);
-    font-weight: 550;
-    padding: 10px;
 }

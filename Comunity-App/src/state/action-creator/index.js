@@ -6,6 +6,17 @@ export const setUserDetails=(details)=>{
         })
     }
 }
+
+export const serverConnected=(serverConnected)=>{
+    return (dispatch)=>{
+        dispatch({
+            type:'set',
+            payload:serverConnected
+        })
+    }
+}
+
+
 // export const widrawMoney=(amount)=>{
 //     return (dispatch)=>{
 //         dispatch({

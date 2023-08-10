@@ -8,22 +8,18 @@ import { bindActionCreators } from 'redux'
 import { actionCreators } from '../../state/index'
 import Logo from "../../assets/logo.png"
 import axios from "../../axios";
-import SideImage from "./sideScreen.png"
- 
+// import SideImage from "./sideScreen.png"
+import SideImage from "./sideImage.png" 
 // var md5 = require('md5');
 const Login = () => {
 
   const dispatch=useDispatch()
-  useEffect(() => {
-    const userHistory = JSON.parse(localStorage.getItem("CollegeDesk")); 
-    if (userHistory !== null) {
-      navigate("/");
-    }
-  })
+
+
   const navigate = useNavigate();
 
   const toast_style={
-    position:"bottom-right",
+    position:"bottom-right", 
     autoClose:4000,
     pauseOnHover:true,
     draggable:true,
@@ -50,22 +46,30 @@ const Login = () => {
     if(  !LoginDetail.email ||!LoginDetail.password) { 
       toast.error("Please Fill all the detail",toast_style)
     }else{
-      setSubmitButtonDisabled(true);
-      try {
-        const response = await axios.post("/checkLogin",LoginDetail);
-         if(!response.data.status){
-          toast.error(response.data.msg,toast_style)
-          setSubmitButtonDisabled(false);
-        }else{
-          localStorage.setItem('CollegeDesk',JSON.stringify({email:LoginDetail.email,password:LoginDetail.password}))
-          navigate("/");
-          dispatch(actionCreators.setUserDetails(response.data.data))
-        }
-      } catch (error) {
-        console.log(error);
-      }
+      setSubmitButtonDisabled(true); 
+      verifyUser(LoginDetail.email,LoginDetail.password).then((url)=>navigate(url))
     }
-  } 
+  }
+  
+  const verifyUser=async(email,password)=>{
+    try {
+      const {data} = await axios.post("/User/authUser",{email,password});
+      console.log(data);
+      localStorage.setItem('On-Campus',JSON.stringify(data))
+      dispatch(actionCreators.setUserDetails(data))
+      const url = JSON.parse(localStorage.getItem("lastUrl"));
+     
+      if(url && url.url!=null){
+        return data&&url
+      }else{
+        return data&&"/dashboard"
+      }
+
+    } catch (error) {
+      setSubmitButtonDisabled(false);
+      toast.error(error.response.data.message,toast_style)
+    }
+  }
 
   return (
   <div className="authenticationPage">
@@ -73,8 +77,14 @@ const Login = () => {
         <div className="authenticationScreen">
         <h1 style={{marginBottom:"50px"}} className="tittle">Login</h1>
           <div className="form">
-            <input type="email"  name="email" onChange={handleDetail} placeholder="Email" />
-            <input type="password" placeholder="Password" onChange={handleDetail} name="password" />
+            <div className="form-Input">
+              <i class="fa-regular fa-envelope"></i>
+             <input type="email"  name="email" onChange={handleDetail} placeholder="Email" />
+            </div>
+            <div className="form-Input">
+            <i class="fa-solid fa-lock"></i>
+              <input type="password" placeholder="Password" onChange={handleDetail} name="password" />
+            </div>
             <Link to="/forgot-password">Forgot Password?</Link>
             <button onClick={onSubmit} className="submitBtn"  disabled={submitButtonDisabled}>LogIn</button>
           </div>

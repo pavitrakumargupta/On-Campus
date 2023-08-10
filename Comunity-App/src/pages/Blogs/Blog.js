@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Blog.css";
-import CoverImage from "./img/coverImage.gif";
+import CoverImage from "../../logos/blogs-background1.png";
 import { AiFillLike, AiOutlineLike, AiFillCloseCircle } from "react-icons/ai";
 import { FaRegCommentDots, FaCommentDots } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
@@ -13,27 +13,15 @@ import { useLocation } from "react-router-dom";
 import PostBlog from "./PostBlog";
 
 const Blog = () => {
-  const location = useLocation();
   const user = useSelector((state) => state);
 
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (user.details === "unset") {
-      localStorage.setItem(
-        "lastUrl",
-        JSON.stringify({ url: location.pathname })
-      );
-      navigate("/");
-    }
-  }, []);
-
   const BlogType = [
-    "All",
-    "Coding",
-    "Education",
-    "Financial",
-    "Sports",
-    "Other",
+    // "All",
+    // "Coding",
+    // "Education",
+    // "Financial",
+    // "Sports",
+    // "Other",
   ];
 
   const [Blogs, setBlogs] = useState([]);
@@ -45,7 +33,12 @@ const Blog = () => {
 
   useEffect(() => {
     const fetchBlogsData = async () => {
-      const response = await axios.get("/Blogs/getAllPost");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.details.token}`,
+        },
+      };
+      const response = await axios.get("/Blogs/getAllPost",config);
       setBlogs(response.data);
       // console.log(response.data[0]._id);
     };
@@ -84,7 +77,7 @@ const Blog = () => {
 
       const addLike = () => {
         let activeBlogCopy = { ...activeBlog };
-        activeBlogCopy.Like.push(user.details.userId);
+        activeBlogCopy.Like.push(user.details._id);
         setActiveBlog(activeBlogCopy);
         editLike_Comment(activeBlog._id,"Like",activeBlogCopy.Like)
       };
@@ -93,7 +86,7 @@ const Blog = () => {
         let postid= activeBlog._id
         let activeBlogCopy = { ...activeBlog };
         activeBlogCopy.Like = activeBlogCopy.Like.filter(
-          (key) => user.details.userId != key
+          (key) => user.details._id != key
         );
         let BlogsCopy = [...Blogs];
         const deleteLike = BlogsCopy.find(Post => Post._id===postid);
@@ -122,7 +115,7 @@ const Blog = () => {
             <div className="image_Like_comment">
               <img src={activeBlog.coverImageLink} alt="" />
               <div className="reactionField">
-                {activeBlog.Like.includes(user.details.userId) ? (
+                {activeBlog.Like.includes(user.details._id) ? (
                   <AiFillLike
                     style={{ cursor: "pointer" }}
                     onClick={removeLike}
@@ -196,7 +189,12 @@ const Blog = () => {
   const [postBlogWindow, setPostBlogWindow] = useState(false);
   const handleSubmitBlog =async (BlogDetail,_id) => {
     if(postAction==="post"){
-      const response =await axios.post("/Blogs/createPost", BlogDetail);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.details.token}`,
+        },
+      };
+      const response =await axios.post("/Blogs/createPost", BlogDetail,config);
       let BlogsCopy = [...Blogs];
       BlogsCopy.push(BlogDetail);
       setBlogs(BlogsCopy);
@@ -239,10 +237,6 @@ const Blog = () => {
 
   return (
     <div style={activeBlog && { overflowY: "none" }} className="blogPage">
-      <img
-        src="https://blog.hubspot.com/hs-fs/hubfs/Help_Scout_Blog-2.png?width=900&name=Help_Scout_Blog-2.png"
-        alt=""
-      />
       <div className="CoverPage">
         <h2>Find You Favourite blogs here</h2>
         <img src={CoverImage} alt="" />
@@ -259,14 +253,15 @@ const Blog = () => {
         Post Blog
       </button>
 
-      <div className="Blogs">
+      {Blogs.length>0?<div className="Blogs">
         {Blogs.slice()
           .reverse()
           .map((key,index) => (
             <div className="blog">
-              <BiDotsHorizontal className="optionsicon" />
+              {/* <BiDotsHorizontal className="optionsicon" /> */}
+              <i  class="fa-solid fa-bars optionsicon"></i>
               {
-                key.userId==user.details.userId&&<div className="options">
+                key?.createdBy?._id==user?.details?._id&&<div className="options">
                 <p name="edit" onClick={() => handlePostOption("edit",key)}>
                   Edit Post
                 </p>
@@ -285,20 +280,20 @@ const Blog = () => {
                 onClick={() => setActiveBlog(key)}
                 className="TittleSubtittle"
               >
-                <h6>{key.tittle}</h6>
+                <h6>{key.tittle.substring(0, 70)}</h6>
                 <p>{key.content.substring(0, 70)}....</p>
               </div>
               
               <div className="aboutUser">
-                <img src={key.userImage} alt="" />
-                <p>{key.userName}</p>
+                <img src={key?.createdBy?.profilePitchure} alt="" />
+                <p>{key?.createdBy?.username}</p>
                 {/* <p style={{marginLeft:"auto"}}>{key.Like.length} Likes</p> */}
                 <p style={{marginLeft:"auto",opacity:0.7}}>{key.Like.length} Likes , {key.comment.length} comments</p>
               </div>
               <p></p>
             </div>
           ))}
-      </div>
+      </div>:<h5>No Blogs Yet..</h5>}
 
       {activeBlog != null && openBlog()}
       {postBlogWindow && (

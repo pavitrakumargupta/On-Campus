@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../axios';
 import "./viewprofile.css"
-import UploadImage from "../../uploadImage";
+import {UploadImage,DeleteImage} from "../../uploadImage";
 import { ToastContainer, toast } from "react-toastify";
 
 const UserProfile = ({ UserId,editProfileActive }) => {
@@ -55,14 +55,15 @@ const UserProfile = ({ UserId,editProfileActive }) => {
     }
  
     const res= await axios.post("/updateProfile",{id:UserId,profile:updateDetailsCopy})
+    
     res.data.status?toast.success("Profile Updated Succesfully",toast_style):toast.error(res.data.msg,toast_style)
   }
 
   const uploadImage=async(e)=>{
-    const res=await UploadImage(e.target.files[0],"profiles", "upload")
+    const res=await UploadImage(e.target.files[0],"profiles")
     console.log(res);
-    setUpdateDetails(prevValue=>({...prevValue,profilePitchure:res.url}))
-    setUser(prevValue=>({...prevValue,profilePitchure:res.url}))
+    setUpdateDetails(prevValue=>({...prevValue,profilePitchure:res }))
+    setUser(prevValue=>({...prevValue,profilePitchure:res }))
   }
   
 

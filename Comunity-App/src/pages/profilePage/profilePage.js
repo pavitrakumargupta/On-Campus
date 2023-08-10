@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import "./profilePage.css";
-import UploadImage from "../../uploadImage";
+import {UploadImage,DeleteImage} from "../../uploadImage";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -37,16 +37,17 @@ const ProfilePage = () => {
 
     const handlePannel=()=>{
       if(activeProfilePage!=="changePassword"){
-        return <Viewprofile editProfileActive={activeProfilePage==="editProfile"} UserId={user.details.userId}/>
+        return <Viewprofile editProfileActive={activeProfilePage==="editProfile"} UserId={user.details._id}/>
       }else{
-        return<Viewprofile editProfileActive={null} UserId={user.details.userId}/>
+        return<Viewprofile editProfileActive={null} UserId={user.details._id}/>
       }
     }
+    const lasturl=JSON.parse(localStorage.getItem("lastUrl"));
 
   return (
     <div className="Profile">
       <nav >
-        <button className="back" onClick={()=>navigate("/")}> <img src={BackButton} alt="" /></button>
+        <button className="back" onClick={()=>{window.location.href = `${lasturl}`}}> <img src={BackButton} alt="" /></button>
         <div className="ProfilePages">
           {profilePages.map(key=>(
             <button onClick={()=>setActiveProfilePage(key.name)} style={{color:key.name==activeProfilePage&&"#A67DFD"}}>{key.text}</button>
