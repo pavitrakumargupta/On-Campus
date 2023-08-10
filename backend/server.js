@@ -50,13 +50,13 @@ io.on("connection",(socket)=>{
   socket.on('setup', async (userData, callback) => {
     socket.userData = userData; 
     socket.join(userData._id);
-    const unread=await Unread.findOne({ user: user._id})
+    const unread=await Unread.findOne({ user: userData._id})
     
     // Emit the 'connected' event first
     socket.emit('connected');
     // Call the acknowledgment callback with the response data
     if (typeof callback === 'function') {
-      callback({});
+      callback([]);
     }
   });
   
