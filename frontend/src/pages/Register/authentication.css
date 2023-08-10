@@ -107,7 +107,9 @@
 	transition: transform 80ms ease-in;
 	cursor: pointer;
 }
-
+.authenticationPage>.container >.authenticationScreen>.form>.submitBtn:hover{
+	background-color:  rgb(44, 60, 231);
+}
 .authenticationPage>.container >.welcomeScreen{
 	display: flex;
 	flex-direction: column;
