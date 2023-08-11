@@ -92,4 +92,4 @@ On-Campus aims to revolutionize the student experience by fostering meaningful c
 
 ---
 
-**Note:** Replace placeholders with actual content related to your project.
+ 
