@@ -1,4 +1,4 @@
-On-Campus is a web app that allows students to connect with each other and make friends. It has a variety of features to help students stay in touch, including:
+ On-Campus is a web app that allows students to connect with each other and make friends. It has a variety of features to help students stay in touch, including:
 ![Screenshot 2023-08-11 110005](https://github.com/pavitrakumargupta/On-Campus/assets/88044814/dc8a7ee1-5f9a-4108-aab5-4365d549ed59)
 
 
@@ -80,11 +80,11 @@ We welcome contributions from the community. Here's how you can contribute:
 
 ## License
 
-This project is open-source and licensed under the [MIT License](LICENSE).
+This project is open-source.
 
 ## Contact
 
-For questions, suggestions, or support, reach out to us at [contact@on-campus.com](mailto:contact@on-campus.com).
+For questions, suggestions, or support, reach out to us at [contact@on-campus.com](mailto:programmer0231@gmail.com).
 
 ## About Us
 
