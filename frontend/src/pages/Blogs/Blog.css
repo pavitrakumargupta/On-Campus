@@ -267,16 +267,30 @@
 }
 /* Bloga page */
 .blogPage > .Blogs {
-  margin: 3rem ;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 3 slots per column */
   gap: 30px;
   max-width: 95%;
-  /* min-width: 100%; */
   justify-content: left;
   z-index: 1;
-  /* background-color: rgb(0, 0, 0); */
   color: #ffffff;
+}
+
+@media (max-width: 1845px) { /* Adjust the screen width breakpoint as needed */
+  .blogPage > .Blogs {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for smaller screens */
+  }
+}
+@media (max-width: 1375px) { /* Adjust the screen width breakpoint as needed */
+  .blogPage > .Blogs {
+    grid-template-columns: repeat(2, 1fr); /* 3 columns for smaller screens */
+  }
+}
+@media (max-width: 935px) { /* Adjust the screen width breakpoint as needed */
+  .blogPage > .Blogs {
+    grid-template-columns: repeat(1, 1fr); /* 3 columns for smaller screens */
+  }
 }
 .blogPage > .Blogs > .blog {
   height: fit-content;
@@ -390,7 +404,7 @@
   margin: 50px 30px;
   border-radius: 20px;
   display: flex;
-
+  color: #000000;
   justify-content: space-between;
   min-height: fit-content;
   max-width: 80vw;
@@ -569,11 +583,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex: 1 ;
 }
 .aaboutPost_aboutUser > .aboutPost {
   width: 95%;
   height: 80%;
   margin-left: 20px;
+  flex: 1;
 }
 .aaboutPost_aboutUser > .aboutPost > h6 {
   font-size: 30px;
@@ -581,7 +597,8 @@
 }
 .aaboutPost_aboutUser > .aboutPost > p {
   font-size: 18px;
-  max-height: 70%;
+  max-height: 87%;
+  flex: 1;
   margin: 10px auto;
   overflow-y: auto;
 }

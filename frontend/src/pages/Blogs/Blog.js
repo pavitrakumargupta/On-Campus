@@ -177,8 +177,8 @@ const Blog = () => {
                 <p style={{whiteSpace:"pre-wrap"}}>{activeBlog.content}</p>
               </div>
               <div className="aboutUser">
-                <img src={activeBlog.userImage} alt="" />
-                <p>{activeBlog.userName}</p>
+                <img src={activeBlog.createdBy.profilePitchure} alt="" />
+                <p>{activeBlog.createdBy.username}</p>
               </div>
             </div>
           </div>
