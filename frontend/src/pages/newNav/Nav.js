@@ -18,7 +18,7 @@ const Navbar = ({currentMenu}) => {
     <nav className={`navbar ${showMenu ? "showMobileNav" : ""}`}>
         <div className="sidebar"></div>
       <div className="logo">
-      <a href="https://comunity.netlify.app"><img src={Logo} alt="Logo" /></a>
+      <a href="https://on-campus.netlify.app"><img src={Logo} alt="Logo" /></a>
       </div>
       <h1 style={{color:"white"}} onClick={()=>window.location.href = "/dashboard"}>{window.location.pathname==='/dashboard'?'DashBoard': <><i class="fa-solid fa-backward"></i> Back to Dashboard</>}</h1>
 
