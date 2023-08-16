@@ -130,6 +130,8 @@
         "8":[]
     },
     "Placement":{
-        "last Year":["Apptitude","DSA"]
+        "Pyramid":["Apptitude","DSA"],
+        "Dxc":["Apptitude","DSA"],
+        "other":["Apptitude","DSA"]
     }
 }
