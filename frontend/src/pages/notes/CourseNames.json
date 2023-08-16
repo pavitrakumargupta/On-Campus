@@ -1,4 +1,4 @@
-{
+{   
     "Computer Science":{
         "1":["Engineering Mathematics-I","Engineering Physics","Problem Solving using Python","Professional Communication"],
         "2":["Engineering Mathematics-II ","Design Thinking-I ","Basic Electrical and Electronics Engineering. ","Problem Solving using Advanced Python ","Engineering Graphics & Solid Modelling "],
@@ -128,5 +128,8 @@
         "6":["Advanced Java Programming","Computer Networks","Data Analytics","Web Development using MEAN Stack","Full-Stack Web Development using Laravel with VueJS ","Big Data","Cloud Storage Management"],
         "7":[],
         "8":[]
+    },
+    "Placement":{
+        "last Year":["Apptitude","DSA"]
     }
 }
