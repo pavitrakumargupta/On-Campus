@@ -141,7 +141,9 @@
     margin-top: auto;
 }
 .notesPage> .notes{
-    /* min-width: 100%; */
+    min-width: 400px;
+    max-height: 80vh;
+    overflow-y: scroll;
 }
 .notesPage> .notes >div{
     display: flex;
