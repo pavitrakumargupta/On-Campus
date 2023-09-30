@@ -87,7 +87,7 @@ This project is open-source.
 
 ## Contact
 
-For questions, suggestions, or support, reach out to us at [contact@on-campus.com](mailto:programmer0231@gmail.com).
+For questions, suggestions, or support, reach out to us at [programmer0231@gmail.com](mailto:programmer0231@gmail.com).
 
 ## About Us
 
