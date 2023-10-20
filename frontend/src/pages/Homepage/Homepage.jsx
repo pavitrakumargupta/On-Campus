@@ -12,6 +12,7 @@ import logo from "../../logos/logo.png";
 // import FaqImg from "./assets/faqCard.png"
 // import JoinComunityImg from "./assets/joinComunity.png"
 // import MakeFriendsImg from "./assets/makeFriendsCard.png"
+import DeveloperImage from "./assets/devloper.png"
 import DashboardImg from "./assets/dashboard.png"
 import axios from "../../axios"
 import {ToastContainer,toast} from "react-toastify"
@@ -163,7 +164,7 @@ const Homepage = () => {
       <h2>About Us</h2>
       <div className="about-section" >
       <img
-          src="https://rmwarnerlaw.com/wp-content/uploads/2020/05/shutterstock_260681906-scaled-900x350.jpg"
+          src={DeveloperImage}
           alt="Pavitra Kumar Gupta"
           className="profile-image"
         />
