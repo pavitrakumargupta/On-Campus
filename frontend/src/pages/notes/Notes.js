@@ -270,8 +270,8 @@ const Note = () => {
         setSemester();
         setSubjects();
         scrollToNotes();
+        setNotesDetail(defautNotesDetail);
       }
-      setNotesDetail(defautNotesDetail);
     } catch (error) {
       error.response.status == 401 && (window.location.href = "/login");
       scrollToNotes();
