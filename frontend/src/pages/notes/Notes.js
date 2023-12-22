@@ -189,7 +189,7 @@ const Note = () => {
               return <option>{key}</option>;
             })}
         </select>
-        <input name="tittle" placeholder="Enter Tittle Of Name" type="text" />
+        <input name="tittle" onChange={handleNotesDetail} placeholder="Enter Tittle Of Name" type="text" />
         <input
           id="fileUpload"
           type="file"
