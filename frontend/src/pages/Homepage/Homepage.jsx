@@ -102,7 +102,8 @@ const Homepage = () => {
 
   const OnSubmit=async ()=>{
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailRegex.test(contactDetails.email)){
+    console.log(contactDetails.email);
+    if (!emailRegex.test(contactDetails.email)){
       toast.error("Enter a valid email",toast_style)
     }else{
     try {
