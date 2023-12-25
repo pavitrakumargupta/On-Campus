@@ -140,6 +140,12 @@
     border-radius: 5px;
     margin-top: auto;
 }
+.notesPage>.noteCardBox >.UploadCard>button:hover{
+    background-color: aqua;
+}
+.notesPage>.noteCardBox >.UploadCard>button:disabled{
+    background-color: rgb(202, 202, 202);
+}
 .notesPage> .notes{
     min-width: 400px;
     max-height: 80vh;

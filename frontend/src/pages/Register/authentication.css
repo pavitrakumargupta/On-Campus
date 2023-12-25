@@ -110,6 +110,9 @@
 .authenticationPage>.container >.authenticationScreen>.form>.submitBtn:hover{
 	background-color:  rgb(44, 60, 231);
 }
+.authenticationPage>.container >.authenticationScreen>.form>.submitBtn :disabled{
+	background-color: rgb(202, 202, 202);
+}
 .authenticationPage>.container >.welcomeScreen{
 	display: flex;
 	flex-direction: column;

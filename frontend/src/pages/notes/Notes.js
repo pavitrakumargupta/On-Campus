@@ -22,6 +22,7 @@ const Note = () => {
   };
   const [NotesDetail, setNotesDetail] = useState(defautNotesDetail);
   const [noetsCompo, setNotesCompo] = useState();
+  const [disableSubmitButton, setDisableSubmitButton]=useState(false)
 
   const handleNotesDetail = (event) => {
     const { name, value } = event.target;
@@ -189,7 +190,13 @@ const Note = () => {
               return <option>{key}</option>;
             })}
         </select>
-        <input name="tittle" onChange={handleNotesDetail} placeholder="Enter Tittle Of Name" type="text" />
+        <input
+          name="tittle"
+          onChange={handleNotesDetail}
+          value={NotesDetail.tittle}
+          placeholder="Enter Tittle Of Name"
+          type="text"
+        />
         <input
           id="fileUpload"
           type="file"
@@ -199,7 +206,7 @@ const Note = () => {
 
         <img onClick={uploadButtonHandler} src={UploadSymbol} alt="" />
         {NotesDetail.notesLink !== "" && uploadPreview()}
-        <button onClick={handleSubmit}>Upload</button>
+        <button disabled={disableSubmitButton} onClick={handleSubmit}>Upload</button>
       </div>
     );
   };
@@ -208,7 +215,7 @@ const Note = () => {
     return (
       <div className="UploadCard card">
         <h2>Get Notes</h2>
-        <select onChange={handleNotesDetail} name="courseName" id="">
+        <select onChange={handleNotesDetail} name="courseName" defaultValue={NotesDetail.courseName} id="">
           <option selected disabled value="">
             Select Course Name
           </option>
@@ -216,7 +223,7 @@ const Note = () => {
             return <option>{key}</option>;
           })}
         </select>
-        <select onChange={handleNotesDetail} name="branchName" id="">
+        <select onChange={handleNotesDetail} defaultValue={NotesDetail.branchName} name="branchName" id="">
           <option selected disabled value="">
             Select Branch Name
           </option>
@@ -225,7 +232,7 @@ const Note = () => {
               return <option>{key}</option>;
             })}
         </select>
-        <select onChange={handleNotesDetail} name="semester" id="">
+        <select onChange={handleNotesDetail} name="semester" defaultValue={NotesDetail.semester} id="">
           <option selected disabled value="">
             Select Semester
           </option>
@@ -234,7 +241,7 @@ const Note = () => {
               return <option>{key}</option>;
             })}
         </select>
-        <select onChange={handleNotesDetail} name="subject" id="">
+        <select onChange={handleNotesDetail} name="subject" defaultValue={NotesDetail.subject} id="">
           <option selected disabled value="">
             Select Subject Name
           </option>
@@ -243,13 +250,14 @@ const Note = () => {
               return <option>{key}</option>;
             })}
         </select>
-        <button onClick={handleSubmit}>Get Notes</button>
+        <button disabled={disableSubmitButton} onClick={handleSubmit}>Get Notes</button>
       </div>
     );
   };
   const [notesData, setNotesData] = useState();
 
   const handleSubmit = async (event) => {
+    setDisableSubmitButton(true)
     event.preventDefault();
     const config = {
       headers: {
@@ -257,6 +265,7 @@ const Note = () => {
       },
     };
     try {
+      let defltNotes = { ...NotesDetail };
       if (noetsCompo === "UploadNotes") {
         const upload = await axios.post(
           "/Notes/uploadNotes",
@@ -270,12 +279,17 @@ const Note = () => {
         setSemester();
         setSubjects();
         scrollToNotes();
-        setNotesDetail(defautNotesDetail);
+        defltNotes.subject = "";
       }
+      defltNotes.tittle = "";
+      defltNotes.notesLink = "";
+      setNotesDetail(defltNotes);
     } catch (error) {
       error.response.status == 401 && (window.location.href = "/login");
       scrollToNotes();
     }
+    await setDisableSubmitButton(false)
+    event.preventDefault();
   };
 
   const scrollToNotes = () => {
