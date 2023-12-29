@@ -22,14 +22,11 @@ const Note = () => {
   };
   const [NotesDetail, setNotesDetail] = useState(defautNotesDetail);
   const [noetsCompo, setNotesCompo] = useState();
-  const [disableSubmitButton, setDisableSubmitButton]=useState(false)
-
-  const handleNotesDetail = (event) => {
-    const { name, value } = event.target;
-    const NotesDetailCopy = { ...NotesDetail };
-    NotesDetailCopy[name] = value;
-    setNotesDetail(NotesDetailCopy);
-  };
+  const [disableSubmitButton, setDisableSubmitButton]=useState(true)
+  const [branches, setBranches] = useState();
+  const [semester, setSemester] = useState();
+  const [subjects, setSubjects] = useState();
+  const [notesData, setNotesData] = useState();
 
   var courseObject = {
     BTech: [
@@ -63,10 +60,6 @@ const Note = () => {
 
     // "MCA": ["MCA"],
   };
-
-  const [branches, setBranches] = useState();
-  const [semester, setSemester] = useState();
-  const [subjects, setSubjects] = useState();
 
   const courses = [];
   for (const key in courseObject) {
@@ -106,6 +99,24 @@ const Note = () => {
     }
   }, [NotesDetail.semester]);
 
+  useEffect(()=>{
+    if(noetsCompo == "getNotes" && NotesDetail.subject===""){
+      setDisableSubmitButton(true)
+    }else if(noetsCompo == "UploadNotes" && !NotesDetail.tittle && !NotesDetail.subject){
+      setDisableSubmitButton(true)
+    }else{
+      setDisableSubmitButton(false)
+    }
+
+  },[NotesDetail])
+
+  const handleNotesDetail = (event) => {
+    const { name, value } = event.target;
+    const NotesDetailCopy = { ...NotesDetail };
+    NotesDetailCopy[name] = value;
+    setNotesDetail(NotesDetailCopy);
+  };
+
   const uploadNotes = () => {
     const uploadButtonHandler = (field) => {
       let elem = document.getElementById("fileUpload");
@@ -119,6 +130,7 @@ const Note = () => {
         "upload"
       );
       setNotesDetail((prevValue) => ({ ...prevValue, notesLink: ImagDetails }));
+     
     };
     const onDelete = async () => {
       const deleteImage = await DeleteImage(NotesDetail.notesLink);
@@ -179,7 +191,7 @@ const Note = () => {
           {semester &&
             semester.map((key) => {
               return <option>{key}</option>;
-            })}
+            })} 
         </select>
         <select onChange={handleNotesDetail} name="subject" id="">
           <option selected disabled value="">
@@ -203,9 +215,10 @@ const Note = () => {
           onChange={onUpload}
           multiple="single"
         />
-
-        <img onClick={uploadButtonHandler} src={UploadSymbol} alt="" />
-        {NotesDetail.notesLink !== "" && uploadPreview()}
+        {NotesDetail.notesLink === ""?
+        <img onClick={uploadButtonHandler} src={UploadSymbol} alt="" />:
+        uploadPreview()
+      }
         <button disabled={disableSubmitButton} onClick={handleSubmit}>Upload</button>
       </div>
     );
@@ -254,7 +267,7 @@ const Note = () => {
       </div>
     );
   };
-  const [notesData, setNotesData] = useState();
+
 
   const handleSubmit = async (event) => {
     setDisableSubmitButton(true)
@@ -275,9 +288,6 @@ const Note = () => {
       } else if (noetsCompo == "getNotes") {
         const notes = await axios.post("/Notes/getNotes", NotesDetail, config);
         setNotesData(notes.data);
-        setBranches();
-        setSemester();
-        setSubjects();
         scrollToNotes();
         defltNotes.subject = "";
       }
